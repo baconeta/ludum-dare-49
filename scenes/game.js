@@ -1,17 +1,13 @@
 Crafty.defineScene("Game", function() {
-	
-	var redSquare = Crafty.e('2D, DOM, Color')
+	var player = Crafty.e("Player")
+		.attr({x : 40, y: 40});
+
+	var ground1 = Crafty.e('Ground')
 		.attr({x: 0, y: 780, w: 200, h: 20})
-		.color('#070');
 
-	var redSquare = Crafty.e('2D, DOM, Color')
+	var ground2 = Crafty.e('Ground')
 		.attr({x: 400, y: 780, w: 200, h: 20})
-		.color('#070');
 
-
-	var redSquare = Crafty.e('2D, DOM, Color')
+	var ground3 = Crafty.e('Ground')
 		.attr({x: 700, y: 580, w: 200, h: 20})
-		.color('#070');
-
-
 });
