@@ -2,8 +2,7 @@ Crafty.defineScene("Game", function() {
 	var player = Crafty.e("Player")
 		.attr({x : 40, y: 40});
 
-	var sanityBar = Crafty.e("SanityBar")
-		.attr({x : 1125, y : 100});
+	const hud = Crafty.e("HUD");
 
 	var ground1 = Crafty.e('Ground')
 		.attr({x: 0, y: 780, w: 200, h: 20})
@@ -18,4 +17,6 @@ Crafty.defineScene("Game", function() {
 		.attr({x: 750, y: 520, w: 20, h: 20})
 
 	makeCameraTrackEntity(player, 50)
+	// Make the sanity bar follow the location of the player
+	player.attach(hud);
 });
