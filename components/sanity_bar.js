@@ -10,6 +10,6 @@ Crafty.c("SanityBar", {
         this.attr({x: 0, y: 0, w: 50, h: 180});
         this.color('#55ff00');
         this.sanity = STARTING_SANITY;
-        this.state = "MED";
+        this.state = "MEDIUM";
     }
 })

@@ -7,7 +7,7 @@ const setSanity = (value) => {
 	if (getSanity() < LOW_SANITY) {
 		sanityBar.state = "LOW";
 	} else if (getSanity() < HIGH_SANITY) {
-		sanityBar.state = "NORMAL";
+		sanityBar.state = "MEDIUM";
 	} else {
 		sanityBar.state = "HIGH";
 	}
