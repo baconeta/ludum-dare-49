@@ -7,10 +7,16 @@ const MAX_SANITY = 100;
 Crafty.c("SanityBar", {
     init: function () {
         this.addComponent("2D, DOM, Color");
-        this.attr({z: 1500, x: 0, y: 0, w: 50, h: 180});
+        this.attr({x: 0, y: 0, z: 1500, w: 50, h: 180});
+        this.alpha = 0.85;
         this.color('#55ff00');
         this.sanity = STARTING_SANITY;
         this.state = "MEDIUM";
+
+        Crafty.bind("NEW_SANITY_STATE", (event) => {
+            // TODO Change the sanity bar appearance here.
+            console.log(event);
+        })
     },
 
     // Broadcasts a "NEW_SANITY_STATE" event when the sanity state changes.
