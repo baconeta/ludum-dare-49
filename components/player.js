@@ -6,7 +6,7 @@ Crafty.c("Player", {
         var enemyDamage = 10; // sorry didnt know if var goes at top or not
         var healAmount = 10;
 
-        this.addComponent("2D, DOM, Color, Collision, Twoway, Gravity");
+        this.addComponent("2D, DOM, Color, Collision, Twoway, Gravity, Keyboard");
         this.attr({x: 0, y: 0, w: 50, h: 50})
         this.color('#F00')
         this.twoway(200)
