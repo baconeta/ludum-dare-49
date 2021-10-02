@@ -279,12 +279,19 @@ Crafty.defineScene("Level1", function () {
     }
     else{
         var player = Crafty.e("Player")
-            .attr({x: 8500, y: -1500});
+            .attr({x: 0, y: 0});
     }
+
+    var door1 = Crafty.e('SanityWall')
+        .attr({x: 200, y: -100, w: 20, h: 100})
+        .color("orange")
 
 
     const sanityBooster = Crafty.e('SanityBooster')
         .attr({x: 800, y: 570})
+
+    var sanityzone1 = Crafty.e('SanityZone')
+        .attr({x: 300, y: -100, w: 180, h: 100})
 
     // Example of the sanity dropper.
     /*
