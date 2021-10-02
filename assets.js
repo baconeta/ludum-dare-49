@@ -1,5 +1,3 @@
-
-// 
 var gameAssets = {
     "sprites": {
         "assets/images/elf.png": {

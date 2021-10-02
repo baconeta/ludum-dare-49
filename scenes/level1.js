@@ -63,7 +63,6 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 11990, y: -1600, w: 10, h: 1600})
     var centreLine = Crafty.e('Ground')
         .attr({x: 0, y: -800, w: 12000, h: 10})
-        .color("red")
 
     //Map Start
 
@@ -99,7 +98,6 @@ Crafty.defineScene("Level1", function () {
 
     //Raising floor into platform
     var raisePlatform1 = Crafty.e('UnstableRaisingGround')
-        .color('purple')
         .attr({x: 2800, y: -350, w: 100, h: 10})
     var platform13 = Crafty.e('Ground')
         .attr({x: 2900, y: -650, w: 100, h: 10})
@@ -131,7 +129,6 @@ Crafty.defineScene("Level1", function () {
     var platform20 = Crafty.e('Ground')
         .attr({x: 4200, y: -1000, w: 100, h: 10})
     var raisePlatform2 = Crafty.e('UnstableRaisingGround')
-        .color('purple')
         .attr({x: 4300, y: -1000, w: 100, h: 10})
     //enemy
     var enemyWalker = Crafty.e('EnemyJumper')
@@ -180,7 +177,6 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 5600, y: -750, w: 600, h: 10})
     var door1 = Crafty.e('Ground')
         .attr({x: 5980, y: -850, w: 20, h: 100})
-        .color("orange")
     var wall5 = Crafty.e('Ground')
         .attr({x: 5980, y: -1450, w: 20, h: 600})
 
@@ -308,7 +304,6 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 11600, y: -1150, w: 400, h: 10})
     var door2 = Crafty.e('Ground')
         .attr({x: 11700, y: -1250, w: 20, h: 100})
-        .color("orange")
     var wall5 = Crafty.e('Ground')
         .attr({x: 11700, y: -1600, w: 20, h: 350})
 
@@ -329,8 +324,6 @@ Crafty.defineScene("Level1", function () {
 
     var door1 = Crafty.e('SanityWall')
         .attr({x: 200, y: -100, w: 20, h: 100})
-        .color("orange");
-
 
     const sanityBooster = Crafty.e('SanityBooster')
         .attr({x: 500, y: 0});
