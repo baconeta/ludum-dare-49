@@ -12,11 +12,9 @@ Crafty.c("SanityZone", {
         if (this.checkHits("Player")){ //if collide hits with player
             this.bind("HitOn", function() {
                 this.delay(this.alterSanity, 500, -1);
-                Crafty("Player").color('yellow');
             })
             this.bind("HitOff", function() { //Player leaves zone
                 this.cancelDelay(this.alterSanity);
-                Crafty("Player").color('red');
             })
         }
     },

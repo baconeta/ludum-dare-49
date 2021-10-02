@@ -6,9 +6,8 @@ Crafty.c("Player", {
         var enemyDamage = 10; // sorry didnt know if var goes at top or not
         var healAmount = 10;
 
-        this.addComponent("2D, DOM, Color, Collision, Twoway, Gravity");
-        this.attr({x: 0, y: 0, w: 50, h: 50})
-        this.color('#F00')
+        this.addComponent("2D, DOM, Collision, Twoway, Gravity, elf");
+        this.attr({w: 42, h: 162})
         this.twoway(200)
         this.gravity('Solid');
         this.holding = ITEMS.NOTHING;
@@ -19,7 +18,6 @@ Crafty.c("Player", {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_BOOSTER;
                 // TODO Change the sprite when picking up the item instead of changing the colour.
-                this.color('#930000');
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
             }
@@ -28,7 +26,6 @@ Crafty.c("Player", {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_DROPPER;
                 // TODO Change the sprite when picking up the item instead of changing the colour.
-                this.color('#002293');
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
             }

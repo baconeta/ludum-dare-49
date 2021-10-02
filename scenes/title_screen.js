@@ -18,7 +18,7 @@ Crafty.defineScene('Title', function()  {
             h: 1000
         })
         .bind('Click', function(MouseEvent){
-            Crafty.scene('Game');
+            Crafty.scene('Loading');
         });
 })
 
