@@ -33,25 +33,30 @@ Crafty.c("SanityBar", {
     },
 
     // Broadcasts a "NEW_SANITY_STATE" event when the sanity state changes.
-    setSanity: (value) => {
-        if (MIN_SANITY < value < MAX_SANITY) {
+    setSanity: function (value) {
+        console.log({"value": value, "sanity": this.sanity})
+
+        // Change the sanity, if it's valid.
+        if (value < MIN_SANITY) {
+            this.sanity = MIN_SANITY;
+        } else if (value > MAX_SANITY) {
+            this.sanity = MAX_SANITY;
+        } else {
             this.sanity = value;
         }
-        if (this.sanity < LOW_SANITY) {
-            if (this.state !== "LOW") {
-                this.state = "LOW";
-                Crafty.trigger("NEW_SANITY_STATE", this.state);
-            }
-        } else if (this.sanity > HIGH_SANITY) {
-            if (this.state !== "HIGH") {
-                this.state = "HIGH";
-                Crafty.trigger("NEW_SANITY_STATE", this.state);
-            }
-        } else {
-            if (this.state !== "MEDIUM") {
-                this.state = "MEDIUM";
-                Crafty.trigger("NEW_SANITY_STATE", this.state);
-            }
+
+        // Check if the change in sanity will cause the sanity state to change.
+        if (this.sanity < LOW_SANITY && this.state !== "LOW") {
+            this.state = "LOW";
+            Crafty.trigger("NEW_SANITY_STATE", this.state);
+        } else if (this.sanity > HIGH_SANITY && this.state !== "HIGH") {
+            this.state = "HIGH";
+            Crafty.trigger("NEW_SANITY_STATE", this.state);
+        } else if (this.state !== "MEDIUM") {
+            this.state = "MEDIUM";
+            Crafty.trigger("NEW_SANITY_STATE", this.state);
         }
+
+        return this;
     },
 })
