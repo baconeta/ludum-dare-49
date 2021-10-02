@@ -49,12 +49,17 @@ Crafty.c("SanityBar", {
         if (this.sanity < LOW_SANITY && this.state !== "LOW") {
             this.state = "LOW";
             Crafty.trigger("NEW_SANITY_STATE", this.state);
-        } else if (this.sanity > HIGH_SANITY && this.state !== "HIGH") {
+            return this;
+        }
+        if (this.sanity > HIGH_SANITY && this.state !== "HIGH") {
             this.state = "HIGH";
             Crafty.trigger("NEW_SANITY_STATE", this.state);
-        } else if (this.state !== "MEDIUM") {
+            return this;
+        }
+        if (this.sanity > LOW_SANITY && this.sanity < HIGH_SANITY && this.state !== "MEDIUM") {
             this.state = "MEDIUM";
             Crafty.trigger("NEW_SANITY_STATE", this.state);
+            return this;
         }
 
         return this;
