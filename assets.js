@@ -8,7 +8,7 @@ var gameAssets = {
             "map": {"elf": [0, 0]}
         },
         "assets/images/platform1_sad.png": {
-            "tile" : 200,
+            "tile" : 199,
             "tileh": 75,
             "map": {"pf_sad_norm": [0, 0]}
         },"assets/images/platform2_sad.png": {
@@ -24,8 +24,8 @@ var gameAssets = {
             "tileh": 87,
             "map": {"pf_sad_long": [0, 0]}
         },"assets/images/platform5_sad.png": {
-            "tile" : 200,
-            "tileh": 75,
+            "tile" : 797,
+            "tileh": 300,
             "map": {"pf_sad_unstable": [0, 0]}
         },
 
