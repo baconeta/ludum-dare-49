@@ -5,6 +5,24 @@ Crafty.defineScene('Game', function () {
 	Crafty.e("Background").place(-1000,-1800,12000,12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
 
 	// ground
+	const movementGround = Crafty.e('UnstableMovementGround')
+		.place(-700, 580)
+		.movementDirection(DIRECTION.RIGHT)
+		.movementSpeed(60)
+		.maxMovementDistance(500)
+
+	const movementGround2 = Crafty.e('UnstableMovementGround')
+		.place(-600, 480)
+		.movementDirection(DIRECTION.RIGHT)
+		.movementSpeed(20)
+		.maxMovementDistance(300)
+
+	const movementGround3 = Crafty.e('UnstableMovementGround')
+		.place(-400, 380)
+		.movementDirection(DIRECTION.RIGHT)
+		.movementSpeed(200)
+		.maxMovementDistance(500)
+
 	const ground1 = Crafty.e('UnstableDroppingGround')
 		.attr({x: -400, y: 780, w: 200, h: 75})
 	const ground2 = Crafty.e('UnstableDroppingGround')
