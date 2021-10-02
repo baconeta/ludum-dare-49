@@ -13,8 +13,9 @@ Crafty.c("Player", {
         this.gravity('Solid');
         this.holding = ITEMS.NOTHING;
         this.bind('LandedOnGround', function (e) {
-            e.trigger('LandedOnDecayGround')
+            e.trigger('LandedOnDecayGround');
         });
+
         this.onHit("SanityBooster", (hitData) => {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_BOOSTER;
@@ -24,6 +25,7 @@ Crafty.c("Player", {
                 hitData[0].obj.destroy();
             }
         });
+
         this.onHit("SanityBooster", (hitData) => {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_DROPPER;
@@ -43,7 +45,7 @@ Crafty.c("Player", {
                 }
             }
         });
-        
+
         this.onHit("Spike", (hitData) => {
             this.resetLevel();
         });
@@ -53,13 +55,11 @@ Crafty.c("Player", {
             //onHit
             this.bind("HitOn", function (hitData) {
                 this.sanityReduce(enemyDamage);
-
-
-            })
+            });
             //offHit
-            this.bind("HitOff", function(comp){
+            this.bind("HitOff", function (comp) {
                 console.log("Hitoff Enemy") // do thing
-            })
+            });
         }
     },
 
