@@ -4,9 +4,7 @@ Crafty.c("Player", {
     this.attr({x: 0, y: 0, w: 50, h: 50})
     this.color('#F00')
     this.twoway(200)
-    this.gravity('Ground');
-    this.gravity('UnstableDecayGround');
-    this.gravity('UnstableDroppingGround');
+    this.gravity('Solid');
     this.bind('LandedOnGround', function(e) {
         e.trigger('LandedOnDecayGround')
     });

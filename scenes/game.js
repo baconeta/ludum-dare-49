@@ -4,7 +4,7 @@ Crafty.defineScene("Game", function() {
 
 	const hud = Crafty.e("HUD");
 
-	var ground1 = Crafty.e('UnstableDroppingGround')
+	var ground1 = Crafty.e('UnstableRotatingGround')
 		.attr({x: 0, y: 780, w: 200, h: 20})
 
 	var ground2 = Crafty.e('Ground')
