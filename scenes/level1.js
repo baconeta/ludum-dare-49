@@ -2,26 +2,70 @@ Crafty.defineScene("Level1", function () {
     // hud
     const hud = Crafty.e("HUD");
 
-    // ground
-    // var ground1 = Crafty.e('UnstableDroppingGround')
-    //     .attr({x: -400, y: 780, w: 200, h: 20})
-    // var ground2 = Crafty.e('UnstableRotatingGround')
-    //     .attr({x: -200, y: 780, w: 200, h: 20})
+    // Assets
 
-    //Floor, Roof and Centre
-    var ground1 = Crafty.e('Ground')
+    // Obstacles
+    //Dropping Platform
+    // var droppingGround = Crafty.e('UnstableDroppingGround')
+    //     .attr({x: 0, y: 0, w: 100, h: 10})
+    //Raising Platform
+    // var raisingGround = Crafty.e('UnstableRaisingGround')
+    //     .attr({x: 0, y: 0, w: 100, h: 10})
+    //Decaying Platform
+    // var decayGround = Crafty.e('UnstableDecayGround')
+    //     .attr({x: 0, y: 0, w: 100, h: 10})
+    //Spike
+    // var spike = Crafty.e('Spike')
+    //     .attr({x: 0, y: 0, w: 20, h: 20})
+
+    // Terrain
+    //Ground/Platform
+    //var platform = Crafty.e('Ground')
+    //    .attr({x: 0, y: 0, w: 200, h: 10})
+    //Wall
+    //var wall = Crafty.e('Ground')
+    //      .attr({x: 0, y: 0, w: 10, h: 200})
+
+
+    // Enemies
+    //Boundary
+    // var boundary = Crafty.e('MovementBoundary')
+    //     .attr({x: 0, y: 0, w: 10, h: 100})
+    //Walker
+    // var enemyWalker = Crafty.e('EnemyWalker')
+    //     .attr({x: 0, y: 0, w: 20, h: 20})
+    //Jumper
+    // var enemyJumper = Crafty.e('EnemyJumper')
+    //     .attr({x: 0, y: 0, w: 20, h: 20})
+
+    // Interactables
+    //Door
+    // var door = Crafty.e('Ground')
+    //     .attr({x: 0, y: 0, w: 20, h: 100})
+    //     .color("orange")
+
+    //Pickups
+    //Booster
+    // var sanityBooster = Crafty.e('SanityBooster')
+    //      .attr({x: 0, y: 0})
+    //Dropper
+    // var sanityBooster = Crafty.e('SanityDropper')
+    //      .attr({x: 0, y: 0})
+
+    //Map Boundary
+    var platform = Crafty.e('Ground')
         .attr({x: 0, y: 0, w: 12000, h: 10})
-    var roof1 = Crafty.e('Ground')
+    var platform = Crafty.e('Ground')
         .attr({x: 0, y: -1600, w: 12000, h: 10})
-    // var centreline = Crafty.e('Ground')
-    //     .attr({x: 0, y: -800, w: 12000, h: 10})
-    //     .color("red")
-
-    //Wall Edges
-    var wall1 = Crafty.e('Ground')
+    var wall = Crafty.e('Ground')
         .attr({x: 0, y: -1600, w: 10, h: 1600})
-    var wall2 = Crafty.e('Ground')
+    var wall = Crafty.e('Ground')
         .attr({x: 11990, y: -1600, w: 10, h: 1600})
+    var centreLine = Crafty.e('Ground')
+        .attr({x: 0, y: -800, w: 12000, h: 10})
+        .color("red")
+
+    //Map Start
 
     //First climb
     var platform1 = Crafty.e('Ground')
@@ -268,18 +312,19 @@ Crafty.defineScene("Level1", function () {
     var wall5 = Crafty.e('Ground')
         .attr({x: 11700, y: -1600, w: 20, h: 350})
 
-
+    //Map End
 
 
     // misc
-    noclip = false;
+    noclip = true;
+
     if (noclip){
         var player = Crafty.e("NoClip")
-            .attr({x: 10000, y: -950});
+            .attr({x: 0, y: 0});
     }
     else{
         var player = Crafty.e("Player")
-            .attr({x: 8500, y: -1500});
+            .attr({x: 0, y: 0});
     }
 
 
