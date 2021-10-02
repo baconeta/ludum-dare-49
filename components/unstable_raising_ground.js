@@ -1,4 +1,5 @@
 var COLOR = 'red';
+var HEIGHT_BEFORE_DROP = -500; // -y is 'north'/'up'
 
 Crafty.c("UnstableRaisingGround", {
     init: function () {
@@ -14,7 +15,7 @@ Crafty.c("UnstableRaisingGround", {
             if (this.originY === 0 && this.y !== 0) this.originY = this.y;
 
             // move component back down
-            if (this.y < -500 && this.y !== 0 && !this.returnToOrigin) {
+            if (this.y < HEIGHT_BEFORE_DROP && this.y !== 0 && !this.returnToOrigin) {
                 this.resetMotion();
                 this.ay = 100;
                 this.returnToOrigin = true;
