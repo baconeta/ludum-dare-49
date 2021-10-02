@@ -316,7 +316,7 @@ Crafty.defineScene("Level1", function () {
 
 
     // misc
-    noclip = true;
+    noclip = false;
 
     if (noclip){
         var player = Crafty.e("NoClip")
