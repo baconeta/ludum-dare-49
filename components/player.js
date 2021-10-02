@@ -33,6 +33,11 @@ Crafty.c("Player", {
                 hitData[0].obj.destroy();
             }
         });
+        
+        this.onHit("Spike", (hitData) => {
+            this.resetLevel();
+        });
+
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
             //onHit
@@ -63,5 +68,9 @@ Crafty.c("Player", {
         Crafty("SanityBar").sanity = currentSanity; // temporary
         console.log(currentSanity, "current");
     },
+
+    resetLevel: () => {
+        Crafty.scene("Game");
+    }
 
 })
