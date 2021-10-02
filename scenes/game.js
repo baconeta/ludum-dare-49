@@ -6,15 +6,18 @@ Crafty.defineScene('Game', function () {
 
 	// ground
 	const ground1 = Crafty.e('UnstableDroppingGround')
-		.attr({x: -400, y: 780, w: 200, h: 20})
+		.attr({x: -400, y: 780, w: 200, h: 75})
 	const ground2 = Crafty.e('UnstableDroppingGround')
-		.attr({x: -200, y: 780, w: 200, h: 20})
+		.attr({x: -200, y: 780, w: 200, h: 75})
 	const ground3 = Crafty.e('Ground')
 		.place(0, 780)
 	const ground4 = Crafty.e('Ground')
 		.place(300, 680)
 	const ground6 = Crafty.e('Ground')
 		.place(700, 580)
+
+	const upPlatform = Crafty.e('UnstableRaisingGround')
+		.attr({x: 400, y:550})
 
 	// spikes
 	const spikes = Crafty.e('Spike')
