@@ -6,14 +6,11 @@ Crafty.c("SanityWall", {
         this.color('black');
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
-            console.log("NEW_SANITY_STATE triggered!", newState);
             if (newState === "HIGH") {
-                console.log("OPEN")
                 this.alpha = 0.15;
                 this.removeComponent("Solid");
             }
             if (newState === "MEDIUM" || newState === "LOW") {
-                console.log("CLOSED")
                 this.alpha = 1.00;
                 this.addComponent("Solid");
             }
