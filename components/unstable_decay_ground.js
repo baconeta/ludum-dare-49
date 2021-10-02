@@ -7,7 +7,7 @@ var getAlphaChannel = (colorString) => {
 
 Crafty.c("UnstableDecayGround", {
     init: function () {
-        this.addComponent("2D, DOM, Color, Collision, Supportable");
+        this.addComponent("2D, DOM, Color, Collision, Supportable, Solid");
         this.attr({x: 0, y: 0, w: 200, h: 20})
         this.color(COLOR)
         this.bind('LandedOnDecayGround', () => {
