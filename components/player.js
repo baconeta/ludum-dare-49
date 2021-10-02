@@ -6,7 +6,7 @@ Crafty.c("Player", {
         this.attr({x: 0, y: 0, w: 50, h: 50})
         this.color('#F00')
         this.twoway(200)
-        this.gravity('Ground');
+        this.gravity('Solid');
         this.holding = ITEMS.NOTHING;
         this.bind('LandedOnGround', function (e) {
             e.trigger('LandedOnDecayGround')
