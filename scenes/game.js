@@ -10,4 +10,7 @@ Crafty.defineScene("Game", function() {
 
 	var ground3 = Crafty.e('Ground')
 		.attr({x: 700, y: 580, w: 200, h: 20})
+
+	var enemyJumper = Crafty.e('EnemyJumper')
+		.attr({x: 750, y: 520, w: 20, h: 20})
 });
