@@ -1,3 +1,6 @@
+const GAIN_RATE = 3;
+const LOSS_RATE = 3;
+
 Crafty.c("SanityZone", {
     init: function() {
         this.addComponent("2D, DOM, Color, Collision, Delay");
@@ -17,10 +20,7 @@ Crafty.c("SanityZone", {
     },
 
     sanityDecrement: () => {
-            currentSanity = Crafty("SanityBar").sanity;
-            currentSanity = currentSanity - 1;
-            //Crafty("SanityBar").setSanity(currentSanity); //lower sanity by 1
-            Crafty("SanityBar").sanity = currentSanity;
-            console.log(currentSanity, "current");
-    }
+        Crafty("SanityBar").setSanity(Crafty("SanityBar").sanity - LOSS_RATE);
+        console.log({"Sanity Zone] Current sanity": Crafty("SanityBar").sanity});
+    },
 })
