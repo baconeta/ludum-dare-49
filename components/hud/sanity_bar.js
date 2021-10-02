@@ -9,13 +9,23 @@ Crafty.c("SanityBar", {
         this.addComponent("2D, DOM, Color");
         this.attr({x: 0, y: 0, z: 1500, w: 50, h: 180});
         this.alpha = 0.85;
-        this.color('#55ff00');
+        this.color('#bfff00');
         this.sanity = STARTING_SANITY;
         this.state = "MEDIUM";
 
-        Crafty.bind("NEW_SANITY_STATE", (event) => {
+        Crafty.bind("NEW_SANITY_STATE", (newState) => {
             // TODO Change the sanity bar appearance here.
-            console.log(event);
+            switch (newState) {
+                case "LOW":
+                    this.color('#c20034');
+                    break;
+                case "MEDIUM":
+                    this.color('#ffea00');
+                    break;
+                case "HIGH":
+                    this.color('#55ff00');
+                    break;
+            }
         })
     },
 
