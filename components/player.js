@@ -9,7 +9,7 @@ Crafty.c("Player", {
         var enemyDamage = 10; // sorry didnt know if var goes at top or not
         var healAmount = 10;
 
-        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard,GroundAttacher, elf");
+        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, elf, GroundAttacher");
         this.attr({x: 0, y: 0, w: 42, h: 162})
         this.twoway(200)
         this.gravity('Solid');
@@ -37,14 +37,20 @@ Crafty.c("Player", {
         });
 
         this.bind('Move', function (evt) { // after player moved
-            let hitData;
-            if ((hitData = this.hit('SanityWall'))) {
-                if (hitData[0].obj.has("Solid")) { // if the wall is solid now
-                    this.x = evt._x; // move the player back to the prev location
+            var hitDatas, hitData;
+            if ((hitDatas = this.hit('wall'))) { // check for collision with walls
+                hitData = hitDatas[0]; // resolving collision for just one collider
+                if (hitData.type === 'SAT') { // SAT, advanced collision resolution
+                    // move player back by amount of overlap
+                    this.x -= hitData.overlap * hitData.nx;
+                    this.y -= hitData.overlap * hitData.ny;
+                } else { // MBR, simple collision resolution
+                    // move player to previous position
+                    this.x = evt._x;
                     this.y = evt._y;
                 }
             }
-        });
+        })
 
         this.onHit("Spike", (hitData) => {
             this.resetLevel();
@@ -105,3 +111,4 @@ Crafty.c("Player", {
     }
 
 })
+
