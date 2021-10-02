@@ -6,7 +6,7 @@ Crafty.c("EnemyJumper", {
         this.gravity('Ground');
         this.jumping = false;
         this.bind("LandedOnGround", function () {
-            if(this.jumping === false) {
+            if(!this.jumping) {
                 this.jumping = true;
                 this.delay(this.jump, 500, 0);
             }
