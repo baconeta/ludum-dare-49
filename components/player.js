@@ -33,6 +33,16 @@ Crafty.c("Player", {
                 hitData[0].obj.destroy();
             }
         });
+
+        this.bind('Move', function (evt) { // after player moved
+            let hitData;
+            if ((hitData = this.hit('SanityWall'))) {
+                if (hitData[0].obj.has("Solid")) { // if the wall is solid now
+                    this.x = evt._x; // move the player back to the prev location
+                    this.y = evt._y;
+                }
+            }
+        });
         
         this.onHit("Spike", (hitData) => {
             this.resetLevel();
