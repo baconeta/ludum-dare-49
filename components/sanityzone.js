@@ -21,6 +21,5 @@ Crafty.c("SanityZone", {
             currentSanity = currentSanity - 1;
             //Crafty("SanityBar").setSanity(currentSanity); //lower sanity by 1
             Crafty("SanityBar").sanity = currentSanity;
-            console.log(currentSanity, "current");
     }
 })
