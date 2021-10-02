@@ -59,23 +59,6 @@ Crafty.c("Player", {
             }
         });
 
-        this.useCurrentItem = () => {
-            switch (this.holding) {
-                case ITEMS.NOTHING:
-                    break;
-                case ITEMS.SANITY_BOOSTER:
-                    this.sanityIncrease(sanityBoosterValue);
-                    break;
-                case ITEMS.SANITY_DROPPER:
-                    this.sanityReduce(sanityDropperValue);
-                    break;
-                default:
-                    console.error(`The item '${this.holding}' cannot be used`);
-            }
-
-            this.holding = ITEMS.NOTHING;
-        };
-        
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
             //onHit
@@ -87,6 +70,23 @@ Crafty.c("Player", {
                 console.log("Hitoff Enemy") // do thing
             });
         }
+    },
+
+    useCurrentItem: function () {
+        switch (this.holding) {
+            case ITEMS.NOTHING:
+                break;
+            case ITEMS.SANITY_BOOSTER:
+                this.sanityIncrease(sanityBoosterValue);
+                break;
+            case ITEMS.SANITY_DROPPER:
+                this.sanityReduce(sanityDropperValue);
+                break;
+            default:
+                console.error(`The item '${this.holding}' cannot be used`);
+        }
+
+        this.holding = ITEMS.NOTHING;
     },
 
     sanityReduce: (value) => {
