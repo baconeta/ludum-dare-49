@@ -21,11 +21,11 @@ Crafty.c("SanityZone", {
 
     sanityIncrement: () => {
         Crafty("SanityBar").setSanity(Crafty("SanityBar").sanity + GAIN_RATE);
-        console.log({"Sanity Zone] Current sanity": Crafty("SanityBar").sanity});
+        console.log(["[Sanity Zone] Current sanity:", Crafty("SanityBar").sanity]);
     },
 
     sanityDecrement: () => {
         Crafty("SanityBar").setSanity(Crafty("SanityBar").sanity - LOSS_RATE);
-        console.log({"Sanity Zone] Current sanity": Crafty("SanityBar").sanity});
+        console.log(["[Sanity Zone] Current sanity:", Crafty("SanityBar").sanity]);
     },
 })
