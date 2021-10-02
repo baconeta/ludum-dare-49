@@ -67,7 +67,7 @@ Crafty.c("Player", {
             });
             //offHit
             this.bind("HitOff", function (comp) {
-                console.log("Hitoff Enemy") // do thing
+                // do thing
             });
         }
     },
@@ -94,7 +94,6 @@ Crafty.c("Player", {
         currentSanity = currentSanity - value
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
-        console.log(currentSanity, "current");
     },
 
     sanityIncrease: (value) => {
@@ -102,7 +101,6 @@ Crafty.c("Player", {
         currentSanity = currentSanity + value;
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
-        console.log(currentSanity, "current");
     },
 
     resetLevel: () => {

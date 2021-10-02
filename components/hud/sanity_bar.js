@@ -17,7 +17,6 @@ Crafty.c("SanityBar", {
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             // TODO Change the sanity bar appearance here.
-            console.log("test");
             switch (newState) {
                 case "LOW":
                     this.color('#c20034');
@@ -34,7 +33,6 @@ Crafty.c("SanityBar", {
 
     // Broadcasts a "NEW_SANITY_STATE" event when the sanity state changes.
     setSanity: function (value) {
-        console.log({"value": value, "sanity": this.sanity})
 
         // Change the sanity, if it's valid.
         if (value < MIN_SANITY) {

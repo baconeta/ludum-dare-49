@@ -23,6 +23,5 @@ Crafty.c("SanityZone", {
 
     alterSanity: function() {
         Crafty("SanityBar").setSanity(Crafty("SanityBar").sanity + (this.mode ? GAIN_RATE : -LOSS_RATE));
-        console.log(["[Sanity Zone] Current sanity:", Crafty("SanityBar").sanity]);
     },
 })
