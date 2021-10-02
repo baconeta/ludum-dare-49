@@ -31,7 +31,7 @@ Crafty.defineScene('Game', function () {
 
 	// sanity wall
 	const sanityWall = Crafty.e('SanityWall')
-		.attr({x: 340, y: 520})
+		.place(340, 396, true)
 
 	// enemies
 	const enemyJumper = Crafty.e('EnemyJumper')
