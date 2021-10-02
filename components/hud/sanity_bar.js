@@ -10,7 +10,9 @@ Crafty.c("SanityBar", {
         this.attr({x: 0, y: 0, z: 1500, w: 50, h: 180});
         this.alpha = 0.85;
         this.color('#bfff00');
+        // Is a number between 0 and 100.
         this.sanity = STARTING_SANITY;
+        // Is either "HIGH", "MEDIUM", or "LOW".
         this.state = "MEDIUM";
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
@@ -52,14 +54,4 @@ Crafty.c("SanityBar", {
             }
         }
     },
-
-    // Returns a number between 0 and 100.
-    getSanity: () => {
-        return this.sanity
-    },
-
-    // Returns a either "HIGH", "MEDIUM", or "LOW".
-    getState: () => {
-        return this.state
-    }
 })
