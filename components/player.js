@@ -1,4 +1,7 @@
 const ITEMS = {NOTHING: 0, SANITY_BOOSTER: 1, SANITY_DROPPER: 2};
+const useItemKey = Crafty.keys.I;
+const sanityBoosterValue = 20;
+const sanityDropperValue = 20;
 
 Crafty.c("Player", {
     init: function () {
