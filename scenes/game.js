@@ -1,4 +1,7 @@
 Crafty.defineScene("Game", function() {
+	var ground2 = Crafty.e('UnstableDroppingGround')
+		.attr({x: -400, y: 780, w: 200, h: 20})
+
 	var player = Crafty.e("Player")
 		.attr({x : 40, y: 440});
 
@@ -7,8 +10,8 @@ Crafty.defineScene("Game", function() {
 	var ground1 = Crafty.e('Ground')
 		.place(0, 780)
 
-	var ground2 = Crafty.e('UnstableDroppingGround')
-		.attr({x: 400, y: 780, w: 200, h: 20})
+	var ground3 = Crafty.e('Ground')
+		.place(300, 680)
 
 	var ground3 = Crafty.e('Ground')
 		.place(700, 580)
@@ -22,6 +25,14 @@ Crafty.defineScene("Game", function() {
 
 	var enemyWalker = Crafty.e('EnemyWalker')
 		.attr({x: 420, y: 720, w: 20, h: 20})
+
+	const sanityBooster = Crafty.e('SanityBooster')
+		.attr({x: 800, y: 570})
+
+	// Example of the sanity dropper.
+	/*
+	const sanityDropper = Crafty.e('SanityDropper')
+		.attr({x: 800, y: 570, w: 50, h: 50})*/
 
 	makeCameraTrackEntity(player, 50)
 	// Make the sanity bar follow the location of the player
