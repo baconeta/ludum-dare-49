@@ -90,8 +90,18 @@ Crafty.defineScene("Level1", function () {
         .color('purple')
         .attr({x: 4300, y: -1000, w: 100, h: 10})
 
+    //Drop Platform Set
+    var wall3 = Crafty.e('Ground')
+        .attr({x: 4400, y: -1400, w: 10, h: 400})
     var platform21 = Crafty.e('Ground')
         .attr({x: 4400, y: -1400, w: 100, h: 10})
+    var platform22 = Crafty.e('Ground')
+        .attr({x: 4600, y: -1000, w: 100, h: 10})
+
+
+
+
+
 
 
     noclip = true;
