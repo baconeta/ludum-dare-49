@@ -24,6 +24,10 @@ Crafty.defineScene('Game', function () {
 	const sanityDropper = Crafty.e('SanityZone')
 		.attr({x: 100, y: 720, mode: MODE.LOSS})
 
+	// sanity wall
+	const sanityWall = Crafty.e('SanityWall')
+		.attr({x: 340, y: 520})
+
 	// enemies
 	const enemyJumper = Crafty.e('EnemyJumper')
 		.attr({x: 750, y: 520, w: 20, h: 20})
