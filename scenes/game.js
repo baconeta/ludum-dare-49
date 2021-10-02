@@ -10,4 +10,8 @@ Crafty.defineScene("Game", function() {
 
 	var ground3 = Crafty.e('Ground')
 		.attr({x: 700, y: 580, w: 200, h: 20})
+
+	makeCameraTrackEntity(player, 50)
+
+
 });
