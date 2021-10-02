@@ -6,6 +6,7 @@ Crafty.c("Player", {
     this.twoway(200)
     this.gravity('Ground');
     this.gravity('UnstableDecayGround');
+    this.gravity('UnstableDroppingGround');
     this.bind('LandedOnGround', function(e) {
         e.trigger('LandedOnDecayGround')
     });
