@@ -18,12 +18,12 @@ Crafty.c("this", {
         if (MIN_SANITY < value < MAX_SANITY) {
             this.sanity = value;
         }
-        if (getSanity() < LOW_SANITY) {
+        if (this.sanity < LOW_SANITY) {
             if (this.state !== "LOW") {
                 this.state = "LOW";
                 Crafty.trigger("NEW_SANITY_STATE", this.state);
             }
-        } else if (getSanity() > HIGH_SANITY) {
+        } else if (this.sanity > HIGH_SANITY) {
             if (this.state !== "HIGH") {
                 this.state = "HIGH";
                 Crafty.trigger("NEW_SANITY_STATE", this.state);
