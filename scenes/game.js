@@ -7,7 +7,7 @@ Crafty.defineScene('Game', function () {
 	// ground
 	const ground1 = Crafty.e('UnstableDroppingGround')
 		.attr({x: -400, y: 780, w: 200, h: 75})
-	const ground2 = Crafty.e('UnstableDroppingGround')
+	const ground2 = Crafty.e('UnstableRaisingGround')
 		.attr({x: -200, y: 780, w: 200, h: 75})
 	const ground3 = Crafty.e('Ground')
 		.place(0, 780)
@@ -43,7 +43,7 @@ Crafty.defineScene('Game', function () {
 	const player = Crafty.e('Player')
 		.attr({x: 40, y: 440});
 
-	makeCameraTrackEntity(player, 50)
+	makeCameraTrackEntity(player, 200)
 	// Make the sanity bar follow the location of the player
 	player.attach(hud);
 });
