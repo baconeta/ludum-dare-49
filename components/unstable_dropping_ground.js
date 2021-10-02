@@ -4,22 +4,29 @@ Crafty.c("UnstableDroppingGround", {
         this.attr({x: 0, y: 0, w: 200, h: 20, ay: 0})
         this.color('red')
         this.bind('LandedOnDecayGround', () => {
+            this.fade();
+            this.color(COLOR, 0.65);
             this.delay(() => {
-                this.decay();
-            }, 550, 0)
+                this.drop();
+            }, 555, 0)
         })
         this.bind('Move', () => {
             if (this.y > 5000) this.destroy();
         })
     },
-    decay: function() {
+
+    drop: function() {
         this.delay(() => {
-                var currAlpha = getAlphaChannel(this.color());
-                if (currAlpha > 0) {
-                    this.color(COLOR, (currAlpha - 0.1));
-                }
-            }, 500, 5)
+            this.fade()
+        }, 500, 4)
         this.ay += 500;
         this.color(COLOR, 0.5)
+    },
+
+    fade: function () {
+        var currAlpha = getAlphaChannel(this.color());
+        if (currAlpha > 0) {
+            this.color(COLOR, (currAlpha - 0.1));
+        }
     }
 })
