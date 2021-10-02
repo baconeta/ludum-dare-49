@@ -27,10 +27,14 @@ var gameAssets = {
             "tile" : 797,
             "tileh": 300,
             "map": {"pf_sad_unstable": [0, 0]}
-        },
-
-
-
-
+        },"assets/images/tree_door1.png": {
+            "tile" : 74,
+            "tileh": 284,
+            "map": {"tree_door_stable": [0, 0]}
+        },"assets/images/tree_door2.png": {
+            "tile" : 147,
+            "tileh": 160,
+            "map": {"tree_door_unstable": [0, 0]}
+        }
     }
 };
