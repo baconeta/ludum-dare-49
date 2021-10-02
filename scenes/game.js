@@ -25,7 +25,7 @@ Crafty.defineScene('Game', function () {
 
 	const ground1 = Crafty.e('UnstableDroppingGround')
 		.attr({x: -400, y: 780, w: 200, h: 75})
-	const ground2 = Crafty.e('UnstableRaisingGround')
+	const ground2 = Crafty.e('UnstableDroppingGround')
 		.attr({x: -200, y: 780, w: 200, h: 75})
 	const ground3 = Crafty.e('Ground')
 		.place(0, 780)
