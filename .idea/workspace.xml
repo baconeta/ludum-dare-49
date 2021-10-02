@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="183527de-eeb4-474f-9290-c39a7a710214" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/sanityzone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/solid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ground.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ground.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sanity_bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/sanity_bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sanityzone.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/sanityzone.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +62,7 @@
       <workItem from="1633125515765" duration="1221000" />
       <workItem from="1633131826888" duration="1269000" />
       <workItem from="1633135547787" duration="689000" />
-      <workItem from="1633136919313" duration="3641000" />
+      <workItem from="1633136919313" duration="9248000" />
     </task>
     <servers />
   </component>
