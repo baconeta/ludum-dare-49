@@ -1,6 +1,6 @@
-Crafty.defineScene("Game", function () {
+Crafty.defineScene('Game', function () {
 	// hud
-	const hud = Crafty.e("HUD");
+	const hud = Crafty.e('HUD');
 
 	// ground
 	const ground1 = Crafty.e('UnstableDroppingGround')
@@ -19,10 +19,10 @@ Crafty.defineScene("Game", function () {
 		.place(750, 550)
 
 	// sanity zones
-	const sanityBooster = Crafty.e("SanityZone")
-		.attr({x:-50, y:720, mode: MODE.LOSS})
+	const sanityBooster = Crafty.e('SanityZone')
+		.attr({x:-50, y:720, mode: MODE.GAIN})
 	const sanityDropper = Crafty.e('SanityZone')
-		.attr({x: 100, y: 720, mode: MODE.GAIN})
+		.attr({x: 100, y: 720, mode: MODE.LOSS})
 
 	// enemies
 	const enemyJumper = Crafty.e('EnemyJumper')
@@ -31,7 +31,7 @@ Crafty.defineScene("Game", function () {
 		.attr({x: 340, y: 670, w: 20, h: 20})
 
 	// misc
-	const player = Crafty.e("Player")
+	const player = Crafty.e('Player')
 		.attr({x: 40, y: 440});
 
 	makeCameraTrackEntity(player, 50)
