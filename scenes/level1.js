@@ -333,10 +333,10 @@ Crafty.defineScene("Level1", function () {
 
 
     const sanityBooster = Crafty.e('SanityBooster')
-        .attr({x: 500, y: -100});
+        .attr({x: 500, y: 0});
 
     const sanityDropper = Crafty.e('SanityDropper')
-        .attr({x: 560, y: -100});
+        .attr({x: 560, y: 0});
 
     var sanityzone1 = Crafty.e('SanityZone')
         .attr({x: 300, y: -100, w: 180, h: 100});
