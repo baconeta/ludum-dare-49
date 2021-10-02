@@ -1,24 +1,3 @@
-var sanityBar;
-
-const setSanity = (value) => {
-	if (MIN_SANITY < value < MAX_SANITY) {
-		sanityBar.sanity = value;
-	}
-	if (getSanity() < LOW_SANITY) {
-		sanityBar.state = "LOW";
-	} else if (getSanity() < HIGH_SANITY) {
-		sanityBar.state = "MEDIUM";
-	} else {
-		sanityBar.state = "HIGH";
-	}
-};
-const getSanity = () => {
-	return sanityBar.sanity
-};
-const getState = () => {
-	return sanityBar.state
-}
-
 Crafty.defineScene("Game", function() {
 	var player = Crafty.e("Player")
 		.attr({x : 40, y: 40});
