@@ -16,6 +16,14 @@ Crafty.defineScene("Game", function() {
 	var enemyJumper = Crafty.e('EnemyJumper')
 		.attr({x: 750, y: 520, w: 20, h: 20})
 
+	const sanityBooster = Crafty.e('SanityBooster')
+		.attr({x: 800, y: 570})
+
+	// Example of the sanity dropper.
+	/*
+	const sanityDropper = Crafty.e('SanityDropper')
+		.attr({x: 800, y: 570, w: 50, h: 50})*/
+
 	makeCameraTrackEntity(player, 50)
 	// Make the sanity bar follow the location of the player
 	player.attach(hud);
