@@ -24,7 +24,7 @@ Crafty.defineScene("Game", function() {
 
 
 	var enemyWalker = Crafty.e('EnemyWalker')
-		.attr({x: 420, y: 720, w: 20, h: 20})
+		.attr({x: 340, y: 670, w: 20, h: 20})
 
 	const sanityBooster = Crafty.e('SanityBooster')
 		.attr({x: 800, y: 570})
