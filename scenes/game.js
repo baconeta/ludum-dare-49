@@ -14,6 +14,10 @@ Crafty.defineScene("Game", function () {
     var ground6 = Crafty.e('Ground')
         .place(700, 580)
 
+
+    var spikes = Crafty.e('Spike')
+        .place(750, 550)
+
     // enemies
     var enemyJumper = Crafty.e('EnemyJumper')
         .attr({x: 750, y: 520, w: 20, h: 20})
