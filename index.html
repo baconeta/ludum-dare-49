@@ -1,11 +1,11 @@
 <html>
   <head>
-  	<title>Ludum Dare #49</title>
+    <meta charset="UTF-8">
   </head>
   <body>
     <h2> Ludum Dare #49 - Unstable </h2>
     <div id="game"></div>
-	<style>
+	   <style>
       h2 {
         text-align: center;
         margin: 20px;
@@ -19,18 +19,22 @@
 	    }
     </style>
 
+    <!-- Remember to use two-space indentation. -->
+    <script type="text/javascript" src="util.js"></script>
     <script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
     <script type="text/javascript" src="assets.js"></script>
     <script type="text/javascript" src="components/movement_boundary.js"></script>
     <script type="text/javascript" src="components/enemy_walker.js"></script>
     <script type="text/javascript" src="components/enemy_jumper.js"></script>
+    <script type="text/javascript" src="components/hud/hud.js"></script>
+    <script type="text/javascript" src="components/hud/sanity_bar.js"></script>
     <script type="text/javascript" src="components/player.js"></script>
     <script type="text/javascript" src="components/ground.js"></script>
-    <script type="text/javascript" src="components/sanity_bar.js"></script>
     <script type="text/javascript" src="components/cameratrack.js"></script>
+    <script type="text/javascript" src="components/unstable_decay_ground.js"></script>
+    <script type="text/javascript" src="components/unstable_dropping_ground.js"></script>
+    <script type="text/javascript" src="components/sanityzone.js"></script>
     <script type="text/javascript" src="scenes/loading.js"></script>
     <script type="text/javascript" src="scenes/game.js"></script>
     <script type="text/javascript" src="main.js"></script>
-
   </body>
-</html>
