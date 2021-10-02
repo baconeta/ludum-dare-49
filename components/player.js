@@ -9,5 +9,4 @@ Crafty.c("Player", {
 	        e.trigger('LandedOnDecayGround')
 	    });
     }
-  },
 })
