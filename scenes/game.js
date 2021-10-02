@@ -1,4 +1,7 @@
 Crafty.defineScene("Game", function() {
+	var ground2 = Crafty.e('UnstableDroppingGround')
+		.attr({x: -400, y: 780, w: 200, h: 20})
+
 	var player = Crafty.e("Player")
 		.attr({x : 40, y: 440});
 
@@ -7,8 +10,8 @@ Crafty.defineScene("Game", function() {
 	var ground1 = Crafty.e('Ground')
 		.place(0, 780)
 
-	var ground2 = Crafty.e('UnstableDroppingGround')
-		.attr({x: 400, y: 780, w: 200, h: 20})
+	var ground3 = Crafty.e('Ground')
+		.place(300, 680)
 
 	var ground3 = Crafty.e('Ground')
 		.place(700, 580)
