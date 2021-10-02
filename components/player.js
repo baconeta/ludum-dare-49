@@ -29,7 +29,7 @@ Crafty.c("Player", {
             }
         });
 
-        this.onHit("SanityBooster", (hitData) => {
+        this.onHit("SanityDropper", (hitData) => {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_DROPPER;
                 // TODO Change the sprite when picking up the item instead of changing the colour.
