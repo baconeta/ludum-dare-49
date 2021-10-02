@@ -34,7 +34,7 @@ Crafty.defineScene("Game", function () {
         .attr({x: 800, y: 570, w: 50, h: 50})
     */
 
-    makeCameraTrackEntity(player, 50)
+    makeCameraTrackEntity(player, 200)
     // Make the sanity bar follow the location of the player
     player.attach(hud);
 });
