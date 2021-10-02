@@ -64,7 +64,7 @@ Crafty.c("Player", {
     },
 
     sanityReduce: (value) => {
-        currentSanity = Crafty("SanityBar").sanity;
+        let currentSanity = Crafty("SanityBar").sanity;
         currentSanity = currentSanity - value
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
@@ -72,7 +72,7 @@ Crafty.c("Player", {
     },
 
     sanityIncrease: (value) => {
-        currentSanity = Crafty("SanityBar").sanity;
+        let currentSanity = Crafty("SanityBar").sanity;
         currentSanity = currentSanity + value;
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
