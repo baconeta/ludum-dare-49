@@ -9,13 +9,13 @@ Crafty.c("Player", {
         var enemyDamage = 10; // sorry didnt know if var goes at top or not
         var healAmount = 10;
 
-        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, elf");
+        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard,GroundAttacher, elf");
         this.attr({x: 0, y: 0, w: 42, h: 162})
         this.twoway(200)
         this.gravity('Solid');
         this.holding = ITEMS.NOTHING;
         this.bind('LandedOnGround', function (e) {
-            e.trigger('LandedOnDecayGround');
+            e.trigger('LandedOnDecayGround', e)
         });
 
         this.onHit("SanityBooster", (hitData) => {
