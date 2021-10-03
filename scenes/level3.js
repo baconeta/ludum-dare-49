@@ -13,10 +13,7 @@ Crafty.defineScene("Level3", function () {
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
     //     .attr({x: 0, y: 0})
-    //Decaying Platform
-    // var decayGround = Crafty.e('UnstableDecayGround')
-    //     .attr({x: 0, y: 0})
-    //Moving Platform
+    //Strafing Platform
     // var movingPlatform = Crafty.e('UnstableMovementGround')
     //     .place(0, 0)
     //Spike
