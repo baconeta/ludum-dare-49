@@ -11,7 +11,7 @@ Crafty.c("SanityZone", {
 
         if (this.checkHits("PlayerBody")){ //if collide hits with player
             this.bind("HitOn", function() {
-                this.delay(this.alterSanity, 500, -1);
+                this.delay(this.alterSanity, 250, -1);
             })
             this.bind("HitOff", function() { //Player leaves zone
                 this.cancelDelay(this.alterSanity);
