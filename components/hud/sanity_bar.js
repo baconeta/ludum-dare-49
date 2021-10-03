@@ -15,6 +15,12 @@ const SANITY_STATE = {
     HIGH: 2,
 };
 
+// Per second.
+const PASSIVE_RESTORE = 3;
+
+// Per second.
+const PASSIVE_DRAIN = 3;
+
 Crafty.c("SanityBar", {
     init: function () {
         this.addComponent("2D, DOM, Color");
@@ -38,6 +44,15 @@ Crafty.c("SanityBar", {
                     break;
             }
         });
+
+        this.delay(() => {
+            if (this.state === SANITY_STATE.HIGH) {
+                this.drainSanity(PASSIVE_DRAIN);
+            }
+            if (this.state === SANITY_STATE.LOW) {
+                this.restoreSanity(PASSIVE_RESTORE);
+            }
+        }, 1000, -1);
     },
 
     restoreSanity: function (value) {
