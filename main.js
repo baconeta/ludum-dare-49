@@ -3,4 +3,4 @@ var GAME_SCREEN_HEIGHT = 800;
 
 Crafty.init(GAME_SCREEN_WIDTH,GAME_SCREEN_HEIGHT, document.getElementById('game'));
 
-Crafty.scene("Title");
+Crafty.scene("Loading");

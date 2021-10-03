@@ -2,6 +2,11 @@ const DIRECTION = {"LEFT":-1, "RIGHT": 1};
 
 Crafty.c("UnstableMovementGround", {
     init: function () {
+        this.addComponent("2D, DOM, Delay, Motion, pf_sad_sideways");
+        this.attr({x: 0, y: 0, w: 200, h: 71})
+        this.collisionTop = Crafty.e("PlatformTop")
+        this.attach(this.collisionTop);
+        
         function restrictBounds(platform) {
             if(platform.x > platform.maxDistance + platform.originalX) {
                 platform.invertMovementDirection();
@@ -11,8 +16,6 @@ Crafty.c("UnstableMovementGround", {
             }
         }
 
-        this.addComponent("2D, DOM, Collision, Supportable, Solid, Motion, Delay, pf_sad_sideways");
-        this.attr({x: 0, y: 0, w: 200, h: 71})
         // This changes direction whenever the player lands on it
         // Was mostly for debugging but we can use it too..
         // this.bind('LandedOnDecayGround', (e) => {

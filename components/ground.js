@@ -1,7 +1,9 @@
 Crafty.c("Ground", {
 	init: function() {
-        this.addComponent("2D, DOM, Collision, Solid, pf_sad_norm");
+        this.addComponent("2D, DOM, pf_sad_norm");
         this.attr({x: 0, y: 0, w: 199, h: 75})
+        this.collisionTop = Crafty.e("PlatformTop")
+        this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
   },
@@ -19,8 +21,10 @@ Crafty.c("Ground", {
 
 Crafty.c("GroundLong", {
     init: function() {
-        this.addComponent("2D, DOM, Collision, Solid, pf_sad_long");
+        this.addComponent("2D, DOM, pf_sad_long");
         this.attr({x: 0, y: 0, w: 349, h: 87})
+        this.collisionTop = Crafty.e("PlatformTop")
+        this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
     },
