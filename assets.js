@@ -5,6 +5,11 @@ var gameAssets = {
             "tileh": 1080,
             "map": {"elf": [0, 0]}
         },
+        "assets/images/lower_sanity_zone.png": {
+            "tile": 899,
+            "tileh": 172,
+            "map": {"sanity_zone": [0, 0]}
+        },
         "assets/images/platform1_sad.png": {
             "tile": 199,
             "tileh": 75,
