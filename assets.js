@@ -47,6 +47,14 @@ var gameAssets = {
             "tile": 268,
             "tileh": 268,
             "map": {"music": [0, 0]}
+        },"assets/images/bush.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_berries": [0, 0]}
+        },"assets/images/spikes.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_spiky": [0, 0]}
         },
     }
 };

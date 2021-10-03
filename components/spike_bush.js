@@ -1,27 +1,13 @@
 Crafty.c("SpikeBush", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Color, bush_spiky");
-        this.attr({x: 0, y: 0, w: 8, h: 25});
-        this.color('red');
-        this.lethal = true;
+        this.addComponent("2D, DOM, Collision, Color");
+        this.attr({w: 86, h: 66});
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === SANITY_STATE.HIGH) {
-                if (this.lethal === true) {
-                    this.removeComponent("bush_spiky");
-                    this.addComponent("bush_berries");
-                    this.color('green');
-                    //this.y -= 124;
-                    this.lethal = false;
-                }
+                this.makeSpiky();
             } else if (newState === SANITY_STATE.MEDIUM || newState === SANITY_STATE.LOW) {
-                if (this.lethal === false) {
-                    this.addComponent("bush_spiky");
-                    this.removeComponent("bush_berries");
-                    this.color('red');
-                    //this.y += 124;
-                    this.lethal = true;
-                }
+                this.makeSafe();
             }
         });
 
@@ -33,6 +19,37 @@ Crafty.c("SpikeBush", {
                 console.info(`You fell on a berry bush without spikes!`);
             }
         });
+
+        this.makeSpiky = () => {
+            if (this.lethal === true) return;
+
+            this.resetComponents();
+            this.addComponent("bush_spiky");
+            this.lethal = true;
+            this.displayDebug();
+        };
+
+        this.makeSafe = () => {
+            if (this.lethal === false) return;
+
+            this.resetComponents();
+            this.addComponent("bush_berries");
+            this.lethal = false;
+            this.displayDebug();
+        };
+
+        this.resetComponents = () => {
+            this.removeComponent("bush_spiky");
+            this.removeComponent("bush_berries");
+        }
+
+        this.displayDebug = () => {
+            if (!DEBUG) return;
+
+            this.color(this.lethal ? 'red' : 'green');
+        }
+
+        this.makeSpiky();
     },
 
     place(x, y) {

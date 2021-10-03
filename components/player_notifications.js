@@ -38,7 +38,7 @@ Crafty.c("PlayerNotification", {
         })
 
         this.bind("GAINSANITY", function() {
-            this.trigger("InstructionText", "You you feel yourself going more insane");
+            this.trigger("InstructionText", "You feel yourself going more insane");
         })
 
         this.bind("LOSSSANITY", function() {
