@@ -5,7 +5,7 @@ Crafty.c("SanityWall", {
         this.blocking = true;
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
-            if (newState === SANITY_STATE.High || newState === SANITY_STATE.Medium) {
+            if (newState === SANITY_STATE.HIGH || newState === SANITY_STATE.MEDIUM) {
                 if (this.blocking === false) {
                     this.addComponent("Solid");
                     this.addComponent("tree_door_stable");
@@ -13,7 +13,7 @@ Crafty.c("SanityWall", {
                     this.y -= 124;
                     this.blocking = true;
                 }
-            } else if (newState === SANITY_STATE.Insane) {
+            } else if (newState === SANITY_STATE.LOW) {
                 if (this.blocking === true) {
                     this.removeComponent("Solid");
                     this.removeComponent("tree_door_stable");

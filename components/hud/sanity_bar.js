@@ -1,16 +1,18 @@
 //TODO: Use better names like "insane" or "healthy" or something
-const SANITY_THRESHOLD = {
-    Min: 0,
-    Low: 30,
-    Default: 50,
-    High: 70,
-    Max: 100,
+const SANITY = {
+    MIN: 0,
+    LOW: 30,
+    HIGH: 70,
+    MAX: 100,
 };
 
 const SANITY_STATE = {
-    Insane: 0,
-    Medium: 1,
-    Sane: 2,
+    // Insane.
+    LOW: 0,
+    // Half-sane.
+    MEDIUM: 1,
+    // Sane.
+    HIGH: 2,
 };
 
 Crafty.c("SanityBar", {
@@ -19,19 +21,19 @@ Crafty.c("SanityBar", {
         this.attr({x: 0, y: 0, z: 1500, w: 50, h: 180});
         this.alpha = 0.85;
         this.color('#bfff00');
-        this.sanity = SANITY_THRESHOLD.Default;
-        this.state = SANITY_STATE.Medium;
+        this.sanity = 50;
+        this.state = SANITY_STATE.MEDIUM;
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             // TODO Change the sanity bar appearance here.
             switch (newState) {
-                case SANITY_STATE.Insane:
+                case SANITY_STATE.LOW:
                     this.color('#c20034');
                     break;
-                case SANITY_STATE.Medium:
+                case SANITY_STATE.MEDIUM:
                     this.color('#ffea00');
                     break;
-                case SANITY_STATE.High:
+                case SANITY_STATE.HIGH:
                     this.color('#55ff00');
                     break;
             }
@@ -48,29 +50,31 @@ Crafty.c("SanityBar", {
 
     // Broadcasts a "NEW_SANITY_STATE" event when the sanity state changes.
     setSanity: function (value) {
-
+        if (DEBUG) {
+            console.log(value);
+        }
         // Change the sanity, if it's valid.
-        if (value < SANITY_THRESHOLD.Min) {
-            this.sanity = SANITY_THRESHOLD.Min;
-        } else if (value > SANITY_THRESHOLD.Max) {
-            this.sanity = SANITY_THRESHOLD.Max;
+        if (value < SANITY.MIN) {
+            this.sanity = SANITY.MIN;
+        } else if (value > SANITY.MAX) {
+            this.sanity = SANITY.MAX;
         } else {
             this.sanity = value;
         }
 
         // Check if the change in sanity will cause the sanity state to change.
-        if (this.sanity < SANITY_THRESHOLD.Low && this.state !== SANITY_STATE.Insane) {
-            this.state = SANITY_STATE.Insane;
+        if (this.sanity < SANITY.LOW && this.state !== SANITY_STATE.LOW) {
+            this.state = SANITY_STATE.LOW;
             Crafty.trigger("NEW_SANITY_STATE", this.state);
             return this;
         }
-        if (this.sanity > SANITY_THRESHOLD.High && this.state !== SANITY_STATE.High) {
-            this.state = SANITY_STATE.High;
+        if (this.sanity > SANITY.HIGH && this.state !== SANITY_STATE.HIGH) {
+            this.state = SANITY_STATE.HIGH;
             Crafty.trigger("NEW_SANITY_STATE", this.state);
             return this;
         }
-        if (this.sanity > SANITY_THRESHOLD.Low && this.sanity < SANITY_THRESHOLD.High && this.state !== "MEDIUM") {
-            this.state = SANITY_STATE.Medium;
+        if (this.sanity > SANITY.LOW && this.sanity < SANITY.HIGH && this.state !== SANITY_STATE.MEDIUM) {
+            this.state = SANITY_STATE.MEDIUM;
             Crafty.trigger("NEW_SANITY_STATE", this.state);
             return this;
         }
