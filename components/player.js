@@ -63,6 +63,7 @@ Crafty.c("PlayerBody", {
         this.onHit("Spike", (hitData) => {
             if (Crafty("SanityBar").state === SanityState.Low) {
                 console.info(`You fell on some spikes... but they're harmless when your sanity is low!`);
+                return;
             }
 
             console.log('You fell on some spikes and died');
