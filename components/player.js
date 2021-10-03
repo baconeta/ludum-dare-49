@@ -40,7 +40,6 @@ Crafty.c("PlayerBody", {
 
         this.addComponent("2D, DOM, Collision, elf");
         this.attr({x: 0, y: 0, w: 42, h: 162})
-        this.holding = ITEMS.NOTHING;
 
         this.onHit("SanityBooster", (hitData) => {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
