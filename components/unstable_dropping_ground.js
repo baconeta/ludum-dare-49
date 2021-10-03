@@ -1,7 +1,7 @@
 const DROP_DELAYS = {
-    SLOW: 1300,
-    NORMAL: 555,
-    FAST: 300,
+    SLOW: 1100,
+    NORMAL: 420,
+    FAST: 250,
 }
 
 Crafty.c("UnstableDroppingGround", {

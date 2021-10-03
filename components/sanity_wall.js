@@ -1,6 +1,6 @@
 Crafty.c("SanityWall", {
     init: function () {
-        this.addComponent("2D, DOM, Solid, tree_door_stable");
+        this.addComponent("2D, DOM, Solid, wall, tree_door_stable");
         this.attr({w: 74, h: 284});
         this.blocking = true;
 
