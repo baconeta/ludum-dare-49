@@ -34,8 +34,11 @@ Crafty.defineScene('Level0', function () {
     const ground6 = Crafty.e('Ground')
         .place(700, 580)
 
-    const upPlatform = Crafty.e('UnstableRaisingGround')
-        .attr({x: 400, y: 550})
+    const upPlatform = Crafty.e('UnstableRaisingGround2')
+        .place(400, 450)
+        .movementDirection(VERTICAL_DIRECTION.UP)
+        .maxMovementDistance(200)
+        .movementSpeed(100);
 
     // spikes
     const spikes = Crafty.e('SpikeBush')
