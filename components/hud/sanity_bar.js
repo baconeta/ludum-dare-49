@@ -15,11 +15,9 @@ const SANITY_STATE = {
     HIGH: 2,
 };
 
-// Per second.
-const PASSIVE_RESTORE = 3;
-
-// Per second.
-const PASSIVE_DRAIN = 3;
+const ENABLE_PASSIVE_SANITY_CHANGE = false; //TODO: Passive change currently causes a lot of events to be fired when interacting with sanity zones
+const PASSIVE_RESTORE = 3; // Per second.
+const PASSIVE_DRAIN = 3; // Per second.
 
 Crafty.c("SanityBar", {
     init: function () {
@@ -45,14 +43,16 @@ Crafty.c("SanityBar", {
             }
         });
 
-        this.delay(() => {
-            if (this.state === SANITY_STATE.HIGH) {
-                this.drainSanity(PASSIVE_DRAIN);
-            }
-            if (this.state === SANITY_STATE.LOW) {
-                this.restoreSanity(PASSIVE_RESTORE);
-            }
-        }, 1000, -1);
+        if (ENABLE_PASSIVE_SANITY_CHANGE) {
+            this.delay(() => {
+                if (this.state === SANITY_STATE.HIGH) {
+                    this.drainSanity(PASSIVE_DRAIN);
+                }
+                if (this.state === SANITY_STATE.LOW) {
+                    this.restoreSanity(PASSIVE_RESTORE);
+                }
+            }, 1000, -1);
+        }
     },
 
     restoreSanity: function (value) {
