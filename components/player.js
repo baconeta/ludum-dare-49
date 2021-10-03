@@ -65,9 +65,4 @@ Crafty.c("Player", {
         }
     },
 
-    resetLevel: () => {
-        Crafty.scene("Game");
-    },
-
-})
-
+});
