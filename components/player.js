@@ -9,9 +9,14 @@ Crafty.c("Player", {
         this.attr({w: 25, h: 15, x: 20, y: 0})
         this.twoway(200)
         this.gravity('Solid');
-        this.bind('LandedOnGround', function (e) {
+
+        this.bind('LandedOnGround', function (entity) {
             Crafty.trigger("PlayerLanded");
-            e.trigger('LandedOnDecayGround', e);
+            entity.trigger('LandedOnDecayGround', entity);
+        });
+
+        this.bind('LiftedOffGround', function (entity) {
+            entity.trigger('LiftedOffDecayGround', entity);
         });
 
         this.checkHits("tree");
@@ -29,8 +34,6 @@ Crafty.c("Player", {
         this.playerBody.y = -209 + this.h;
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
-
-
     }
 });
 
