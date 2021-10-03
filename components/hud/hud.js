@@ -25,5 +25,11 @@ Crafty.c("HUD", {
             w: 50, h: 50
         }).bind('Click', () => audioController.muteToggle());
         this.attach(music);
+
+        this.bind('KeyDown', function (e) {
+            if (e.key === Crafty.keys.R) {
+                Crafty.trigger("ResetLevel");
+            }
+        });
     },
 });
