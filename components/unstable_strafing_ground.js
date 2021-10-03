@@ -1,6 +1,10 @@
 const DIRECTION = {"LEFT":-1, "RIGHT": 1};
+const MULTIPLIERS = {
+    LOW: 0.5,
+    HIGH: 1.5,
+}
 
-Crafty.c("UnstableMovementGround", {
+Crafty.c("UnstableStrafingGround", {
     init: function () {
         this.addComponent("2D, DOM, Delay, Motion, pf_sad_sideways");
         this.attr({x: 0, y: 0, w: 200, h: 71})
@@ -38,7 +42,33 @@ Crafty.c("UnstableMovementGround", {
         // Enforce movement turn around points.
         this.bind('EnterFrame', () => {
             restrictBounds(this);
-        })
+        });
+
+        // Speed up when sanity is low.
+        Crafty.bind("NEW_SANITY_STATE", (state) => {
+           switch (state) {
+               case SANITY_STATE.HIGH:
+                   if (this.vx > 0) {
+                       this.vx = this.speed * MULTIPLIERS.LOW;
+                   } else {
+                       this.vx = -this.speed * MULTIPLIERS.LOW;
+                   }
+                   break;
+               case SANITY_STATE.MEDIUM:
+                   if (this.vx > 0) {
+                       this.vx = this.speed;
+                   } else {
+                       this.vx = -this.speed;
+                   }
+                   break;
+               case SANITY_STATE.LOW:
+                   if (this.vx > 0) {
+                       this.vx = this.speed * MULTIPLIERS.HIGH;
+                   } else {
+                       this.vx = -this.speed * MULTIPLIERS.HIGH;
+                   }
+           }
+        });
     },
 
     place: function(x, y) {
