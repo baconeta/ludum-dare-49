@@ -73,9 +73,7 @@ Crafty.defineScene('Level0', function () {
     // misc setup
     makeCameraTrackEntity(player, 200)
     // Make the sanity bar follow the location of the player
-    player.attach(hud);
-    hud.y = 480;
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1900, w: 12000, h: 12000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1900, w: 12000, h: 5000}).checkHits('Player');
 
     // notifcations
     var playerNotification = Crafty.e("PlayerNotification").attr({x: player.x - 150, y: player.y - 250});
