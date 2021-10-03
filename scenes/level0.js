@@ -40,7 +40,7 @@ Crafty.defineScene('Level0', function () {
         .attr({x: 400, y: 550})
 
     // spikes
-    const spikes = Crafty.e('Spike')
+    const spikes = Crafty.e('SpikeBush')
         .place(750, 550)
 
     // sanity zones

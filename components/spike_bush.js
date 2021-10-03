@@ -1,5 +1,5 @@
-Crafty.c("Spike", {
-    init: function() {
+Crafty.c("SpikeBush", {
+    init: function () {
         this.addComponent("2D, DOM, Collision, Color, bush_spiky");
         this.attr({x: 0, y: 0, w: 8, h: 25});
         this.color('red');
