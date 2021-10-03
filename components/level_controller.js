@@ -5,6 +5,12 @@ Crafty.c("LevelController", {
         this.totalLevels = 5;
         this.nextLevelLoading = false;
 
+        this.bind("SetLevel", (level) => {
+            this.level = level;
+            this.startLoading();
+            setTimeout(this.changeLevel, 500);
+        });
+
         this.bind("NextLevel", () => {
             if (this.canChangeLevel()) {
                 this.startLoading();
