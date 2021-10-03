@@ -61,7 +61,6 @@ Crafty.c("UnstableRaisingGround", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
-        this.originalX = x;
         this.originalY = y;
 
         return this;
