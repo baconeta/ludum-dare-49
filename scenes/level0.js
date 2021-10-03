@@ -64,4 +64,5 @@ Crafty.defineScene('Level0', function () {
 	makeCameraTrackEntity(player, 200)
 	// Make the sanity bar follow the location of the player
 	player.attach(hud);
+	hud.y = 480;
 });
