@@ -26,6 +26,11 @@ Crafty.c("UnstableMovementGround", {
         //     this.invertMovementDirection();
         // })
 
+        this.leftMovementBoundary = Crafty.e("MovementBoundary");
+        this.rightMovementBoundary = Crafty.e("MovementBoundary");
+        this.attach(this.leftMovementBoundary);
+        this.attach(this.rightMovementBoundary);
+
         // Defaults 
         this.maxDistance = 400;
         this.speed = 40;
@@ -71,6 +76,11 @@ Crafty.c("UnstableMovementGround", {
         this.y = y;
         this.originalX = x;
         this.originalY = y;
+
+        this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w + 40;
+        this.leftMovementBoundary.y = y - 10;
+        this.rightMovementBoundary.x = this.x + this.w - 50;
+        this.rightMovementBoundary.y = y - 10;  
         return this;
     },
 
