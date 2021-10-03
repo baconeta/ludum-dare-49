@@ -1,7 +1,7 @@
 const DIRECTION = {"LEFT":-1, "RIGHT": 1};
 const MULTIPLIERS = {
     LOW: 0.5,
-    HIGH: 1.5,
+    HIGH: 2.0,
 }
 
 Crafty.c("UnstableStrafingGround", {
@@ -49,9 +49,9 @@ Crafty.c("UnstableStrafingGround", {
            switch (state) {
                case SANITY_STATE.HIGH:
                    if (this.vx > 0) {
-                       this.vx = this.speed * MULTIPLIERS.LOW;
+                       this.vx = 0.000_000_1; // Ensures that the platform direction persists.
                    } else {
-                       this.vx = -this.speed * MULTIPLIERS.LOW;
+                       this.vx = -0.000_000_1; // Ensures that the platform direction persists.
                    }
                    break;
                case SANITY_STATE.MEDIUM:
