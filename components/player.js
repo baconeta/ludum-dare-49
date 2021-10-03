@@ -1,5 +1,3 @@
-const useItemKey = Crafty.keys.SHIFT;
-
 Crafty.c("Player", {
     init: function () {
 
@@ -54,12 +52,6 @@ Crafty.c("Player", {
             this.resetLevel();
         });
 
-        this.bind('KeyDown', function (e) {
-            if (e.key === useItemKey) {
-                this.useCurrentItem();
-            }
-        });
-
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
             //onHit
@@ -71,26 +63,6 @@ Crafty.c("Player", {
                 // do thing
             });
         }
-    },
-
-    useCurrentItem: function () {
-        let sanity = Crafty("SanityBar").sanity;
-        switch (Crafty("ItemSlot").holding) {
-            case ITEM.NOTHING:
-                break;
-            case ITEM.SANITY_BOOSTER:
-                Crafty("SanityBar").setSanity(sanity + sanityBoosterValue);
-                Crafty.trigger("ITEM_CONSUMED", ITEM.SANITY_BOOSTER);
-                break;
-            case ITEM.SANITY_DROPPER:
-                Crafty("SanityBar").setSanity(sanity - sanityDropperValue);
-                Crafty.trigger("ITEM_CONSUMED", ITEM.SANITY_DROPPER);
-                break;
-            default:
-                console.error(`The item '${Crafty("ItemSlot").holding}' cannot be used`);
-        }
-
-        Crafty("ItemSlot").holding = ITEM.NOTHING;
     },
 
     resetLevel: () => {

@@ -2,6 +2,9 @@ const ITEM = {NOTHING: 0, SANITY_BOOSTER: 1, SANITY_DROPPER: 2};
 const sanityBoosterValue = 20;
 const sanityDropperValue = 20;
 
+const useItemKey = Crafty.keys.SHIFT;
+
+
 Crafty.c("ItemSlot", {
     init: function () {
         this.addComponent("2D, DOM, Color");
@@ -10,6 +13,12 @@ Crafty.c("ItemSlot", {
         this.color('#b2b2b2');
         // Is an ITEM.
         this.holding = ITEM.NOTHING;
+
+        this.bind('KeyDown', function (e) {
+            if (e.key === useItemKey) {
+                this.useCurrentItem();
+            }
+        });
 
         Crafty.bind("ITEM_PICKUP", (item) => {
             // TODO Change the sanity bar appearance here.
@@ -28,11 +37,26 @@ Crafty.c("ItemSlot", {
                     break;
             }
         });
+    },
 
-        Crafty.bind("ITEM_CONSUMED", (item) => {
-            // TODO Play a sound based on the item used?
-            this.color('#b2b2b2');
-            this.holding = ITEM.NOTHING;
-        });
+    useCurrentItem: function () {
+        let sanity = Crafty("SanityBar").sanity;
+        switch (this.holding) {
+            case ITEM.NOTHING:
+                break;
+            case ITEM.SANITY_BOOSTER:
+                Crafty("SanityBar").setSanity(sanity + sanityBoosterValue);
+                // TODO Play a sound based on the item used?
+                break;
+            case ITEM.SANITY_DROPPER:
+                Crafty("SanityBar").setSanity(sanity - sanityDropperValue);
+                // TODO Play a sound based on the item used?
+                break;
+            default:
+                console.error(`The item '${this.holding}' cannot be used`);
+        }
+
+        this.color('#b2b2b2');
+        this.holding = ITEM.NOTHING;
     },
 })
