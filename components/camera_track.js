@@ -18,12 +18,10 @@ function makeCameraTrackEntity(entity, yoffset) {
 
         if (cameraY < minCameraY) {
             Crafty.viewport.y = bottomOfBackground;
-            console.info("Character too low: " + cameraY);
         }
 
         if (cameraY > maxCameraY) {
             Crafty.viewport.y = maxCameraY;
-            console.log("Character too high: " + cameraY);
         }
     });
 }
