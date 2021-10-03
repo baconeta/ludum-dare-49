@@ -25,7 +25,7 @@ Crafty.c("Spike", {
             }
         });
 
-        this.onHit("Spike", function () {
+        this.onHit("PlayerBody", function () {
             if (this.lethal === true) {
                 console.log('You fell on a spiky berry bush and died');
                 Crafty.trigger("ResetLevel");
