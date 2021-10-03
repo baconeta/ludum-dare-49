@@ -1,8 +1,7 @@
 Crafty.c("SpikeBush", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Color, bush_spiky");
-        this.attr({x: 0, y: 0, w: 8, h: 25});
-        this.color('red');
+        this.attr({x: 0, y: 0});
         this.lethal = true;
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
@@ -10,16 +9,12 @@ Crafty.c("SpikeBush", {
                 if (this.lethal === true) {
                     this.removeComponent("bush_spiky");
                     this.addComponent("bush_berries");
-                    this.color('green');
-                    //this.y -= 124;
                     this.lethal = false;
                 }
             } else if (newState === SANITY_STATE.MEDIUM || newState === SANITY_STATE.LOW) {
                 if (this.lethal === false) {
                     this.addComponent("bush_spiky");
                     this.removeComponent("bush_berries");
-                    this.color('red');
-                    //this.y += 124;
                     this.lethal = true;
                 }
             }
