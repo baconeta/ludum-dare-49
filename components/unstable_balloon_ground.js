@@ -1,8 +1,7 @@
-var COLOR = 'red';
 var DEFAULT_RAISE_HEIGHT = -500; // -y is 'north'/'up'
 var DEFAULT_RAISE_SPEED = -100;
 
-Crafty.c("UnstableRaisingGround", {
+Crafty.c("UnstableBalloonGround", {
     init: function () {
         this.addComponent("2D, DOM, Gravity, Motion, pf_sad_up");
         this.attr({x: 0, y: 0, w: 101, h: 160, ay: 0})
