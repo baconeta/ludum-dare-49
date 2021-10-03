@@ -4,6 +4,8 @@ const DROP_DELAYS = {
     FAST: 250,
 }
 
+const PLATFORM_REGEN_DELAY = 10000;
+
 Crafty.c("UnstableDroppingGround", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Gravity, Motion, Delay, pf_sad_unstable");
@@ -16,9 +18,6 @@ Crafty.c("UnstableDroppingGround", {
                 this.drop();
             }, this.decayDelay, 0)
         })
-        this.bind('Move', () => {
-            if (this.y > 5000) this.destroy();
-        });
         Crafty.bind("NEW_SANITY_STATE", (state) => {
             switch (state) {
                 case SANITY_STATE.HIGH:
@@ -41,7 +40,7 @@ Crafty.c("UnstableDroppingGround", {
             this.ay = 0;
             this.vy = 0;
             // this.fade()
-        }, 3000, 0)
+        }, PLATFORM_REGEN_DELAY, 0)
         this.ay += 500;
     },
 
