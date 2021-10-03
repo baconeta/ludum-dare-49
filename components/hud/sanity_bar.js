@@ -15,7 +15,7 @@ const SANITY_STATE = {
     HIGH: 2,
 };
 
-const ENABLE_PASSIVE_SANITY_CHANGE = false; //TODO: Decay currently causes a lot of events to be fired when interacting with sanity zones
+const ENABLE_PASSIVE_SANITY_CHANGE = false; //TODO: Passive change currently causes a lot of events to be fired when interacting with sanity zones
 const PASSIVE_RESTORE = 3; // Per second.
 const PASSIVE_DRAIN = 3; // Per second.
 
