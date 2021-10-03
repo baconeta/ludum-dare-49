@@ -1,22 +1,16 @@
 Crafty.c("SpikeBush", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Color, bush_spiky");
-        this.attr({x: 0, y: 0});
-        this.lethal = true;
+        this.addComponent("2D, DOM, Collision, Color");
+        this.attr({w: 86, h: 66});
+        if (DEBUG) {
+            this.color('red');
+        }
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === SANITY_STATE.HIGH) {
-                if (this.lethal === true) {
-                    this.removeComponent("bush_spiky");
-                    this.addComponent("bush_berries");
-                    this.lethal = false;
-                }
+                this.makeSpiky();
             } else if (newState === SANITY_STATE.MEDIUM || newState === SANITY_STATE.LOW) {
-                if (this.lethal === false) {
-                    this.addComponent("bush_spiky");
-                    this.removeComponent("bush_berries");
-                    this.lethal = true;
-                }
+                this.makeSafe();
             }
         });
 
@@ -28,6 +22,30 @@ Crafty.c("SpikeBush", {
                 console.info(`You fell on a berry bush without spikes!`);
             }
         });
+
+        this.makeSpiky = () => {
+            if (this.lethal) return;
+
+            this.resetComponents();
+            this.addComponent("bush_spiky");
+            this.lethal = true;
+        };
+
+        this.makeSafe = () => {
+            if (!this.lethal) return;
+
+            this.resetComponents();
+            this.addComponent("bush_berries");
+            this.lethal = false;
+        };
+
+        this.resetComponents = () => {
+            console.info('changing bush state');
+            this.removeComponent("bush_spiky");
+            this.removeComponent("bush_berries");
+        }
+
+        this.makeSpiky();
     },
 
     place(x, y) {
