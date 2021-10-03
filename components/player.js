@@ -60,16 +60,6 @@ Crafty.c("PlayerBody", {
             }
         });
 
-        this.onHit("Spike", (hitData) => {
-            if (Crafty("SanityBar").state === SANITY_STATE.HIGH) {
-                console.info(`You fell on a berry bush without spikes!`);
-                return;
-            }
-
-            console.log('You fell on a spiky berry bush and died');
-            Crafty.trigger("ResetLevel");
-        });
-
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
             //onHit
