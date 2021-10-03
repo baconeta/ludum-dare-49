@@ -2,8 +2,8 @@ var COLOR = 'red'
 
 Crafty.c("UnstableDecayGround", {
     init: function () {
-        this.addComponent("2D, DOM, Color, Collision, Supportable, Solid");
-        this.attr({x: 0, y: 0, w: 200, h: 20})
+        this.addComponent("2D, DOM, Color, Collision, Supportable, Solid, pf_sad_unstable");
+        this.attr({x: 0, y: 0, w: 200, h: 75})
         this.color(COLOR)
         this.bind('LandedOnDecayGround', () => {
             Crafty.e('Delay').delay(() => {

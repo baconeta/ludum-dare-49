@@ -9,21 +9,19 @@ Crafty.c("Player", {
         var enemyDamage = 10; // sorry didnt know if var goes at top or not
         var healAmount = 10;
 
-        this.addComponent("2D, DOM, Color, Collision, Twoway, Gravity, Keyboard");
-        this.attr({x: 0, y: 0, w: 50, h: 50})
-        this.color('#F00')
+        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, elf, GroundAttacher");
+        this.attr({x: 0, y: 0, w: 42, h: 162})
         this.twoway(200)
         this.gravity('Solid');
         this.holding = ITEMS.NOTHING;
         this.bind('LandedOnGround', function (e) {
-            e.trigger('LandedOnDecayGround');
+            e.trigger('LandedOnDecayGround', e)
         });
 
         this.onHit("SanityBooster", (hitData) => {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_BOOSTER;
                 // TODO Change the sprite when picking up the item instead of changing the colour.
-                this.color('#930000');
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
             }
@@ -33,21 +31,26 @@ Crafty.c("Player", {
             if (this.holding === ITEMS.NOTHING) {
                 this.holding = ITEMS.SANITY_DROPPER;
                 // TODO Change the sprite when picking up the item instead of changing the colour.
-                this.color('#002293');
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
             }
         });
 
         this.bind('Move', function (evt) { // after player moved
-            let hitData;
-            if ((hitData = this.hit('SanityWall'))) {
-                if (hitData[0].obj.has("Solid")) { // if the wall is solid now
-                    this.x = evt._x; // move the player back to the prev location
+            var hitDatas, hitData;
+            if ((hitDatas = this.hit('wall'))) { // check for collision with walls
+                hitData = hitDatas[0]; // resolving collision for just one collider
+                if (hitData.type === 'SAT') { // SAT, advanced collision resolution
+                    // move player back by amount of overlap
+                    this.x -= hitData.overlap * hitData.nx;
+                    this.y -= hitData.overlap * hitData.ny;
+                } else { // MBR, simple collision resolution
+                    // move player to previous position
+                    this.x = evt._x;
                     this.y = evt._y;
                 }
             }
-        });
+        })
 
         this.onHit("Spike", (hitData) => {
             Crafty.trigger("ResetLevel");
@@ -71,7 +74,7 @@ Crafty.c("Player", {
             });
             //offHit
             this.bind("HitOff", function (comp) {
-                console.log("Hitoff Enemy") // do thing
+                // do thing
             });
         }
     },
@@ -98,7 +101,6 @@ Crafty.c("Player", {
         currentSanity = currentSanity - value
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
-        console.log(currentSanity, "current");
     },
 
     sanityIncrease: (value) => {
@@ -106,6 +108,5 @@ Crafty.c("Player", {
         currentSanity = currentSanity + value;
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
-        console.log(currentSanity, "current");
-    }
-})
+    },
+});
