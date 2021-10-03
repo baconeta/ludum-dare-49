@@ -3,8 +3,12 @@ var HEIGHT_BEFORE_DROP = -500; // -y is 'north'/'up'
 
 Crafty.c("UnstableRaisingGround", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Supportable, Solid, Gravity, Motion, pf_sad_up");
+        this.addComponent("2D, DOM, Gravity, Motion, pf_sad_up");
         this.attr({x: 0, y: 0, w: 101, h: 160, ay: 0})
+
+        this.collisionTop = Crafty.e("PlatformTop")
+        this.attach(this.collisionTop);
+        this.collisionTop.w = 70;
         this.bind('LandedOnDecayGround', () => {
             this.ay = -100
         })

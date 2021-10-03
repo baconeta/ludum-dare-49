@@ -317,11 +317,11 @@ Crafty.defineScene("Level1", function () {
 
     if (noclip){
         var player = Crafty.e("NoClip")
-            .attr({x: 0, y: 0});
+            .attr({x: 50, y: 0});
     }
     else{
         var player = Crafty.e("Player")
-            .attr({x: 0, y: 0});
+            .attr({x: 50, y: 0});
     }
 
     const sanityWall = Crafty.e('SanityWall')

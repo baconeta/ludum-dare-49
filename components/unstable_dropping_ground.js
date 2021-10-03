@@ -1,7 +1,9 @@
 Crafty.c("UnstableDroppingGround", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Supportable, Solid, Gravity, Motion, Delay, pf_sad_unstable");
+        this.addComponent("2D, DOM, Collision, Gravity, Motion, Delay, pf_sad_unstable");
         this.attr({x: 0, y: 0, w: 200, h: 75, ay: 0})
+        this.collisionTop = Crafty.e("PlatformTop")
+        this.attach(this.collisionTop);
         this.bind('LandedOnDecayGround', () => {
             this.delay(() => {
                 this.drop();
