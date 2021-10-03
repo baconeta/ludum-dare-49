@@ -1,4 +1,4 @@
-Crafty.c("Door", {
+Crafty.c("LevelPortal", {
     init: function () {
         this.requires('2D, DOM, Color, Collision');
         this.attr({x: 0, y: 0, w: 20, h: 100});

@@ -67,7 +67,7 @@ Crafty.defineScene('Level0', function () {
     const player = Crafty.e('Player')
         .attr({x: 40, y: 760});
 
-    const tempPortal = Crafty.e('Door')
+    const tempPortal = Crafty.e('LevelPortal')
         .place(-200, 1000);
 
     // misc setup

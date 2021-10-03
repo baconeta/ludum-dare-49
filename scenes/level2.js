@@ -42,14 +42,14 @@ Crafty.defineScene("Level2", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0})
     //     .color("orange")
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
     //     .attr({x: 0, y: 0})
     //Goal -- Currently a door until its implemented
-    // var goal = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0, w: 50, h: 50})
     //     .color("green")
 
@@ -179,7 +179,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 3700, y: -850})
     var platform = Crafty.e('Ground')
         .attr({x: 3850, y: -850})
-    var door = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 3950, y: -950})
         .color("orange")
     var raisingGround = Crafty.e('UnstableRaisingGround')
@@ -259,10 +259,10 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 6950, y: -1350})
     var platform = Crafty.e('Ground')
         .attr({x: 7100, y: -1350})
-    var door = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 6900, y: -1450})
         .color("orange")
-    var goal = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 7200, y: -1400, w: 50, h: 50})
         .color("green")
 

@@ -43,14 +43,14 @@ Crafty.defineScene("Level1", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0})
     //     .color("orange")
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
     //     .attr({x: 0, y: 0})
     //Goal -- Currently a door until its implemented
-    // var goal = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0, w: 50, h: 50})
     //     .color("green")
 
@@ -141,7 +141,7 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 4650, y: -1400})
     var platform21 = Crafty.e('Ground')
         .attr({x: 4820, y: -1400})
-    var door = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 4900, y: -1500})
         .color("orange")
 
@@ -387,7 +387,7 @@ Crafty.defineScene("Level1", function () {
     var sanityzone1 = Crafty.e('SanityZone')
         .attr({x: 300, y: -100});
 
-    const tempPortal = Crafty.e('Door')
+    const tempPortal = Crafty.e('LevelPortal')
         .place(-200, 0);
 
     makeCameraTrackEntity(player, 0)
