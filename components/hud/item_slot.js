@@ -45,11 +45,11 @@ Crafty.c("ItemSlot", {
             case ITEM.NOTHING:
                 break;
             case ITEM.SANITY_BOOSTER:
-                Crafty("SanityBar").setSanity(sanity + sanityBoosterValue);
+                Crafty("SanityBar").restoreSanity(sanityBoosterValue);
                 // TODO Play a sound based on the item used?
                 break;
             case ITEM.SANITY_DROPPER:
-                Crafty("SanityBar").setSanity(sanity - sanityDropperValue);
+                Crafty("SanityBar").drainSanity(sanityDropperValue);
                 // TODO Play a sound based on the item used?
                 break;
             default:

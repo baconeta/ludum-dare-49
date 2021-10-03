@@ -1,9 +1,6 @@
 Crafty.c("Player", {
     init: function () {
 
-        var enemyDamage = 10; // sorry didnt know if var goes at top or not
-        var healAmount = 10;
-
         this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, elf, GroundAttacher");
         this.attr({x: 0, y: 0, w: 42, h: 162})
         this.twoway(200)
@@ -56,7 +53,19 @@ Crafty.c("Player", {
         if (this.checkHits("Enemy")) {
             //onHit
             this.bind("HitOn", function (hitData) {
-                this.sanityReduce(enemyDamage);
+                Crafty("SanityBar").drainSanity(ENEMY_SANITY_DRAIN);
+            });
+            //offHit
+            this.bind("HitOff", function (comp) {
+                // do thing
+            });
+        }
+
+        //if Collides with enemy
+        if (this.checkHits("Ally")) {
+            //onHit
+            this.bind("HitOn", function (hitData) {
+                Crafty("SanityBar").restoreSanity(ALLY_SANITY_RESTORE);
             });
             //offHit
             this.bind("HitOff", function (comp) {
