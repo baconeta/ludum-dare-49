@@ -12,10 +12,10 @@ Crafty.c("Ground", {
     this.x = x;
     this.y = y;
 
-    this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w;
-    this.leftMovementBoundary.y = y - this.h;
-    this.rightMovementBoundary.x = this.x + this.w;
-    this.rightMovementBoundary.y = y - this.h;
+    this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w + 20;
+    this.leftMovementBoundary.y = y - 20;
+    this.rightMovementBoundary.x = this.x + this.w - 30;
+    this.rightMovementBoundary.y = y - 20;
   }
 })
 
