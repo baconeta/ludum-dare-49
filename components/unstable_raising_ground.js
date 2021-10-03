@@ -4,7 +4,7 @@ const VERTICAL_MULTIPLIERS = {
     HIGH: 2.0,
 };
 
-Crafty.c("UnstableRaisingGround2", {
+Crafty.c("UnstableRaisingGround", {
     init: function () {
         this.addComponent("2D, DOM, Delay, Motion, pf_sad_up");
         this.attr({x: 0, y: 0, w: 101, h: 160});
