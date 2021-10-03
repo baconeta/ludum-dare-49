@@ -17,6 +17,9 @@ Crafty.defineScene("Level1", function () {
     //Decaying Platform
     // var decayGround = Crafty.e('UnstableDecayGround')
     //     .attr({x: 0, y: 0})
+    //Moving Platform
+    // var movingPlatform = Crafty.e('UnstableMovementGround')
+    //     .place(0, 0)
     //Spike
     // var spike = Crafty.e('Spike')
     //     .attr({x: 0, y: 0})
@@ -25,9 +28,6 @@ Crafty.defineScene("Level1", function () {
     //Ground/Platform
     //var platform = Crafty.e('Ground')
     //    .attr({x: 0, y: 0})
-    //Wall
-    //var wall = Crafty.e('Ground')
-    //      .attr({x: 0, y: 0})
 
 
     // Enemies
@@ -43,9 +43,16 @@ Crafty.defineScene("Level1", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Ground')
+    // var door = Crafty.e('Door')
     //     .attr({x: 0, y: 0})
     //     .color("orange")
+    //Sanity Zone
+    // var sanityzone = Crafty.e('SanityZone')
+    //     .attr({x: 0, y: 0})
+    //Goal -- Currently a door until its implemented
+    // var goal = Crafty.e('Door')
+    //     .attr({x: 0, y: 0, w: 50, h: 50})
+    //     .color("green")
 
     //Pickups
     //Booster
@@ -55,19 +62,14 @@ Crafty.defineScene("Level1", function () {
     // var sanityBooster = Crafty.e('SanityDropper')
     //      .attr({x: 0, y: 0})
 
-    //Map Boundary
-    var platform = Crafty.e('Ground')
-        .attr({x: 0, y: 0})
-    var platform = Crafty.e('Ground')
-        .attr({x: 0, y: -1600})
-    var wall = Crafty.e('Ground')
-        .attr({x: 0, y: -1600})
-    var wall = Crafty.e('Ground')
-        .attr({x: 11990, y: -1600})
-    var centreLine = Crafty.e('Ground')
-        .attr({x: 0, y: -800})
+    //Centre line to help with level design
+    // var centreLine = Crafty.e('Ground')
+    //     .attr({x: 0, y: -800, w: 12000, h: 10})
+    //     .color("red")
 
     //Map Start
+    var platform = Crafty.e('Ground')
+        .attr({x: 0, y: 0})
 
     //First climb
     var platform1 = Crafty.e('Ground')
@@ -89,136 +91,154 @@ Crafty.defineScene("Level1", function () {
     var platform8 = Crafty.e('Ground')
         .attr({x: 2100, y: -700})
     var dropPlatform1 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 2200, y: -700})
-    var platform10 = Crafty.e('Ground')
         .attr({x: 2300, y: -700})
-
-    //drop down with wall
-    var platform11 = Crafty.e('Ground')
-        .attr({x: 2400, y: -350})
-    var wall3 = Crafty.e('Ground')
-        .attr({x: 2500, y: -1050})
+    var platform10 = Crafty.e('Ground')
+        .attr({x: 2500, y: -700})
 
     //Raising floor into platform
+    var platform11 = Crafty.e('Ground')
+        .attr({x: 2700, y: -350})
     var raisePlatform1 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 2800, y: -350})
+        .attr({x: 2900, y: -350})
     var platform13 = Crafty.e('Ground')
-        .attr({x: 2900, y: -650})
+        .attr({x: 3000, y: -650})
 
     //jump to unstable - 1
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 3200, y: -750})
-    var platform15 = Crafty.e('Ground')
-        .attr({x: 3300, y: -750})
+        .attr({x: 3300, y: -800})
+
 
     //Jump up to 3 - drop with enemy
     var platform16 = Crafty.e('Ground')
         .attr({x: 3500, y: -950})
     var platform17 = Crafty.e('Ground')
-        .attr({x: 3600, y: -950})
+        .attr({x: 3650, y: -950})
     var platform18 = Crafty.e('Ground')
-        .attr({x: 3700, y: -950})
-    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
         .attr({x: 3800, y: -950})
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .attr({x: 3950, y: -950})
     //Enemy
     var boundary1 = Crafty.e('MovementBoundary')
-        .attr({x: 3450, y: -950})
+        .attr({x: 3510, y: -960})
     var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 3500, y: -950})
+        .attr({x: 3650, y: -960})
     var boundary2 = Crafty.e('MovementBoundary')
-        .attr({x: 3600, y: -950})
+        .attr({x: 3750, y: -960})
 
-    //Jump across to 1 - raisePlatform + jumpEnemy
+    //Jump across to 1 + raisePlatform + jumpEnemy
     var platform20 = Crafty.e('Ground')
-        .attr({x: 4200, y: -1000})
+        .attr({x: 4400, y: -700})
     var raisePlatform2 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4300, y: -1000})
+        .attr({x: 4550, y: -700})
+    var sanityBooster = Crafty.e('SanityBooster')
+        .attr({x: 4580, y: -710})
     //enemy
-    var enemyWalker = Crafty.e('EnemyJumper')
-        .attr({x: 4210, y: -1100})
+    var enemyJumper = Crafty.e('EnemyJumper')
+        .attr({x: 4450, y: -1010})
 
-
-    //Drop Tower
-    var wall3 = Crafty.e('Ground')
-        .attr({x: 4400, y: -1400})
+    //Door1
     var platform21 = Crafty.e('Ground')
-        .attr({x: 4400, y: -1400})
-    var platform22 = Crafty.e('Ground')
-        .attr({x: 4500, y: -1250})
-    var platform23 = Crafty.e('Ground')
-        .attr({x: 4400, y: -1100})
-    var platform24 = Crafty.e('Ground')
-        .attr({x: 4560, y: -950})
-    var platform25 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4470, y: -950})
-    var platform26 = Crafty.e('Ground')
-        .attr({x: 4400, y: -870})
-    var platform27 = Crafty.e('Ground')
-        .attr({x: 4500, y: -700})
-    var platform28 = Crafty.e('Ground')
-        .attr({x: 4400, y: -600})
-    var wall4 = Crafty.e('Ground')
-        .attr({x: 4600, y: -1600})
-
-    //Platform with spikes & enemy
-    var platform29 = Crafty.e('Ground')
-        .attr({x: 5000, y: -600})
-    var spike1 = Crafty.e('Spike')
-        .attr({x: 5000, y: -625})
-    var spike2 = Crafty.e('Spike')
-        .attr({x: 5392, y: -625})
-    //enemy
-    var boundary5 = Crafty.e('MovementBoundary')
-        .attr({x: 5000, y: -625})
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 5000, y: -625})
-    var boundary6 = Crafty.e('MovementBoundary')
-        .attr({x: 5392, y: -625})
-
-    //Door Platform
-    var platform30 = Crafty.e('Ground')
-        .attr({x: 5600, y: -750})
+        .attr({x: 4650, y: -1400})
+    var platform21 = Crafty.e('Ground')
+        .attr({x: 4820, y: -1400})
     var door = Crafty.e('Door')
-        .place(5980, -750);
-    var wall5 = Crafty.e('Ground')
-        .attr({x: 5980, y: -1450})
+        .attr({x: 4900, y: -1500})
+        .color("orange")
 
-    //jump to sanity zone
-    var platform31 = Crafty.e('Ground')
-        .attr({x: 5750, y: -850})
-    var platform32 = Crafty.e('Ground')
-        .attr({x: 5550, y: -950})
-    var platform33 = Crafty.e('Ground')
-        .attr({x: 5800, y: -1050})
+    //Sanity Zone (Left of door) + Movement platform
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
+        .place(3850, -1400)
+    var platform21 = Crafty.e('Ground')
+        .attr({x: 3600, y: -1400})
     var sanityzone1 = Crafty.e('SanityZone')
-        .attr({x: 5800, y: -1150})
+        .attr({x: 3630, y: -1450})
 
-    //spike jump + Enemy Jumpers + Dropper
-    var platform34 = Crafty.e('Ground')
-        .attr({x: 6500, y: -750})
+    //Spikes platfomrms + consumable
+    var platform21 = Crafty.e('Ground')
+        .attr({x: 3450, y: -1400})
+    var platform21 = Crafty.e('Ground')
+        .attr({x: 3300, y: -1400})
     var spike3 = Crafty.e('Spike')
-        .attr({x: 6350, y: -800})
-    var dropPlatform4 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 7300, y: -750})
-    //Enemy
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 6600, y: -760})
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 6700, y: -780})
-    var enemyJumper = Crafty.e('EnemyJumper')
+        .attr({x: 3550, y: -1410})
+    var spike3 = Crafty.e('Spike')
+        .attr({x: 3530, y: -1410})
+    var spike3 = Crafty.e('Spike')
+        .attr({x: 3510, y: -1410})
+    var spike3 = Crafty.e('Spike')
+        .attr({x: 3490, y: -1410})
+    var sanityBooster = Crafty.e('SanityBooster')
+          .attr({x: 3320, y: -1410})
+
+    //Platform with spikes (First)
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 5200, y: -1250})
+    var spike1 = Crafty.e('Spike')
+        .attr({x: 5220, y: -1270})
+    var spike2 = Crafty.e('Spike')
+        .attr({x: 5350, y: -1270})
+
+    //Platform with spikes (Bottom Left)
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 4900, y: -950})
+    var spike1 = Crafty.e('Spike')
+        .attr({x: 4920, y: -970})
+    var spike2 = Crafty.e('Spike')
+        .attr({x: 5050, y: -970})
+
+    //Platform with spikes (Bottom Middle)
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 5200, y: -950})
+    var spike1 = Crafty.e('Spike')
+        .attr({x: 5220, y: -970})
+    var spike2 = Crafty.e('Spike')
+        .attr({x: 5350, y: -970})
+
+    //Platform with spikes (Top)
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 5375, y: -1350})
+    var spike1 = Crafty.e('Spike')
+        .attr({x: 5395, y: -1370})
+    var spike2 = Crafty.e('Spike')
+        .attr({x: 5525, y: -1370})
+
+    //Raising Platform
+    var raisePlatform2 = Crafty.e('UnstableRaisingGround')
+        .attr({x: 5550, y: -1000})
+
+    //Moving Platform + Sanity check + Dropping ground
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
+        .place(5750, -1400)
+    var sanityzone1 = Crafty.e('SanityZone')
+        .attr({x: 5750, y: -1500, w: 600, h:100})
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .attr({x: 6450, y: -1300})
+
+    //Drop Down onto platform with enemy
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 6500, y: -800})
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 6650, y: -800})
+    var platform29 = Crafty.e('Ground')
         .attr({x: 6800, y: -800})
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 6900, y: -820})
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 7000, y: -760})
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 7100, y: -780})
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 7200, y: -800})
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 6950, y: -800})
+    var platform29 = Crafty.e('Ground')
+        .attr({x: 7100, y: -800})
+    var boundary2 = Crafty.e('MovementBoundary')
+        .attr({x: 6510, y: -810})
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .attr({x: 6500, y: -810})
+    var boundary2 = Crafty.e('MovementBoundary')
+        .attr({x: 6800, y: -810})
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .attr({x: 7000, y: -810})
+    var boundary2 = Crafty.e('MovementBoundary')
+        .attr({x: 7090, y: -810})
+
 
     //safe spot
     var platform35 = Crafty.e('Ground')
-        .attr({x: 7700, y: -650})
+        .attr({x: 7500, y: -650})
 
     //Raising Jumpers
     var raising4 = Crafty.e('UnstableRaisingGround')
@@ -234,81 +254,114 @@ Crafty.defineScene("Level1", function () {
 
     //Spike Jump
     var spike6 = Crafty.e('Spike')
-        .attr({x: 8700, y: -1600})
+        .attr({x: 8700, y: -1650})
     var spike7 = Crafty.e('Spike')
         .attr({x: 8700, y: -1350})
     var platform37 = Crafty.e('Ground')
         .attr({x: 8800, y: -1450})
 
     //Drop platform run
-    var dropPlatform5 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 8900, y: -1450})
     var dropPlatform6 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 9000, y: -1450})
+        .attr({x: 8950, y: -1450})
     var platform38 = Crafty.e('Ground')
         .attr({x: 9100, y: -1450})
     var dropPlatform7 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 9150, y: -1450})
+        .attr({x: 9250, y: -1450})
     var dropPlatform8 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 9200, y: -1450})
+        .attr({x: 9400, y: -1450})
     var dropPlatform9 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 9300, y: -1450})
+        .attr({x: 9650, y: -1450})
     var dropPlatform10 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 9300, y: -1450})
+        .attr({x: 9800, y: -1450})
     var platform39 = Crafty.e('Ground')
-        .attr({x: 9400, y: -1350})
+        .attr({x: 9950, y: -1350})
 
-    //enemy platform
-    var platform40 = Crafty.e('Ground')
-        .attr({x: 9800, y: -1100})
-    //enemy
-    var boundary7 = Crafty.e('MovementBoundary')
-        .attr({x: 9820, y: -110})
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 9800, y: -1130})
-    var boundary8 = Crafty.e('MovementBoundary')
-        .attr({x: 9980, y: -1100})
 
     //spike platform + Gauntlet
     var platform41 = Crafty.e('Ground')
         .attr({x: 10100, y: -1150})
     var spike8 = Crafty.e('Spike')
-        .attr({x: 10100, y: -1170})
+        .attr({x: 10150, y: -1170})
     var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 10200, y: -1150})
+        .attr({x: 10250, y: -1150})
     var raising6 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 10300, y: -1150})
-    var dropPlatform12 = Crafty.e('UnstableDroppingGround')
         .attr({x: 10400, y: -1150})
-    var raising7 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 10500, y: -1150})
-    var dropPlatform13 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 10600, y: -1150})
-    var raising8 = Crafty.e('UnstableRaisingGround')
+    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
+        .attr({x: 10475, y: -1150})
+    var raising6 = Crafty.e('UnstableRaisingGround')
+        .attr({x: 10625, y: -1150})
+    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
         .attr({x: 10700, y: -1150})
-    var dropPlatform14 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 10800, y: -1150})
-    var raising9 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 10900, y: -1150})
-    var dropPlatform15 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 11000, y: -1150})
-    var raising10 = Crafty.e('UnstableRaisingGround')
-        .attr({x: 11100, y: -1150})
-    var dropPlatform16 = Crafty.e('UnstableDroppingGround')
-        .attr({x: 11200, y: -1150})
-    var raising11 = Crafty.e('UnstableRaisingGround')
+    var raising6 = Crafty.e('UnstableRaisingGround')
+        .attr({x: 10850, y: -1150})
+    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
+        .attr({x: 10925, y: -1150})
+    var raising6 = Crafty.e('UnstableRaisingGround')
+        .attr({x: 11075, y: -1150})
+    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
+        .attr({x: 11150, y: -1150})
+    var raising6 = Crafty.e('UnstableRaisingGround')
         .attr({x: 11300, y: -1150})
-    //roof spike
+    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
+        .attr({x: 11375, y: -1150})
+    var raising6 = Crafty.e('UnstableRaisingGround')
+        .attr({x: 11525, y: -1150})
+    var sanityzone1 = Crafty.e('SanityZone')
+        .attr({x: 10250, y: -1250, w: 1500, h:100 })
+    //roof spikes
     var spike8 = Crafty.e('Spike')
-        .attr({x: 10200, y: -1350})
+        .attr({x: 10300, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 10400, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 10500, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 10600, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 10700, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 10800, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 10900, y: -1350})
 
-    //door plus goal
-    var platform42 = Crafty.e('Ground')
-        .attr({x: 11600, y: -1150})
-    var door2 = Crafty.e('Ground')
-        .attr({x: 11700, y: -1250})
-    var wall5 = Crafty.e('Ground')
-        .attr({x: 11700, y: -1600})
+    //Walkway above
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 10700, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 10850, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11000, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11150, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11300, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11450, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11600, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11750, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11800, y: -1500})
+
+    //walkway below
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 11850, y: -1000})
+    var raising = Crafty.e('UnstableRaisingGround')
+        .attr({x: 12000, y: -1000})
+
+    //Goal platform
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 12075, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 12225, y: -1500})
+    var platform41 = Crafty.e('Ground')
+        .attr({x: 12375, y: -1500})
+    var goal = Crafty.e('Ground')
+        .attr({x: 12450, y: -1550, w: 30, h: 30})
+
+
+
 
     //Map End
 
@@ -318,20 +371,20 @@ Crafty.defineScene("Level1", function () {
 
     if (noclip){
         var player = Crafty.e("NoClip")
-            .attr({x: 50, y: 0});
+            .attr({x: 5050, y: -970});
     }
     else{
         var player = Crafty.e("Player")
-            .attr({x: 50, y: 0});
+            .attr({x: 100, y: -100});
     }
 
-    const sanityWall = Crafty.e('SanityWall')
+    var sanityWall = Crafty.e('SanityWall')
         .attr({x: 200, y: -100})
 
-    const sanityBooster = Crafty.e('SanityBooster')
+    var sanityBooster = Crafty.e('SanityBooster')
         .attr({x: 500, y: 0});
 
-    const sanityDropper = Crafty.e('SanityDropper')
+    var sanityDropper = Crafty.e('SanityDropper')
         .attr({x: 560, y: 0});
 
     var sanityzone1 = Crafty.e('SanityZone')
