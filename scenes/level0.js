@@ -40,7 +40,7 @@ Crafty.defineScene('Level0', function () {
         .attr({x: 400, y: 550})
 
     // spikes
-    const spikes = Crafty.e('Spike')
+    const spikes = Crafty.e('SpikeBush')
         .place(750, 550)
 
     // sanity zones
@@ -66,6 +66,9 @@ Crafty.defineScene('Level0', function () {
     // misc
     const player = Crafty.e('Player')
         .attr({x: 40, y: 760});
+
+    const tempPortal = Crafty.e('LevelPortal')
+        .place(-200, 1000);
 
     // misc setup
     makeCameraTrackEntity(player, 200)

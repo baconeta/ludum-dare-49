@@ -20,7 +20,7 @@ function setBackground(lvl) {
             this.image("assets/images/bg_sad.png", "repeat");
             break;
         case 2:
-            this.image("assets/images/bg_sad.png", "repeat"); // change for background angry when ready
+            this.image("assets/images/bg_angry.png", "repeat");
             break;
         case 3:
             this.image("assets/images/bg_sad.png", "repeat"); // change for background fear when ready

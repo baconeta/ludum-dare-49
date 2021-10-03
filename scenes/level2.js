@@ -2,7 +2,7 @@ Crafty.defineScene("Level2", function () {
     // hud
     const hud = Crafty.e("HUD");
 
-    Crafty.e("Background").place(-1000,-1800,12000,12000, 3); // final variable is the level (1=sad, 2=anger, 3=fear)
+    Crafty.e("Background").place(-1000,-1800,12000,12000, 2); // final variable is the level (1=sad, 2=anger, 3=fear)
 
     // Assets
 
@@ -20,7 +20,7 @@ Crafty.defineScene("Level2", function () {
     // var movingPlatform = Crafty.e('UnstableMovementGround')
     //     .place(0, 0)
     //Spike
-    // var spike = Crafty.e('Spike')
+    // var spike = Crafty.e('SpikeBush')
     //     .attr({x: 0, y: 0})
 
     // Terrain
@@ -42,14 +42,14 @@ Crafty.defineScene("Level2", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0})
     //     .color("orange")
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
     //     .attr({x: 0, y: 0})
     //Goal -- Currently a door until its implemented
-    // var goal = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0, w: 50, h: 50})
     //     .color("green")
 
@@ -126,7 +126,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 4000, y: -500})
     var platform = Crafty.e('Ground')
         .attr({x: 4150, y: -500})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4160, y: -520})
     var raisingGround = Crafty.e('UnstableRaisingGround')
         .attr({x: 4320, y: -500})
@@ -138,35 +138,35 @@ Crafty.defineScene("Level2", function () {
     //Spike Platform -- Safety net for consumable
     var platform = Crafty.e('Ground')
         .attr({x: 4600, y: -600})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4620, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4640, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4660, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4680, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4700, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4720, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4740, y: -620})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 4760, y: -620})
     //Spike drop platforms --                                         ***PATH SPLIT POINT***
                 //Player is predicted to be in HIGH sanity on entry. LOW sanity on exit
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 3350, y: -700})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 3375, y: -720})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 3450, y: -720})
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 3050, y: -825})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 3075, y: -845})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 3150, y: -845})
     //Movement Platform + Consumable
     var movingPlatform = Crafty.e('UnstableStrafingGround')
@@ -179,7 +179,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 3700, y: -850})
     var platform = Crafty.e('Ground')
         .attr({x: 3850, y: -850})
-    var door = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 3950, y: -950})
         .color("orange")
     var raisingGround = Crafty.e('UnstableRaisingGround')
@@ -223,21 +223,21 @@ Crafty.defineScene("Level2", function () {
     //Spike Platform
     var platform = Crafty.e('Ground')
         .attr({x: 5500, y: -1250})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5520, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5540, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5560, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5580, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5600, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5620, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5640, y: -1270})
-    var spike = Crafty.e('Spike')
+    var spike = Crafty.e('SpikeBush')
         .attr({x: 5660, y: -1270})
     //Decaying floor gauntlet
     var decayGround = Crafty.e('UnstableDecayGround')
@@ -259,10 +259,10 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 6950, y: -1350})
     var platform = Crafty.e('Ground')
         .attr({x: 7100, y: -1350})
-    var door = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 6900, y: -1450})
         .color("orange")
-    var goal = Crafty.e('Door')
+    var portal = Crafty.e('LevelPortal')
         .attr({x: 7200, y: -1400, w: 50, h: 50})
         .color("green")
 
