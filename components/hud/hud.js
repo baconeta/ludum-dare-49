@@ -12,7 +12,12 @@ Crafty.c("HUD", {
 
         const sanityBar = Crafty.e("SanityBar");
         sanityBar.x = this.x + GAME_SCREEN_WIDTH - 50;
-        sanityBar.y = this.y - 350;
+        sanityBar.y = this.y - 300;
         this.attach(sanityBar);
+
+        const itemSlot = Crafty.e("ItemSlot");
+        itemSlot.x = this.x + GAME_SCREEN_WIDTH - 50;
+        itemSlot.y = this.y + GAME_SCREEN_HEIGHT - 400;
+        this.attach(itemSlot);
     },
 });
