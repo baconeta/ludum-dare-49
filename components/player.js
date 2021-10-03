@@ -50,7 +50,11 @@ Crafty.c("Player", {
         });
 
         this.onHit("Spike", (hitData) => {
-            this.resetLevel();
+            Crafty.trigger("ResetLevel");
+        });
+
+        this.onHit("Door", function () {
+            Crafty.trigger("NextLevel");
         });
 
         this.bind('KeyDown', function (e) {
@@ -103,10 +107,5 @@ Crafty.c("Player", {
         //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
         Crafty("SanityBar").sanity = currentSanity; // temporary
         console.log(currentSanity, "current");
-    },
-
-    resetLevel: () => {
-        Crafty.scene("Game");
     }
-
 })
