@@ -4,12 +4,12 @@ Crafty.c("SanityWall", {
         this.attr({w: 74, h: 284});
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
-            if (newState === "HIGH") {
+            if (newState === SanityState.High) {
                 this.removeComponent("tree_door_stable");
                 this.removeComponent("Solid");
                 this.addComponent("tree_door_unstable");
                 this.y += 124;
-            } else if (newState === "LOW") {
+            } else if (newState === SanityState.Insane) {
                 this.removeComponent("tree_door_unstable");
                 this.addComponent("tree_door_stable");
                 this.addComponent("Solid");
