@@ -25,7 +25,6 @@ Crafty.defineScene('Level0', function () {
         .movementSpeed(200)
         .maxMovementDistance(500)
 
-
     const ground1 = Crafty.e('UnstableDroppingGround')
         .attr({x: -400, y: 720, w: 200, h: 75})
     const ground2 = Crafty.e('UnstableDroppingGround')
@@ -46,9 +45,11 @@ Crafty.defineScene('Level0', function () {
 
     // sanity zones
     const sanityBooster = Crafty.e('SanityZone')
-        .attr({x: -50, y: 720, mode: MODE.GAIN})
+        .attr({x: -50, y: 675})
+        .setMode(MODE.GAIN)
     const sanityDropper = Crafty.e('SanityZone')
-        .attr({x: 100, y: 720, mode: MODE.LOSS})
+        .attr({x: 100, y: 735})
+        .setMode(MODE.LOSS)
 
     // sanity wall
     const sanityWall = Crafty.e('SanityWall')

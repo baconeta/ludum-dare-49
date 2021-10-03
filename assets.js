@@ -8,7 +8,12 @@ var gameAssets = {
         "assets/images/lower_sanity_zone.png": {
             "tile": 899,
             "tileh": 172,
-            "map": {"sanity_zone": [0, 0]}
+            "map": {"loss_sanity_zone": [0, 0]}
+        },
+        "assets/images/increase_sanity_zone.png": {
+            "tile": 737,
+            "tileh": 426,
+            "map": {"gain_sanity_zone": [0, 0]}
         },
         "assets/images/platform1_sad.png": {
             "tile": 199,
