@@ -3,7 +3,7 @@ Crafty.defineScene("Level1", function () {
     const hud = Crafty.e("HUD");
     audioController.playTrack('sadness');
 
-    Crafty.e("Background").place(-1000,-1800,12000,12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
+    Crafty.e("Background").place(-1000, -1800, 12000, 12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
 
     // Assets
 
@@ -167,7 +167,7 @@ Crafty.defineScene("Level1", function () {
     var spike3 = Crafty.e('Spike')
         .attr({x: 3490, y: -1410})
     var sanityBooster = Crafty.e('SanityBooster')
-          .attr({x: 3320, y: -1410})
+        .attr({x: 3320, y: -1410})
 
     //Platform with spikes (First)
     var platform29 = Crafty.e('Ground')
@@ -209,7 +209,7 @@ Crafty.defineScene("Level1", function () {
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(5750, -1400)
     var sanityzone1 = Crafty.e('SanityZone')
-        .attr({x: 5750, y: -1500, w: 600, h:100})
+        .attr({x: 5750, y: -1500, w: 600, h: 100})
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
         .attr({x: 6450, y: -1300})
 
@@ -307,7 +307,7 @@ Crafty.defineScene("Level1", function () {
     var raising6 = Crafty.e('UnstableRaisingGround')
         .attr({x: 11525, y: -1150})
     var sanityzone1 = Crafty.e('SanityZone')
-        .attr({x: 10250, y: -1250, w: 1500, h:100 })
+        .attr({x: 10250, y: -1250, w: 1500, h: 100})
     //roof spikes
     var spike8 = Crafty.e('Spike')
         .attr({x: 10300, y: -1350})
@@ -361,19 +361,16 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 12450, y: -1550, w: 30, h: 30})
 
 
-
-
     //Map End
 
 
     // misc
     noclip = false;
 
-    if (noclip){
+    if (noclip) {
         var player = Crafty.e("NoClip")
             .attr({x: 5050, y: -970});
-    }
-    else{
+    } else {
         var player = Crafty.e("Player")
             .attr({x: 100, y: -100});
     }
@@ -390,6 +387,8 @@ Crafty.defineScene("Level1", function () {
     var sanityzone1 = Crafty.e('SanityZone')
         .attr({x: 300, y: -100});
 
+    const tempPortal = Crafty.e('Door')
+        .place(-200, 0);
 
     makeCameraTrackEntity(player, 0)
     // Make the sanity bar follow the location of the player

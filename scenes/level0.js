@@ -67,6 +67,9 @@ Crafty.defineScene('Level0', function () {
     const player = Crafty.e('Player')
         .attr({x: 40, y: 760});
 
+    const tempPortal = Crafty.e('Door')
+        .place(-200, 1000);
+
     // misc setup
     makeCameraTrackEntity(player, 200)
     // Make the sanity bar follow the location of the player
