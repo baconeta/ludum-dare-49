@@ -18,7 +18,7 @@ Crafty.defineScene("Level1", function () {
     //     .attr({x: 0, y: 0})
     //Moving Platform
     // var movingPlatform = Crafty.e('UnstableMovementGround')
-    //     .place(3850, -1400)
+    //     .place(0, 0)
     //Spike
     // var spike = Crafty.e('Spike')
     //     .attr({x: 0, y: 0})
@@ -45,6 +45,13 @@ Crafty.defineScene("Level1", function () {
     // var door = Crafty.e('Door')
     //     .attr({x: 0, y: 0})
     //     .color("orange")
+    //Sanity Zone
+    // var sanityzone = Crafty.e('SanityZone')
+    //     .attr({x: 0, y: 0})
+    //Goal -- Currently a door until its implemented
+    // var goal = Crafty.e('Door')
+    //     .attr({x: 0, y: 0, w: 50, h: 50})
+    //     .color("green")
 
     //Pickups
     //Booster
@@ -54,18 +61,14 @@ Crafty.defineScene("Level1", function () {
     // var sanityBooster = Crafty.e('SanityDropper')
     //      .attr({x: 0, y: 0})
 
-    //Map Boundary
-    var platform = Crafty.e('Ground')
-        .attr({x: 0, y: 0})
-    var platform = Crafty.e('Ground')
-        .attr({x: 200, y: 0})
-    var platform = Crafty.e('Ground')
-        .attr({x: 0, y: -1600})
+    //Centre line to help with level design
     // var centreLine = Crafty.e('Ground')
     //     .attr({x: 0, y: -800, w: 12000, h: 10})
     //     .color("red")
 
     //Map Start
+    var platform = Crafty.e('Ground')
+        .attr({x: 0, y: 0})
 
     //First climb
     var platform1 = Crafty.e('Ground')
