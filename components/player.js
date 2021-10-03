@@ -1,3 +1,6 @@
+const ENEMY_SANITY_DRAIN = 18;
+const ALLY_SANITY_RESTORE = 18;
+
 Crafty.c("Player", {
     init: function () {
 
