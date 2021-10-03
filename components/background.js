@@ -3,6 +3,7 @@ Crafty.c("Background", {
         this.requires('2D, DOM, Image');
         this.z = -100000;
     },
+
     place: function (x, y, w, h, lvl) {
         // Add the width, height, and top left co-ordinates for the box/background
         this.x = x;

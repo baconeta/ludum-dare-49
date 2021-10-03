@@ -13,6 +13,7 @@ Crafty.c("Player", {
             e.trigger('LandedOnDecayGround', e);
         });
 
+
         this.checkHits("tree");
         this.bind("HitOn", function (event) {
             var kickDirection = (this.x - event[0].obj.x) > 0;
@@ -79,5 +80,6 @@ Crafty.c("PlayerBody", {
                 // do thing
             });
         }
+
     },
 });

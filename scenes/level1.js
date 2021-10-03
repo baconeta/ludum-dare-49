@@ -43,9 +43,8 @@ Crafty.defineScene("Level1", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Door')
+    // var door = Crafty.e('SanityWall')
     //     .attr({x: 0, y: 0})
-    //     .color("orange")
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
     //     .attr({x: 0, y: 0})
@@ -70,6 +69,8 @@ Crafty.defineScene("Level1", function () {
     //Map Start
     var platform = Crafty.e('Ground')
         .attr({x: 0, y: 0})
+    var platform = Crafty.e('Ground')
+        .attr({x: 300, y: 0})
 
     //First climb
     var platform1 = Crafty.e('Ground')
@@ -141,9 +142,8 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 4650, y: -1400})
     var platform21 = Crafty.e('Ground')
         .attr({x: 4820, y: -1400})
-    var door = Crafty.e('Door')
-        .attr({x: 4900, y: -1500})
-        .color("orange")
+    var door = Crafty.e('SanityWall')
+        .attr({x: 4900, y: -1675})
 
     //Sanity Zone (Left of door) + Movement platform
     var movingPlatform = Crafty.e('UnstableStrafingGround')
@@ -195,11 +195,11 @@ Crafty.defineScene("Level1", function () {
 
     //Platform with spikes (Top)
     var platform29 = Crafty.e('Ground')
-        .attr({x: 5375, y: -1350})
+        .attr({x: 5375, y: -1400})
     var spike1 = Crafty.e('Spike')
-        .attr({x: 5395, y: -1370})
+        .attr({x: 5395, y: -1420})
     var spike2 = Crafty.e('Spike')
-        .attr({x: 5525, y: -1370})
+        .attr({x: 5525, y: -1420})
 
     //Raising Platform
     var raisePlatform2 = Crafty.e('UnstableRaisingGround')
@@ -209,7 +209,7 @@ Crafty.defineScene("Level1", function () {
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(5750, -1400)
     var sanityzone1 = Crafty.e('SanityZone')
-        .attr({x: 5750, y: -1500, w: 600, h:100})
+        .attr({x: 5400, y: -1400})
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
         .attr({x: 6450, y: -1300})
 
@@ -323,6 +323,20 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 10800, y: -1350})
     var spike8 = Crafty.e('Spike')
         .attr({x: 10900, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11000, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11100, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11200, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11300, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11400, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11500, y: -1350})
+    var spike8 = Crafty.e('Spike')
+        .attr({x: 11600, y: -1350})
 
     //Walkway above
     var platform41 = Crafty.e('Ground')
@@ -357,8 +371,10 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 12225, y: -1500})
     var platform41 = Crafty.e('Ground')
         .attr({x: 12375, y: -1500})
-    var goal = Crafty.e('Ground')
+
+    var goal = Crafty.e('Door')
         .attr({x: 12450, y: -1550, w: 30, h: 30})
+        .color("green")
 
 
 
@@ -367,7 +383,7 @@ Crafty.defineScene("Level1", function () {
 
 
     // misc
-    noclip = false;
+    noclip = true;
 
     if (noclip){
         var player = Crafty.e("NoClip")
@@ -378,17 +394,6 @@ Crafty.defineScene("Level1", function () {
             .attr({x: 100, y: -100});
     }
 
-    var sanityWall = Crafty.e('SanityWall')
-        .attr({x: 200, y: -100})
-
-    var sanityBooster = Crafty.e('SanityBooster')
-        .attr({x: 500, y: 0});
-
-    var sanityDropper = Crafty.e('SanityDropper')
-        .attr({x: 560, y: 0});
-
-    var sanityzone1 = Crafty.e('SanityZone')
-        .attr({x: 300, y: -100});
 
 
     makeCameraTrackEntity(player, 0)
