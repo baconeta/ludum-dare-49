@@ -19,6 +19,7 @@ Crafty.c("SanityZone", {
     },
 
     alterSanity: function() {
+        Crafty.trigger((MODE ? "GAIN" : "LOSS") +"SANITY");
         Crafty("SanityBar").setSanity(Crafty("SanityBar").sanity + (this.mode ? GAIN_RATE : -LOSS_RATE));
     },
 })
