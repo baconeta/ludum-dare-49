@@ -1,7 +1,7 @@
 const GAME_SCREEN_WIDTH = 1200;
 const GAME_SCREEN_HEIGHT = 800;
 
-const DEBUG = true;
+const DEBUG = false;
 
 // needs to be above game init, as each level needs the AudioController
 const audioController = Crafty.e("AudioController");

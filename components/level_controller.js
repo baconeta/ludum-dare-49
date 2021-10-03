@@ -26,7 +26,6 @@ Crafty.c("LevelController", {
         });
 
         this.startLoading = () => {
-            Crafty.scene("Loading");
             this.nextLevelLoading = true;
         };
 

@@ -8,9 +8,9 @@ Crafty.c("PlayerNotification", {
         this.messagesReceived = {};
         this.textAlign("center");
         this.css('text-shadow', '1px 1px 3px black')
-        this.textColor('#724108');
+        this.textColor('#ffb703');
         this.unselectable();
-        this.textFont({size: '60px', weight: "bold", family: "Garamond"});
+        this.textFont({size: '25px', weight: "bold", family: "Garamond"});
         this.bind("InstructionText", function (message) {
             if (this.messagesReceived[message] != "SEENBEFORE") {
                 this.text(message);
@@ -30,7 +30,7 @@ Crafty.c("PlayerNotification", {
 
     setMessageEvents: function () {
         this.bind("StartSadness", function () {
-            this.trigger("InstructionText", "Wow there's a real lack of horses here");
+            this.trigger("InstructionText", "You're feeling normal but your emotions are unstable...");
         })
 
     },
