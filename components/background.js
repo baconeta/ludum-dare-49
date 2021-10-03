@@ -16,13 +16,13 @@ Crafty.c("Background", {
 
 function setBackground(lvl) {
     switch (lvl) {
-        case 1:
+        case LEVELS.SADNESS:
             this.image("assets/images/bg_sad.png", "repeat");
             break;
-        case 2:
+        case LEVELS.ANGER:
             this.image("assets/images/bg_angry.png", "repeat");
             break;
-        case 3:
+        case LEVELS.FEAR:
             this.image("assets/images/bg_sad.png", "repeat"); // change for background fear when ready
             break;
     }
