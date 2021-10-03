@@ -33,9 +33,9 @@ Crafty.c("Player", {
         });
 
         this.bind('Move', function (evt) { // after player moved
-            var hitDatas, hitData;
+            var hitDatas;
             if ((hitDatas = this.hit('wall'))) { // check for collision with walls
-                hitData = hitDatas[0]; // resolving collision for just one collider
+                var hitData = hitDatas[0]; // resolving collision for just one collider
                 if (hitData.type === 'SAT') { // SAT, advanced collision resolution
                     // move player back by amount of overlap
                     this.x -= hitData.overlap * hitData.nx;
