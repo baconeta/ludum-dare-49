@@ -6,7 +6,7 @@ Crafty.c("Player", {
         this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, Color, GroundAttacher");
         this.color("red")
         this.alpha = DEBUG ? 1.00 : 0.00;
-        this.attr({w: 10, h: 15, x:20, y:0})
+        this.attr({w: 10, h: 15, x: 20, y: 0})
         this.twoway(200)
         this.gravity('Solid');
         this.bind('LandedOnGround', function (e) {
@@ -17,7 +17,7 @@ Crafty.c("Player", {
         this.bind("HitOn", function (event) {
             var kickDirection = (this.x - event[0].obj.x) > 0;
             Crafty.trigger("WalkIntoTree");
-            if(kickDirection) {
+            if (kickDirection) {
                 this.x += 10;
             } else {
                 this.x -= 10;
@@ -25,16 +25,22 @@ Crafty.c("Player", {
         });
 
         this.playerBody = Crafty.e("PlayerBody")
-        this.playerBody.y = -162 + this.h;
+        this.playerBody.y = -214 + this.h;
+        this.playerBody.x = -62 + this.w;
         this.attach(this.playerBody);
+
+
     }
 });
 
 Crafty.c("PlayerBody", {
     init: function () {
 
-        this.addComponent("2D, DOM, Collision, elf");
-        this.attr({x: 0, y: 0, w: 42, h: 162})
+        this.addComponent("2D, DOM, Collision, SpriteAnimation, sprite_walking_right");
+        this.attr({x: 0, y: 0, w: 133, h: 209})
+
+        this.reel("sprite_walking_right", 1000, 0, 0, 8);
+        this.animate("sprite_walking_right", -1)
 
         this.onHit("SanityBooster", (hitData) => {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {

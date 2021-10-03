@@ -48,5 +48,10 @@ var gameAssets = {
             "tileh": 268,
             "map": {"music": [0, 0]}
         },
+        "assets/images/elfsprite_walk_right.png": {
+            "tile": 135,
+            "tileh": 209,
+            "map": {"sprite_walking_right": [0, 0]}
+        },
     }
 };
