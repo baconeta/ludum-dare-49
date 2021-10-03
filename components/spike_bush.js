@@ -39,7 +39,6 @@ Crafty.c("SpikeBush", {
         };
 
         this.resetComponents = () => {
-            console.info('changing bush state');
             this.removeComponent("bush_spiky");
             this.removeComponent("bush_berries");
         }
