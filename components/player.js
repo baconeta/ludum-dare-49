@@ -4,12 +4,12 @@ const ALLY_SANITY_RESTORE = 18;
 Crafty.c("Player", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, Color, GroundAttacher");
-        this.color("red")
-        this.attr({w: 10, h: 15, x:20, y:0})
-        this.twoway(200)
+        this.color("red");
+        this.attr({w: 10, h: 15, x: 20, y: 0});
+        this.twoway(200);
         this.gravity('Solid');
         this.bind('LandedOnGround', function (e) {
-            e.trigger('LandedOnDecayGround', e)
+            e.trigger('LandedOnDecayGround', e);
         });
 
         this.bind('Move', function (evt) { // after player moved
@@ -93,5 +93,4 @@ Crafty.c("PlayerBody", {
             });
         }
     },
-
 });
