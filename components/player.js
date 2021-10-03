@@ -1,6 +1,6 @@
 Crafty.c("Player", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Twoway, Keyboard, Color, GroundAttacher");
+        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, Color, GroundAttacher");
         this.color("red")   
         this.attr({w: 10, h: 15, x:20, y:0})
 
