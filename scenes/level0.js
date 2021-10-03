@@ -68,4 +68,5 @@ Crafty.defineScene('Level0', function () {
 	// Make the sanity bar follow the location of the player
 	player.attach(hud);
 	hud.y = 480;
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1900, w: 12000, h: 12000}).checkHits('Player');
 });
