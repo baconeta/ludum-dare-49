@@ -4,7 +4,7 @@ Crafty.defineScene('Level0', function () {
     const hud = Crafty.e('HUD');
     audioController.playTrack('sadness');
 
-    Crafty.e("Background").place(-1000, -1900, 12000, 12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
+    Crafty.e("Background").place(-1000, -150, 12000, 1757, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
 
 	// ground
     const movementGround = Crafty.e('UnstableStrafingGround')
