@@ -51,16 +51,16 @@ Crafty.c("SanityBar", {
     // Broadcasts a "NEW_SANITY_STATE" event when the sanity state changes.
     setSanity: function (value) {
         if (DEBUG) {
-            console.log(value);
+            console.debug(this.sanity);
         }
-        // Change the sanity, if it's valid.
+
+        // Make sure that the new value is valid
         if (value < SANITY.MIN) {
-            this.sanity = SANITY.MIN;
+            value = SANITY.MIN;
         } else if (value > SANITY.MAX) {
-            this.sanity = SANITY.MAX;
-        } else {
-            this.sanity = value;
+            value = SANITY.MAX;
         }
+        this.sanity = value;
 
         // Check if the change in sanity will cause the sanity state to change.
         if (this.sanity < SANITY.LOW && this.state !== SANITY_STATE.LOW) {
