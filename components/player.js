@@ -1,7 +1,4 @@
-const ITEMS = {NOTHING: 0, SANITY_BOOSTER: 1, SANITY_DROPPER: 2};
-const useItemKey = Crafty.keys.I;
-const sanityBoosterValue = 20;
-const sanityDropperValue = 20;
+const useItemKey = Crafty.keys.SHIFT;
 
 Crafty.c("Player", {
     init: function () {
@@ -13,14 +10,14 @@ Crafty.c("Player", {
         this.attr({x: 0, y: 0, w: 42, h: 162})
         this.twoway(200)
         this.gravity('Solid');
-        this.holding = ITEMS.NOTHING;
         this.bind('LandedOnGround', function (e) {
             e.trigger('LandedOnDecayGround', e)
         });
 
         this.onHit("SanityBooster", (hitData) => {
-            if (this.holding === ITEMS.NOTHING) {
-                this.holding = ITEMS.SANITY_BOOSTER;
+            if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
+                Crafty("ItemSlot").holding = ITEM.SANITY_BOOSTER;
+                Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 // TODO Change the sprite when picking up the item instead of changing the colour.
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
@@ -28,8 +25,9 @@ Crafty.c("Player", {
         });
 
         this.onHit("SanityDropper", (hitData) => {
-            if (this.holding === ITEMS.NOTHING) {
-                this.holding = ITEMS.SANITY_DROPPER;
+            if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
+                Crafty("ItemSlot").holding = ITEM.SANITY_DROPPER;
+                Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 // TODO Change the sprite when picking up the item instead of changing the colour.
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
@@ -76,39 +74,28 @@ Crafty.c("Player", {
     },
 
     useCurrentItem: function () {
-        switch (this.holding) {
-            case ITEMS.NOTHING:
+        let sanity = Crafty("SanityBar").sanity;
+        switch (Crafty("ItemSlot").holding) {
+            case ITEM.NOTHING:
                 break;
-            case ITEMS.SANITY_BOOSTER:
-                this.sanityIncrease(sanityBoosterValue);
+            case ITEM.SANITY_BOOSTER:
+                Crafty("SanityBar").setSanity(sanity + sanityBoosterValue);
+                Crafty.trigger("ITEM_CONSUMED", ITEM.SANITY_BOOSTER);
                 break;
-            case ITEMS.SANITY_DROPPER:
-                this.sanityReduce(sanityDropperValue);
+            case ITEM.SANITY_DROPPER:
+                Crafty("SanityBar").setSanity(sanity - sanityDropperValue);
+                Crafty.trigger("ITEM_CONSUMED", ITEM.SANITY_DROPPER);
                 break;
             default:
-                console.error(`The item '${this.holding}' cannot be used`);
+                console.error(`The item '${Crafty("ItemSlot").holding}' cannot be used`);
         }
 
-        this.holding = ITEMS.NOTHING;
-    },
-
-    sanityReduce: (value) => {
-        let currentSanity = Crafty("SanityBar").sanity;
-        currentSanity = currentSanity - value
-        //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
-        Crafty("SanityBar").sanity = currentSanity; // temporary
-    },
-
-    sanityIncrease: (value) => {
-        let currentSanity = Crafty("SanityBar").sanity;
-        currentSanity = currentSanity + value;
-        //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
-        Crafty("SanityBar").sanity = currentSanity; // temporary
+        Crafty("ItemSlot").holding = ITEM.NOTHING;
     },
 
     resetLevel: () => {
         Crafty.scene("Game");
-    }
+    },
 
 })
 
