@@ -1,6 +1,4 @@
 Crafty.defineScene('Level0', function () {
-    Crafty.trigger("StartSadness");
-    // hud
     const hud = Crafty.e('HUD');
     audioController.playTrack('sadness');
 
