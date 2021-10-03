@@ -4,7 +4,7 @@ const MULTIPLIERS = {
     HIGH: 1.5,
 }
 
-Crafty.c("UnstableMovementGround", {
+Crafty.c("UnstableStrafingGround", {
     init: function () {
         this.addComponent("2D, DOM, Delay, Motion, pf_sad_sideways");
         this.attr({x: 0, y: 0, w: 200, h: 71})
