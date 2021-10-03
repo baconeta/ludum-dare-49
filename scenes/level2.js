@@ -1,6 +1,7 @@
 Crafty.defineScene("Level2", function () {
     // hud
     const hud = Crafty.e("HUD");
+    audioController.playTrack('sadness');
 
     Crafty.e("Background").place(-1000,-1800,12000,12000, 3)// final variable is the level (1=sad, 2=anger, 3=fear)
 
@@ -43,9 +44,9 @@ Crafty.defineScene("Level2", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Door')
+    // var door = Crafty.e('SanityWall')
     //     .attr({x: 0, y: 0})
-    //     .color("orange")
+
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
     //     .attr({x: 0, y: 0})
@@ -87,7 +88,7 @@ Crafty.defineScene("Level2", function () {
     var platform = Crafty.e('Ground')
         .attr({x: 1050, y: -0})
     //Decaying Platform
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 1300, y: 0})
     var platform = Crafty.e('Ground')
         .attr({x: 1550, y: -0})
@@ -169,58 +170,63 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 3075, y: -845})
     var spike = Crafty.e('Spike')
         .attr({x: 3150, y: -845})
+    var platform = Crafty.e('Ground')
+        .attr({x: 2800, y: -900})
+    var spike = Crafty.e('Spike')
+        .attr({x: 2930, y: -925})
+    var sanityzone = Crafty.e('SanityZone')
+        .attr({x: 2800, y: -950})
     //Movement Platform + Consumable
     var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(2300, -900)
+        .place(2200, -900)
     var sanityBooster = Crafty.e('SanityDropper')
-         .attr({x: 2350, y: -1000})
+         .attr({x: 2250, y: -950})
     //Platform to door                                          ***PATH SPLIT POINT***
         //Player is predicted to be in LOW sanity on entry.
     var platform = Crafty.e('Ground')
         .attr({x: 3700, y: -850})
     var platform = Crafty.e('Ground')
         .attr({x: 3850, y: -850})
-    var door = Crafty.e('Door')
-        .attr({x: 3950, y: -950})
-        .color("orange")
+    var door = Crafty.e('SanityWall')
+        .attr({x: 3950, y: -1125})
     var raisingGround = Crafty.e('UnstableRaisingGround')
         .attr({x: 4100, y: -950})
-    //Enemy Platforms
+    //Platforms
     var platform = Crafty.e('Ground')
-        .attr({x: 4200, y: -1200})
+        .attr({x: 4200, y: -1150})
     var platform = Crafty.e('Ground')
-        .attr({x: 4350, y: -1200})
+        .attr({x: 4450, y: -1200})
+    var enemyJumper = Crafty.e('EnemyJumper')
+        .attr({x: 4725, y: -1480, w:30})
+    //Upper dropping platforms
+    var decayGround = Crafty.e('UnstableDroppingGround')
+        .attr({x: 4650, y: -1300})
+
+    var decayGround = Crafty.e('UnstableDroppingGround')
+        .attr({x: 4500, y: -1400})
+    var decayGround = Crafty.e('UnstableDroppingGround')
+        .attr({x: 4300, y: -1450})
+    var sanityBooster = Crafty.e('SanityBooster')
+        .attr({x: 4325, y: -1500})
+    //Lower Path Onwards
     var platform = Crafty.e('Ground')
-        .attr({x: 4500, y: -1200})
-    var platform = Crafty.e('Ground')
-        .attr({x: 4650, y: -1200})
+        .attr({x: 4650, y: -1100})
     var platform = Crafty.e('Ground')
         .attr({x: 4800, y: -1200})
     var platform = Crafty.e('Ground')
         .attr({x: 4950, y: -1200})
     var platform = Crafty.e('Ground')
         .attr({x: 5100, y: -1200})
+        //Enemies
     var boundary = Crafty.e('MovementBoundary')
-        .attr({x: 4200, y: -1350, w: 20, h: 100})
+        .attr({x: 4800, y: -1250, w: 20, h: 150})
     var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 4250, y: -1350, w: 20})
+        .attr({x: 4850, y: -1250, w: 20})
     var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 4600, y: -1350, w: 20})
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 5200, y: -1350, w: 20})
+        .attr({x: 5150, y: -1250, w: 20})
     var boundary = Crafty.e('MovementBoundary')
-        .attr({x: 5250, y: -1350, w: 20, h: 100})
-    //Consumable platforms + Jumper
-    var decayGround = Crafty.e('UnstableDecayGround')
-        .attr({x: 4650, y: -1450})
-    var sanityzone = Crafty.e('SanityZone')
-        .attr({x: 4200, y: -1250})
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 4725, y: -1480, w:30})
-    var decayGround = Crafty.e('UnstableDecayGround')
-        .attr({x: 4300, y: -1450})
-    var sanityBooster = Crafty.e('SanityBooster')
-        .attr({x: 4375, y: -1450})
+        .attr({x: 5200, y: -1250, w: 20, h: 150})
+
     //Spike Platform
     var platform = Crafty.e('Ground')
         .attr({x: 5500, y: -1250})
@@ -240,17 +246,21 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 5640, y: -1270})
     var spike = Crafty.e('Spike')
         .attr({x: 5660, y: -1270})
+
     //Decaying floor gauntlet
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 5800, y: -1250})
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 6050, y: -1150})
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 6350, y: -1025})
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 6050, y: -900})
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var platform = Crafty.e('Ground')
         .attr({x: 5700, y: -900})
+    var sanityzone = Crafty.e('SanityZone')
+         .attr({x: 5750, y: -950})
+
     //Movement Platform to end of level
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(6100, -1350)
@@ -260,9 +270,8 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 6950, y: -1350})
     var platform = Crafty.e('Ground')
         .attr({x: 7100, y: -1350})
-    var door = Crafty.e('Door')
-        .attr({x: 6900, y: -1450})
-        .color("orange")
+    var door = Crafty.e('SanityWall')
+        .attr({x: 6900, y: -1625})
     var goal = Crafty.e('Door')
         .attr({x: 7200, y: -1400, w: 50, h: 50})
         .color("green")
