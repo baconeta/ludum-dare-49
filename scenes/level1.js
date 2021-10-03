@@ -61,9 +61,9 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 0, y: -1600, w: 10, h: 1600})
     var wall = Crafty.e('Ground')
         .attr({x: 11990, y: -1600, w: 10, h: 1600})
-    var centreLine = Crafty.e('Ground')
-        .attr({x: 0, y: -800, w: 12000, h: 10})
-        .color("red")
+    // var centreLine = Crafty.e('Ground')
+    //     .attr({x: 0, y: -800, w: 12000, h: 10})
+    //     .color("red")
 
     //Map Start
 
