@@ -58,11 +58,11 @@ Crafty.defineScene('Level0', function () {
 
     // enemies
     const enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 750, y: 520, w: 20, h: 20})
+        .attr({x: 750, y: 520, w: 20})
     const enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 340, y: 670, w: 20, h: 20})
+        .attr({x: 340, y: 670})
     const enemyWalker2 = Crafty.e('EnemyWalker')
-        .attr({x: -550, y: 400, w: 20, h: 20})
+        .attr({x: -550, y: 400})
 
     // misc
     const player = Crafty.e('Player')
