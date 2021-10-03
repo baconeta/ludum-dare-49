@@ -36,27 +36,23 @@ Crafty.c("UnstableRaisingGround", {
         });
 
         // Speed up when sanity is low.
-        Crafty.bind("NEW_SANITY_STATE", (state) => {
-            switch (state) {
-                case SANITY_STATE.HIGH:
-                    this.speedMultiplier = 0.000_000_1;
-                    break;
-                case SANITY_STATE.MEDIUM:
-                    this.speedMultiplier = 1;
-                    break;
-                case SANITY_STATE.LOW:
-                    this.speedMultiplier = VERTICAL_MULTIPLIERS.HIGH;
-                    break;
-            }
-            this.updateVelocity();
+        Crafty.bind("NEW_SANITY_STATE", (sanityState) => {
+            this.updateSpeedMultiplier(sanityState);
         });
 
-        this.bind('LandedOnDecayGround', (e) => {
+        this.bind('LandedOnDecayGround', () => {
+            // Platforms should always move when standing on them
             if (this.speedMultiplier < 1) {
                 this.speedMultiplier = 1;
                 this.updateVelocity();
             }
-        })
+        });
+
+        this.bind('LiftedOffDecayGround', () => {
+            // Platforms should reset (stop or keep moving) when the player leaves them
+            let sanityState = Crafty("SanityBar").state;
+            this.updateSpeedMultiplier(sanityState);
+        });
     },
 
     place: function (x, y) {
@@ -86,6 +82,21 @@ Crafty.c("UnstableRaisingGround", {
 
     invertMovementDirection: function () {
         this.direction *= -1;
+        this.updateVelocity();
+    },
+
+    updateSpeedMultiplier: function (sanityState) {
+        switch (sanityState) {
+            case SANITY_STATE.HIGH:
+                this.speedMultiplier = 0.000_000_1;
+                break;
+            case SANITY_STATE.MEDIUM:
+                this.speedMultiplier = 1;
+                break;
+            case SANITY_STATE.LOW:
+                this.speedMultiplier = VERTICAL_MULTIPLIERS.HIGH;
+                break;
+        }
         this.updateVelocity();
     },
 
