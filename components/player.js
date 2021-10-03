@@ -61,12 +61,12 @@ Crafty.c("PlayerBody", {
         });
 
         this.onHit("Spike", (hitData) => {
-            if (Crafty("SanityBar").state === SanityState.Insane) {
-                console.info(`You fell on some spikes... but they're harmless when your sanity is low!`);
+            if (Crafty("SanityBar").state === SanityState.High) {
+                console.info(`You fell on a berry bush without spikes!`);
                 return;
             }
 
-            console.log('You fell on some spikes and died');
+            console.log('You fell on a spiky berry bush and died');
             Crafty.trigger("ResetLevel");
         });
 
