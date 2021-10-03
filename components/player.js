@@ -1,8 +1,3 @@
-const ITEMS = {NOTHING: 0, SANITY_BOOSTER: 1, SANITY_DROPPER: 2};
-const useItemKey = Crafty.keys.I;
-const sanityBoosterValue = 20;
-const sanityDropperValue = 20;
-
 Crafty.c("Player", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Twoway, Gravity, Twoway, Keyboard, Color, GroundAttacher");
@@ -11,7 +6,6 @@ Crafty.c("Player", {
 
         this.twoway(200)
         this.gravity('Solid');
-
         this.bind('LandedOnGround', function (e) {
             e.trigger('LandedOnDecayGround', e)
         });
@@ -49,8 +43,9 @@ Crafty.c("PlayerBody", {
         this.holding = ITEMS.NOTHING;
 
         this.onHit("SanityBooster", (hitData) => {
-            if (this.holding === ITEMS.NOTHING) {
-                this.holding = ITEMS.SANITY_BOOSTER;
+            if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
+                Crafty("ItemSlot").holding = ITEM.SANITY_BOOSTER;
+                Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 // TODO Change the sprite when picking up the item instead of changing the colour.
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
@@ -58,8 +53,9 @@ Crafty.c("PlayerBody", {
         });
 
         this.onHit("SanityDropper", (hitData) => {
-            if (this.holding === ITEMS.NOTHING) {
-                this.holding = ITEMS.SANITY_DROPPER;
+            if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
+                Crafty("ItemSlot").holding = ITEM.SANITY_DROPPER;
+                Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 // TODO Change the sprite when picking up the item instead of changing the colour.
                 // TODO Play pickup sound?
                 hitData[0].obj.destroy();
@@ -68,12 +64,6 @@ Crafty.c("PlayerBody", {
 
         this.onHit("Spike", (hitData) => {
             this.resetLevel();
-        });
-
-        this.bind('KeyDown', function (e) {
-            if (e.key === useItemKey) {
-                this.useCurrentItem();
-            }
         });
 
         //if Collides with enemy
@@ -89,40 +79,4 @@ Crafty.c("PlayerBody", {
         }
     },
 
-    useCurrentItem: function () {
-        switch (this.holding) {
-            case ITEMS.NOTHING:
-                break;
-            case ITEMS.SANITY_BOOSTER:
-                this.sanityIncrease(sanityBoosterValue);
-                break;
-            case ITEMS.SANITY_DROPPER:
-                this.sanityReduce(sanityDropperValue);
-                break;
-            default:
-                console.error(`The item '${this.holding}' cannot be used`);
-        }
-
-        this.holding = ITEMS.NOTHING;
-    },
-
-    sanityReduce: (value) => {
-        let currentSanity = Crafty("SanityBar").sanity;
-        currentSanity = currentSanity - value
-        //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
-        Crafty("SanityBar").sanity = currentSanity; // temporary
-    },
-
-    sanityIncrease: (value) => {
-        let currentSanity = Crafty("SanityBar").sanity;
-        currentSanity = currentSanity + value;
-        //Crafty("SanityBar").setSanity(currentSanity); //Will work when setSanity is fixed
-        Crafty("SanityBar").sanity = currentSanity; // temporary
-    },
-
-    resetLevel: () => {
-        Crafty.scene("Game");
-    }
-
-})
-
+});

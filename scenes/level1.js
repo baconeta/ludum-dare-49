@@ -177,8 +177,8 @@ Crafty.defineScene("Level1", function () {
     //Door Platform
     var platform30 = Crafty.e('Ground')
         .attr({x: 5600, y: -750})
-    var door1 = Crafty.e('Ground')
-        .attr({x: 5980, y: -850})
+    var door = Crafty.e('Door')
+        .place(5980, -750);
     var wall5 = Crafty.e('Ground')
         .attr({x: 5980, y: -1450})
 
@@ -324,7 +324,7 @@ Crafty.defineScene("Level1", function () {
             .attr({x: 0, y: 0});
     }
 
-    var door1 = Crafty.e('SanityWall')
+    const sanityWall = Crafty.e('SanityWall')
         .attr({x: 200, y: -100})
 
     const sanityBooster = Crafty.e('SanityBooster')
