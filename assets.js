@@ -53,5 +53,10 @@ var gameAssets = {
             "tileh": 209,
             "map": {"sprite_walking_right": [0, 0]}
         },
+        "assets/images/elfsprite_walk_left.png": {
+            "tile": 134.5,
+            "tileh": 209,
+            "map": {"sprite_walking_left": [0, 0]}
+        },
     }
 };

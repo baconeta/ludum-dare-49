@@ -26,7 +26,6 @@ Crafty.c("Player", {
 
         this.playerBody = Crafty.e("PlayerBody")
         this.playerBody.y = -214 + this.h;
-        this.playerBody.x = -62 + this.w;
         this.attach(this.playerBody);
 
 
@@ -37,10 +36,16 @@ Crafty.c("PlayerBody", {
     init: function () {
 
         this.addComponent("2D, DOM, Collision, SpriteAnimation, sprite_walking_right");
-        this.attr({x: 0, y: 0, w: 133, h: 209})
+        this.attr({x: 0, y: 0, w: 135, h: 209})
 
-        this.reel("sprite_walking_right", 1000, 0, 0, 8);
+        this.reel("sprite_walking_left", 2000, 0, 0, 16, 8);
+        this.reel("sprite_walking_right", 1000, 0, 0, 16, 8);
+        this.reel("sprite_idle_left", 1000, 0, 0, 16, 8);
+        this.reel("sprite_jump_right", 1000, 0, 0, 16, 8);
+        this.reel("sprite_jump_left", 1000, 0, 0, 16, 8);
+
         this.animate("sprite_walking_right", -1)
+        // this.animate("sprite_walking_left", -1)
 
         this.onHit("SanityBooster", (hitData) => {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
