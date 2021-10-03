@@ -9,9 +9,9 @@ Crafty.c("SanityZone", {
         this.color('black', 0.2);
         this.mode = MODE.GAIN;
 
-        if (this.checkHits("Player")){ //if collide hits with player
+        if (this.checkHits("PlayerBody")){ //if collide hits with player
             this.bind("HitOn", function() {
-                this.delay(this.alterSanity, 500, -1);
+                this.delay(this.alterSanity, 250, -1);
             })
             this.bind("HitOff", function() { //Player leaves zone
                 this.cancelDelay(this.alterSanity);

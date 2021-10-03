@@ -6,19 +6,19 @@ Crafty.defineScene('Level0', function () {
 	Crafty.e("Background").place(-1000,-1900,12000,12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
 
 	// ground
-	const movementGround = Crafty.e('UnstableMovementGround')
+	const movementGround = Crafty.e('UnstableStrafingGround')
 		.place(-700, 580)
 		.movementDirection(DIRECTION.RIGHT)
 		.movementSpeed(60)
 		.maxMovementDistance(500)
 
-	const movementGround2 = Crafty.e('UnstableMovementGround')
+	const movementGround2 = Crafty.e('UnstableStrafingGround')
 		.place(-600, 450)
 		.movementDirection(DIRECTION.RIGHT)
 		.movementSpeed(20)
 		.maxMovementDistance(300)
 
-	const movementGround3 = Crafty.e('UnstableMovementGround')
+	const movementGround3 = Crafty.e('UnstableStrafingGround')
 		.place(-400, 320)
 		.movementDirection(DIRECTION.RIGHT)
 		.movementSpeed(200)

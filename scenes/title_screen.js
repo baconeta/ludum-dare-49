@@ -20,8 +20,8 @@ Crafty.defineScene('Title', function () {
         })
         .bind('Click', function (MouseEvent) {
             Crafty.trigger("NextLevel");
-            // user has interact with DOM, so we can now autoplay sound
-            // UNCOMMENT BEFORE WE FINISH - AUDIO IS OFF WHILE THIS IS COMMENTED OUT
+            // User has interact with DOM, so we can now autoplay sound
+            // TODO UNCOMMENT BEFORE WE FINISH - AUDIO IS OFF WHILE THIS IS COMMENTED OUT
             // audioController.canPlay = true;
         });
 });
