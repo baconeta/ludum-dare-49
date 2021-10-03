@@ -1,4 +1,4 @@
-Crafty.defineScene('Game', function () {
+Crafty.defineScene('Level0', function () {
 	// hud
 	const hud = Crafty.e('HUD');
 
