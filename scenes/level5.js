@@ -20,7 +20,7 @@ Crafty.defineScene("Level5", function () {
     // var movingPlatform = Crafty.e('UnstableMovementGround')
     //     .place(0, 0)
     //Spike
-    // var spike = Crafty.e('Spike')
+    // var spike = Crafty.e('SpikeBush')
     //     .attr({x: 0, y: 0})
 
     // Terrain
