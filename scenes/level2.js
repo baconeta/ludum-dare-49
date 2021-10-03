@@ -91,7 +91,7 @@ Crafty.defineScene("Level2", function () {
     var platform = Crafty.e('Ground')
         .attr({x: 1550, y: -0})
     //Moving Platform
-    var movingPlatform = Crafty.e('UnstableMovementGround')
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(1750, -50)
     var platform = Crafty.e('Ground')
         .attr({x: 2450, y: -50})
@@ -129,9 +129,9 @@ Crafty.defineScene("Level2", function () {
     var spike = Crafty.e('Spike')
         .attr({x: 4160, y: -520})
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4300, y: -500})
+        .attr({x: 4320, y: -500})
     //Movement Platform for Consumable
-    var movingPlatform = Crafty.e('UnstableMovementGround')
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(4450, -800)
     var sanityBooster = Crafty.e('SanityBooster')
          .attr({x: 4900, y: -830})
@@ -169,7 +169,7 @@ Crafty.defineScene("Level2", function () {
     var spike = Crafty.e('Spike')
         .attr({x: 3150, y: -845})
     //Movement Platform + Consumable
-    var movingPlatform = Crafty.e('UnstableMovementGround')
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(2300, -900)
     var sanityBooster = Crafty.e('SanityDropper')
          .attr({x: 2350, y: -1000})
@@ -251,7 +251,7 @@ Crafty.defineScene("Level2", function () {
     var decayGround = Crafty.e('UnstableDecayGround')
         .attr({x: 5700, y: -900})
     //Movement Platform to end of level
-    var movingPlatform = Crafty.e('UnstableMovementGround')
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(6100, -1350)
     var platform = Crafty.e('Ground')
         .attr({x: 6800, y: -1350})
@@ -278,7 +278,7 @@ Crafty.defineScene("Level2", function () {
     }
     else{
         var player = Crafty.e("Player")
-            .attr({x: 4300, y: -500});
+            .attr({x: 100, y: -100});
     }
 
     makeCameraTrackEntity(player, 0)
