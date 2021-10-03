@@ -16,7 +16,6 @@ Crafty.c("SanityWall", {
             } else if (newState === SANITY_STATE.LOW) {
                 if (this.blocking === true) {
                     this.removeComponent("wall");
-                    console.log(this.has("wall"));
                     this.removeComponent("tree_door_stable");
                     this.addComponent("tree_door_unstable");
                     this.y += 124;
