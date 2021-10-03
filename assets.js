@@ -1,10 +1,5 @@
 var gameAssets = {
     "sprites": {
-        "assets/images/elf.png": {
-            "tile": 275,
-            "tileh": 1080,
-            "map": {"elf": [0, 0]}
-        },
         "assets/images/lower_sanity_zone.png": {
             "tile": 899,
             "tileh": 172,
@@ -57,6 +52,24 @@ var gameAssets = {
             "tile": 134.5,
             "tileh": 209,
             "map": {"sprite_walking_left": [0, 0]}
+        },
+        "assets/images/idle_left.png": {
+            "tile": 69,
+            "tileh": 209,
+            "map": {"sprite_idle_left": [0, 0]}
+        },"assets/images/idle_right.png": {
+            "tile": 69,
+            "tileh": 209,
+            "map": {"sprite_idle_right": [0, 0]}
+        },
+        "assets/images/elfsprite_jump_left.png": {
+            "tile": 135,
+            "tileh": 186,
+            "map": {"sprite_jump_left": [0, 0]}
+        },"assets/images/elfsprite_jump_right.png": {
+            "tile": 135,
+            "tileh": 186,
+            "map": {"sprite_jump_right": [0, 0]}
         },
     }
 };
