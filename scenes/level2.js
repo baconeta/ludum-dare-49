@@ -186,19 +186,19 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 4100, y: -950})
     //Enemy Platforms
     var platform = Crafty.e('Ground')
-        .attr({x: 4200, y: -1300})
+        .attr({x: 4200, y: -1200})
     var platform = Crafty.e('Ground')
-        .attr({x: 4350, y: -1300})
+        .attr({x: 4350, y: -1200})
     var platform = Crafty.e('Ground')
-        .attr({x: 4500, y: -1300})
+        .attr({x: 4500, y: -1200})
     var platform = Crafty.e('Ground')
-        .attr({x: 4650, y: -1300})
+        .attr({x: 4650, y: -1200})
     var platform = Crafty.e('Ground')
-        .attr({x: 4800, y: -1300})
+        .attr({x: 4800, y: -1200})
     var platform = Crafty.e('Ground')
-        .attr({x: 4950, y: -1300})
+        .attr({x: 4950, y: -1200})
     var platform = Crafty.e('Ground')
-        .attr({x: 5100, y: -1300})
+        .attr({x: 5100, y: -1200})
     var boundary = Crafty.e('MovementBoundary')
         .attr({x: 4200, y: -1350, w: 20, h: 100})
     var enemyWalker = Crafty.e('EnemyWalker')
@@ -213,13 +213,13 @@ Crafty.defineScene("Level2", function () {
     var decayGround = Crafty.e('UnstableDecayGround')
         .attr({x: 4650, y: -1450})
     var sanityzone = Crafty.e('SanityZone')
-        .attr({x: 4200, y: -1500, w: 1050, h: 200})
+        .attr({x: 4200, y: -1250})
     var enemyJumper = Crafty.e('EnemyJumper')
-        .attr({x: 4725, y: -1500, w:30})
+        .attr({x: 4725, y: -1480, w:30})
     var decayGround = Crafty.e('UnstableDecayGround')
-        .attr({x: 4300, y: -1550})
+        .attr({x: 4300, y: -1450})
     var sanityBooster = Crafty.e('SanityBooster')
-        .attr({x: 4375, y: -1600})
+        .attr({x: 4375, y: -1450})
     //Spike Platform
     var platform = Crafty.e('Ground')
         .attr({x: 5500, y: -1250})
@@ -270,7 +270,7 @@ Crafty.defineScene("Level2", function () {
 
 
     // misc
-    noclip = false;
+    noclip = true;
 
     if (noclip){
         var player = Crafty.e("NoClip")
