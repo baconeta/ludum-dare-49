@@ -11,7 +11,10 @@ Crafty.defineScene("Level3", function () {
     //     .attr({x: 0, y: 0})
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
-    //     .attr({x: 0, y: 0})
+    //     .place(0, 0)
+    //     .movementDirection(VERTICAL_DIRECTION.UP)
+    //     .maxMovementDistance(200)
+    //     .movementSpeed(100);
     //Decaying Platform
     // var decayGround = Crafty.e('UnstableDecayGround')
     //     .attr({x: 0, y: 0})

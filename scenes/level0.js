@@ -34,7 +34,7 @@ Crafty.defineScene('Level0', function () {
     const ground6 = Crafty.e('Ground')
         .place(700, 580)
 
-    const upPlatform = Crafty.e('UnstableRaisingGround2')
+    const upPlatform = Crafty.e('UnstableRaisingGround')
         .place(400, 450)
         .movementDirection(VERTICAL_DIRECTION.UP)
         .maxMovementDistance(200)
