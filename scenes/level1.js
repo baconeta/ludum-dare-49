@@ -146,7 +146,7 @@ Crafty.defineScene("Level1", function () {
         .color("orange")
 
     //Sanity Zone (Left of door) + Movement platform
-    var movingPlatform = Crafty.e('UnstableMovementGround')
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(3850, -1400)
     var platform21 = Crafty.e('Ground')
         .attr({x: 3600, y: -1400})
@@ -206,7 +206,7 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 5550, y: -1000})
 
     //Moving Platform + Sanity check + Dropping ground
-    var movingPlatform = Crafty.e('UnstableMovementGround')
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(5750, -1400)
     var sanityzone1 = Crafty.e('SanityZone')
         .attr({x: 5750, y: -1500, w: 600, h:100})
@@ -375,7 +375,7 @@ Crafty.defineScene("Level1", function () {
     }
     else{
         var player = Crafty.e("Player")
-            .attr({x: 7450, y: -1400});
+            .attr({x: 100, y: -100});
     }
 
     var sanityWall = Crafty.e('SanityWall')
