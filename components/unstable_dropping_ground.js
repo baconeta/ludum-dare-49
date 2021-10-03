@@ -19,7 +19,6 @@ Crafty.c("UnstableDroppingGround", {
         this.bind('Move', () => {
             if (this.y > 5000) this.destroy();
         });
-
         Crafty.bind("NEW_SANITY_STATE", (state) => {
             switch (state) {
                 case SANITY_STATE.HIGH:
@@ -36,9 +35,13 @@ Crafty.c("UnstableDroppingGround", {
     },
 
     drop: function() {
+        this.originalY = this.y;
         this.delay(() => {
+            this.y = this.originalY;
+            this.ay = 0;
+            this.vy = 0;
             // this.fade()
-        }, 500, 4)
+        }, 3000, 0)
         this.ay += 500;
     },
 
