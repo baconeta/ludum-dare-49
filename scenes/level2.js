@@ -11,7 +11,10 @@ Crafty.defineScene("Level2", function () {
     //     .attr({x: 0, y: 0})
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
-    //     .attr({x: 0, y: 0})
+    //     .place(0, 0)
+    //     .movementDirection(VERTICAL_DIRECTION.UP)
+    //     .maxMovementDistance(200)
+    //     .movementSpeed(100);
     //Decaying Platform
     // var decayGround = Crafty.e('UnstableDecayGround')
     //     .attr({x: 0, y: 0})
@@ -96,7 +99,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 2450, y: -50})
     //Raising Platform
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 2600, y: -50})
+        .place(2600, -50)
     var platform = Crafty.e('Ground')
         .attr({x: 2675, y: -300})
     //Walking Enemy Platform
@@ -128,7 +131,7 @@ Crafty.defineScene("Level2", function () {
     var spike = Crafty.e('SpikeBush')
         .attr({x: 4160, y: -520})
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4320, y: -500})
+        .place(4320, -500)
     //Movement Platform for Consumable
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(4450, -800)
@@ -182,7 +185,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 3950, y: -950})
         .color("orange")
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4100, y: -950})
+        .place(4100, -950)
     //Enemy Platforms
     var platform = Crafty.e('Ground')
         .attr({x: 4200, y: -1300})
