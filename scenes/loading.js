@@ -10,10 +10,10 @@ Crafty.defineScene("Loading", function () {
     // Game Assets would be a list of images, but this tutorial doesn't use them.
 
     Crafty.load(gameAssets, function () {
-        console.info('Loading...');
+        console.info('Loaded successfully');
         Crafty.trigger("NextLevel");    
-    }, function () {
-        console.log("Crafty Load Issue");
+    }, function (progress) {
+        console.log(`Loading (${progress.loaded} / ${progress.total})...`);
     }, function (e) {
         console.log("Crafty Load Error", e);
     });
