@@ -1,4 +1,4 @@
-const VERTICAL_DIRECTION = { UP: -1, DOWN: 1 };
+const VERTICAL_DIRECTION = {UP: -1, DOWN: 1};
 const VERTICAL_MULTIPLIERS = {
     LOW: 0.5,
     HIGH: 2.0,
@@ -20,12 +20,6 @@ Crafty.c("UnstableRaisingGround", {
                 platform.invertMovementDirection();
             }
         }
-
-        // This changes direction whenever the player lands on it
-        // Was mostly for debugging but we can use it too..
-        // this.bind('LandedOnDecayGround', (e) => {
-        //     this.invertMovementDirection();
-        // })
 
         // Defaults 
         this.maxDistance = 400;
@@ -56,6 +50,13 @@ Crafty.c("UnstableRaisingGround", {
             }
             this.updateVelocity();
         });
+
+        this.bind('LandedOnDecayGround', (e) => {
+            if (this.speedMultiplier < 1) {
+                this.speedMultiplier = 1;
+                this.updateVelocity();
+            }
+        })
     },
 
     place: function (x, y) {
