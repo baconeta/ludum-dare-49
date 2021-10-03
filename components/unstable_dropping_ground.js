@@ -4,7 +4,7 @@ const DROP_DELAYS = {
     FAST: 250,
 }
 
-const PLATFORM_REGEN_DELAY = 10000;
+const PLATFORM_REGEN_DELAY_MS = 10000;
 
 Crafty.c("UnstableDroppingGround", {
     init: function () {
@@ -40,7 +40,7 @@ Crafty.c("UnstableDroppingGround", {
             this.ay = 0;
             this.vy = 0;
             // this.fade()
-        }, PLATFORM_REGEN_DELAY, 0)
+        }, PLATFORM_REGEN_DELAY_MS, 0)
         this.ay += 500;
     },
 
