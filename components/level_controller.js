@@ -6,7 +6,7 @@ Crafty.c("LevelController", {
         this.nextLevelLoading = false;
 
         this.bind("SetLevel", (level) => {
-            this.level = level;
+            this.level = level - 1;
             this.startLoading();
             setTimeout(this.changeLevel, 500);
         });
@@ -14,7 +14,7 @@ Crafty.c("LevelController", {
         this.bind("NextLevel", () => {
             if (this.canChangeLevel()) {
                 this.startLoading();
-                setTimeout(this.changeLevel, 500);
+                setTimeout(this.loadNextLevel, 500);
             }
         });
 
@@ -33,7 +33,7 @@ Crafty.c("LevelController", {
             return !this.nextLevelLoading && this.level <= this.totalLevels;
         };
 
-        this.changeLevel = () => {
+        this.loadNextLevel = () => {
             this.level++;
             Crafty.scene(`Level${this.level}`);
             this.nextLevelLoading = false;

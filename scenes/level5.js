@@ -42,14 +42,14 @@ Crafty.defineScene("Level5", function () {
 
     // Interactables
     //Door
-    // var door = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0})
     //     .color("orange")
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
     //     .attr({x: 0, y: 0})
     //Goal -- Currently a door until its implemented
-    // var goal = Crafty.e('Door')
+    // var portal = Crafty.e('LevelPortal')
     //     .attr({x: 0, y: 0, w: 50, h: 50})
     //     .color("green")
 
