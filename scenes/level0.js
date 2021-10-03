@@ -1,6 +1,7 @@
 Crafty.defineScene('Level0', function () {
 	// hud
 	const hud = Crafty.e('HUD');
+    audioController.playTrack('sadness');
 
 	Crafty.e("Background").place(-1000,-1900,12000,12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
 
@@ -64,4 +65,5 @@ Crafty.defineScene('Level0', function () {
 	makeCameraTrackEntity(player, 200)
 	// Make the sanity bar follow the location of the player
 	player.attach(hud);
+	hud.y = 480;
 });
