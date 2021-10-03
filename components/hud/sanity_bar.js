@@ -8,7 +8,7 @@ const SanityLevel = {
 };
 
 const SanityState = {
-    Low: "LOW",
+    Insane: "LOW",
     Medium: "MEDIUM",
     High: "HIGH"
 }
@@ -25,7 +25,7 @@ Crafty.c("SanityBar", {
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             // TODO Change the sanity bar appearance here.
             switch (newState) {
-                case SanityState.Low:
+                case SanityState.Insane:
                     this.color('#c20034');
                     break;
                 case SanityState.Medium:
@@ -59,8 +59,8 @@ Crafty.c("SanityBar", {
         }
 
         // Check if the change in sanity will cause the sanity state to change.
-        if (this.sanity < SanityLevel.Low && this.state !== SanityState.Low) {
-            this.state = SanityState.Low;
+        if (this.sanity < SanityLevel.Low && this.state !== SanityState.Insane) {
+            this.state = SanityState.Insane;
             Crafty.trigger("NEW_SANITY_STATE", this.state);
             return this;
         }

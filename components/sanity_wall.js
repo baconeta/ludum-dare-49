@@ -9,7 +9,7 @@ Crafty.c("SanityWall", {
                 this.removeComponent("Solid");
                 this.addComponent("tree_door_unstable");
                 this.y += 124;
-            } else if (newState === SanityState.Low) {
+            } else if (newState === SanityState.Insane) {
                 this.removeComponent("tree_door_unstable");
                 this.addComponent("tree_door_stable");
                 this.addComponent("Solid");
