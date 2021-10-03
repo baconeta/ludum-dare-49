@@ -11,6 +11,7 @@ Crafty.defineScene("Loading", function () {
 
     Crafty.load(gameAssets, function () {
         console.info('Loading...');
+        Crafty.trigger("NextLevel");    
     }, function () {
         console.log("Crafty Load Issue");
     }, function (e) {

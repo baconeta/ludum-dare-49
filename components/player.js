@@ -5,28 +5,23 @@ Crafty.c("Player", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, Color, GroundAttacher");
         this.color("red")
+        this.alpha = DEBUG ? 1.00 : 0.00;
         this.attr({w: 10, h: 15, x:20, y:0})
         this.twoway(200)
         this.gravity('Solid');
         this.bind('LandedOnGround', function (e) {
-            e.trigger('LandedOnDecayGround', e)
+            e.trigger('LandedOnDecayGround', e);
         });
 
-        this.bind('Move', function (evt) { // after player moved
-            var hitDatas, hitData;
-            if ((hitDatas = this.hit('wall'))) { // check for collision with walls
-                hitData = hitDatas[0]; // resolving collision for just one collider
-                if (hitData.type === 'SAT') { // SAT, advanced collision resolution
-                    // move player back by amount of overlap
-                    this.x -= hitData.overlap * hitData.nx;
-                    this.y -= hitData.overlap * hitData.ny;
-                } else { // MBR, simple collision resolution
-                    // move player to previous position
-                    this.x = evt._x;
-                    this.y = evt._y;
-                }
+        this.checkHits("tree");
+        this.bind("HitOn", function (event) {
+            var kickDirection = (this.x - event[0].obj.x) > 0;
+            if(kickDirection) {
+                this.x += 10;
+            } else {
+                this.x -= 10;
             }
-        })
+        });
 
         this.playerBody = Crafty.e("PlayerBody")
         this.playerBody.y = -162 + this.h;
@@ -60,10 +55,6 @@ Crafty.c("PlayerBody", {
             }
         });
 
-        this.onHit("Spike", (hitData) => {
-            this.resetLevel();
-        });
-
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
             //onHit
@@ -88,5 +79,4 @@ Crafty.c("PlayerBody", {
             });
         }
     },
-
 });
