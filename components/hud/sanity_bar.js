@@ -43,7 +43,7 @@ Crafty.c("SanityBar", {
     },
 
     drainSanity: function (value) {
-        this.setSanity(this.sanity = value);
+        this.setSanity(this.sanity - value);
     },
 
     // Broadcasts a "NEW_SANITY_STATE" event when the sanity state changes.
