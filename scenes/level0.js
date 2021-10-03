@@ -25,9 +25,9 @@ Crafty.defineScene('Level0', function () {
 		.maxMovementDistance(500)
 
 	const ground1 = Crafty.e('UnstableDroppingGround')
-		.attr({x: -400, y: 720, w: 200, h: 75})
+		.attr({x: -400, y: 720})
 	const ground2 = Crafty.e('UnstableDroppingGround')
-		.attr({x: -200, y: 780, w: 200, h: 75})
+		.attr({x: -200, y: 780})
 	const ground3 = Crafty.e('Ground')
 		.place(0, 780)
 	const ground4 = Crafty.e('Ground')
@@ -54,11 +54,11 @@ Crafty.defineScene('Level0', function () {
 
 	// enemies
 	const enemyJumper = Crafty.e('EnemyJumper')
-		.attr({x: 750, y: 520, w: 20, h: 20})
+		.attr({x: 300, y: 520})
 	const enemyWalker = Crafty.e('EnemyWalker')
-		.attr({x: 340, y: 670, w: 20, h: 20})
+		.attr({x: 340, y: 670})
 	const enemyWalker2 = Crafty.e('EnemyWalker')
-		.attr({x: -550, y: 400, w: 20, h: 20})
+		.attr({x: -520, y: 400})
 
 	// misc
 	const player = Crafty.e('Player')

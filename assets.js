@@ -38,5 +38,13 @@ var gameAssets = {
             "tileh": 268,
             "map": {"music": [0, 0]}
         },
+        "assets/images/sprite-sheet-enemy-left.png": {
+            // Guessed might be off.
+            "tile": 187,
+            "tileh": 285,
+            "map": {
+                "enemy_left": [0,0],
+            },
+        },
     }
 };
