@@ -21,7 +21,7 @@ Crafty.c("SpikeBush", {
         });
 
         this.makeSpiky = () => {
-            if (this.lethal) return;
+            if (this.lethal === true) return;
 
             this.resetComponents();
             this.addComponent("bush_spiky");
@@ -30,7 +30,7 @@ Crafty.c("SpikeBush", {
         };
 
         this.makeSafe = () => {
-            if (!this.lethal) return;
+            if (this.lethal === false) return;
 
             this.resetComponents();
             this.addComponent("bush_berries");
@@ -43,13 +43,12 @@ Crafty.c("SpikeBush", {
             this.removeComponent("bush_berries");
         }
 
-        this.displayDebug = () =>{
+        this.displayDebug = () => {
             if (!DEBUG) return;
 
             this.color(this.lethal ? 'red' : 'green');
-            
         }
-        
+
         this.makeSpiky();
     },
 
