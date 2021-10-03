@@ -16,7 +16,6 @@ Crafty.c("Player", {
         this.checkHits("tree");
         this.bind("HitOn", function (event) {
             var kickDirection = (this.x - event[0].obj.x) > 0;
-            console.log("hitWall", kickDirection, this.x, event[0].obj.x)
             if(kickDirection) {
                 this.x += 10;
             } else {
