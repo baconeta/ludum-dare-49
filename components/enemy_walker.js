@@ -33,9 +33,9 @@ Crafty.c("EnemyWalker", {
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             switch (newState) {
                 case STABILITY.HIGH:
-                    this.vx = SPEEDS.FAST;
-                    this.addComponent("Enemy");
-                    this.alpha = 1.00;
+                    this.vx = 0;
+                    this.removeComponent("Enemy");
+                    this.alpha = 0.00;
                     break;
                 case STABILITY.MEDIUM:
                     this.vx = SPEEDS.NORMAL;
@@ -43,9 +43,9 @@ Crafty.c("EnemyWalker", {
                     this.alpha = 1.00;
                     break;
                 case STABILITY.LOW:
-                    this.vx = 0;
-                    this.removeComponent("Enemy");
-                    this.alpha = 0.00;
+                    this.vx = SPEEDS.FAST;
+                    this.addComponent("Enemy");
+                    this.alpha = 1.00;
                     break;
             }
         });

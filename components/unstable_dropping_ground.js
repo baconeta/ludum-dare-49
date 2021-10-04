@@ -88,6 +88,7 @@ Crafty.c("UnstableDroppingGround", {
     },
 
     shake: function () {
+        Crafty("AudioController").playTrack('grass_step_1', 1);
         this.delay(() => {
                 this.rotation = 3;
             },
@@ -110,10 +111,8 @@ Crafty.c("UnstableDroppingGround", {
             60, 0);
         this.delay(() => {
                 this.rotation = 0;
-            },
-            72, 0);
-        this.delay(() => {
                 Crafty.trigger("RESET_TILT");
+                Crafty("AudioController").playTrack('grass_step_2', 1);
             },
             72, 0);
         this.delay(() => {
