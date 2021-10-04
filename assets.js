@@ -110,9 +110,9 @@ var gameAssets = {
             "tileh": 160,
             "map": {"tree_dead_fear": [0, 0]}
         },
-        "assets/images/music.png": {
-            "tile": 268,
-            "tileh": 268,
+        "assets/images/buttons/music_playing.png": {
+            "tile": 50,
+            "tileh": 50,
             "map": {"music": [0, 0]}
         },
         "assets/images/bush_sad.png": {
