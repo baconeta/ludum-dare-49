@@ -3,6 +3,7 @@ Crafty.c("SpikeBush", {
         this.addComponent("2D, DOM, Collision, Color");
         this.attr({w: 86, h: 66});
         this.lethal = true;
+        this.updateAssets();
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === STABILITY.LOW) {
@@ -25,17 +26,17 @@ Crafty.c("SpikeBush", {
             if (this.lethal === true) return;
 
             this.lethal = true;
-            this.updateComponents();
+            this.updateAssets();
         };
 
         this.makeSafe = () => {
             if (this.lethal === false) return;
 
             this.lethal = false;
-            this.updateComponents();
+            this.updateAssets();
         };
 
-        this.updateComponents = () => {
+        this.updateAssets = () => {
             // Reset.
             this.removeComponent("bush_sad_spiky, bush_sad_berries, bush_angry_spiky");
             this.removeComponent("bush_angry_berries, bush_fear_spiky, bush_fear_berries");

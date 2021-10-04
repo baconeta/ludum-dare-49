@@ -7,7 +7,7 @@ Crafty.c("SanityZone", {
         this.addComponent("2D, DOM, Collision, Delay");
         this.attr({x:0, y:0})
         this.mode = MODES.GAIN;
-        this.setImage();
+        this.updateAssets();
 
         if (this.checkHits("PlayerBody")){ // If collide hits with player.
             this.bind("HitOn", function() { // Player enters zone.
@@ -27,12 +27,11 @@ Crafty.c("SanityZone", {
 
     setMode: function (mode) {
         this.mode = mode;
-        this.setImage();
+        this.updateAssets();
     },
 
-    setImage: function () {
+    updateAssets: function () {
         const level = Crafty("LevelController").level;
-        console.log(level)
         this.removeComponent("sanity_up_sad");
         if (this.mode) { //on gain
             this.w = 184;
@@ -53,7 +52,6 @@ Crafty.c("SanityZone", {
                     break;
             }
             console.log(this.has("sanity_up_sad"))
-
         } else {
             this.w = 225;
             this.h = 43;
@@ -73,8 +71,6 @@ Crafty.c("SanityZone", {
                     break;
             }
             console.log(this.has("sanity_down_sad"))
-
-
         }
     }
 })
