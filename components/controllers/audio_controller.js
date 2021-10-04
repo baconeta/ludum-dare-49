@@ -24,6 +24,10 @@ Crafty.c("AudioController", {
         }
         Crafty.audio.pause(trackName);
     },
+    
+    resumeTrack: function (trackName) {
+        Crafty.audio.unpause(trackName);  
+    },
 
     stopTrack: function (trackName = "all") {
         if (trackName === "all") {

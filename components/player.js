@@ -65,7 +65,7 @@ Crafty.c("PlayerBody", {
                 Crafty("ItemSlot").holding = ITEM.SANITY_BOOSTER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 // TODO Change the sprite when picking up the item instead of changing the colour.
-                // TODO Play pickup sound?
+                audioController.playTrack("bottle-pickup", 1, 0.5);
                 hitData[0].obj.destroy();
             }
         });
@@ -75,7 +75,7 @@ Crafty.c("PlayerBody", {
                 Crafty("ItemSlot").holding = ITEM.SANITY_DROPPER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 // TODO Change the sprite when picking up the item instead of changing the colour.
-                // TODO Play pickup sound?
+                audioController.playTrack("bottle-pickup", 1, 0.5);
                 hitData[0].obj.destroy();
             }
         });
