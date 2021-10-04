@@ -30,7 +30,7 @@ var gameAssets = {
             "tileh": 106,
             "map": {"sanity_up_fear": [0, 0]}
         },
-        "assets/images/item_box.png": {
+        "assets/images/vial_icon_box.png": {
             "tile": 50,
             "tileh": 50,
             "map": {"item_box": [0, 0]}
