@@ -22,34 +22,18 @@ Crafty.c("Player", {
             entity.trigger('LiftedOffDecayGround', entity);
         });
 
-        this.checkHits("tree");
-        this.bind("HitOn", function (event) {
-            const kickDirection = (this.x - event[0].obj.x) > 0;
-            Crafty.trigger("WalkIntoTree");
-            if (kickDirection) {
-                this.x += 10;
-            } else {
-                this.x -= 10;
-            }
-        });
-
-        if (this.checkHits("Enemy")) {
-            this.bind("HitOn", function (hitData) {
-                const kickDirection = (this.x - hitData[0].obj.x) > 0;
-                this.delay(function () {
-                    if (kickDirection) {
-                        this.x += 15;
-                    } else {
-                        this.x -= 15;
-                    }
-                }, 15, 1);
-            });
+        if (this.checkHits("tree")) {
+            this.bind("HitOn", function (event) {
+                const kickDirection = (this.x - event[0].obj.x) > 0;
+                Crafty.trigger("WalkIntoTree");
+                if (kickDirection) {
+                    this.x += 10;
+                } else {
+                    this.x -= 10;
+                }
+            })
         }
-
-        this.bind("KickBackEnemy", function (hitData) {
-
-        })
-
+        
         this.bind("RESET_TILT", function (event) {
             this.rotation = 0;
         });
