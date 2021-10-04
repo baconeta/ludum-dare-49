@@ -94,6 +94,46 @@ var gameAssets = {
             "tile": 135,
             "tileh": 186,
             "map": {"sprite_jump_right": [0, 0]}
+        }, "assets/images/platform_normal_angry.png": {
+            "tile": 203,
+            "tileh": 117,
+            "map": {"pf_angry_normal": [0, 0]}
+        }, "assets/images/platform_long_angry.png": {
+            "tile": 334,
+            "tileh": 68,
+            "map": {"pf_angry_long": [0, 0]}
+        }, "assets/images/platform_moving_angry.png": {
+            "tile": 194,
+            "tileh": 62,
+            "map": {"pf_angry_moving": [0, 0]}
+        }, "assets/images/platform_updown_angry.png": {
+            "tile": 93,
+            "tileh": 165,
+            "map": {"pf_angry_updown": [0, 0]}
+        }, "assets/images/platform_breaking_angry.png": {
+            "tile": 203,
+            "tileh": 117,
+            "map": {"pf_angry_unstable": [0, 0]}
+        }, "assets/images/platform_normal_fear.png": {
+            "tile": 267,
+            "tileh": 72,
+            "map": {"pf_fear_normal": [0, 0]}
+        }, "assets/images/platform_long_fear.png": {
+            "tile": 351,
+            "tileh": 86,
+            "map": {"pf_fear_long": [0, 0]}
+        }, "assets/images/platform_moving_fear.png": {
+            "tile": 224,
+            "tileh": 65,
+            "map": {"pf_fear_moving": [0, 0]}
+        }, "assets/images/platform_updown_fear.png": {
+            "tile": 110,
+            "tileh": 183,
+            "map": {"pf_fear_updown": [0, 0]}
+        }, "assets/images/platform_broken_fear.png": {
+            "tile": 267,
+            "tileh": 72,
+            "map": {"pf_fear_unstable": [0, 0]}
         },
     }
 };
