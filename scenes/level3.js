@@ -69,7 +69,7 @@ Crafty.defineScene("Level3", function () {
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
-    no_clip = true
+    no_clip = false
 
 
     //Map Start
@@ -196,31 +196,53 @@ Crafty.defineScene("Level3", function () {
     var door = Crafty.e('SanityWall')
         .place(5300, -1070)
 
-    //Upper Platforms
+
+    //Lower Platforms
+    var platform = Crafty.e('Ground')
+        .place(6000, -430)
+    var platform = Crafty.e('GroundLong')
+        .place(6350, -400)
+    var door = Crafty.e('SanityWall')
+        .place(6400, -620)
+    var boundary = Crafty.e('MovementBoundary')
+        .place(6450, -450)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .place(6500, -500)
+    var boundary = Crafty.e('MovementBoundary')
+        .place(6720, -450)
+    var droppingGround = Crafty.e('UnstableDroppingGround')
+        .place(6900, -250)
+    var droppingGround = Crafty.e('UnstableDroppingGround')
+        .place(6650, -100)
+    var sanityBooster = Crafty.e('SanityBooster')
+        .place( 6650, -150)
+
+    var raisingGround = Crafty.e('UnstableRaisingGround')
+        .place(7250, -600)
+        .movementDirection(VERTICAL_DIRECTION.UP)
+        .maxMovementDistance(300)
+        .movementSpeed(500);
+    var boundary = Crafty.e('MovementBoundary')
+        .place(6930, -960)
+    var droppingGround = Crafty.e('UnstableDroppingGround')
+        .place(6950, -950)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .place(7000, -1000)
+    var boundary = Crafty.e('MovementBoundary')
+        .place(7120, -960)
+
+
+    //Upper Platforms (End of Level)
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .place(5750, -600)
     var platform = Crafty.e('Ground')
         .place(6060, -730)
     var spike = Crafty.e('SpikeBush')
         .place(6060, -780)
-    var platform = Crafty.e('Ground')
-        .place(6340, -700)
-    var platform = Crafty.e('Ground')
-        .place(6600, -724)
-
-    //Lower Platforms
-    var platform = Crafty.e('Ground')
-        .place(6050, -570)
-
-
-
-
-
-
-
-
-
-
+    var platform = Crafty.e('GroundLong')
+        .place(6390, -700)
+    var portal = Crafty.e('LevelPortal')
+        .place(6550, -700)
 
     //Map End
 
@@ -231,11 +253,9 @@ Crafty.defineScene("Level3", function () {
 
     // misc
 
-    noclip = true;
-
     if (noclip){
         var player = Crafty.e("NoClip")
-            .attr({x: 4000, y: -1000});
+            .attr({x: 6950, y: -1000});
     }
     else{
         var player = Crafty.e("Player")
