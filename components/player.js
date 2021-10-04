@@ -63,6 +63,7 @@ Crafty.c("Player", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     }
 });
 
@@ -133,6 +134,7 @@ Crafty.c("PlayerBody", {
         } else {
             this.startAnimation("sprite_walking_left");
         }
+        return this;
     },
 
     setKeybindings: function () {
@@ -169,7 +171,8 @@ Crafty.c("PlayerBody", {
             } else {
                 this.startAnimation("sprite_idle_left");
             }
-        })
+        });
+        return this;
     },
 
     startAnimation: function (animationName) {
@@ -181,6 +184,7 @@ Crafty.c("PlayerBody", {
         this.removeComponent("sprite_jump_right");
         this.addComponent(animationName);
         this.animate(animationName, -1);
+        return this;
     },
 
     setReels: function () {
@@ -190,5 +194,6 @@ Crafty.c("PlayerBody", {
         this.reel("sprite_idle_right", 3000, 0, 0, 60, 15);
         this.reel("sprite_jump_right", 2000, 0, 0, 14);
         this.reel("sprite_jump_left", 2000, 0, 0, 14);
+        return this;
     }
 })

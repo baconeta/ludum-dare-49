@@ -73,5 +73,6 @@ Crafty.c("SanityZone", {
             }
             console.log(this.has("sanity_down_sad"))
         }
+        return this;
     }
 })

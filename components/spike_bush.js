@@ -61,5 +61,6 @@ Crafty.c("SpikeBush", {
                 break;
         }
         if (DEBUG) this.color(this.lethal ? 'red' : 'green');
+        return this;
     },
 });

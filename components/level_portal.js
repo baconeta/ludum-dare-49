@@ -33,11 +33,13 @@ Crafty.c("LevelPortal", {
                 break;
         }
         this.attr({w: 474 / 4, h: 606 / 4});
+        return this;
     },
 
     resetComponents: function () {
         this.removeComponent("next_level_sign_sad");
         this.removeComponent("next_level_sign_angry");
         this.removeComponent("next_level_sign_fear");
+        return this;
     },
 });

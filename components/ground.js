@@ -103,11 +103,13 @@ Crafty.c("GroundLong", {
                 this.h = 87;
                 break;
         }
+        return this;
     },
 
     resetComponents: function () {
         this.removeComponent("pf_sad_long");
         this.removeComponent("pf_angry_long");
         this.removeComponent("pf_fear_long");
+        return this;
     }
 })

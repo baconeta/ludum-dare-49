@@ -60,5 +60,6 @@ Crafty.c("SanityWall", {
                 break;
         }
         if (DEBUG) this.color(this.lethal ? 'red' : 'green');
+        return this;
     },
 });

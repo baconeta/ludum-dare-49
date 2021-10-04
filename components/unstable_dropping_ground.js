@@ -40,6 +40,7 @@ Crafty.c("UnstableDroppingGround", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     setType: function () {
@@ -67,13 +68,15 @@ Crafty.c("UnstableDroppingGround", {
                 this.w = 797/4;
                 this.h = 300/4;
                 break;
-        }
+        };
+        return this;
     },
 
     resetComponents: function () {
         this.removeComponent("pf_sad_norm");
         this.removeComponent("pf_angry_normal");
-        this.removeComponent("pf_fear_norm");
+        this.removeComponent("pf_fear_norm")
+        return this;
     },
 
     drop: function () {
@@ -85,6 +88,7 @@ Crafty.c("UnstableDroppingGround", {
             // this.fade()
         }, PLATFORM_REGEN_DELAY_MS, 0)
         this.ay += 500;
+        return this;
     },
 
     shake: function () {
@@ -143,6 +147,7 @@ Crafty.c("UnstableDroppingGround", {
                 Crafty.trigger("RESET_TILT");
             },
             175, 0);
+        return this;
     },
 
     // fade: function () {

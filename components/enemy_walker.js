@@ -54,6 +54,7 @@ Crafty.c("EnemyWalker", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     inverseDirection: function () {
@@ -74,10 +75,12 @@ Crafty.c("EnemyWalker", {
                 this.animate("enemy_facing_right", -1);
             }
         }
+        return this;
     },
 
     setReels: function () {
         this.reel("enemy_facing_left", 1500, 0, 0, 30, 15);
         this.reel("enemy_facing_right", 1500, 0, 0, 30, 15);
+        return this;
     },
 })
