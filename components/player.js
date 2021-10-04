@@ -24,6 +24,10 @@ Crafty.c("Player", {
             }
         });
 
+        this.bind("RESET_TILT", function (event) {
+            this.rotation = 0;
+        });
+
         this.playerBody = Crafty.e("PlayerBody")
         this.playerBody.y = -162 + this.h;
         this.attach(this.playerBody);

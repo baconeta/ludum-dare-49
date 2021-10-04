@@ -49,7 +49,6 @@ Crafty.c("UnstableDroppingGround", {
     },
 
     shake: function() {
-        console.log("shake!");
         this.delay(() => {this.rotation = 3;},
             12, 0);
         this.delay(() => {this.rotation = 6;},
@@ -61,6 +60,8 @@ Crafty.c("UnstableDroppingGround", {
         this.delay(() => {this.rotation = 6;},
             60, 0);
         this.delay(() => {this.rotation = 0;},
+            72, 0);
+        this.delay(() => {Crafty.trigger("RESET_TILT");},
             72, 0);
         this.delay(() => {this.rotation = -6;},
             84, 0);
@@ -74,6 +75,8 @@ Crafty.c("UnstableDroppingGround", {
             132, 0);
         this.delay(() => {this.rotation = 0;},
             144, 0);
+        this.delay(() => {Crafty.trigger("RESET_TILT");},
+            175, 0);
     },
 
     // fade: function () {
