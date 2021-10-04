@@ -4,7 +4,7 @@ const SPEEDS = {
 };
 
 Crafty.c("EnemyWalker", {
-    init: function() {
+    init: function () {
         this.addComponent("2D, DOM, SpriteAnimation, Gravity, Collision, Delay, Enemy, enemy_facing_right");
         this.attr({x: 0, y: 0, w: 69, h: 106});
         this.gravity('Solid');
@@ -16,6 +16,20 @@ Crafty.c("EnemyWalker", {
         });
         this.setReels();
         this.animate("enemy_facing_left", -1);
+        audioController.playTrack("enemy-walk", -1, 0.3);
+
+        Crafty.bind('EnterFrame', () => {
+            const allEnemies = Crafty("EnemyWalker").get();
+            for (let enemy of allEnemies) {
+                const isOnScreen = Crafty.viewport.onScreen(enemy.pos());
+                if (isOnScreen) {
+                    audioController.resumeTrack("enemy-walk");
+                    return;
+                }
+            }
+            audioController.pauseTrack("enemy-walk");
+        });
+
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             switch (newState) {
                 case STABILITY.HIGH:
@@ -42,10 +56,10 @@ Crafty.c("EnemyWalker", {
         this.y = y;
     },
 
-    inverseDirection: function() {
+    inverseDirection: function () {
         // If the platform is moving it can sometimes glitch so this makes 
         // sure the enemy has at least walked 20 pixels before turning around again.
-        if( this.x < this.lastTurnPoint - 20 || this.x > this.lastTurnPoint + 20) {
+        if (this.x < this.lastTurnPoint - 20 || this.x > this.lastTurnPoint + 20) {
             this.vx *= -1;
             this.lastTurnPoint = this.x;
             if (this.direction === "right") {
