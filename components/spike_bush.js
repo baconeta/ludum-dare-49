@@ -36,15 +36,15 @@ Crafty.c("SpikeBush", {
 
         this.updateComponents = () => {
             this.resetComponents();
-            this.addComponent(this.getCurrentAsset(this.lethal));
+            this.addComponent(this.getAsset(this.lethal));
             this.displayDebug();
         }
         this.resetComponents = () => {
-            this.removeComponent(this.getCurrentAsset(true));
-            this.removeComponent(this.getCurrentAsset(false));
+            this.removeComponent(this.getAsset(true));
+            this.removeComponent(this.getAsset(false));
         }
 
-        this.getCurrentAsset = (isSpiky) => {
+        this.getAsset = (isSpiky) => {
             const level = Crafty("LevelController").level;
             switch (level) {
                 case LEVELS.SADNESS:
