@@ -58,7 +58,7 @@ Crafty.defineScene("Level1", function () {
     //     .place(x, y)
     //Level Portal
     // var portal = Crafty.e('LevelPortal')
-    //     .place(x, y)
+    //     .place(x, y)d
 
     //Pickups
     //Booster
@@ -172,11 +172,10 @@ Crafty.defineScene("Level1", function () {
     // Player is predicted to be in LOW sanity on entry.
     var platform = Crafty.e('GroundLong')
         .place( 3700, -850)
-
     var door1 = Crafty.e('SanityWall')
         .place( 3950, -1125)
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .place(4100, -1000).maxMovementDistance(125)
+        .place(4050, -1050).maxMovementDistance(125)
     //Enemy Platforms
     var boundary = Crafty.e('MovementBoundary')
         .place( 4175, -1200)
@@ -210,11 +209,13 @@ Crafty.defineScene("Level1", function () {
         .place(5450, -1320)
     //Decaying floor gauntlet
     var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(5800, -1270)
+        .place(5700, -1300)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -1160)
+        .place(5900, -1200)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6350, -1040)
+        .place(6050, -1100)
+    var decayGround = Crafty.e('UnstableDroppingGround')
+        .place(6200, -1040)
     var decayGround = Crafty.e('UnstableDroppingGround')
         .place(6050, -925)
     var ground = Crafty.e('Ground')
@@ -223,7 +224,7 @@ Crafty.defineScene("Level1", function () {
         .place(5750, -950)
     //Movement Platform to end of level
     var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(6100, -1350)
+        .place(5960, -1400).maxMovementDistance(500)
     var platform = Crafty.e('GroundLong')
         .place(6800, -1350)
     var door = Crafty.e('SanityWall')
