@@ -29,3 +29,6 @@ audioController.loadTrack('sane-insane',[`${BASE_SOUND_URL}insane-sane.ogg`]);
 
 audioController.loadTrack('grass_step_1',[`${BASE_SOUND_URL}grass_step_1.ogg`]);
 audioController.loadTrack('grass_step_2',[`${BASE_SOUND_URL}grass_step_2.ogg`]);
+
+audioController.loadTrack('crumble_1',[`${BASE_SOUND_URL}crumble_1.ogg`]);
+audioController.loadTrack('crumble_2',[`${BASE_SOUND_URL}crumble_2.ogg`]);
