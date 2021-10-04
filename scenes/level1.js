@@ -217,7 +217,7 @@ Crafty.defineScene("Level1", function () {
         .place(6350, -1040)
     var decayGround = Crafty.e('UnstableDroppingGround')
         .place(6050, -925)
-    var decayGround = Crafty.e('UnstableDroppingGround')
+    var ground = Crafty.e('Ground')
         .place(5700, -900)
     var sanityBooster = Crafty.e('SanityDropper')
         .place(5750, -950)
