@@ -6,7 +6,7 @@ Crafty.c("Background", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
-        this.w = 12000;
+        this.w = 14000;
         setBackground.call(this);
         return this;
     },
