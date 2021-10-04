@@ -9,7 +9,7 @@ Crafty.c("EnemyJumper", {
         this.attr({x: 0, y: 0, w: 52, h: 80});
         this.gravity('Ground');
         this.jumpSpeed(JUMP_SPEEDS.NORMAL);
-        this.jumping = false;
+        this.jumping = true;
         this.bind("LandedOnGround", function () {
             this.delay(this.jump, 500, 0);
         });

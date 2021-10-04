@@ -14,7 +14,7 @@ Crafty.c("PlayerNotification", {
             if (this.messagesReceived[message] !== "SEENBEFORE") {
                 this.text(message);
                 this.alpha = 1.3;
-                this.delay(this.decayMessage, (message.length * 15), this.alpha / 0.1);
+                this.delay(this.decayMessage, (message.length * 12), this.alpha / 0.1);
             }
             this.messagesReceived[message] = "SEENBEFORE";
             all_messages = this.messagesReceived;
@@ -30,6 +30,14 @@ Crafty.c("PlayerNotification", {
     setMessageEvents: function () {
         this.bind("StartSadness", function () { // Game start
             this.trigger("InstructionText", "Emotions are hard. Nature is dying. Is this a dream or... something else?");
+        });
+
+        this.bind("DroppingPlatform", function () {
+            this.trigger("InstructionText", "What is this place!?");
+        });
+
+        this.bind("HitMonster", function () { //walk into critters for the first time
+            this.trigger("InstructionText", "Okay so... these are... what are these? Am I going insane? Do they exist?");
         });
 
         this.bind("WalkIntoTree", function () { // walk into a tree for the first time (hint for getting past)

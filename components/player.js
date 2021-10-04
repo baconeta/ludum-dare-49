@@ -90,7 +90,7 @@ Crafty.c("PlayerBody", {
         if (this.checkHits("Enemy")) {
             this.bind("HitOn", function (hitData) {
                 if (!this.hitRecently) {
-                    console.log("drain sanity") // change to trigger + message
+                    Crafty.trigger("HitMonster");
                     Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
                     this.hitRecently = true;
                     this.delay(() => {

@@ -103,7 +103,7 @@ Crafty.defineScene("Level1", function () {
     var boundary = Crafty.e('MovementBoundary')
         .place(2930, -330)
     var enemyWalker = Crafty.e('EnemyWalker')
-        .place(3000, -320)
+        .place(3000, -330)
     var boundary = Crafty.e('MovementBoundary')
         .place( 3330, -330)
     //Jumping Enemy Platform
@@ -118,7 +118,7 @@ Crafty.defineScene("Level1", function () {
     var platform = Crafty.e('GroundLong')
         .place( 4000, -500)
     var spike = Crafty.e('SpikeBush')
-        .place(4160, -550)
+        .place(4160, -560)
     var raisingGround = Crafty.e('UnstableRaisingGround')
         .place(4400, -650).maxMovementDistance(100)
     //Movement Platform for Consumable
