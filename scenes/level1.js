@@ -3,7 +3,7 @@ Crafty.defineScene("Level1", function () {
 
     Crafty.e("Background").place(-1000, -1600);
 
-    // Assets
+// Assets
 
     // Obstacles
     //Raising Platform
@@ -12,29 +12,32 @@ Crafty.defineScene("Level1", function () {
     //     .movementDirection(VERTICAL_DIRECTION.UP)
     //     .maxMovementDistance(200)
     //     .movementSpeed(100);
+
     //Dropping Platform
     // var droppingGround = Crafty.e('UnstableDroppingGround')
     //     .place(x, y)
+
     //Moving Platform
-    // var movingPlatform = Crafty.e('UnstableMovementGround')
+    // var movingPlatform = Crafty.e('UnstableStrafingGround')
     //     .place(x, y)
     //Spike
     // var spike = Crafty.e('SpikeBush')
     //     .place(x, y)
 
     // Terrain
-    //Ground Short
-    //var platformShort = Crafty.e('Ground')
+
+    //Short
+    //var platform = Crafty.e('Ground')
     //    .place(x, y)
-    //Ground Long
-    // var platformLong = Crafty.e('GroundLong')
-    //     .place(0, -0)
+    //Long
+    //var platform = Crafty.e('GroundLong')
+    //    .place(x, y)
 
 
     // Enemies
     //Boundary
     // var boundary = Crafty.e('MovementBoundary')
-    //     .place(x, y)
+    //     .place(x, y).movementSpeed(200).maxMovementDistance(300)
     //Walker
     // var enemyWalker = Crafty.e('EnemyWalker')
     //     .place(x, y)
@@ -44,25 +47,25 @@ Crafty.defineScene("Level1", function () {
 
     // Interactables
     //Door
-    // var portal = Crafty.e('LevelPortal')
+    // var door = Crafty.e('SanityWall')
     //     .place(x, y)
     //Sanity Zone Bad
     // var sanityZoneBad = Crafty.e('SanityZone')
-    //     .place(x, y).setMode("LOSS")
+    //     .place(x, y)
     //Sanity Zone Good
     // var sanityZoneGood = Crafty.e('SanityZone')
-    //     .place(x, y).setMode("GAIN")
-    //Portal
+    //     .place(x, y)
+    //Level Portal
     // var portal = Crafty.e('LevelPortal')
-    //     .place(0, 0)
+    //     .place(x, y)
 
     //Pickups
     //Booster
     // var sanityBooster = Crafty.e('SanityBooster')
-    //      .attr({x: 0, y: 0})
+    //      .place( 0, 0)
     //Dropper
     // var sanityBooster = Crafty.e('SanityDropper')
-    //      .attr({x: 0, y: 0})
+    //      .place( 0, 0)
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
