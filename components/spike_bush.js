@@ -29,15 +29,11 @@ Crafty.c("SpikeBush", {
     },
 
     makeLethal: function () {
-        if (this.lethal === true) return;
-
         this.lethal = true;
         this.updateAssets();
     },
 
     makeSafe: function () {
-        if (this.lethal === false) return;
-
         this.lethal = false;
         this.updateAssets();
     },
