@@ -87,13 +87,13 @@ Crafty.c("UnstableRaisingGround", {
 
     updateSpeedMultiplier: function (sanityState) {
         switch (sanityState) {
-            case SANITY_STATE.HIGH:
+            case STABILITY.HIGH:
                 this.speedMultiplier = 0.000_000_1;
                 break;
-            case SANITY_STATE.MEDIUM:
+            case STABILITY.MEDIUM:
                 this.speedMultiplier = 1;
                 break;
-            case SANITY_STATE.LOW:
+            case STABILITY.LOW:
                 this.speedMultiplier = VERTICAL_MULTIPLIERS.HIGH;
                 break;
         }

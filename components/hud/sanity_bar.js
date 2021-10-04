@@ -31,13 +31,13 @@ Crafty.c("SanityBar", {
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             // TODO Change the sanity bar appearance here.
             switch (newState) {
-                case SANITY_STATE.LOW:
+                case STABILITY.LOW:
                     this.color('#c20034');
                     break;
-                case SANITY_STATE.MEDIUM:
+                case STABILITY.MEDIUM:
                     this.color('#ffea00');
                     break;
-                case SANITY_STATE.HIGH:
+                case STABILITY.HIGH:
                     this.color('#55ff00');
                     break;
             }
