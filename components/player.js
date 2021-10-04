@@ -44,13 +44,14 @@ Crafty.c("Player", {
 Crafty.c("PlayerBody", {
     init: function () {
         this.facing_right = true;
-        this.addComponent("2D, DOM, Delay, Collision, SpriteAnimation, Keyboard, sprite_idle_right");
+        this.addComponent("2D, DOM, Delay, Collision, SpriteAnimation, Keyboard, sprite_jump_right");
         this.attr({x: 0, y: 0, w: 135, h: 209}) // walking needs w=135, idle w=69, jump w=135 (h=186 for jump)
 
         this.setReels();
         this.setKeybindings();
 
-        this.animate("sprite_idle_right", -1)
+        // Start with the jumping animation, because we spawn in mid-air.
+        this.animate("sprite_jump_right", -1);
 
         this.onHit("SanityBooster", (hitData) => {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
@@ -96,6 +97,7 @@ Crafty.c("PlayerBody", {
             });
         }
     },
+
     charImg: function (idle = false, jump = false) {
         //code controlling the char Sprite state
         if (idle) {
@@ -118,27 +120,27 @@ Crafty.c("PlayerBody", {
     },
 
     setKeybindings: function () {
-        this.bind("KeyDown", function (arrow) {
-            if (arrow.key === Crafty.keys.LEFT_ARROW
-                || arrow.key === Crafty.keys["A"]) {
+        this.bind("KeyDown", function (event) {
+            if (event.key === Crafty.keys.LEFT_ARROW
+                || event.key === Crafty.keys["A"]) {
                 this.facing_right = false;
                 this.charImg();
-            } else if (arrow.key === Crafty.keys.RIGHT_ARROW
-                || arrow.key === Crafty.keys["D"]) {
+            } else if (event.key === Crafty.keys.RIGHT_ARROW
+                || event.key === Crafty.keys["D"]) {
                 this.facing_right = true;
                 this.charImg();
-            } else if (arrow.key === Crafty.keys.UP_ARROW
-                || arrow.key === Crafty.keys["W"]) {
+            } else if (event.key === Crafty.keys.UP_ARROW
+                || event.key === Crafty.keys["W"] || Crafty.keys.SPACE) {
                 this.charImg(false, true);
             }
         });
 
-        this.bind("KeyUp", function (arrow) {
-            if (arrow.key === Crafty.keys.LEFT_ARROW || arrow.key === Crafty.keys["A"]) {
-                this.charImg(true);
+        this.bind("KeyUp", function (event) {
+            if (event.key === Crafty.keys.LEFT_ARROW || event.key === Crafty.keys["A"]) {
                 this.facing_right = false;
+                this.charImg(true);
             } else {
-                if (arrow.key === Crafty.keys.RIGHT_ARROW || arrow.key === Crafty.keys["D"]) {
+                if (event.key === Crafty.keys.RIGHT_ARROW || event.key === Crafty.keys["D"]) {
                     this.facing_right = true;
                     this.charImg(true);
                 }
