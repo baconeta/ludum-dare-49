@@ -6,54 +6,55 @@ Crafty.defineScene("Level4", function () {
     // Assets
 
     // Obstacles
-    //Dropping Platform
-    // var droppingGround = Crafty.e('UnstableDroppingGround')
-    //     .attr({x: 0, y: 0})
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
-    //     .place(0, 0)
+    //     .place(x, y)
     //     .movementDirection(VERTICAL_DIRECTION.UP)
     //     .maxMovementDistance(200)
     //     .movementSpeed(100);
-    //Decaying Platform
-    // var decayGround = Crafty.e('UnstableDecayGround')
-    //     .attr({x: 0, y: 0})
+    //Dropping Platform
+    // var droppingGround = Crafty.e('UnstableDroppingGround')
+    //     .place(x, y)
     //Moving Platform
     // var movingPlatform = Crafty.e('UnstableMovementGround')
-    //     .place(0, 0)
+    //     .place(x, y)
     //Spike
     // var spike = Crafty.e('SpikeBush')
-    //     .attr({x: 0, y: 0})
+    //     .place(x, y)
 
     // Terrain
-    //Ground/Platform
-    //var platform = Crafty.e('Ground')
-    //    .attr({x: 0, y: 0})
+    //Ground Short
+    //var platformShort = Crafty.e('Ground')
+    //    .place(x, y)
+    //Ground Long
+    // var platformLong = Crafty.e('GroundLong')
+    //     .place(0, -0)
 
 
     // Enemies
     //Boundary
     // var boundary = Crafty.e('MovementBoundary')
-    //     .attr({x: 0, y: 0})
+    //     .place(x, y)
     //Walker
     // var enemyWalker = Crafty.e('EnemyWalker')
-    //     .attr({x: 0, y: 0})
+    //     .place(x, y)
     //Jumper
     // var enemyJumper = Crafty.e('EnemyJumper')
-    //     .attr({x: 0, y: 0})
+    //     .place(x, y)
 
     // Interactables
     //Door
     // var portal = Crafty.e('LevelPortal')
-    //     .attr({x: 0, y: 0})
-    //     .color("orange")
-    //Sanity Zone
-    // var sanityzone = Crafty.e('SanityZone')
-    //     .attr({x: 0, y: 0})
-    //Goal -- Currently a door until its implemented
+    //     .place(x, y)
+    //Sanity Zone Bad
+    // var sanityZoneBad = Crafty.e('SanityZone')
+    //     .place(x, y)
+    //Sanity Zone Good
+    // var sanityZoneGood = Crafty.e('SanityZone')
+    //     .place(x, y)
+    //Portal
     // var portal = Crafty.e('LevelPortal')
-    //     .attr({x: 0, y: 0, w: 50, h: 50})
-    //     .color("green")
+    //     .place(0, 0)
 
     //Pickups
     //Booster
@@ -63,10 +64,10 @@ Crafty.defineScene("Level4", function () {
     // var sanityBooster = Crafty.e('SanityDropper')
     //      .attr({x: 0, y: 0})
 
-    //Centre line to help with level design
-    // var centreLine = Crafty.e('Ground')
-    //     .attr({x: 0, y: -800, w: 12000, h: 10})
-    //     .color("red")
+    //Level Design Tools
+    //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
+    noclip = true
+
 
     //Map Start
     var platform = Crafty.e('Ground')
