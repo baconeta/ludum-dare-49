@@ -3,6 +3,7 @@ Crafty.c("Ground", {
         this.addComponent("2D, DOM");
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop")
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
@@ -59,7 +60,7 @@ Crafty.c("GroundLong", {
         this.addComponent("2D, DOM");
         this.collisionTop = Crafty.e("PlatformTop")
         this.setType();
-        this.collisionTop.w = this.w *0.9;
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
