@@ -1,5 +1,5 @@
-const GAIN_RATE = 3;
-const LOSS_RATE = 3;
+const GAIN_RATE = 15; // Per second
+const LOSS_RATE = 15; // Per second
 const MODE = { "GAIN": true, "LOSS": false };
 
 Crafty.c("SanityZone", {
@@ -9,19 +9,19 @@ Crafty.c("SanityZone", {
         this.mode = MODE.GAIN;
         this.setImage();
 
-        if (this.checkHits("PlayerBody")){ //if collide hits with player
-            this.bind("HitOn", function() {
-                this.delay(this.alterSanity, 250, -1);
+        if (this.checkHits("PlayerBody")){ // If collide hits with player.
+            this.bind("HitOn", function() { // Player enters zone.
+                this.trigger("ALTER_SANITY_RATE", MODE ? GAIN_RATE : -LOSS_RATE);
             })
-            this.bind("HitOff", function() { //Player leaves zone
-                this.cancelDelay(this.alterSanity);
+            this.bind("HitOff", function() { // Player leaves zone.
+                this.trigger("ALTER_SANITY_RATE", MODE ? -GAIN_RATE : LOSS_RATE);
             })
         }
     },
 
     alterSanity: function() {
+        // TODO Investigate loose-ends from this trigger.
         Crafty.trigger((MODE ? "GAIN" : "LOSS") +"SANITY");
-        Crafty("SanityBar").setSanity(Crafty("SanityBar").sanity + (this.mode ? GAIN_RATE : -LOSS_RATE));
     },
 
     setMode: function (mode) {

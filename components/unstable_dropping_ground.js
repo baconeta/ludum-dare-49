@@ -20,13 +20,13 @@ Crafty.c("UnstableDroppingGround", {
         })
         Crafty.bind("NEW_SANITY_STATE", (state) => {
             switch (state) {
-                case SANITY_STATE.HIGH:
+                case STABILITY.HIGH:
                     this.decayDelay = DROP_DELAYS.SLOW
                     break;
-                case SANITY_STATE.MEDIUM:
+                case STABILITY.MEDIUM:
                     this.decayDelay = DROP_DELAYS.NORMAL
                     break;
-                case SANITY_STATE.LOW:
+                case STABILITY.LOW:
                     this.decayDelay = DROP_DELAYS.FAST
                     break;
             }

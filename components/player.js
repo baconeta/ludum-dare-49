@@ -72,7 +72,7 @@ Crafty.c("PlayerBody", {
         if (this.checkHits("Enemy")) {
             //onHit
             this.bind("HitOn", function (hitData) {
-                Crafty("SanityBar").drainSanity(ENEMY_SANITY_DRAIN);
+                Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
             });
             //offHit
             this.bind("HitOff", function (comp) {
@@ -84,7 +84,7 @@ Crafty.c("PlayerBody", {
         if (this.checkHits("Ally")) {
             //onHit
             this.bind("HitOn", function (hitData) {
-                Crafty("SanityBar").restoreSanity(ALLY_SANITY_RESTORE);
+                Crafty("SanityController").restoreSanity(ALLY_SANITY_RESTORE);
             });
             //offHit
             this.bind("HitOff", function (comp) {

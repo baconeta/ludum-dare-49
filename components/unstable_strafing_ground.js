@@ -94,13 +94,13 @@ Crafty.c("UnstableStrafingGround", {
 
     setVelocityUsingSanityState: function (state) {
         switch (state) {
-            case SANITY_STATE.HIGH:
+            case STABILITY.HIGH:
                 this.vx = 0.000_000_1 * this.direction; // Ensures that the platform direction persists.
                 break;
-            case SANITY_STATE.MEDIUM:
+            case STABILITY.MEDIUM:
                 this.vx = this.speed * this.direction;
                 break;
-            case SANITY_STATE.LOW:
+            case STABILITY.LOW:
                 this.vx = this.speed * MULTIPLIERS.HIGH * this.direction;
                 break;
         }
