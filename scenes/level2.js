@@ -44,7 +44,7 @@ Crafty.defineScene("Level2", function () {
 
     // Interactables
     //Door
-    // var portal = Crafty.e('LevelPortal')
+    // var door = Crafty.e('SanityWall')
     //     .place(x, y)
     //Sanity Zone Bad
     // var sanityZoneBad = Crafty.e('SanityZone')
@@ -59,10 +59,10 @@ Crafty.defineScene("Level2", function () {
     //Pickups
     //Booster
     // var sanityBooster = Crafty.e('SanityBooster')
-    //      .attr({x: 0, y: 0})
+    //      .place( 0, 0)
     //Dropper
     // var sanityBooster = Crafty.e('SanityDropper')
-    //      .attr({x: 0, y: 0})
+    //      .place( 0, 0)
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
