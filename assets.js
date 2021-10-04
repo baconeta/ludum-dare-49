@@ -30,10 +30,20 @@ var gameAssets = {
             "tileh": 106,
             "map": {"sanity_up_fear": [0, 0]}
         },
-        "assets/images/vial_green.png": {
-            "tile": 168,
-            "tileh": 253,
+        "assets/images/item_box.png": {
+            "tile": 50,
+            "tileh": 50,
+            "map": {"item_box": [0, 0]}
+        },
+        "assets/images/vial_icon_green.png": {
+            "tile": 50,
+            "tileh": 50,
             "map": {"vial_green": [0, 0]}
+        },
+        "assets/images/vial_icon_red.png": {
+            "tile": 50,
+            "tileh": 50,
+            "map": {"vial_red": [0, 0]}
         },
         "assets/images/next_level_sign_sad.png": {
             "tile": 474,
@@ -49,11 +59,6 @@ var gameAssets = {
             "tile": 474,
             "tileh": 606,
             "map": {"next_level_sign_fear": [0, 0]}
-        },
-        "assets/images/vial_red.png": {
-            "tile": 220,
-            "tileh": 259,
-            "map": {"vial_red": [0, 0]}
         },
         "assets/images/platforms/platform_normal_sad.png": {
             "tile": 199,
