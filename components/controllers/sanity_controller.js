@@ -40,7 +40,7 @@ Crafty.c("SanityController", {
                     break;
             }
             // Although we only use restoreSanity here, the rate can be negative and thus drain the player's sanity.
-            this.restoreSanity(this.sanityChangeRate/5);
+            this.restoreSanity(this.sanityChangeRate/SANITY_TICK_RATE);
         }, 1000/SANITY_TICK_RATE, -1);
 
         this.bind("ALTER_SANITY_RATE", function (modification) {
