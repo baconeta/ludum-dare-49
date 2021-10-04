@@ -4,9 +4,9 @@ Crafty.c("SpikeBush", {
         this.attr({w: 86, h: 66});
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
-            if (newState === STABILITY.HIGH) {
+            if (newState === STABILITY.LOW) {
                 this.makeSpiky();
-            } else if (newState === STABILITY.MEDIUM || newState === STABILITY.LOW) {
+            } else if (newState === STABILITY.MEDIUM || newState === STABILITY.HIGH) {
                 this.makeSafe();
             }
         });

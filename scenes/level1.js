@@ -92,13 +92,13 @@ Crafty.defineScene("Level1", function () {
 
     //Split left for consumable                                                      ***SPLIT POINT***
     var platform7 = Crafty.e('Ground')
-        .place( 1650, -750)
+        .place(1650, -750)
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .place(1200, -720)
     var platform7 = Crafty.e('Ground')
         .place(800, -720)
     var sanityBooster = Crafty.e('SanityDropper')
-         .place(875, -780)
+        .place(875, -780)
 
     // Continue Right
     var platform8 = Crafty.e('Ground')
@@ -120,13 +120,13 @@ Crafty.defineScene("Level1", function () {
 
     //Drop Platform                                                          ***SPLIT A POINT***
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
-        .place( 3300, -800)
+        .place(3300, -800)
 
     //Drop platform gauntlet - Booster Reward                               ***SPLIT A DOWN***
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
-        .place( 3550, -675)
+        .place(3550, -675)
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
-        .place( 3700, -450)
+        .place(3700, -450)
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(2975, -250).maxMovementDistance(400)
     var sanityBooster = Crafty.e('SanityBooster')
@@ -137,17 +137,17 @@ Crafty.defineScene("Level1", function () {
     var boundary1 = Crafty.e('MovementBoundary')
         .place(3510, -960)
     var platform16 = Crafty.e('GroundLong')
-        .place( 3540, -950)
+        .place(3540, -950)
     var enemyWalker = Crafty.e('EnemyWalker')
         .place(3650, -960)
     var enemyJumper = Crafty.e('EnemyJumper')
-        .place( 3650, -1000)
+        .place(3650, -1000)
     var boundary2 = Crafty.e('MovementBoundary')
         .place(3880, -960)
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
         .place(3950, -950)
     var platform16 = Crafty.e('Ground')
-        .place( 4200, -800)
+        .place(4200, -800)
     var enemyJumper = Crafty.e('EnemyJumper')
         .place(4270, -850)
 
@@ -157,7 +157,7 @@ Crafty.defineScene("Level1", function () {
 
     //Door2
     var platform21 = Crafty.e('GroundLong')
-        .place( 4650, -1400)
+        .place(4650, -1400)
     var door2 = Crafty.e('SanityWall')
         .place(4900, -1675)
 
@@ -165,9 +165,9 @@ Crafty.defineScene("Level1", function () {
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(3850, -1400)
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
-        .place( 3500, -1450)
+        .place(3500, -1450)
     var platform16 = Crafty.e('GroundLong')
-        .place( 2950, -1390)
+        .place(2950, -1390)
     var sanityZoneBad = Crafty.e('SanityZone')
         .place(3000, -1500)
 
@@ -176,7 +176,7 @@ Crafty.defineScene("Level1", function () {
     var platform = Crafty.e('Ground')
         .place(5100, -1250)
     var spike1 = Crafty.e('SpikeBush')
-        .place( 5180, -1300)
+        .place(5180, -1300)
 
     //Platform with spikes (Bottom Left)
     var platform29 = Crafty.e('Ground')
@@ -194,15 +194,15 @@ Crafty.defineScene("Level1", function () {
     var platform29 = Crafty.e('GroundLong')
         .place(5200, -850)
     var spike1 = Crafty.e('SpikeBush')
-        .place( 5220, -920)
+        .place(5220, -920)
     var spike2 = Crafty.e('SpikeBush')
-        .place(5400,  -920)
+        .place(5400, -920)
 
     //Platform with spikes (Top)
     var platform29 = Crafty.e('Ground')
         .place(5375, -1350)
     var spike1 = Crafty.e('SpikeBush')
-        .place( 5420,  -1400)
+        .place(5420, -1400)
 
     //Raising Platform
     var raisePlatform2 = Crafty.e('UnstableRaisingGround')
@@ -215,7 +215,7 @@ Crafty.defineScene("Level1", function () {
 
     //Drop Down onto platform with Insanity patch & Enemy
     var platform29 = Crafty.e('GroundLong')
-        .place( 6500, -800)
+        .place(6500, -800)
     var boundary2 = Crafty.e('MovementBoundary')
         .place(6490, -810)
     var enemyWalker = Crafty.e('EnemyWalker')
@@ -223,16 +223,16 @@ Crafty.defineScene("Level1", function () {
     var sanityZoneBad = Crafty.e('SanityZone')
         .place(6600, -900)
     var boundary2 = Crafty.e('MovementBoundary')
-        .place( 6810,  -810)
-            //Jump across platforms
+        .place(6810, -810)
+    //Jump across platforms
     var boundary2 = Crafty.e('MovementBoundary')
-        .place( 7050,  -810)
+        .place(7050, -810)
     var platform29 = Crafty.e('Ground')
-        .place( 7060, -790)
+        .place(7060, -790)
     var enemyJumper = Crafty.e('EnemyJumper')
-        .place( 7130, -830)
+        .place(7130, -830)
     var boundary2 = Crafty.e('MovementBoundary')
-        .place( 7220, -810)
+        .place(7220, -810)
 
     //safe spot
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
@@ -248,7 +248,7 @@ Crafty.defineScene("Level1", function () {
     var platform36 = Crafty.e('Ground')
         .place(8500, -1300)
     var spike7 = Crafty.e('SpikeBush')
-        .place( 8600, -1350)
+        .place(8600, -1350)
 
     //Consumable Platform (Booster)
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
@@ -272,27 +272,27 @@ Crafty.defineScene("Level1", function () {
 
     //Drop platform run
     var platform37 = Crafty.e('Ground')
-        .place( 8800, -1450)
+        .place(8800, -1450)
     var dropPlatform6 = Crafty.e('UnstableDroppingGround')
-        .place( 9030, -1450)
+        .place(9030, -1450)
     var dropPlatform7 = Crafty.e('UnstableDroppingGround')
-        .place( 9300, -1450)
+        .place(9300, -1450)
     var dropPlatform8 = Crafty.e('UnstableDroppingGround')
         .place(9650, -1450)
     var dropPlatform9 = Crafty.e('UnstableDroppingGround')
-        .place(10000,  -1450)
+        .place(10000, -1450)
     var dropPlatform10 = Crafty.e('UnstableDroppingGround')
-        .place( 10350, -1450)
+        .place(10350, -1450)
     var platform39 = Crafty.e('Ground')
-        .place( 10500,  -1350)
+        .place(10500, -1350)
 
     //Walkway Spikes
     var platform41 = Crafty.e('GroundLong')
         .place(10900, -1400)
     var spike7 = Crafty.e('SpikeBush')
-        .place( 10975, -1470)
+        .place(10975, -1470)
     var spike7 = Crafty.e('SpikeBush')
-        .place( 11100, -1470)
+        .place(11100, -1470)
 
     //Goal platform
     var platform41 = Crafty.e('GroundLong')
