@@ -1,5 +1,5 @@
-const GAIN_RATE = 3;
-const LOSS_RATE = 3;
+const GAIN_RATE = 15; // Per second
+const LOSS_RATE = 15; // Per second
 const MODE = { "GAIN": true, "LOSS": false };
 
 Crafty.c("SanityZone", {
