@@ -1,6 +1,6 @@
 Crafty.c("SpikeBush", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Color");
+        this.addComponent("2D, DOM, Collision, Image");
         this.attr({w: 86, h: 66});
         this.lethal = true;
         this.updateAssets();
@@ -47,17 +47,17 @@ Crafty.c("SpikeBush", {
         const level = Crafty("LevelController").level;
         switch (level) {
             case LEVELS.SADNESS:
-                this.lethal ? this.addComponent("bush_sad_spiky") : this.addComponent("bush_sad_berries");
+                this.lethal ? this.image("assets/images/spikes_sad.png") : this.image("assets/images/bush_sad.png");
                 break;
             case LEVELS.ANGER:
-                this.lethal ? this.addComponent("bush_angry_spiky") : this.addComponent("bush_angry_berries");
+                this.lethal ? this.image("assets/images/spikes_angry.png") : this.image("assets/images/bush_angry.png");
                 break;
             case LEVELS.FEAR:
-                this.lethal ? this.addComponent("bush_fear_spiky") : this.addComponent("bush_fear_berries");
+                this.lethal ? this.image("assets/images/spikes_fear.png") : this.image("assets/images/bush_fear.png");
                 break;
             default:
                 console.error(`Cannot load spike bush image for level ${level}`);
-                this.lethal ? this.addComponent("bush_sad_spiky") : this.addComponent("bush_sad_berries");
+                this.lethal ? this.image("assets/images/spikes_sad.png") : this.image("assets/images/bush_sad.png");
                 break;
         }
         if (DEBUG) this.color(this.lethal ? 'red' : 'green');
