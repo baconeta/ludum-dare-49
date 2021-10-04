@@ -1,6 +1,7 @@
 Crafty.c("Ground", {
     init: function () {
         this.addComponent("2D, DOM, pf_sad_norm");
+        this.setType();
         this.collisionTop = Crafty.e("PlatformTop")
         this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
@@ -10,7 +11,6 @@ Crafty.c("Ground", {
     place: function(x, y) {
         this.x = x;
         this.y = y;
-        this.setType();
 
         this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w + 20;
         this.leftMovementBoundary.y = y - 20;
