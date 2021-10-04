@@ -33,7 +33,7 @@ Crafty.c("Player", {
                 }
             })
         }
-        
+
         this.bind("RESET_TILT", function (event) {
             this.rotation = 0;
         });
@@ -43,10 +43,10 @@ Crafty.c("Player", {
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
 
-        this.checkHits("StoryTrigger");
-        this.bind("HitOn", function (event) {
-            console.log(event);
-        });
+        // this.checkHits("StoryTrigger");
+        // this.bind("HitOn", function (event) {
+        //     console.log(event);
+        // });
     },
 
     place: function (x, y) {
@@ -72,7 +72,6 @@ Crafty.c("PlayerBody", {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
                 Crafty("ItemSlot").holding = ITEM.SANITY_BOOSTER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
-                // TODO Change the sprite when picking up the item instead of changing the colour.
                 audioController.playTrack("bottle-pickup", 1, 0.5);
                 hitData[0].obj.destroy();
             }
@@ -82,7 +81,6 @@ Crafty.c("PlayerBody", {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
                 Crafty("ItemSlot").holding = ITEM.SANITY_DROPPER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
-                // TODO Change the sprite when picking up the item instead of changing the colour.
                 audioController.playTrack("bottle-pickup", 1, 0.5);
                 hitData[0].obj.destroy();
             }
@@ -90,16 +88,15 @@ Crafty.c("PlayerBody", {
 
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
-            //onHit
             this.bind("HitOn", function (hitData) {
-                console.log(Crafty("SanityController").sanity)
-                Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
-                console.log(Crafty("SanityController").sanity)
-                Crafty.trigger("KickBackEnemy", hitData);
-            });
-            //offHit
-            this.bind("HitOff", function (comp) {
-                // do thing
+                if (!this.hitRecently) {
+                    console.log("drain sanity") // change to trigger + message
+                    Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
+                    this.hitRecently = true;
+                    this.delay(() => {
+                        this.hitRecently = false;
+                    }, 2000, 0)
+                }
             });
         }
     },
