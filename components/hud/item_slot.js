@@ -56,20 +56,17 @@ Crafty.c("ItemSlot", {
                 break;
             case ITEM.SANITY_BOOSTER:
                 Crafty("SanityController").restoreSanity(sanityBoosterValue);
-                this.removeComponent("vial_red")
-                this.removeComponent("vial_green")
                 // TODO Play a sound based on the item used?
                 break;
             case ITEM.SANITY_DROPPER:
                 Crafty("SanityController").drainSanity(sanityDropperValue);
-                this.removeComponent("vial_red")
-                this.removeComponent("vial_green")
                 // TODO Play a sound based on the item used?
                 break;
             default:
                 console.error(`The item '${this.holding}' cannot be used`);
         }
-
+        this.removeComponent("vial_red")
+        this.removeComponent("vial_green")
         this.alpha = 0.4;
         this.color('#b2b2b2');
         this.holding = ITEM.NOTHING;
