@@ -1,4 +1,4 @@
-const VERTICAL_DIRECTION = { UP: -1, DOWN: 1 };
+const VERTICAL_DIRECTION = {UP: -1, DOWN: 1};
 const VERTICAL_MULTIPLIERS = {
     LOW: 0.5,
     HIGH: 2.0,
@@ -21,12 +21,6 @@ Crafty.c("UnstableRaisingGround", {
             }
         }
 
-        // This changes direction whenever the player lands on it
-        // Was mostly for debugging but we can use it too..
-        // this.bind('LandedOnDecayGround', (e) => {
-        //     this.invertMovementDirection();
-        // })
-
         // Defaults 
         this.maxDistance = 400;
         this.speed = 40;
@@ -42,19 +36,22 @@ Crafty.c("UnstableRaisingGround", {
         });
 
         // Speed up when sanity is low.
-        Crafty.bind("NEW_SANITY_STATE", (state) => {
-            switch (state) {
-                case SANITY_STATE.HIGH:
-                    this.speedMultiplier = 0.000_000_1;
-                    break;
-                case SANITY_STATE.MEDIUM:
-                    this.speedMultiplier = 1;
-                    break;
-                case SANITY_STATE.LOW:
-                    this.speedMultiplier = VERTICAL_MULTIPLIERS.HIGH;
-                    break;
+        Crafty.bind("NEW_SANITY_STATE", (sanityState) => {
+            this.updateSpeedMultiplier(sanityState);
+        });
+
+        this.bind('LandedOnDecayGround', () => {
+            // Platforms should always move when standing on them
+            if (this.speedMultiplier < 1) {
+                this.speedMultiplier = 1;
+                this.updateVelocity();
             }
-            this.updateVelocity();
+        });
+
+        this.bind('LiftedOffDecayGround', () => {
+            // Platforms should reset (stop or keep moving) when the player leaves them
+            let sanityState = Crafty("SanityBar").state;
+            this.updateSpeedMultiplier(sanityState);
         });
     },
 
@@ -85,6 +82,21 @@ Crafty.c("UnstableRaisingGround", {
 
     invertMovementDirection: function () {
         this.direction *= -1;
+        this.updateVelocity();
+    },
+
+    updateSpeedMultiplier: function (sanityState) {
+        switch (sanityState) {
+            case STABILITY.HIGH:
+                this.speedMultiplier = 0.000_000_1;
+                break;
+            case STABILITY.MEDIUM:
+                this.speedMultiplier = 1;
+                break;
+            case STABILITY.LOW:
+                this.speedMultiplier = VERTICAL_MULTIPLIERS.HIGH;
+                break;
+        }
         this.updateVelocity();
     },
 

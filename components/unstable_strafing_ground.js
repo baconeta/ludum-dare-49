@@ -1,30 +1,37 @@
-const DIRECTION = {"LEFT":-1, "RIGHT": 1};
+const DIRECTION = {LEFT: -1, RIGHT: 1};
 const MULTIPLIERS = {
     LOW: 0.5,
     HIGH: 2.0,
-}
+};
 
 Crafty.c("UnstableStrafingGround", {
     init: function () {
         this.addComponent("2D, DOM, Delay, Motion, pf_sad_sideways");
-        this.attr({x: 0, y: 0, w: 200, h: 71})
-        this.collisionTop = Crafty.e("PlatformTop")
+        this.attr({x: 0, y: 0, w: 200, h: 71});
+        this.collisionTop = Crafty.e("PlatformTop");
         this.attach(this.collisionTop);
-        
+
         function restrictBounds(platform) {
-            if(platform.x > platform.maxDistance + platform.originalX) {
+            if (platform.x > platform.maxDistance + platform.originalX) {
                 platform.invertMovementDirection();
             }
-            if(platform.x < platform.originalX) {
+            if (platform.x < platform.originalX) {
                 platform.invertMovementDirection();
             }
         }
 
-        // This changes direction whenever the player lands on it
-        // Was mostly for debugging but we can use it too..
-        // this.bind('LandedOnDecayGround', (e) => {
-        //     this.invertMovementDirection();
-        // })
+        this.bind('LandedOnDecayGround', (e) => {
+            // Platforms should always move when standing on them
+            if (this.vx < this.speed && this.vx > -this.speed) {
+                this.vx = this.speed * this.direction;
+            }
+        });
+
+        this.bind('LiftedOffDecayGround', () => {
+            // Platforms should reset (stop or keep moving) when the player leaves them
+            let sanityState = Crafty("SanityBar").state;
+            this.setVelocityUsingSanityState(sanityState);
+        });
 
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
@@ -46,32 +53,11 @@ Crafty.c("UnstableStrafingGround", {
 
         // Speed up when sanity is low.
         Crafty.bind("NEW_SANITY_STATE", (state) => {
-           switch (state) {
-               case SANITY_STATE.HIGH:
-                   if (this.vx > 0) {
-                       this.vx = 0.000_000_1; // Ensures that the platform direction persists.
-                   } else {
-                       this.vx = -0.000_000_1; // Ensures that the platform direction persists.
-                   }
-                   break;
-               case SANITY_STATE.MEDIUM:
-                   if (this.vx > 0) {
-                       this.vx = this.speed;
-                   } else {
-                       this.vx = -this.speed;
-                   }
-                   break;
-               case SANITY_STATE.LOW:
-                   if (this.vx > 0) {
-                       this.vx = this.speed * MULTIPLIERS.HIGH;
-                   } else {
-                       this.vx = -this.speed * MULTIPLIERS.HIGH;
-                   }
-           }
+            this.setVelocityUsingSanityState(state);
         });
     },
 
-    place: function(x, y) {
+    place: function (x, y) {
         this.x = x;
         this.y = y;
         this.originalX = x;
@@ -80,7 +66,7 @@ Crafty.c("UnstableStrafingGround", {
         this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w + 40;
         this.leftMovementBoundary.y = y - 10;
         this.rightMovementBoundary.x = this.x + this.w - 50;
-        this.rightMovementBoundary.y = y - 10;  
+        this.rightMovementBoundary.y = y - 10;
         return this;
     },
 
@@ -104,5 +90,19 @@ Crafty.c("UnstableStrafingGround", {
     invertMovementDirection: function () {
         this.direction *= -1;
         this.vx *= this.direction;
+    },
+
+    setVelocityUsingSanityState: function (state) {
+        switch (state) {
+            case STABILITY.HIGH:
+                this.vx = 0.000_000_1 * this.direction; // Ensures that the platform direction persists.
+                break;
+            case STABILITY.MEDIUM:
+                this.vx = this.speed * this.direction;
+                break;
+            case STABILITY.LOW:
+                this.vx = this.speed * MULTIPLIERS.HIGH * this.direction;
+                break;
+        }
     }
 })

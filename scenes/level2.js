@@ -1,7 +1,7 @@
 Crafty.defineScene("Level2", function () {
     const hud = Crafty.e("HUD");
 
-    Crafty.e("Background").place(-1000, -1600, 12000, 1756, LEVELS.ANGER);
+    Crafty.e("Background").place(-1000, -1600);
 
     // Assets
 
@@ -69,8 +69,6 @@ Crafty.defineScene("Level2", function () {
     //     .color("red")
 
 
-
-
     //Map Start
     var platform = Crafty.e('Ground')
         .attr({x: 0, y: -0})
@@ -87,8 +85,8 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 750, y: -150})
     var platform = Crafty.e('Ground')
         .attr({x: 1050, y: -0})
-    //Decaying Platform
-    var decayGround = Crafty.e('UnstableDecayGround')
+    //Dropping Platform
+    var droppingGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 1300, y: 0})
     var platform = Crafty.e('Ground')
         .attr({x: 1550, y: -0})
@@ -136,7 +134,7 @@ Crafty.defineScene("Level2", function () {
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(4450, -800)
     var sanityBooster = Crafty.e('SanityBooster')
-         .attr({x: 4900, y: -830})
+        .attr({x: 4900, y: -830})
     //Spike Platform -- Safety net for consumable
     var platform = Crafty.e('Ground')
         .attr({x: 4600, y: -600})
@@ -157,7 +155,7 @@ Crafty.defineScene("Level2", function () {
     var spike = Crafty.e('SpikeBush')
         .attr({x: 4760, y: -620})
     //Spike drop platforms --                                         ***PATH SPLIT POINT***
-                //Player is predicted to be in HIGH sanity on entry. LOW sanity on exit
+    //Player is predicted to be in HIGH sanity on entry. LOW sanity on exit
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .attr({x: 3350, y: -700})
     var spike = Crafty.e('SpikeBush')
@@ -174,9 +172,9 @@ Crafty.defineScene("Level2", function () {
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(2300, -900)
     var sanityBooster = Crafty.e('SanityDropper')
-         .attr({x: 2350, y: -1000})
-    //Platform to door                                          ***PATH SPLIT POINT***
-        //Player is predicted to be in LOW sanity on entry.
+        .attr({x: 2350, y: -1000})
+    // Platform to door                                          ***PATH SPLIT POINT***
+    // Player is predicted to be in LOW sanity on entry.
     var platform = Crafty.e('Ground')
         .attr({x: 3700, y: -850})
     var platform = Crafty.e('Ground')
@@ -274,11 +272,10 @@ Crafty.defineScene("Level2", function () {
     // misc
     noclip = false;
 
-    if (noclip){
+    if (noclip) {
         var player = Crafty.e("NoClip")
             .attr({x: 2350, y: -920});
-    }
-    else{
+    } else {
         var player = Crafty.e("Player")
             .attr({x: 100, y: -100});
     }

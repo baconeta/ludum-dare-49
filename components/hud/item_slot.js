@@ -1,6 +1,6 @@
 const ITEM = {NOTHING: 0, SANITY_BOOSTER: 1, SANITY_DROPPER: 2};
-const sanityBoosterValue = 20;
-const sanityDropperValue = 20;
+const sanityBoosterValue = 40;
+const sanityDropperValue = 40;
 
 const useItemKey = Crafty.keys.SHIFT;
 
@@ -40,16 +40,15 @@ Crafty.c("ItemSlot", {
     },
 
     useCurrentItem: function () {
-        let sanity = Crafty("SanityBar").sanity;
         switch (this.holding) {
             case ITEM.NOTHING:
                 break;
             case ITEM.SANITY_BOOSTER:
-                Crafty("SanityBar").restoreSanity(sanityBoosterValue);
+                Crafty("SanityController").restoreSanity(sanityBoosterValue);
                 // TODO Play a sound based on the item used?
                 break;
             case ITEM.SANITY_DROPPER:
-                Crafty("SanityBar").drainSanity(sanityDropperValue);
+                Crafty("SanityController").drainSanity(sanityDropperValue);
                 // TODO Play a sound based on the item used?
                 break;
             default:

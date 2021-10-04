@@ -1,8 +1,8 @@
 Crafty.c("HUD", {
     init: function () {
         this.addComponent("2D, DOM, Color");
-        this.w = 50;
-        this.h = 50;
+        this.w = GAME_SCREEN_HEIGHT;
+        this.h = GAME_SCREEN_HEIGHT;
         this.x = -Crafty.viewport.x;
         this.y = -Crafty.viewport.y;
         this.z = 1500;
