@@ -26,18 +26,22 @@ Crafty.c("ItemSlot", {
                 case ITEM.SANITY_BOOSTER:
                     this.removeComponent("vial_red")
                     this.addComponent("vial_green")
-                    this.attr({w: 168/4, h: 253/4})
+                    this.attr({w: 50, h: 50})
+                    // this.attr({w: 168/4, h: 253/4})
                     this.holding = item;
                     this.alpha = 1;
                     break;
                 case ITEM.SANITY_DROPPER:
-                    this.removeComponent("vial_red")
-                    this.addComponent("vial_red")    
-                    this.attr({w: 220/4, h: 259/4})          
+                    this.removeComponent("vial_green")
+                    this.addComponent("vial_red")   
+                    this.attr({w: 50, h: 50})
+                    // this.attr({w: 220/4, h: 259/4})
                     this.holding = item;
                     this.alpha = 1;
                     break;
                 case ITEM.NOTHING:
+                    this.removeComponent("vial_red")
+                    this.removeComponent("vial_green")
                     this.alpha = 0.4;
                 default:
                     console.warn("A non-valid item was just picked up!");
@@ -52,16 +56,21 @@ Crafty.c("ItemSlot", {
                 break;
             case ITEM.SANITY_BOOSTER:
                 Crafty("SanityController").restoreSanity(sanityBoosterValue);
+                this.removeComponent("vial_red")
+                this.removeComponent("vial_green")
                 // TODO Play a sound based on the item used?
                 break;
             case ITEM.SANITY_DROPPER:
                 Crafty("SanityController").drainSanity(sanityDropperValue);
+                this.removeComponent("vial_red")
+                this.removeComponent("vial_green")
                 // TODO Play a sound based on the item used?
                 break;
             default:
                 console.error(`The item '${this.holding}' cannot be used`);
         }
 
+        this.alpha = 0.4;
         this.color('#b2b2b2');
         this.holding = ITEM.NOTHING;
     },
