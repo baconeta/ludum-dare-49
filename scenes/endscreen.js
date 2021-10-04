@@ -12,7 +12,10 @@ Crafty.defineScene('EndScreen', function () {
     //     });
     var creditsButton = Crafty.e("CreditsButton")
         .bind('Click', function (MouseEvent) {
-            //Add credits here
+            // Crafty.e("Text").attr({x: 350, y: 320, w: 100, h: 18}).text("Me")
+            //     .textFont({size: '15px'})
+            //     .textAlign("left")
+            //     .textColor("white");
         });
     var stoneIcon = Crafty.e("StoneIcon");
     var muteIcon = Crafty.e("Music");

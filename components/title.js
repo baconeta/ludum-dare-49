@@ -61,3 +61,19 @@ Crafty.c("StoneIcon", {
         // this.image("assets/images/stone_green.png");
     }
 });
+var credits = ["Game Producer and Developer - Josh Pearson", "Senior Developer - Steven Rutherford", "Environment and Asset Artist - Veera Villgren",
+    "Game Developer - James Coburn", "Game Developer and Level Design - Brayden Cooke", "Character and Asset Artist - Santeri Kivioja",
+    "Senior Developer - Nick Farrelly", "Senior Developer - Tomas Morton", "Sound Effects and Music Engineer - Jakob Ericsson", "Game Design and Graphic Art - Samai Azeez"]
+Crafty.c("Credits", {
+    init: function () {
+        this.addComponent('2D, DOM, Text');
+        this.attr({x: 350, y: 320, w: 400, h: 300});
+        for (let person in credits) {
+            this.text(person)
+                .textFont({size: '15px'})
+                .textAlign("left")
+                .textColor("white")
+            this.x+=18;
+        }
+    }
+});

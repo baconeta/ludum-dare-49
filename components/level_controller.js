@@ -21,7 +21,7 @@ Crafty.c("LevelController", {
             if (this.canChangeLevel()) {
                 this.startLoading();
                 setTimeout(this.loadNextLevel, 500);
-            } else { // no more levels so go to end screen
+            } else if (this.level >= this.totalLevels) { // no more levels so go to end screen
                 Crafty.enterScene("EndScreen", Crafty.enterScene("EndScreen")) // there was a bug... this was my fix :)
             }
         });
