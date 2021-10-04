@@ -30,19 +30,19 @@ Crafty.c("PlayerNotification", {
 
     setMessageEvents: function () {
         this.bind("StartSadness", function () {
-            this.trigger("InstructionText", "You're feeling normal but your emotions are unstable...");
-        })
+            this.trigger("InstructionText", "You're feeling normal, but your emotions are unstable...");
+        });
         
         this.bind("WalkIntoTree", function() {
             this.trigger("InstructionText", "You shall not pass while you're feeling sane.");
-        })
+        });
 
-        this.bind("GAINSANITY", function() {
-            this.trigger("InstructionText", "You feel yourself going more insane");
-        })
-
-        this.bind("LOSSSANITY", function() {
-            this.trigger("InstructionText", "You feel yourself returning to normal");
-        })
+        this.bind("ALTER_SANITY_RATE", function(rate) {
+            if (rate < 0) {
+                this.trigger("InstructionText", "You feel yourself becoming more unstable...");
+            } else if (rate > 0) {
+                this.trigger("InstructionText", "You feel yourself returning to normal.");
+            }
+        });
     },
 })
