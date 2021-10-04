@@ -2,7 +2,7 @@ Crafty.defineScene("Level1", function () {
     const hud = Crafty.e("HUD");
     audioController.playTrack('sadness');
 
-    Crafty.e("Background").place(-1000, -800);
+    Crafty.e("Background").place(-1000, -1757);
 
     // Assets
 
@@ -71,14 +71,13 @@ Crafty.defineScene("Level1", function () {
 
 
     //Map Start
+    var platform = Crafty.e('GroundLong')
+        .place(0, -1300)
+    //First Platforms
     var platform = Crafty.e('Ground')
-        .place(0, 0)
-
-    //First climb
-    var platform1 = Crafty.e('Ground')
-        .place(500, 150)
-    var platform2 = Crafty.e('Ground')
-        .attr({x: 700, y: -300})
+        .place(500, -1400)
+    var platform = Crafty.e('Ground')
+        .place(700, -1400)
     var platform3 = Crafty.e('Ground')
         .attr({x: 900, y: -450})
     var platform4 = Crafty.e('Ground')
@@ -371,10 +370,10 @@ Crafty.defineScene("Level1", function () {
 
     if (noclip) {
         var player = Crafty.e("NoClip")
-            .attr({x: 5050, y: -970});
+            .attr({x: 0, y: -1340});
     } else {
         var player = Crafty.e("Player")
-            .attr({x: 100, y: -100});
+            .attr({x: 100, y: -1340});
     }
 
     makeCameraTrackEntity(player, 0)
