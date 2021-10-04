@@ -40,6 +40,16 @@ var gameAssets = {
             "tileh": 606,
             "map": {"next_level_sign_sad": [0, 0]}
         },
+        "assets/images/next_level_sign_angry.png": {
+            "tile": 474,
+            "tileh": 606,
+            "map": {"next_level_sign_angry": [0, 0]}
+        },
+        "assets/images/next_level_sign_fear.png": {
+            "tile": 474,
+            "tileh": 606,
+            "map": {"next_level_sign_fear": [0, 0]}
+        },
         "assets/images/vial_red.png": {
             "tile": 220,
             "tileh": 259,
