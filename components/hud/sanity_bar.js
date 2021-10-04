@@ -9,7 +9,6 @@ Crafty.c("SanityBar", {
             if (DEBUG) {
                 console.debug({"state": Crafty("SanityController").state, "sanity": Crafty("SanityController").sanity});
             }
-            console.log(Crafty("SanityController").state);
             switch (Crafty("SanityController").state) {
                 case STABILITY.LOW:
                     this.image("assets/images/stone_red.png");
