@@ -10,6 +10,16 @@ var gameAssets = {
             "tileh": 426,
             "map": {"gain_sanity_zone": [0, 0]}
         },
+        "assets/images/vial_green.png": {
+            "tile": 168,
+            "tileh": 253,
+            "map": {"vial_green": [0, 0]}
+        },
+        "assets/images/vial_red.png": {
+            "tile": 220,
+            "tileh": 259,
+            "map": {"vial_red": [0, 0]}
+        },
         "assets/images/platform1_sad.png": {
             "tile": 199,
             "tileh": 75,
@@ -42,6 +52,10 @@ var gameAssets = {
             "tile": 268,
             "tileh": 268,
             "map": {"music": [0, 0]}
+        }, "assets/images/bush.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_berries": [0, 0]}
         },"assets/images/bush_sad.png": {
             "tile": 86,
             "tileh": 66,
@@ -81,7 +95,7 @@ var gameAssets = {
             "tile": 69,
             "tileh": 209,
             "map": {"sprite_idle_left": [0, 0]}
-        },"assets/images/idle_right.png": {
+        }, "assets/images/idle_right.png": {
             "tile": 69,
             "tileh": 209,
             "map": {"sprite_idle_right": [0, 0]}
@@ -90,7 +104,7 @@ var gameAssets = {
             "tile": 135,
             "tileh": 186,
             "map": {"sprite_jump_left": [0, 0]}
-        },"assets/images/elfsprite_jump_right.png": {
+        }, "assets/images/elfsprite_jump_right.png": {
             "tile": 135,
             "tileh": 186,
             "map": {"sprite_jump_right": [0, 0]}
@@ -134,6 +148,14 @@ var gameAssets = {
             "tile": 267,
             "tileh": 72,
             "map": {"pf_fear_unstable": [0, 0]}
+        }, "assets/images/enemy_facing_right.png": {
+            "tile": 69,
+            "tileh": 106,
+            "map": {"enemy_facing_right": [0, 0]}
+        }, "assets/images/enemy_facing_left.png": {
+            "tile": 69,
+            "tileh": 106,
+            "map": {"enemy_facing_left": [0, 0]}
         },
     }
 };

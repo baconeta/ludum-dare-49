@@ -204,6 +204,10 @@ Crafty.defineScene("Level2", function () {
         .place(4600, -1350)
     var enemyWalker = Crafty.e('EnemyWalker')
         .place(5200, -1350)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .attr({x: 4600, y: -1350})
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .attr({x: 5200, y: -1350})
     var boundary = Crafty.e('MovementBoundary')
         .place(5250, -1350)
 //Consumable platforms + Jumper
@@ -215,6 +219,8 @@ Crafty.defineScene("Level2", function () {
         .place(4725, -1500)
     var decayGround = Crafty.e('UnstableDroppingGround')
         .place(4300, -1550)
+    var decayGround = Crafty.e('UnstableDecayGround')
+        .attr({x: 4300, y: -1550})
     var sanityBooster = Crafty.e('SanityBooster')
         .place(4375, -1600)
 //Spike Platform
