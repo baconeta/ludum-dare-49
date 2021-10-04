@@ -7,23 +7,35 @@ Crafty.defineScene("Level1", function () {
     // Assets
 
     // Obstacles
+<<<<<<< Updated upstream
+=======
+    //Dropping Platform
+    // var droppingGround = Crafty.e('UnstableDroppingGround')
+    //     .place(x,y)
+>>>>>>> Stashed changes
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
     //     .place(x, y)
     //     .movementDirection(VERTICAL_DIRECTION.UP)
     //     .maxMovementDistance(200)
     //     .movementSpeed(100);
+<<<<<<< Updated upstream
     //Dropping Platform
     // var droppingGround = Crafty.e('UnstableDroppingGround')
     //     .place(x, y)
     //Moving Platform
     // var movingPlatform = Crafty.e('UnstableStrafingGround')
+=======
+    //Moving Platform
+    // var movingPlatform = Crafty.e('UnstableMovementGround')
+>>>>>>> Stashed changes
     //     .place(x, y)
     //Spike
     // var spike = Crafty.e('SpikeBush')
     //     .place(x, y)
 
     // Terrain
+<<<<<<< Updated upstream
     //Ground Short
     //var platformShort = Crafty.e('Ground')
     //    .place(x, y)
@@ -31,11 +43,23 @@ Crafty.defineScene("Level1", function () {
     // var platformLong = Crafty.e('GroundLong')
     //     .place(0, -0)
 
+=======
+    //Short
+    //var platform = Crafty.e('Ground')
+    //    .place(x, y)
+    //Long
+    //var platform = Crafty.e('GroundLong')
+    //    .place(x, y)
+>>>>>>> Stashed changes
 
     // Enemies
     //Boundary
     // var boundary = Crafty.e('MovementBoundary')
+<<<<<<< Updated upstream
     //     .place(x, y)
+=======
+    //     .place(x, y).movementSpeed(200).maxMovementDistance(300)
+>>>>>>> Stashed changes
     //Walker
     // var enemyWalker = Crafty.e('EnemyWalker')
     //     .place(x, y)
@@ -47,6 +71,7 @@ Crafty.defineScene("Level1", function () {
     //Door
     // var door = Crafty.e('SanityWall')
     //     .place(x, y)
+<<<<<<< Updated upstream
     //Sanity Zone Bad
     // var sanityZoneBad = Crafty.e('SanityZone')
     //     .place(x, y)
@@ -56,10 +81,19 @@ Crafty.defineScene("Level1", function () {
     //Portal
     // var portal = Crafty.e('LevelPortal')
     //     .place(0, 0)
+=======
+    //Sanity Zone
+    // var sanityzone = Crafty.e('SanityZone')
+    //     .place(x, y)
+    //Level Portal
+    // var portal = Crafty.e('LevelPortal')
+    //     .place(x, y)
+>>>>>>> Stashed changes
 
     //Pickups
     //Booster
     // var sanityBooster = Crafty.e('SanityBooster')
+<<<<<<< Updated upstream
     //      .place( 0, 0)
     //Dropper
     // var sanityBooster = Crafty.e('SanityDropper')
@@ -69,6 +103,12 @@ Crafty.defineScene("Level1", function () {
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
     noclip = false
 
+=======
+    //      .place( x, y})
+    //Dropper
+    // var sanityBooster = Crafty.e('SanityDropper')
+    //      .place( x, y})
+>>>>>>> Stashed changes
 
     //Map Start
     var platform = Crafty.e('GroundLong')
