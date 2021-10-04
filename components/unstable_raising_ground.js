@@ -6,7 +6,7 @@ const VERTICAL_MULTIPLIERS = {
 
 Crafty.c("UnstableRaisingGround", {
     init: function () {
-        this.addComponent("2D, DOM, Delay, Motion, pf_sad_up");
+        this.addComponent("2D, DOM, Delay, Motion");
         this.attr({x: 0, y: 0, w: 101, h: 160});
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
@@ -70,24 +70,24 @@ Crafty.c("UnstableRaisingGround", {
         switch (level) {
             case LEVELS.SADNESS:
                 this.addComponent("pf_sad_raising");
-                this.w = 199;
-                this.h = 75;
+                this.w = 101;
+                this.h = 160;
                 break;
             case LEVELS.ANGER:
                 this.addComponent("pf_angry_raising");
-                this.w = 203;
-                this.h = 117;
+                this.w = 93;
+                this.h = 165;
                 break;
             case LEVELS.FEAR:
                 this.addComponent("pf_fear_raising");
-                this.w = 267;
-                this.h = 72;
+                this.w = 110;
+                this.h = 183;
                 break;
             default:
                 console.error(`Cannot load platform image for level ${level}`)
                 this.addComponent("pf_sad_raising");
-                this.w = 199;
-                this.h = 75;
+                this.w = 101;
+                this.h = 160;
                 break;
         }
     },

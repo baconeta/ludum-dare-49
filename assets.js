@@ -39,7 +39,7 @@ var gameAssets = {
         }, "assets/images/platforms/platform_breaking_sad.png": {
             "tile": 797,
             "tileh": 300,
-            "map": {"pf_sad_unstable": [0, 0]}
+            "map": {"pf_sad_dropping": [0, 0]}
         }, "assets/images/tree_door1.png": {
             "tile": 74,
             "tileh": 284,
@@ -47,15 +47,11 @@ var gameAssets = {
         }, "assets/images/tree_door2.png": {
             "tile": 147,
             "tileh": 160,
-            "map": {"tree_door_unstable": [0, 0]}
+            "map": {"tree_door_dropping": [0, 0]}
         }, "assets/images/music.png": {
             "tile": 268,
             "tileh": 268,
             "map": {"music": [0, 0]}
-        }, "assets/images/bush.png": {
-            "tile": 86,
-            "tileh": 66,
-            "map": {"bush_berries": [0, 0]}
         },"assets/images/bush_sad.png": {
             "tile": 86,
             "tileh": 66,
@@ -116,7 +112,7 @@ var gameAssets = {
             "tile": 334,
             "tileh": 68,
             "map": {"pf_angry_long": [0, 0]}
-        }, "assets/images/platforms/platform_moving_angry.png": {
+        }, "assets/images/platforms/platform_strafing_angry.png": {
             "tile": 194,
             "tileh": 62,
             "map": {"pf_angry_strafing": [0, 0]}
@@ -127,7 +123,7 @@ var gameAssets = {
         }, "assets/images/platforms/platform_breaking_angry.png": {
             "tile": 203,
             "tileh": 117,
-            "map": {"pf_angry_unstable": [0, 0]}
+            "map": {"pf_angry_dropping": [0, 0]}
         }, "assets/images/platforms/platform_normal_fear.png": {
             "tile": 267,
             "tileh": 72,
@@ -136,7 +132,7 @@ var gameAssets = {
             "tile": 351,
             "tileh": 86,
             "map": {"pf_fear_long": [0, 0]}
-        }, "assets/images/platforms/platform_moving_fear.png": {
+        }, "assets/images/platforms/platform_strafing_fear.png": {
             "tile": 224,
             "tileh": 65,
             "map": {"pf_fear_strafing": [0, 0]}
@@ -147,7 +143,7 @@ var gameAssets = {
         }, "assets/images/platforms/platform_breaking_fear.png": {
             "tile": 267,
             "tileh": 72,
-            "map": {"pf_fear_unstable": [0, 0]}
+            "map": {"pf_fear_dropping": [0, 0]}
         }, "assets/images/enemy_facing_right.png": {
             "tile": 69,
             "tileh": 106,

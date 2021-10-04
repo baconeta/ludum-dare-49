@@ -1,6 +1,6 @@
 Crafty.c("Ground", {
     init: function () {
-        this.addComponent("2D, DOM, pf_sad_norm");
+        this.addComponent("2D, DOM");
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop")
         this.attach(this.collisionTop);

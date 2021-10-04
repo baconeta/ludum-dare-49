@@ -6,7 +6,7 @@ const MULTIPLIERS = {
 
 Crafty.c("UnstableStrafingGround", {
     init: function () {
-        this.addComponent("2D, DOM, Delay, Motion, pf_sad_sideways");
+        this.addComponent("2D, DOM, Delay, Motion");
         this.attr({x: 0, y: 0, w: 200, h: 71});
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
