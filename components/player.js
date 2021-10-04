@@ -15,12 +15,11 @@ Crafty.c("Player", {
         this.bind('LandedOnGround', function (entity) {
             Crafty.trigger("PlayerLanded");
             entity.trigger('LandedOnDecayGround', entity);
-            Crafty("AudioController").playTrack('grass_step_1', 1);
+            Crafty("AudioController").playTrack('grass_step_2', 0.70);
         });
 
         this.bind('LiftedOffGround', function (entity) {
             entity.trigger('LiftedOffDecayGround', entity);
-            Crafty("AudioController").playTrack('grass_step_2', 1);
         });
 
         this.checkHits("tree");
