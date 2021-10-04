@@ -11,22 +11,17 @@ Crafty.c("SanityZone", {
 
         if (this.checkHits("PlayerBody")){ // If collide hits with player.
             this.bind("HitOn", function() { // Player enters zone.
-                this.trigger("ALTER_SANITY_RATE", MODE ? GAIN_RATE : -LOSS_RATE);
-            })
+                Crafty.trigger("ALTER_SANITY_RATE", MODE ? GAIN_RATE : -LOSS_RATE);
+            });
             this.bind("HitOff", function() { // Player leaves zone.
-                this.trigger("ALTER_SANITY_RATE", MODE ? -GAIN_RATE : LOSS_RATE);
-            })
+                Crafty.trigger("ALTER_SANITY_RATE", MODE ? -GAIN_RATE : LOSS_RATE);
+            });
         }
     },
 
     place: function(x,y) {
         this.x = x;
         this.y = y;
-    },
-
-    alterSanity: function() {
-        // TODO Investigate loose-ends from this trigger.
-        Crafty.trigger((MODE ? "GAIN" : "LOSS") +"SANITY");
     },
 
     setMode: function (mode) {
