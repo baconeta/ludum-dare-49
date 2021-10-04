@@ -156,7 +156,7 @@ Crafty.defineScene("Level2", function () {
 
     //Raising Platform
     var raisePlatform2 = Crafty.e('UnstableRaisingGround')
-        .place(4500, -1100).maxMovementDistance(350)
+        .place(4375, -1150).maxMovementDistance(275)
 
     //Door2
     var platform21 = Crafty.e('GroundLong')
@@ -257,9 +257,9 @@ Crafty.defineScene("Level2", function () {
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
         .place(8000, -500)
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
-        .place(8150, -300)
+        .place(8150, -350)
     var platform36 = Crafty.e('Ground')
-        .place(8300, -200)
+        .place(8300, -250)
     var sanityBooster = Crafty.e('SanityBooster')
         .place(8400, -250)
 
@@ -270,8 +270,8 @@ Crafty.defineScene("Level2", function () {
         .place(6900, -1400)
     var platform36 = Crafty.e('Ground')
         .place(6800, -1500)
-    var sanityBooster = Crafty.e('SanityBooster')
-        .place(6810, -1550)
+    var sanityDropper = Crafty.e('SanityDropper')
+        .place(6850, -1560)
 
     //Drop platform run
     var platform37 = Crafty.e('Ground')
@@ -287,15 +287,18 @@ Crafty.defineScene("Level2", function () {
     var dropPlatform10 = Crafty.e('UnstableDroppingGround')
         .place(10350, -1450)
     var platform39 = Crafty.e('Ground')
-        .place(10500, -1350)
+        .place(10525, -1300)
 
-    //Walkway Spikes
+    //Walkway Enemy
     var platform41 = Crafty.e('GroundLong')
         .place(10900, -1400)
-    var spike7 = Crafty.e('SpikeBush')
-        .place(10975, -1470)
-    var spike7 = Crafty.e('SpikeBush')
-        .place(11100, -1470)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .place(11100, -1500)
+    var platform39 = Crafty.e('Ground')
+        .place(10800, -1150)
+    var sanityZoneBad = Crafty.e('SanityZone')
+        .place(10800, -1200).setMode(MODES.LOSS)
+
 
     //Goal platform
     var platform41 = Crafty.e('GroundLong')
@@ -316,9 +319,9 @@ Crafty.defineScene("Level2", function () {
             .attr({x: 11800, y: -1340});
     } else {
         var player = Crafty.e("Player")
-            .attr({x: 100, y: -1340});
+            .attr({x: 10900, y: -1500});
     }
 
     makeCameraTrackEntity(player, 0)
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 5000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 14000, h: 5000}).checkHits('Player');
 });

@@ -210,13 +210,13 @@ Crafty.defineScene("Level1", function () {
         .place(5450, -1320)
     //Decaying floor gauntlet
     var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(5800, -1250)
+        .place(5800, -1270)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -1150)
+        .place(6050, -1160)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6350, -1025)
+        .place(6350, -1040)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -900)
+        .place(6050, -925)
     var decayGround = Crafty.e('UnstableDroppingGround')
         .place(5700, -900)
     var sanityBooster = Crafty.e('SanityDropper')
@@ -244,7 +244,7 @@ Crafty.defineScene("Level1", function () {
     }
 
     makeCameraTrackEntity(player, 0)
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 5000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 14000, h: 5000}).checkHits('Player');
 })
 
 
