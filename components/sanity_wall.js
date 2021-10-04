@@ -2,8 +2,9 @@ Crafty.c("SanityWall", {
     init: function () {
         this.addComponent("2D, DOM, tree");
         this.attr({w: 74, h: 284});
-        this.alive = true;
-        this.updateAssets();
+        // This will get changed to true on the next line.
+        this.alive = false;
+        this.makeAlive();
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === STABILITY.HIGH || newState === STABILITY.MEDIUM) {
