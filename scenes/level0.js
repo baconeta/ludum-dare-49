@@ -1,10 +1,8 @@
 Crafty.defineScene('Level0', function () {
-    Crafty.trigger("StartSadness");
-    // hud
     const hud = Crafty.e('HUD');
     audioController.playTrack('sadness');
 
-    Crafty.e("Background").place(-1000, -1900, 12000, 12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
+    Crafty.e("Background").place(-1000, -150);
 
 	// ground
     const movementGround = Crafty.e('UnstableStrafingGround')
@@ -37,7 +35,10 @@ Crafty.defineScene('Level0', function () {
         .place(700, 580)
 
     const upPlatform = Crafty.e('UnstableRaisingGround')
-        .attr({x: 400, y: 550})
+        .place(400, 450)
+        .movementDirection(VERTICAL_DIRECTION.UP)
+        .maxMovementDistance(200)
+        .movementSpeed(100);
 
     // spikes
     const spikes = Crafty.e('SpikeBush')
@@ -73,9 +74,7 @@ Crafty.defineScene('Level0', function () {
     // misc setup
     makeCameraTrackEntity(player, 200)
     // Make the sanity bar follow the location of the player
-    player.attach(hud);
-    hud.y = 480;
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1900, w: 12000, h: 12000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1900, w: 12000, h: 5000}).checkHits('Player');
 
     // notifcations
     var playerNotification = Crafty.e("PlayerNotification").attr({x: player.x - 150, y: player.y - 250});

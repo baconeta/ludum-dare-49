@@ -1,3 +1,9 @@
+const LEVELS = {
+    SADNESS: 1,
+    ANGER: 2,
+    FEAR: 3
+};
+
 Crafty.c("LevelController", {
     init: function () {
         this.addComponent("Persist, 2D, DOM");

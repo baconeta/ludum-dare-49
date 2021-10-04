@@ -1,8 +1,7 @@
 Crafty.defineScene("Level2", function () {
-    // hud
     const hud = Crafty.e("HUD");
 
-    Crafty.e("Background").place(-1000, -1800, 12000, 12000, 2); // final variable is the level (1=sad, 2=anger, 3=fear)
+    Crafty.e("Background").place(-1000, -1600);
 
     // Assets
 
@@ -12,7 +11,10 @@ Crafty.defineScene("Level2", function () {
     //     .attr({x: 0, y: 0})
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
-    //     .attr({x: 0, y: 0})
+    //     .place(0, 0)
+    //     .movementDirection(VERTICAL_DIRECTION.UP)
+    //     .maxMovementDistance(200)
+    //     .movementSpeed(100);
     //Decaying Platform
     // var decayGround = Crafty.e('UnstableDecayGround')
     //     .attr({x: 0, y: 0})
@@ -95,7 +97,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 2450, y: -50})
     //Raising Platform
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 2600, y: -50})
+        .place(2600, -50)
     var platform = Crafty.e('Ground')
         .attr({x: 2675, y: -300})
     //Walking Enemy Platform
@@ -127,7 +129,7 @@ Crafty.defineScene("Level2", function () {
     var spike = Crafty.e('SpikeBush')
         .attr({x: 4160, y: -520})
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4320, y: -500})
+        .place(4320, -500)
     //Movement Platform for Consumable
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(4450, -800)
@@ -171,8 +173,8 @@ Crafty.defineScene("Level2", function () {
         .place(2300, -900)
     var sanityBooster = Crafty.e('SanityDropper')
         .attr({x: 2350, y: -1000})
-    //Platform to door                                          ***PATH SPLIT POINT***
-    //Player is predicted to be in LOW sanity on entry.
+    // Platform to door                                          ***PATH SPLIT POINT***
+    // Player is predicted to be in LOW sanity on entry.
     var platform = Crafty.e('Ground')
         .attr({x: 3700, y: -850})
     var platform = Crafty.e('Ground')
@@ -181,7 +183,7 @@ Crafty.defineScene("Level2", function () {
         .attr({x: 3950, y: -950})
         .color("orange")
     var raisingGround = Crafty.e('UnstableRaisingGround')
-        .attr({x: 4100, y: -950})
+        .place(4100, -950)
     //Enemy Platforms
     var platform = Crafty.e('Ground')
         .attr({x: 4200, y: -1300})
@@ -279,9 +281,7 @@ Crafty.defineScene("Level2", function () {
     }
 
     makeCameraTrackEntity(player, 0)
-    // Make the sanity bar follow the location of the player
-    player.attach(hud);
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 12000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 5000}).checkHits('Player');
 });
 
 

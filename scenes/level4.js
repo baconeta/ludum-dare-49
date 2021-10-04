@@ -1,8 +1,7 @@
 Crafty.defineScene("Level4", function () {
-    // hud
     const hud = Crafty.e("HUD");
 
-    Crafty.e("Background").place(-1000,-1800,12000,12000, 1); // final variable is the level (1=sad, 2=anger, 3=fear)
+    Crafty.e("Background").place(-1000, -800);
 
     // Assets
 
@@ -12,7 +11,10 @@ Crafty.defineScene("Level4", function () {
     //     .attr({x: 0, y: 0})
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
-    //     .attr({x: 0, y: 0})
+    //     .place(0, 0)
+    //     .movementDirection(VERTICAL_DIRECTION.UP)
+    //     .maxMovementDistance(200)
+    //     .movementSpeed(100);
     //Decaying Platform
     // var decayGround = Crafty.e('UnstableDecayGround')
     //     .attr({x: 0, y: 0})
@@ -93,9 +95,7 @@ Crafty.defineScene("Level4", function () {
     }
 
     makeCameraTrackEntity(player, 0)
-    // Make the sanity bar follow the location of the player
-    player.attach(hud);
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 12000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 5000}).checkHits('Player');
 });
 
 

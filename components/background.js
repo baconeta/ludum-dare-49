@@ -3,27 +3,34 @@ Crafty.c("Background", {
         this.requires('2D, DOM, Image');
         this.z = -100000;
     },
-    place: function (x, y, w, h, lvl) {
-        // Add the width, height, and top left co-ordinates for the box/background
+    place: function (x, y) {
         this.x = x;
         this.y = y;
-        this.w = w;
-        this.h = h;
-        setBackground.call(this, lvl);
+        this.w = 12000;
+        setBackground.call(this);
         return this;
     },
 });
 
-function setBackground(lvl) {
-    switch (lvl) {
-        case 1:
+function setBackground() {
+    const level = Crafty("LevelController").level;
+    switch (level) {
+        case LEVELS.SADNESS:
             this.image("assets/images/bg_sad.png", "repeat");
+            this.h = 1757;
             break;
-        case 2:
+        case LEVELS.ANGER:
             this.image("assets/images/bg_angry.png", "repeat");
+            this.h = 1756;
             break;
-        case 3:
-            this.image("assets/images/bg_sad.png", "repeat"); // change for background fear when ready
+        case LEVELS.FEAR:
+            this.image("assets/images/bg_fear.png", "repeat");
+            this.h = 1756;
             break;
+        default:
+            console.error(`Cannot load background image for level ${level}`)
+            this.image("assets/images/bg_sad.png", "repeat");
+            this.h = 1757;
+            break;            
     }
 }
