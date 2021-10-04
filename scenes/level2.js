@@ -48,10 +48,10 @@ Crafty.defineScene("Level2", function () {
     //     .place(x, y)
     //Sanity Zone Bad
     // var sanityZoneBad = Crafty.e('SanityZone')
-    //     .place(x, y)
+    //     .place(x, y).setMode("LOSS")
     //Sanity Zone Good
     // var sanityZoneGood = Crafty.e('SanityZone')
-    //     .place(x, y)
+    //     .place(x, y).setMode("GAIN")
     //Portal
     // var portal = Crafty.e('LevelPortal')
     //     .place(0, 0)
