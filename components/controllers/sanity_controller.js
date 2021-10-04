@@ -39,8 +39,6 @@ Crafty.c("SanityController", {
                     this.restoreSanity(PASSIVE_RESTORE_RATE/SANITY_TICK_RATE);
                     break;
             }
-            console.log("total time sane:", totalSecondsSane)
-            console.log("total time insane:", totalSecondsInsane)
             // Although we only use restoreSanity here, the rate can be negative and thus drain the player's sanity.
             this.restoreSanity(this.sanityChangeRate/5);
         }, 1000/SANITY_TICK_RATE, -1);
