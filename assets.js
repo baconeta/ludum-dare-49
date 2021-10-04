@@ -258,17 +258,17 @@ var gameAssets = {
         "assets/images/title/title_screen_angry.png": {
             "tile": 1200,
             "tileh": 800,
-            "map": {"title": [0, 0]}
+            "map": {"title_screen_angry": [0, 0]}
         },
         "assets/images/title/title_screen_sad.png": {
             "tile": 1200,
             "tileh": 800,
-            "map": {"title": [0, 0]}
+            "map": {"title_screen_sad": [0, 0]}
         },
         "assets/images/title/title_screen_fear.png": {
             "tile": 1200,
             "tileh": 800,
-            "map": {"title": [0, 0]}
+            "map": {"title_screen_fear": [0, 0]}
         },
     }
 };
