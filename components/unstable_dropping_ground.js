@@ -14,7 +14,7 @@ Crafty.c("UnstableDroppingGround", {
         this.collisionTop = Crafty.e("PlatformTop")
         this.attach(this.collisionTop);
         // Set the rotation point to be the center of the sprite.
-        this.origin(this.w/2, this.h/2);
+        this.origin(this.w / 2, this.h / 2);
         this.bind('LandedOnDecayGround', () => {
             this.shake();
             this.delay(() => {
@@ -36,7 +36,12 @@ Crafty.c("UnstableDroppingGround", {
         });
     },
 
-    drop: function() {
+    place: function (x, y) {
+        this.x = x;
+        this.y = y;
+    },
+
+    drop: function () {
         this.originalY = this.y;
         this.delay(() => {
             this.y = this.originalY;
@@ -47,34 +52,62 @@ Crafty.c("UnstableDroppingGround", {
         this.ay += 500;
     },
 
-    shake: function() {
-        this.delay(() => {this.rotation = 3;},
+    shake: function () {
+        this.delay(() => {
+                this.rotation = 3;
+            },
             12, 0);
-        this.delay(() => {this.rotation = 6;},
+        this.delay(() => {
+                this.rotation = 6;
+            },
             24, 0);
-        this.delay(() => {this.rotation = 9;},
+        this.delay(() => {
+                this.rotation = 9;
+            },
             36, 0);
-        this.delay(() => {this.rotation = 12;},
+        this.delay(() => {
+                this.rotation = 12;
+            },
             48, 0);
-        this.delay(() => {this.rotation = 6;},
+        this.delay(() => {
+                this.rotation = 6;
+            },
             60, 0);
-        this.delay(() => {this.rotation = 0;},
+        this.delay(() => {
+                this.rotation = 0;
+            },
             72, 0);
-        this.delay(() => {Crafty.trigger("RESET_TILT");},
+        this.delay(() => {
+                Crafty.trigger("RESET_TILT");
+            },
             72, 0);
-        this.delay(() => {this.rotation = -6;},
+        this.delay(() => {
+                this.rotation = -6;
+            },
             84, 0);
-        this.delay(() => {this.rotation = -12;},
+        this.delay(() => {
+                this.rotation = -12;
+            },
             96, 0);
-        this.delay(() => {this.rotation = -9;},
+        this.delay(() => {
+                this.rotation = -9;
+            },
             108, 0);
-        this.delay(() => {this.rotation = -6;},
+        this.delay(() => {
+                this.rotation = -6;
+            },
             120, 0);
-        this.delay(() => {this.rotation = -3;},
+        this.delay(() => {
+                this.rotation = -3;
+            },
             132, 0);
-        this.delay(() => {this.rotation = 0;},
+        this.delay(() => {
+                this.rotation = 0;
+            },
             144, 0);
-        this.delay(() => {Crafty.trigger("RESET_TILT");},
+        this.delay(() => {
+                Crafty.trigger("RESET_TILT");
+            },
             175, 0);
     },
 

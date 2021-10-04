@@ -24,9 +24,9 @@ Crafty.defineScene('Level0', function () {
         .maxMovementDistance(500)
 
     const ground1 = Crafty.e('UnstableDroppingGround')
-        .attr({x: -400, y: 720, w: 200, h: 75})
+        .place(-400, 720);
     const ground2 = Crafty.e('UnstableDroppingGround')
-        .attr({x: -200, y: 780, w: 200, h: 75})
+        .place(-200, 780)
     const ground3 = Crafty.e('Ground')
         .place(0, 780)
     const ground4 = Crafty.e('Ground')
@@ -76,7 +76,7 @@ Crafty.defineScene('Level0', function () {
     // Make the sanity bar follow the location of the player
     Crafty.e('LevelBounds').attr({x: -1000, y: -1900, w: 12000, h: 5000}).checkHits('Player');
 
-    // notifcations
+    // notifications
     var playerNotification = Crafty.e("PlayerNotification").attr({x: player.x - 150, y: player.y - 250});
     playerNotification.messagesReceived = all_messages;
     player.attach(playerNotification);

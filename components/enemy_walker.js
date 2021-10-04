@@ -11,6 +11,11 @@ Crafty.c("EnemyWalker", {
             
         });
     },
+
+    place: function (x, y) {
+        this.x = x;
+        this.y = y;
+    },
     
     inverseDirection: function() {
         // If the platform is moving it can sometimes glitch so this makes 
