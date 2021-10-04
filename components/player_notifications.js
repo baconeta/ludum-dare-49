@@ -25,7 +25,6 @@ Crafty.c("PlayerNotification", {
     decayMessage: function () {
         this.alpha -= 0.1;
         return this;
-        return this;
     },
 
     setMessageEvents: function () {
@@ -38,9 +37,9 @@ Crafty.c("PlayerNotification", {
         });
 
         this.bind("NEW_SANITY_STATE", function (state) {
-            if (state === STABILITY.HIGH) { // You are starting to see more chaotic stuff for the first time
+            if (state === STABILITY.LOW) { // You are starting to see more chaotic stuff for the first time
                 this.trigger("InstructionText", "My emotions are getting stronger... what's happening to this place?");
-            } else if (state === STABILITY.LOW) { //
+            } else if (state === STABILITY.HIGH) { //
                 this.trigger("InstructionText", "My emotions are still there, but I can see past them for the first time...");
             }
         });

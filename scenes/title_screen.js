@@ -10,8 +10,14 @@ Crafty.defineScene('Title', function () {
             // User has interact with DOM, so we can now autoplay sound
             audioController.canPlay = true;
             audioController.playTrack('theme')
-            Crafty.scene("Loading");
+            Crafty.trigger("NextLevel");
         });
+    var creditsButton = Crafty.e("CreditsButton")
+        .bind('Click', function (MouseEvent) {
+            // User has interact with DOM, so we can now autoplay sound
+            console.log("credits hehe")
+        });
+    var stoneIcon = Crafty.e("StoneIcon");
 });
 
 

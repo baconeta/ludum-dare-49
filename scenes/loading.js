@@ -10,7 +10,7 @@ Crafty.defineScene("Loading", function () {
 
     Crafty.load(gameAssets, function () {
         console.info('Loaded successfully');
-        Crafty.trigger("NextLevel");
+        Crafty.scene("Title");
     }, function (progress) {
         if (DEBUG) {
             console.log(`Loading (${progress.loaded} / ${progress.total})...`);
