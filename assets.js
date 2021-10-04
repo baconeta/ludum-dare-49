@@ -42,14 +42,30 @@ var gameAssets = {
             "tile": 268,
             "tileh": 268,
             "map": {"music": [0, 0]}
-        },"assets/images/bush.png": {
+        },"assets/images/bush_sad.png": {
             "tile": 86,
             "tileh": 66,
-            "map": {"bush_berries": [0, 0]}
-        },"assets/images/spikes.png": {
+            "map": {"bush_sad_berries": [0, 0]}
+        },"assets/images/bush_angry.png": {
             "tile": 86,
             "tileh": 66,
-            "map": {"bush_spiky": [0, 0]}
+            "map": {"bush_angry_berries": [0, 0]}
+        },"assets/images/bush_fear.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_fear_berries": [0, 0]}
+        },"assets/images/spikes_sad.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_sad_spiky": [0, 0]}
+        },"assets/images/spikes_angry.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_angry_spiky": [0, 0]}
+        },"assets/images/spikes_fear.png": {
+            "tile": 86,
+            "tileh": 66,
+            "map": {"bush_fear_spiky": [0, 0]}
         },
         "assets/images/elfsprite_walk_right.png": {
             "tile": 135,
