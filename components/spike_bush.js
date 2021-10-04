@@ -2,10 +2,11 @@ Crafty.c("SpikeBush", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Color");
         this.attr({w: 86, h: 66});
+        this.lethal = true;
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === STABILITY.LOW) {
-                this.makeSpiky();
+                this.makeLethal();
             } else if (newState === STABILITY.MEDIUM || newState === STABILITY.HIGH) {
                 this.makeSafe();
             }
@@ -20,7 +21,7 @@ Crafty.c("SpikeBush", {
             }
         });
 
-        this.makeSpiky = () => {
+        this.makeLethal = () => {
             if (this.lethal === true) return;
 
             this.lethal = true;
@@ -35,37 +36,28 @@ Crafty.c("SpikeBush", {
         };
 
         this.updateComponents = () => {
-            this.resetComponents();
-            this.addComponent(this.getAsset(this.lethal));
-            this.displayDebug();
-        }
-        this.resetComponents = () => {
-            this.removeComponent(this.getAsset(true));
-            this.removeComponent(this.getAsset(false));
-        }
-
-        this.getAsset = (isSpiky) => {
+            // Reset.
+            this.removeComponent("bush_sad_spiky, bush_sad_berries, bush_angry_spiky");
+            this.removeComponent("bush_angry_berries, bush_fear_spiky, bush_fear_berries");
+            // Get new asset.
             const level = Crafty("LevelController").level;
             switch (level) {
                 case LEVELS.SADNESS:
-                    return isSpiky ? "bush_sad_spiky" : "bush_sad_berries";
+                    this.lethal ? this.addComponent("bush_sad_spiky") : this.addComponent("bush_sad_berries");
+                    break;
                 case LEVELS.ANGER:
-                    return isSpiky ? "bush_angry_spiky" : "bush_angry_berries";
+                    this.lethal ? this.addComponent("bush_angry_spiky") : this.addComponent("bush_angry_berries");
+                    break;
                 case LEVELS.FEAR:
-                    return isSpiky ? "bush_fear_spiky" : "bush_fear_berries";
+                    this.lethal ? this.addComponent("bush_fear_spiky") : this.addComponent("bush_fear_berries");
+                    break;
                 default:
-                    console.error(`Cannot load spike bush image for level ${level}`)
-                    return isSpiky ? "bush_sad_spiky" : "bush_sad_berries";
+                    console.error(`Cannot load spike bush image for level ${level}`);
+                    this.lethal ? this.addComponent("bush_sad_spiky") : this.addComponent("bush_sad_berries");
+                    break;
             }
-        };
-
-        this.displayDebug = () => {
-            if (!DEBUG) return;
-
-            this.color(this.lethal ? 'red' : 'green');
-        };
-
-        this.makeSpiky();
+            if (DEBUG) this.color(this.lethal ? 'red' : 'green');
+        }
     },
 
     place(x, y) {
