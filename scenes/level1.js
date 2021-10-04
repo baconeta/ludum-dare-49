@@ -71,11 +71,11 @@ Crafty.defineScene("Level1", function () {
 
     //Map Start
     var platform = Crafty.e('Ground')
-        .attr({x: 0, y: 0})
+        .place(0, 0)
 
     //First climb
     var platform1 = Crafty.e('Ground')
-        .attr({x: 500, y: -150})
+        .place(500, 150)
     var platform2 = Crafty.e('Ground')
         .attr({x: 700, y: -300})
     var platform3 = Crafty.e('Ground')
