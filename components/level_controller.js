@@ -37,6 +37,7 @@ Crafty.c("LevelController", {
 
         this.loadNextLevel = () => {
             this.level++;
+            audioController.stopTrack();
             Crafty.scene(`Level${this.level}`);
             this.finishLoading();
         };

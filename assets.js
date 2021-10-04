@@ -250,5 +250,25 @@ var gameAssets = {
             "tileh": 318,
             "map": {"stone_red": [0, 0]}
         },
+        "assets/images/title/title_billboard.png": {
+            "tile": 484,
+            "tileh": 811,
+            "map": {"title": [0, 0]}
+        },
+        "assets/images/title/title_screen_angry.png": {
+            "tile": 1200,
+            "tileh": 800,
+            "map": {"title_screen_angry": [0, 0]}
+        },
+        "assets/images/title/title_screen_sad.png": {
+            "tile": 1200,
+            "tileh": 800,
+            "map": {"title_screen_sad": [0, 0]}
+        },
+        "assets/images/title/title_screen_fear.png": {
+            "tile": 1200,
+            "tileh": 800,
+            "map": {"title_screen_fear": [0, 0]}
+        },
     }
 };
