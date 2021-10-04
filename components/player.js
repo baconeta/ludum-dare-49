@@ -3,7 +3,7 @@ const ALLY_SANITY_RESTORE = 18;
 
 Crafty.c("Player", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, Color, GroundAttacher");
+        this.addComponent("2D, DOM, Collision, Delay, Twoway, Gravity, Keyboard, Color, GroundAttacher");
         this.color("red")
         this.alpha = DEBUG ? 1.00 : 0.00;
         this.attr({w: 25, h: 15, x: 20, y: 0})
@@ -32,6 +32,17 @@ Crafty.c("Player", {
             }
         });
 
+        this.bind("KickBackEnemy", function (hitData) {
+            var kickDirection = (this.x - hitData[0].obj.x) > 0;
+            this.delay(function () {
+                if (kickDirection) {
+                    this.x += 10;
+                } else {
+                    this.x -= 10;
+                }
+            }, 10, 2);
+        })
+
         this.bind("RESET_TILT", function (event) {
             this.rotation = 0;
         });
@@ -42,7 +53,7 @@ Crafty.c("Player", {
         this.attach(this.playerBody);
     },
 
-    place: function(x,y) {
+    place: function (x, y) {
         this.x = x;
         this.y = y;
     }
@@ -87,6 +98,7 @@ Crafty.c("PlayerBody", {
                 console.log(Crafty("SanityController").sanity)
                 Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
                 console.log(Crafty("SanityController").sanity)
+                Crafty.trigger("KickBackEnemy", hitData);
             });
             //offHit
             this.bind("HitOff", function (comp) {
