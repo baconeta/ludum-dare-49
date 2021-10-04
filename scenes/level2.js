@@ -324,4 +324,7 @@ Crafty.defineScene("Level2", function () {
 
     makeCameraTrackEntity(player, 0)
     Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 14000, h: 5000}).checkHits('Player');
-});
+    var playerNotification = Crafty.e("PlayerNotification").attr({x: player.x - 220, y: player.y - 280});
+    playerNotification.messagesReceived = all_messages;
+    player.attach(playerNotification);
+})

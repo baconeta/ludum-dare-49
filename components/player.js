@@ -58,6 +58,11 @@ Crafty.c("Player", {
         this.playerBody.y = -209 + this.h;
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
+
+        this.checkHits("StoryTrigger");
+        this.bind("HitOn", function (event) {
+            console.log(event);
+        });
     },
 
     place: function (x, y) {
