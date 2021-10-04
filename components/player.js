@@ -84,19 +84,9 @@ Crafty.c("PlayerBody", {
         if (this.checkHits("Enemy")) {
             //onHit
             this.bind("HitOn", function (hitData) {
+                console.log(Crafty("SanityController").sanity)
                 Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
-            });
-            //offHit
-            this.bind("HitOff", function (comp) {
-                // do thing
-            });
-        }
-
-        //if Collides with enemy
-        if (this.checkHits("Ally")) {
-            //onHit
-            this.bind("HitOn", function (hitData) {
-                Crafty("SanityController").restoreSanity(ALLY_SANITY_RESTORE);
+                console.log(Crafty("SanityController").sanity)
             });
             //offHit
             this.bind("HitOff", function (comp) {

@@ -4,7 +4,7 @@ const JUMP_SPEEDS = {
 };
 
 Crafty.c("EnemyJumper", {
-    init: function() {
+    init: function () {
         this.addComponent("2D, DOM, Color, Gravity, Delay, Jumper, Collision, Enemy");
         this.attr({x: 0, y: 0, w: 20, h: 20});
         this.color('#007');
@@ -12,14 +12,14 @@ Crafty.c("EnemyJumper", {
         this.jumpSpeed(JUMP_SPEEDS.NORMAL);
         this.jumping = false;
         this.bind("LandedOnGround", function () {
-                this.delay(this.jump, 500, 0);
+            this.delay(this.jump, 500, 0);
         });
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             switch (newState) {
                 case STABILITY.HIGH:
-                    this.jumpSpeed(JUMP_SPEEDS.FAST);
-                    this.addComponent("Enemy");
-                    this.alpha = 1.00;
+                    this.jumpSpeed(0);
+                    this.removeComponent("Enemy");
+                    this.alpha = 0.00;
                     break;
                 case STABILITY.MEDIUM:
                     this.jumpSpeed(JUMP_SPEEDS.NORMAL);
@@ -27,9 +27,9 @@ Crafty.c("EnemyJumper", {
                     this.alpha = 1.00;
                     break;
                 case STABILITY.LOW:
-                    this.jumpSpeed(0);
-                    this.removeComponent("Enemy");
-                    this.alpha = 0.00;
+                    this.jumpSpeed(JUMP_SPEEDS.FAST);
+                    this.addComponent("Enemy");
+                    this.alpha = 1.00;
                     break;
             }
         });
