@@ -40,18 +40,13 @@ Crafty.c("Player", {
         this.playerBody.y = -209 + this.h;
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
+
+        this.checkHits("StoryTrigger");
+        this.bind("HitOn", function (event) {
+            console.log(event);
+        });
     },
 
-    this.checkHits("StoryTrigger");
-    this.bind("HitOn", function (event) {
-        var kickDirection = (this.x - event[0].obj.x) > 0;
-        Crafty.trigger("WalkIntoTree");
-        if (kickDirection) {
-            this.x += 10;
-        } else {
-            this.x -= 10;
-        }
-    });
 
     place: function(x,y) {
         this.x = x;

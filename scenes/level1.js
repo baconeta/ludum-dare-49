@@ -398,4 +398,5 @@ Crafty.defineScene("Level1", function () {
     playerNotification.messagesReceived = all_messages;
     player.attach(playerNotification);
     Crafty.trigger("StartSadness");
+    Crafty.e('StoryTrigger').place();
 });
