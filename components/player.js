@@ -32,15 +32,21 @@ Crafty.c("Player", {
             }
         });
 
+        if (this.checkHits("Enemy")) {
+            this.bind("HitOn", function (hitData) {
+                var kickDirection = (this.x - hitData[0].obj.x) > 0;
+                this.delay(function () {
+                    if (kickDirection) {
+                        this.x += 15;
+                    } else {
+                        this.x -= 15;
+                    }
+                }, 15, 1);
+            });
+        }
+
         this.bind("KickBackEnemy", function (hitData) {
-            var kickDirection = (this.x - hitData[0].obj.x) > 0;
-            this.delay(function () {
-                if (kickDirection) {
-                    this.x += 10;
-                } else {
-                    this.x -= 10;
-                }
-            }, 10, 2);
+
         })
 
         this.bind("RESET_TILT", function (event) {
