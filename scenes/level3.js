@@ -69,12 +69,13 @@ Crafty.defineScene("Level3", function () {
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
-    no_clip = true
+
+    no_clip = false
 
 
     //Map Start
     var platform = Crafty.e('GroundLong')
-        .place(0, -1330)
+        .place(50, -1330)
 
     //Lower Path
     var platform = Crafty.e('Ground')
@@ -85,8 +86,8 @@ Crafty.defineScene("Level3", function () {
     var spike = Crafty.e('SpikeBush')
         .place(260, -1050)
     var sanityZoneBad = Crafty.e('SanityZone')
-        .place(0, -1100)
-    //Right Side
+        .place(0, -1100).setMode(MODES.GAIN)
+    //Right Side (bottom)
     var platform = Crafty.e('GroundLong')
         .place(700, -1100)
     var spike = Crafty.e('SpikeBush')
@@ -112,9 +113,7 @@ Crafty.defineScene("Level3", function () {
     var platform = Crafty.e('Ground')
         .place(550, -1400)
     var sanityZoneBad = Crafty.e('SanityZone')
-        .place(550, -1500)
-    var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(850, -1450)
+        .place(550, -1425).setMode(MODES.LOSS)
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .place(850, -1450)
     var droppingGround = Crafty.e('UnstableDroppingGround')
@@ -133,11 +132,10 @@ Crafty.defineScene("Level3", function () {
         .place(2250, -1200)
         .movementDirection(VERTICAL_DIRECTION.UP)
         .maxMovementDistance(600)
-        .movementSpeed(400);
     var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(3050, -1350)
+        .place(3050, -1300)
     var sanityBooster = Crafty.e('SanityBooster')
-        .place( 3125, -1400)
+        .place( 3125, -1350)
 
     //Bottom platform Set
             //Left
@@ -178,17 +176,16 @@ Crafty.defineScene("Level3", function () {
         .place(3950, -550)
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .place(4050, -730)
-    var platform = Crafty.e('Ground')
+    var platform = Crafty.e('GroundLong')
         .place(4150, -430)
     var sanityZoneBad = Crafty.e('SanityZone')
-        .place(4150, -530)
+        .place(4300, -530).setMode(MODES.LOSS)
 
     //Moving platform + Door
     var StrafingGround = Crafty.e('UnstableStrafingGround')
         .place(4400, -800)
         .movementDirection(VERTICAL_DIRECTION.UP)
         .maxMovementDistance(600)
-        .movementSpeed(400);
     var platform = Crafty.e('GroundLong')
         .place(5300, -800)
     var spike = Crafty.e('SpikeBush')
@@ -214,14 +211,13 @@ Crafty.defineScene("Level3", function () {
         .place(6900, -250)
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .place(6650, -100)
-    var sanityBooster = Crafty.e('SanityBooster')
+    var sanityBooster = Crafty.e('SanityDropper')
         .place( 6650, -150)
 
     var raisingGround = Crafty.e('UnstableRaisingGround')
         .place(7250, -600)
         .movementDirection(VERTICAL_DIRECTION.UP)
         .maxMovementDistance(300)
-        .movementSpeed(500);
     var boundary = Crafty.e('MovementBoundary')
         .place(6930, -960)
     var droppingGround = Crafty.e('UnstableDroppingGround')
@@ -245,8 +241,6 @@ Crafty.defineScene("Level3", function () {
         .place(6550, -700)
 
     //Map End
-
-
 
 
 
