@@ -6,6 +6,9 @@ Crafty.c("SanityBar", {
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             this.removeComponent("stone_red, stone_yellow, stone_green");
+            if (DEBUG) {
+                console.debug({"state": Crafty("SanityController").state, "sanity": Crafty("SanityController").sanity});
+            }
             switch (newState) {
                 case STABILITY.LOW:
                     this.addComponent("stone_red");
@@ -22,7 +25,7 @@ Crafty.c("SanityBar", {
                     this.w = 304/4;
                     this.h = 318/4;
                     break;
-            }
+            };
         });
     },
-})
+});
