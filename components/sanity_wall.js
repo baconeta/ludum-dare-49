@@ -1,6 +1,6 @@
 Crafty.c("SanityWall", {
     init: function () {
-        this.addComponent("2D, DOM, tree");
+        this.addComponent("2D, DOM, Image, tree");
         this.attr({w: 74, h: 284});
         // This will get changed to true on the next line.
         this.alive = false;
@@ -27,6 +27,8 @@ Crafty.c("SanityWall", {
         this.alive = true;
         this.updateAssets();
         this.y -= 124;
+        this.w = 74;
+        this.h = 284;
     },
 
     makeDead() {
@@ -35,6 +37,8 @@ Crafty.c("SanityWall", {
         this.alive = false;
         this.updateAssets();
         this.y += 124;
+        this.w = 147;
+        this.h = 160;
     },
 
     updateAssets() {
@@ -47,17 +51,17 @@ Crafty.c("SanityWall", {
         const level = Crafty("LevelController").level;
         switch (level) {
             case LEVELS.SADNESS:
-                this.alive ? this.addComponent("tree_alive_sad") : this.addComponent("tree_dead_sad");
+                this.alive ? this.image("assets/images/tree_alive_sad.png") : this.image("assets/images/tree_dead_sad.png");
                 break;
             case LEVELS.ANGER:
-                this.alive ? this.addComponent("tree_alive_angry") : this.addComponent("tree_dead_angry");
+                this.alive ? this.image("assets/images/tree_alive_angry.png") : this.image("assets/images/tree_dead_angry.png");
                 break;
             case LEVELS.FEAR:
-                this.alive ? this.addComponent("tree_alive_fear") : this.addComponent("tree_dead_fear");
+                this.alive ? this.image("assets/images/tree_alive_fear.png") : this.image("assets/images/tree_dead_fear.png");
                 break;
             default:
                 console.error(`Cannot load sanity wall (tree) image for level ${level}`)
-                this.alive ? this.addComponent("tree_alive_sad") : this.addComponent("tree_dead_sad");
+                this.alive ? this.image("assets/images/tree_alive_sad.png") : this.image("assets/images/tree_dead_sad.png");
                 break;
         }
         if (DEBUG) this.color(this.lethal ? 'red' : 'green');
