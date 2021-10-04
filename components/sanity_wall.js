@@ -3,7 +3,7 @@ Crafty.c("SanityWall", {
         this.addComponent("2D, DOM, tree");
         this.attr({w: 74, h: 284});
         this.alive = true;
-        this.resetComponents(this.getAsset(this.alive));
+        this.updateAssets();
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === STABILITY.HIGH || newState === STABILITY.MEDIUM) {
@@ -20,46 +20,44 @@ Crafty.c("SanityWall", {
     },
 
     makeAlive() {
-        if (this.alive === true) {
-            return;
-        }
+        if (this.alive === true) return;
 
         this.alive = true;
-        this.resetComponents();
-        this.addComponent(this.getAsset(this.alive));
-        this.addComponent("tree");
+        this.updateAssets();
         this.y -= 124;
     },
 
     makeDead() {
-        if (this.alive === false) {
-            return;
-        }
+        if (this.alive === false)  return;
 
         this.alive = false;
-        this.resetComponents();
-        this.addComponent(this.getAsset(this.alive));
+        this.updateAssets();
         this.y += 124;
     },
 
-    resetComponents() {
-        this.removeComponent(this.getAsset(true));
-        this.removeComponent(this.getAsset(false));
-        this.removeComponent("tree");
-    },
-
-    getAsset(isAlive) {
+    updateAssets() {
+        // Reset.
+        this.removeComponent("tree_alive_sad, tree_alive_angry, tree_alive_fear");
+        this.removeComponent("tree_dead_sad, tree_dead_angry, tree_dead_fear");
+        // Do specific alive/dead tweaks.
+        this.alive ? this.addComponent("tree") : this.removeComponent("tree");
+        // Get new asset.
         const level = Crafty("LevelController").level;
         switch (level) {
             case LEVELS.SADNESS:
-                return isAlive ? "tree_alive_sad" : "tree_dead_sad";
+                this.alive ? this.addComponent("tree_alive_sad") : this.addComponent("tree_dead_sad");
+                break;
             case LEVELS.ANGER:
-                return isAlive ? "tree_alive_angry" : "tree_dead_angry";
+                this.alive ? this.addComponent("tree_alive_angry") : this.addComponent("tree_dead_angry");
+                break;
             case LEVELS.FEAR:
-                return isAlive ? "tree_alive_fear" : "tree_dead_fear";
+                this.alive ? this.addComponent("tree_alive_fear") : this.addComponent("tree_dead_fear");
+                break;
             default:
                 console.error(`Cannot load sanity wall (tree) image for level ${level}`)
-                return isAlive ? "tree_alive_sad" : "tree_dead_sad";
+                this.alive ? this.addComponent("tree_alive_sad") : this.addComponent("tree_dead_sad");
+                break;
         }
-    }
+        if (DEBUG) this.color(this.lethal ? 'red' : 'green');
+    },
 });
