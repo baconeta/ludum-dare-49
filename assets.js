@@ -10,6 +10,16 @@ var gameAssets = {
             "tileh": 426,
             "map": {"gain_sanity_zone": [0, 0]}
         },
+        "assets/images/vial_green.png": {
+            "tile": 168,
+            "tileh": 253,
+            "map": {"vial_green": [0, 0]}
+        },
+        "assets/images/vial_red.png": {
+            "tile": 220,
+            "tileh": 259,
+            "map": {"vial_red": [0, 0]}
+        },
         "assets/images/platform1_sad.png": {
             "tile": 199,
             "tileh": 75,
