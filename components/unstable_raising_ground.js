@@ -11,7 +11,7 @@ Crafty.c("UnstableRaisingGround", {
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
         this.attach(this.collisionTop);
-        this.collisionTop.w = 70;
+        this.collisionTop.w = this.w;
 
         function restrictBounds(platform) {
             if (platform.y < platform.originalY - platform.maxDistance) {

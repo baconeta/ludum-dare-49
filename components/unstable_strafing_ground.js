@@ -10,6 +10,7 @@ Crafty.c("UnstableStrafingGround", {
         this.attr({x: 0, y: 0, w: 200, h: 71});
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
 
         function restrictBounds(platform) {
