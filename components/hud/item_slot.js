@@ -7,12 +7,10 @@ const useItemKey = Crafty.keys.SHIFT;
 
 Crafty.c("ItemSlot", {
     init: function () {
-        this.addComponent("2D, DOM, Color");
+        this.addComponent("2D, DOM, Color, Image");
         this.attr({x: 0, y: 0, z: 1500, w: 50, h: 50});
-        this.alpha = 0.4;
-        this.color('#b2b2b2');
-        // Is an ITEM.
         this.holding = ITEM.NOTHING;
+        this.setIcon();
 
         this.bind('KeyDown', function (e) {
             if (e.key === useItemKey) {
@@ -24,29 +22,18 @@ Crafty.c("ItemSlot", {
             // TODO Change the sanity bar appearance here.
             switch (item) {
                 case ITEM.SANITY_BOOSTER:
-                    this.removeComponent("vial_red")
-                    this.addComponent("vial_green")
-                    this.attr({w: 50, h: 50})
-                    // this.attr({w: 168/4, h: 253/4})
                     this.holding = item;
-                    this.alpha = 1;
                     break;
                 case ITEM.SANITY_DROPPER:
-                    this.removeComponent("vial_green")
-                    this.addComponent("vial_red")   
-                    this.attr({w: 50, h: 50})
-                    // this.attr({w: 220/4, h: 259/4})
                     this.holding = item;
-                    this.alpha = 1;
                     break;
                 case ITEM.NOTHING:
-                    this.removeComponent("vial_red")
-                    this.removeComponent("vial_green")
-                    this.alpha = 0.4;
+                    this.holding = item; //Weird case...
                 default:
                     console.warn("A non-valid item was just picked up!");
                     break;
             }
+            this.setIcon();
         });
     },
 
@@ -65,10 +52,26 @@ Crafty.c("ItemSlot", {
             default:
                 console.error(`The item '${this.holding}' cannot be used`);
         }
-        this.removeComponent("vial_red")
-        this.removeComponent("vial_green")
-        this.alpha = 0.4;
-        this.color('#b2b2b2');
         this.holding = ITEM.NOTHING;
+        this.setIcon();
     },
-})
+
+    setIcon: function () {
+        switch (this.holding) {
+            case ITEM.SANITY_BOOSTER:
+                this.image("assets/images/vial_icon_green.png")
+                break;
+            case ITEM.SANITY_DROPPER:
+                this.image("assets/images/vial_icon_red.png")
+                break;
+            case ITEM.NOTHING:
+                this.image("assets/images/vial_icon_box.png")
+                break;
+            default:
+                console.warn("The player is holding an invalid item!");
+                break;
+        }
+
+        this.attr({w: 50, h: 50})
+    }
+});
