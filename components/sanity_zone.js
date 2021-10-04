@@ -19,6 +19,11 @@ Crafty.c("SanityZone", {
         }
     },
 
+    place: function(x,y) {
+        this.x = x;
+        this.y = y;
+    },
+
     alterSanity: function() {
         // TODO Investigate loose-ends from this trigger.
         Crafty.trigger((MODE ? "GAIN" : "LOSS") +"SANITY");

@@ -40,6 +40,11 @@ Crafty.c("Player", {
         this.playerBody.y = -209 + this.h;
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
+    },
+
+    place: function(x,y) {
+        this.x = x;
+        this.y = y;
     }
 });
 

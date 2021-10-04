@@ -12,6 +12,11 @@ Crafty.c("EnemyWalker", {
         this.setReels();
         this.animate("enemy_facing_left", -1)
     },
+
+    place: function (x, y) {
+        this.x = x;
+        this.y = y;
+    },
     
     inverseDirection: function() {
         // If the platform is moving it can sometimes glitch so this makes 
