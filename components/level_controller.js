@@ -8,7 +8,7 @@ Crafty.c("LevelController", {
     init: function () {
         this.addComponent("Persist, 2D, DOM");
         this.level = 0;
-        this.totalLevels = 5;
+        this.totalLevels = 3;
         this.nextLevelLoading = false;
 
         this.bind("SetLevel", (level) => {
@@ -44,6 +44,7 @@ Crafty.c("LevelController", {
         this.resetLevel = () => {
             Crafty.scene(`Level${this.level}`);
             this.finishLoading();
+            Crafty.trigger("FALL_OFF_LEVEL");
         };
 
         this.startLoading = () => {

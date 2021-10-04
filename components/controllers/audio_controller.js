@@ -14,7 +14,6 @@ Crafty.c("AudioController", {
     // defaults to loop (play 999 times)
     playTrack: function (trackName, timesToPlay = 999, trackVolume = 1) {
         if (this.canPlay && !Crafty.audio.isPlaying(trackName)) Crafty.audio.play(trackName, timesToPlay, trackVolume);
-
     },
 
     pauseTrack: function (trackName, timeToPause = 0) {
