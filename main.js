@@ -17,5 +17,9 @@ const BASE_SOUND_URL = "assets/sounds/"
 // add music tracks here
 audioController.loadTrack('theme', [`${BASE_SOUND_URL}theme.ogg`])
 audioController.loadTrack('sadness',[`${BASE_SOUND_URL}sadness.ogg`])
+audioController.loadTrack('fear',[`${BASE_SOUND_URL}fear.ogg`])
+audioController.loadTrack('anger',[`${BASE_SOUND_URL}anger.ogg`])
 
+audioController.loadTrack('insane-sane',[`${BASE_SOUND_URL}sane-insane.ogg`])
+audioController.loadTrack('sane-insane',[`${BASE_SOUND_URL}insane-sane.ogg`])
 

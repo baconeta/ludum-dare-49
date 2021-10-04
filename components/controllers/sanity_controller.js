@@ -45,6 +45,15 @@ Crafty.c("SanityController", {
         this.bind("ALTER_SANITY_RATE", function (modification) {
             this.sanityChangeRate += modification;
         })
+
+        this.bind("NEW_SANITY_STATE", function (state) {
+            if(state === STABILITY.LOW) { // going insane
+                audioController.playTrack("sane-insane", 1, 0.5);
+            }
+            if(state === STABILITY.HIGH) { // going sane
+                audioController.playTrack("insane-sane", 1, 0.5);
+            }
+        })
     },
 
     restoreSanity: function (value) {

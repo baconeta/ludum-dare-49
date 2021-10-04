@@ -8,49 +8,47 @@ Crafty.defineScene("Level2", function () {
     // Obstacles
     //Dropping Platform
     // var droppingGround = Crafty.e('UnstableDroppingGround')
-    //     .place({, y})
+    //     .place(x,y)
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
-    //     .place(0, 0)
+    //     .place(x, y)
     //     .movementDirection(VERTICAL_DIRECTION.UP)
     //     .maxMovementDistance(200)
     //     .movementSpeed(100);
     //Decaying Platform
     // var decayGround = Crafty.e('UnstableDroppingGround')
-    //     .place({, y})
+    //     .place(x, y)
     //Moving Platform
     // var movingPlatform = Crafty.e('UnstableMovementGround')
-    //     .place(0, 0)
+    //     .place(x, y)
     //Spike
     // var spike = Crafty.e('SpikeBush')
-    //     .place({, y})
+    //     .place(x, y)
     // Terrain
     //Ground/Platform
     //var platform = Crafty.e('Ground')
-    //    .place({, y})
+    //    .place(x, y)
 
     // Enemies
     //Boundary
     // var boundary = Crafty.e('MovementBoundary')
-    //     .place({, y})
+    //     .place(x, y)
     //Walker
     // var enemyWalker = Crafty.e('EnemyWalker')
-    //     .place({, y})
+    //     .place(x, y)
     //Jumper
     // var enemyJumper = Crafty.e('EnemyJumper')
-    //     .place({, y})
+    //     .place(x, y)
     // Interactables
     //Door
     // var portal = Crafty.e('LevelPortal')
-    //     .place({, y})
-    //     .color("orange")
+    //     .place(x, y)
     //Sanity Zone
     // var sanityzone = Crafty.e('SanityZone')
-    //     .place({, y})
+    //     .place(x, y)
     //Goal -- Currently a door until its implemented
     // var portal = Crafty.e('LevelPortal')
-    //     .attr({x: 0, y: 0, w: 50, h: 50})
-    //     .color("green")
+    //     .place(0, 0)
 
     //Pickups
     //Booster
@@ -171,7 +169,9 @@ Crafty.defineScene("Level2", function () {
         .place(2300, -900)
     var sanityBooster = Crafty.e('SanityDropper')
         .place(2350, -1000)
-// Platform to door                                          ***PATH SPLIT POINT***
+// Platform to door
+
+// ***PATH SPLIT POINT***
 // Player is predicted to be in LOW sanity on entry.
     var platform = Crafty.e('Ground')
         .place(3700, -850)
@@ -204,6 +204,10 @@ Crafty.defineScene("Level2", function () {
         .place(4600, -1350)
     var enemyWalker = Crafty.e('EnemyWalker')
         .place(5200, -1350)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .attr({x: 4600, y: -1350})
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .attr({x: 5200, y: -1350})
     var boundary = Crafty.e('MovementBoundary')
         .place(5250, -1350)
 //Consumable platforms + Jumper
@@ -215,6 +219,8 @@ Crafty.defineScene("Level2", function () {
         .place(4725, -1500)
     var decayGround = Crafty.e('UnstableDroppingGround')
         .place(4300, -1550)
+    var decayGround = Crafty.e('UnstableDecayGround')
+        .attr({x: 4300, y: -1550})
     var sanityBooster = Crafty.e('SanityBooster')
         .place(4375, -1600)
 //Spike Platform
