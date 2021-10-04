@@ -8,8 +8,9 @@ const audioController = Crafty.e("AudioController");
 Crafty.init(GAME_SCREEN_WIDTH, GAME_SCREEN_HEIGHT, document.getElementById('game'));
 
 Crafty.scene("Title");
-// controllers
+// Controllers.
 const levelController = Crafty.e("LevelController");
+const sanityController = Crafty.e("SanityController");
 
 // audio setup
 const BASE_SOUND_URL = "assets/sounds/"
