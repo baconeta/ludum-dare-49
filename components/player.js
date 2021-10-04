@@ -15,15 +15,17 @@ Crafty.c("Player", {
         this.bind('LandedOnGround', function (entity) {
             Crafty.trigger("PlayerLanded");
             entity.trigger('LandedOnDecayGround', entity);
+            Crafty("AudioController").playTrack('grass_step_1', 1);
         });
 
         this.bind('LiftedOffGround', function (entity) {
             entity.trigger('LiftedOffDecayGround', entity);
+            Crafty("AudioController").playTrack('grass_step_2', 1);
         });
 
         this.checkHits("tree");
         this.bind("HitOn", function (event) {
-            var kickDirection = (this.x - event[0].obj.x) > 0;
+            const kickDirection = (this.x - event[0].obj.x) > 0;
             Crafty.trigger("WalkIntoTree");
             if (kickDirection) {
                 this.x += 10;
@@ -33,7 +35,7 @@ Crafty.c("Player", {
         });
 
         this.bind("KickBackEnemy", function (hitData) {
-            var kickDirection = (this.x - hitData[0].obj.x) > 0;
+            const kickDirection = (this.x - hitData[0].obj.x) > 0;
             this.delay(function () {
                 if (kickDirection) {
                     this.x += 10;
