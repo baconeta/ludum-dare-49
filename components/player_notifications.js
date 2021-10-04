@@ -1,7 +1,6 @@
 Crafty.c("PlayerNotification", {
     init: function () {
         this.requires('2D, DOM, Text, Delay')
-        this.totalSeconds = 0;
         this.attr({w: 500, h: 200})
         this.z = 2000;
         // HashSet of Messages Received to only notify once.

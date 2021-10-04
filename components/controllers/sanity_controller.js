@@ -26,18 +26,21 @@ Crafty.c("SanityController", {
         this.state = STABILITY.MEDIUM;
         this.sanityChangeRate = 0;
 
-
         // Repeating function to change sanity over time.
         this.delay(() => {
             // The values are measured in sanity/second, but we change the sanity at a higher rate to make it smoother.
             switch (this.state) {
                 case STABILITY.HIGH:
+                    totalSecondsSane += 1 / SANITY_TICK_RATE;
                     this.drainSanity(PASSIVE_DRAIN_RATE/SANITY_TICK_RATE);
                     break;
                 case STABILITY.LOW:
+                    totalSecondsInsane += 1/SANITY_TICK_RATE;
                     this.restoreSanity(PASSIVE_RESTORE_RATE/SANITY_TICK_RATE);
                     break;
             }
+            console.log("total time sane:", totalSecondsSane)
+            console.log("total time insane:", totalSecondsInsane)
             // Although we only use restoreSanity here, the rate can be negative and thus drain the player's sanity.
             this.restoreSanity(this.sanityChangeRate/5);
         }, 1000/SANITY_TICK_RATE, -1);

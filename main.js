@@ -2,6 +2,8 @@ const GAME_SCREEN_WIDTH = 1200;
 const GAME_SCREEN_HEIGHT = 800;
 
 const DEBUG = false;
+var totalSecondsSane = 0.0;
+var totalSecondsInsane = 0.0;
 
 // needs to be above game init, as each level needs the AudioController
 const audioController = Crafty.e("AudioController");
