@@ -73,6 +73,8 @@ Crafty.c("GroundLong", {
         this.leftMovementBoundary.y = y - this.h;
         this.rightMovementBoundary.x = this.x + this.w;
         this.rightMovementBoundary.y = y - this.h;
+
+        return this;
     },
 
     setType: function () {

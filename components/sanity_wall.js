@@ -17,6 +17,7 @@ Crafty.c("SanityWall", {
     place(x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     makeAlive() {
