@@ -18,6 +18,7 @@ Crafty.defineScene('Title', function () {
             console.log("credits hehe")
         });
     var stoneIcon = Crafty.e("StoneIcon");
+    var muteIcon = Crafty.e("Music");
 });
 
 
