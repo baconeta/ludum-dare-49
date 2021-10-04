@@ -25,6 +25,7 @@ Crafty.c("PlayerNotification", {
     decayMessage: function () {
         this.alpha -= 0.1;
         return this;
+        return this;
     },
 
     setMessageEvents: function () {
@@ -111,5 +112,6 @@ Crafty.c("PlayerNotification", {
                 this.trigger("InstructionText", "I can't leave. I am just starting to feel again. Feel right. But I need to get out of here...");
             }
         });
+        return this;
     },
 })

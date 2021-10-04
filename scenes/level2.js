@@ -1,284 +1,322 @@
 Crafty.defineScene("Level2", function () {
     const hud = Crafty.e("HUD");
+    audioController.playTrack('anger');
 
-    Crafty.e("Background").place(-1000, -1600);
+    Crafty.e("Background").place(-1000, -1757);
 
     // Assets
 
     // Obstacles
-    //Dropping Platform
-    // var droppingGround = Crafty.e('UnstableDroppingGround')
-    //     .place(x,y)
     //Raising Platform
     // var raisingGround = Crafty.e('UnstableRaisingGround')
     //     .place(x, y)
     //     .movementDirection(VERTICAL_DIRECTION.UP)
     //     .maxMovementDistance(200)
     //     .movementSpeed(100);
-    //Decaying Platform
-    // var decayGround = Crafty.e('UnstableDroppingGround')
+
+    //Dropping Platform
+    // var droppingGround = Crafty.e('UnstableDroppingGround')
     //     .place(x, y)
+
     //Moving Platform
-    // var movingPlatform = Crafty.e('UnstableMovementGround')
+    // var movingPlatform = Crafty.e('UnstableStrafingGround')
     //     .place(x, y)
     //Spike
     // var spike = Crafty.e('SpikeBush')
     //     .place(x, y)
+
     // Terrain
-    //Ground/Platform
+
+    //Short
     //var platform = Crafty.e('Ground')
     //    .place(x, y)
+    //Long
+    //var platform = Crafty.e('GroundLong')
+    //    .place(x, y)
+
 
     // Enemies
     //Boundary
     // var boundary = Crafty.e('MovementBoundary')
-    //     .place(x, y)
+    //     .place(x, y).movementSpeed(200).maxMovementDistance(300)
     //Walker
     // var enemyWalker = Crafty.e('EnemyWalker')
     //     .place(x, y)
     //Jumper
     // var enemyJumper = Crafty.e('EnemyJumper')
     //     .place(x, y)
+
     // Interactables
     //Door
+    // var door = Crafty.e('SanityWall')
+    //     .place(x, y)
+    //Sanity Zone Bad
+    // var sanityZoneBad = Crafty.e('SanityZone')
+    //     .place(x, y)
+    //Sanity Zone Good
+    // var sanityZoneGood = Crafty.e('SanityZone')
+    //     .place(x, y)
+    //Level Portal
     // var portal = Crafty.e('LevelPortal')
     //     .place(x, y)
-    //Sanity Zone
-    // var sanityzone = Crafty.e('SanityZone')
-    //     .place(x, y)
-    //Goal -- Currently a door until its implemented
-    // var portal = Crafty.e('LevelPortal')
-    //     .place(0, 0)
 
     //Pickups
     //Booster
     // var sanityBooster = Crafty.e('SanityBooster')
-    //      .attr({x: 0, y: 0})
+    //      .place( 0, 0)
     //Dropper
     // var sanityBooster = Crafty.e('SanityDropper')
-    //      .attr({x: 0, y: 0})
+    //      .place( 0, 0)
 
-    //Centre line to help with level design
-    // var centreLine = Crafty.e('Ground')
-    //     .attr({x: 0, y: -800, w: 12000, h: 10})
-    //     .color("red")
+    //Level Design Tools
+    //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
+    noclip = false
 
 
     //Map Start
-    var platform = Crafty.e('Ground')
-        .place(0, -0)
+    var platform = Crafty.e('GroundLong')
+        .place(0, -1300)
 
+    //First Platforms
     var platform = Crafty.e('Ground')
-        .place(150, -0)
+        .place(500, -1400)
     var platform = Crafty.e('Ground')
-        .place(300, -0)
+        .place(780, -1325)
     var platform = Crafty.e('Ground')
-        .place(450, -150)
+        .place(1050, -1425)
     var platform = Crafty.e('Ground')
-        .place(600, -150)
+        .place(1350, -1575)
+    var platform4 = Crafty.e('Ground')
+        .place(1400, -1250)
     var platform = Crafty.e('Ground')
-        .place(750, -150)
-    var platform = Crafty.e('Ground')
-        .place(1050, -0)
-    //Dropping Platform
+        .place(1650, -1350)
+    var platform7 = Crafty.e('Ground')
+        .place(1850, -1050)
+
+    //Split left for consumable                                                      ***SPLIT POINT***
+    var platform7 = Crafty.e('Ground')
+        .place(1650, -750)
     var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(1300, 0)
+        .place(1200, -720)
+    var platform7 = Crafty.e('Ground')
+        .place(800, -720)
+    var sanityBooster = Crafty.e('SanityDropper')
+        .place(875, -780)
+
+    // Continue Right
+    var platform8 = Crafty.e('Ground')
+        .place(2100, -700)
+    var dropPlatform1 = Crafty.e('UnstableDroppingGround')
+        .place(2500, -715)
+
+    //Door Platform with EnemyWalker
+    var boundary = Crafty.e('MovementBoundary')
+        .place(2840, -700)
+    var platform11 = Crafty.e('GroundLong')
+        .place(2850, -675)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .place(2900, -700)
+    var boundary = Crafty.e('MovementBoundary')
+        .place(3075, -700)
+    var door1 = Crafty.e('SanityWall')
+        .place(3100, -950)
+
+    //Drop Platform                                                          ***SPLIT A POINT***
+    var dropPlatform2 = Crafty.e('UnstableDroppingGround')
+        .place(3300, -800)
+
+    //Drop platform gauntlet - Booster Reward                               ***SPLIT A DOWN***
+    var dropPlatform2 = Crafty.e('UnstableDroppingGround')
+        .place(3550, -675)
+    var dropPlatform2 = Crafty.e('UnstableDroppingGround')
+        .place(3700, -450)
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
+        .place(2975, -250).maxMovementDistance(400)
+    var sanityBooster = Crafty.e('SanityBooster')
+        .place(3000, -300)
+
+
+    //Continue Onwards - Enemy Platform                                                       ***SPLIT A UP***
+    var boundary1 = Crafty.e('MovementBoundary')
+        .place(3510, -960)
+    var platform16 = Crafty.e('GroundLong')
+        .place(3540, -950)
+    var enemyWalker = Crafty.e('EnemyWalker')
+        .place(3650, -960)
+    var enemyJumper = Crafty.e('EnemyJumper')
+        .place(3650, -1000)
+    var boundary2 = Crafty.e('MovementBoundary')
+        .place(3880, -960)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(3950, -950)
+    var platform16 = Crafty.e('Ground')
+        .place(4200, -800)
+    var enemyJumper = Crafty.e('EnemyJumper')
+        .place(4270, -850)
+
+    //Raising Platform
+    var raisePlatform2 = Crafty.e('UnstableRaisingGround')
+        .place(4500, -1100).maxMovementDistance(350)
+
+    //Door2
+    var platform21 = Crafty.e('GroundLong')
+        .place(4650, -1400)
+    var door2 = Crafty.e('SanityWall')
+        .place(4900, -1675)
+
+    //Sanity Zone (Left of door) to                                             ***Split LEFT***
+    var movingPlatform = Crafty.e('UnstableStrafingGround')
+        .place(3850, -1400)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(3500, -1450)
+    var platform16 = Crafty.e('GroundLong')
+        .place(2950, -1390)
+    var sanityZoneBad = Crafty.e('SanityZone')
+        .place(2975, -1430).setMode(MODES.LOSS)
+
+    //Continue Onwards --> Spike platforms                       ***RETURN RIGHT***
+    //Platform with spikes (First)
     var platform = Crafty.e('Ground')
-        .place(1550, -0)
+        .place(5100, -1250)
+    var spike1 = Crafty.e('SpikeBush')
+        .place(5180, -1300)
+
+    //Platform with spikes (Bottom Left)
+    var platform29 = Crafty.e('Ground')
+        .place(4900, -850)
+    var spike1 = Crafty.e('SpikeBush')
+        .place(4920, -920)
+
+    //Platform State Change
+    var platform29 = Crafty.e('Ground')
+        .place(4750, -650)
+    var sanityZoneBad = Crafty.e('SanityZone')
+        .place(4750, -750)
+
+    //Platform with spikes (Bottom Middle)
+    var platform29 = Crafty.e('GroundLong')
+        .place(5200, -850)
+    var spike1 = Crafty.e('SpikeBush')
+        .place(5220, -920)
+    var spike2 = Crafty.e('SpikeBush')
+        .place(5400, -920)
+
+    //Platform with spikes (Top)
+    var platform29 = Crafty.e('Ground')
+        .place(5375, -1350)
+    var spike1 = Crafty.e('SpikeBush')
+        .place(5420, -1400)
+
+    //Raising Platform
+    var raisePlatform2 = Crafty.e('UnstableRaisingGround')
+        .place(5700, -1200).maxMovementDistance(300)
     //Moving Platform
     var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(1750, -50)
-    var platform = Crafty.e('Ground')
-        .place(2450, -50)
-    //Raising Platform
-    var raisingGround = Crafty.e('UnstableRaisingGround')
-        .place(2600, -50)
-    var platform = Crafty.e('Ground')
-        .place(2675, -300)
-    //Walking Enemy Platform
-    var platform = Crafty.e('Ground')
-        .place(2825, -300)
-    var platform = Crafty.e('Ground')
-        .place(2975, -300)
-    var platform = Crafty.e('Ground')
-        .place(3125, -300)
-    var boundary = Crafty.e('MovementBoundary')
-        .place(2825, -330)
+        .place(5900, -1400)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(6500, -1100)
+
+    //Drop Down onto platform with Insanity patch & Enemy
+    var platform29 = Crafty.e('GroundLong')
+        .place(6500, -800)
+    var boundary2 = Crafty.e('MovementBoundary')
+        .place(6490, -810)
     var enemyWalker = Crafty.e('EnemyWalker')
-        .place(2900, -320)
-    var boundary = Crafty.e('MovementBoundary')
-        .place(3250, -330)
-//Jumping Enemy Platform
-    var platform = Crafty.e('Ground')
-        .place(3350, -400)
+        .place(6550, -850)
+    var sanityZoneBad = Crafty.e('SanityZone')
+        .place(6600, -900)
+    var boundary2 = Crafty.e('MovementBoundary')
+        .place(6810, -810)
+    //Jump across platforms
+    var boundary2 = Crafty.e('MovementBoundary')
+        .place(7050, -810)
+    var platform29 = Crafty.e('Ground')
+        .place(7060, -790)
     var enemyJumper = Crafty.e('EnemyJumper')
-        .place(3400, -410)
+        .place(7130, -830)
+    var boundary2 = Crafty.e('MovementBoundary')
+        .place(7220, -810)
 
-//Dropping Platform                                         ***PATH SPLIT POINT***
-    var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(3700, -550)
-//Consumable path
-    var platform = Crafty.e('Ground')
-        .place(4000, -500)
-    var platform = Crafty.e('Ground')
-        .place(4150, -500)
-    var spike = Crafty.e('SpikeBush')
-        .place(4160, -520)
-    var raisingGround = Crafty.e('UnstableRaisingGround')
-        .place(4320, -500)
-//Movement Platform for Consumable
-    var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(4450, -800)
+    //safe spot
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(7400, -650)
+
+    //Raising Jumpers
+    var raising4 = Crafty.e('UnstableRaisingGround')
+        .place(7800, -1000).maxMovementDistance(400).movementSpeed(160)
+    var raising5 = Crafty.e('UnstableRaisingGround')
+        .place(7950, -1200).maxMovementDistance(400).movementSpeed(120)
+    var raising6 = Crafty.e('UnstableRaisingGround')
+        .place(8150, -1250).maxMovementDistance(400).movementSpeed(140)
+    var platform36 = Crafty.e('Ground')
+        .place(8500, -1300)
+    var spike7 = Crafty.e('SpikeBush')
+        .place(8600, -1350)
+
+    //Consumable Platform (Booster)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(8000, -500)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(8150, -300)
+    var platform36 = Crafty.e('Ground')
+        .place(8300, -200)
     var sanityBooster = Crafty.e('SanityBooster')
-        .place(4900, -830)
-//Spike Platform -- Safety net for consumable
-    var platform = Crafty.e('Ground')
-        .place(4600, -600)
-    var spike = Crafty.e('SpikeBush')
-        .place(4620, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4640, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4660, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4680, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4700, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4720, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4740, -620)
-    var spike = Crafty.e('SpikeBush')
-        .place(4760, -620)
-//Spike drop platforms --                                         ***PATH SPLIT POINT***
-//Player is predicted to be in HIGH sanity on entry. LOW sanity on exit
-    var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(3350, -700)
-    var spike = Crafty.e('SpikeBush')
-        .place(3375, -720)
-    var spike = Crafty.e('SpikeBush')
-        .place(3450, -720)
-    var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(3050, -825)
-    var spike = Crafty.e('SpikeBush')
-        .place(3075, -845)
-    var spike = Crafty.e('SpikeBush')
-        .place(3150, -845)
-//Movement Platform + Consumable
-    var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(2300, -900)
-    var sanityBooster = Crafty.e('SanityDropper')
-        .place(2350, -1000)
-// Platform to door
+        .place(8400, -250)
 
-// ***PATH SPLIT POINT***
-// Player is predicted to be in LOW sanity on entry.
-    var platform = Crafty.e('Ground')
-        .place(3700, -850)
-    var platform = Crafty.e('Ground')
-        .place(3850, -850)
-    var portal = Crafty.e('LevelPortal')
-        .place(3950, -950)
-    var raisingGround = Crafty.e('UnstableRaisingGround')
-        .place(4100, -950)
-//Enemy Platforms
-    var platform = Crafty.e('Ground')
-        .place(4200, -1300)
-    var platform = Crafty.e('Ground')
-        .place(4350, -1300)
-    var platform = Crafty.e('Ground')
-        .place(4500, -1300)
-    var platform = Crafty.e('Ground')
-        .place(4650, -1300)
-    var platform = Crafty.e('Ground')
-        .place(4800, -1300)
-    var platform = Crafty.e('Ground')
-        .place(4950, -1300)
-    var platform = Crafty.e('Ground')
-        .place(5100, -1300)
-    var boundary = Crafty.e('MovementBoundary')
-        .place(4200, -1350)
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .place(4250, -1350)
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .place(4600, -1350)
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .place(5200, -1350)
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 4600, y: -1350})
-    var enemyWalker = Crafty.e('EnemyWalker')
-        .attr({x: 5200, y: -1350})
-    var boundary = Crafty.e('MovementBoundary')
-        .place(5250, -1350)
-//Consumable platforms + Jumper
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(4650, -1450)
-    var sanityzone = Crafty.e('SanityZone')
-        .place(4200, -1500)
-    var enemyJumper = Crafty.e('EnemyJumper')
-        .place(4725, -1500)
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(4300, -1550)
-    var decayGround = Crafty.e('UnstableDecayGround')
-        .attr({x: 4300, y: -1550})
+    //Consumable Platform (Drainer)
+    var strafePlatform = Crafty.e('UnstableStrafingGround')
+        .place(7250, -1400).maxMovementDistance(300)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(6900, -1400)
+    var platform36 = Crafty.e('Ground')
+        .place(6800, -1500)
     var sanityBooster = Crafty.e('SanityBooster')
-        .place(4375, -1600)
-//Spike Platform
-    var platform = Crafty.e('Ground')
-        .place(5500, -1250)
-    var spike = Crafty.e('SpikeBush')
-        .place(5520, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5540, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5560, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5580, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5600, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5620, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5640, -1270)
-    var spike = Crafty.e('SpikeBush')
-        .place(5660, -1270)
-//Decaying floor gauntlet
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(5800, -1250)
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -1150)
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6350, -1025)
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -900)
-    var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(5700, -900)
-//Movement Platform to end of level
-    var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(6100, -1350)
-    var platform = Crafty.e('Ground')
-        .place(6800, -1350)
-    var platform = Crafty.e('Ground')
-        .place(6950, -1350)
-    var platform = Crafty.e('Ground')
-        .place(7100, -1350)
-    var portal = Crafty.e('LevelPortal')
-        .place(6900, -1450)
-    var portal = Crafty.e('LevelPortal')
-        .place(7200, -1400)
+        .place(6810, -1550)
 
-//Map End
+    //Drop platform run
+    var platform37 = Crafty.e('Ground')
+        .place(8800, -1450)
+    var dropPlatform6 = Crafty.e('UnstableDroppingGround')
+        .place(9030, -1450)
+    var dropPlatform7 = Crafty.e('UnstableDroppingGround')
+        .place(9300, -1450)
+    var dropPlatform8 = Crafty.e('UnstableDroppingGround')
+        .place(9650, -1450)
+    var dropPlatform9 = Crafty.e('UnstableDroppingGround')
+        .place(10000, -1450)
+    var dropPlatform10 = Crafty.e('UnstableDroppingGround')
+        .place(10350, -1450)
+    var platform39 = Crafty.e('Ground')
+        .place(10500, -1350)
+
+    //Walkway Spikes
+    var platform41 = Crafty.e('GroundLong')
+        .place(10900, -1400)
+    var spike7 = Crafty.e('SpikeBush')
+        .place(10975, -1470)
+    var spike7 = Crafty.e('SpikeBush')
+        .place(11100, -1470)
+
+    //Goal platform
+    var platform41 = Crafty.e('GroundLong')
+        .place(11350, -1500)
+    var door = Crafty.e('SanityWall')
+        .place(11360, -1800)
+    var goal = Crafty.e('LevelPortal')
+        .place(11600, -1550)
 
 
-// misc
-    noclip = false;
+    //Map End
+
+
+    // misc
 
     if (noclip) {
         var player = Crafty.e("NoClip")
-            .attr({x: 2350, y: -920});
+            .attr({x: 11800, y: -1340});
     } else {
         var player = Crafty.e("Player")
-            .attr({x: 100, y: -100});
+            .attr({x: 100, y: -1340});
     }
 
     makeCameraTrackEntity(player, 0)
@@ -287,5 +325,3 @@ Crafty.defineScene("Level2", function () {
     playerNotification.messagesReceived = all_messages;
     player.attach(playerNotification);
 })
-
-

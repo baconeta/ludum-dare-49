@@ -1,13 +1,12 @@
 Crafty.defineScene("Loading", function () {
-    Crafty.background("#AAA");
+    var gameStartBackground = Crafty.e("TitleBG")
     Crafty.e("2D, DOM, Text")
-        .attr({w: 200, h: 50, x: 300, y: 280})
-        .text("Loading...")
+        .attr({w: 700, h: 50, x: 275, y: 570})
+        .text("Loading... Please wait, as this could take a while on your first play.")
         .textFont({size: '20px', weight: 'bold'})
         .textAlign("center")
-        .textColor("#111");
+        .textColor("#3d0a57");
 
-    // Game Assets would be a list of images, but this tutorial doesn't use them.
 
     Crafty.load(gameAssets, function () {
         console.info('Loaded successfully');

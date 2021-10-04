@@ -13,6 +13,7 @@ Crafty.c("UnstableDroppingGround", {
         this.setType();
         this.decayDelay = DROP_DELAYS.NORMAL;
         this.collisionTop = Crafty.e("PlatformTop")
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
         // Set the rotation point to be the center of the sprite.
         this.origin(this.w / 2, this.h / 2);
@@ -40,6 +41,7 @@ Crafty.c("UnstableDroppingGround", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     setType: function () {
@@ -48,8 +50,8 @@ Crafty.c("UnstableDroppingGround", {
         switch (level) {
             case LEVELS.SADNESS:
                 this.addComponent("pf_sad_dropping");
-                this.w = 797;
-                this.h = 300;
+                this.w = 797/4;
+                this.h = 300/4;
                 break;
             case LEVELS.ANGER:
                 this.addComponent("pf_angry_dropping");
@@ -64,16 +66,18 @@ Crafty.c("UnstableDroppingGround", {
             default:
                 console.error(`Cannot load platform image for level ${level}`)
                 this.addComponent("pf_sad_dropping");
-                this.w = 797;
-                this.h = 300;
+                this.w = 797/4;
+                this.h = 300/4;
                 break;
-        }
+        };
+        return this;
     },
 
     resetComponents: function () {
         this.removeComponent("pf_sad_norm");
         this.removeComponent("pf_angry_normal");
-        this.removeComponent("pf_fear_norm");
+        this.removeComponent("pf_fear_norm")
+        return this;
     },
 
     drop: function () {
@@ -85,9 +89,11 @@ Crafty.c("UnstableDroppingGround", {
             // this.fade()
         }, PLATFORM_REGEN_DELAY_MS, 0)
         this.ay += 500;
+        return this;
     },
 
     shake: function () {
+        Crafty("AudioController").playTrack('crumble_1', 1);
         this.delay(() => {
                 this.rotation = 3;
             },
@@ -110,9 +116,6 @@ Crafty.c("UnstableDroppingGround", {
             60, 0);
         this.delay(() => {
                 this.rotation = 0;
-            },
-            72, 0);
-        this.delay(() => {
                 Crafty.trigger("RESET_TILT");
             },
             72, 0);
@@ -141,9 +144,11 @@ Crafty.c("UnstableDroppingGround", {
             },
             144, 0);
         this.delay(() => {
+                Crafty("AudioController").playTrack('crumble_2', 1);
                 Crafty.trigger("RESET_TILT");
             },
             175, 0);
+        return this;
     },
 
     // fade: function () {

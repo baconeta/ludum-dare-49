@@ -3,6 +3,7 @@ Crafty.c("Ground", {
         this.addComponent("2D, DOM");
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop")
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
@@ -58,6 +59,8 @@ Crafty.c("GroundLong", {
     init: function () {
         this.addComponent("2D, DOM");
         this.collisionTop = Crafty.e("PlatformTop")
+        this.setType();
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
@@ -71,10 +74,13 @@ Crafty.c("GroundLong", {
         this.leftMovementBoundary.y = y - this.h;
         this.rightMovementBoundary.x = this.x + this.w;
         this.rightMovementBoundary.y = y - this.h;
+
+        return this;
     },
 
     setType: function () {
         const level = Crafty("LevelController").level;
+        this.resetComponents();
         switch (level) {
             case LEVELS.SADNESS:
                 this.addComponent("pf_sad_long");
@@ -98,5 +104,13 @@ Crafty.c("GroundLong", {
                 this.h = 87;
                 break;
         }
+        return this;
+    },
+
+    resetComponents: function () {
+        this.removeComponent("pf_sad_long");
+        this.removeComponent("pf_angry_long");
+        this.removeComponent("pf_fear_long");
+        return this;
     }
 })

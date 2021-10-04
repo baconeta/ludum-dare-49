@@ -1,17 +1,19 @@
 Crafty.c("SpikeBush", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Color");
+        this.addComponent("2D, DOM, Collision, Image");
         this.attr({w: 86, h: 66});
+        this.lethal = true;
+        this.updateAssets();
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
-            if (newState === STABILITY.HIGH) {
-                this.makeSpiky();
-            } else if (newState === STABILITY.MEDIUM || newState === STABILITY.LOW) {
+            if (newState === STABILITY.LOW) {
+                this.makeLethal();
+            } else if (newState === STABILITY.MEDIUM || newState === STABILITY.HIGH) {
                 this.makeSafe();
             }
         });
 
-        this.onHit("PlayerBody", function () {
+        this.onHit("Player", function () {
             if (this.lethal === true) {
                 console.log('You fell on a spiky berry bush and died');
                 Crafty.trigger("ResetLevel");
@@ -19,57 +21,46 @@ Crafty.c("SpikeBush", {
                 console.info(`You fell on a berry bush without spikes!`);
             }
         });
-
-        this.makeSpiky = () => {
-            if (this.lethal === true) return;
-
-            this.lethal = true;
-            this.updateComponents();
-        };
-
-        this.makeSafe = () => {
-            if (this.lethal === false) return;
-
-            this.lethal = false;
-            this.updateComponents();
-        };
-
-        this.updateComponents = () => {
-            this.resetComponents();
-            this.addComponent(this.getAsset(this.lethal));
-            this.displayDebug();
-        }
-        this.resetComponents = () => {
-            this.removeComponent(this.getAsset(true));
-            this.removeComponent(this.getAsset(false));
-        }
-
-        this.getAsset = (isSpiky) => {
-            const level = Crafty("LevelController").level;
-            switch (level) {
-                case LEVELS.SADNESS:
-                    return isSpiky ? "bush_sad_spiky" : "bush_sad_berries";
-                case LEVELS.ANGER:
-                    return isSpiky ? "bush_angry_spiky" : "bush_angry_berries";
-                case LEVELS.FEAR:
-                    return isSpiky ? "bush_fear_spiky" : "bush_fear_berries";
-                default:
-                    console.error(`Cannot load spike bush image for level ${level}`)
-                    return isSpiky ? "bush_sad_spiky" : "bush_sad_berries";
-            }
-        };
-
-        this.displayDebug = () => {
-            if (!DEBUG) return;
-
-            this.color(this.lethal ? 'red' : 'green');
-        };
-
-        this.makeSpiky();
     },
 
-    place(x, y) {
+    place: function (x, y) {
         this.x = x;
         this.y = y;
-    }
-})
+        return this;
+    },
+
+    makeLethal: function () {
+        this.lethal = true;
+        this.updateAssets();
+    },
+
+    makeSafe: function () {
+        this.lethal = false;
+        this.updateAssets();
+    },
+
+    updateAssets: function () {
+        // Reset.
+        this.removeComponent("bush_sad_spiky, bush_sad_berries, bush_angry_spiky");
+        this.removeComponent("bush_angry_berries, bush_fear_spiky, bush_fear_berries");
+        // Get new asset.
+        const level = Crafty("LevelController").level;
+        switch (level) {
+            case LEVELS.SADNESS:
+                this.lethal ? this.image("assets/images/spikes_sad.png") : this.image("assets/images/bush_sad.png");
+                break;
+            case LEVELS.ANGER:
+                this.lethal ? this.image("assets/images/spikes_angry.png") : this.image("assets/images/bush_angry.png");
+                break;
+            case LEVELS.FEAR:
+                this.lethal ? this.image("assets/images/spikes_fear.png") : this.image("assets/images/bush_fear.png");
+                break;
+            default:
+                console.error(`Cannot load spike bush image for level ${level}`);
+                this.lethal ? this.image("assets/images/spikes_sad.png") : this.image("assets/images/bush_sad.png");
+                break;
+        }
+        if (DEBUG) this.color(this.lethal ? 'red' : 'green');
+        return this;
+    },
+});

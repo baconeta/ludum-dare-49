@@ -3,7 +3,7 @@ const ALLY_SANITY_RESTORE = 18;
 
 Crafty.c("Player", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Twoway, Gravity, Keyboard, Color, GroundAttacher");
+        this.addComponent("2D, DOM, Collision, Delay, Twoway, Gravity, Keyboard, Color, GroundAttacher");
         this.color("red")
         this.alpha = DEBUG ? 1.00 : 0.00;
         this.attr({w: 25, h: 15, x: 20, y: 0})
@@ -15,6 +15,7 @@ Crafty.c("Player", {
         this.bind('LandedOnGround', function (entity) {
             Crafty.trigger("PlayerLanded");
             entity.trigger('LandedOnDecayGround', entity);
+            Crafty("AudioController").playTrack('grass_step_2', 0.70);
         });
 
         this.bind('LiftedOffGround', function (entity) {
@@ -23,7 +24,7 @@ Crafty.c("Player", {
 
         this.checkHits("tree");
         this.bind("HitOn", function (event) {
-            var kickDirection = (this.x - event[0].obj.x) > 0;
+            const kickDirection = (this.x - event[0].obj.x) > 0;
             Crafty.trigger("WalkIntoTree");
             if (kickDirection) {
                 this.x += 10;
@@ -31,6 +32,23 @@ Crafty.c("Player", {
                 this.x -= 10;
             }
         });
+
+        if (this.checkHits("Enemy")) {
+            this.bind("HitOn", function (hitData) {
+                const kickDirection = (this.x - hitData[0].obj.x) > 0;
+                this.delay(function () {
+                    if (kickDirection) {
+                        this.x += 15;
+                    } else {
+                        this.x -= 15;
+                    }
+                }, 15, 1);
+            });
+        }
+
+        this.bind("KickBackEnemy", function (hitData) {
+
+        })
 
         this.bind("RESET_TILT", function (event) {
             this.rotation = 0;
@@ -47,10 +65,10 @@ Crafty.c("Player", {
         });
     },
 
-
-    place: function(x,y) {
+    place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     }
 });
 
@@ -90,19 +108,10 @@ Crafty.c("PlayerBody", {
         if (this.checkHits("Enemy")) {
             //onHit
             this.bind("HitOn", function (hitData) {
+                console.log(Crafty("SanityController").sanity)
                 Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
-            });
-            //offHit
-            this.bind("HitOff", function (comp) {
-                // do thing
-            });
-        }
-
-        //if Collides with enemy
-        if (this.checkHits("Ally")) {
-            //onHit
-            this.bind("HitOn", function (hitData) {
-                Crafty("SanityController").restoreSanity(ALLY_SANITY_RESTORE);
+                console.log(Crafty("SanityController").sanity)
+                Crafty.trigger("KickBackEnemy", hitData);
             });
             //offHit
             this.bind("HitOff", function (comp) {
@@ -130,6 +139,7 @@ Crafty.c("PlayerBody", {
         } else {
             this.startAnimation("sprite_walking_left");
         }
+        return this;
     },
 
     setKeybindings: function () {
@@ -166,7 +176,8 @@ Crafty.c("PlayerBody", {
             } else {
                 this.startAnimation("sprite_idle_left");
             }
-        })
+        });
+        return this;
     },
 
     startAnimation: function (animationName) {
@@ -178,6 +189,7 @@ Crafty.c("PlayerBody", {
         this.removeComponent("sprite_jump_right");
         this.addComponent(animationName);
         this.animate(animationName, -1);
+        return this;
     },
 
     setReels: function () {
@@ -187,5 +199,6 @@ Crafty.c("PlayerBody", {
         this.reel("sprite_idle_right", 3000, 0, 0, 60, 15);
         this.reel("sprite_jump_right", 2000, 0, 0, 14);
         this.reel("sprite_jump_left", 2000, 0, 0, 14);
+        return this;
     }
 })

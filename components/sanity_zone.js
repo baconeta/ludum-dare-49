@@ -1,19 +1,20 @@
 const GAIN_RATE = 15; // Per second
 const LOSS_RATE = 15; // Per second
-const MODE = {"GAIN": true, "LOSS": false};
+const MODES = {"GAIN": true, "LOSS": false};
 
 Crafty.c("SanityZone", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Delay, sanity_up_sad");
+        this.addComponent("2D, DOM, Collision, Delay");
         this.attr({x:0, y:0})
-        this.mode = MODE.GAIN;
+        this.mode = MODES.GAIN;
+        this.updateAssets();
 
         if (this.checkHits("PlayerBody")){ // If collide hits with player.
             this.bind("HitOn", function() { // Player enters zone.
-                Crafty.trigger("ALTER_SANITY_RATE", MODE ? GAIN_RATE : -LOSS_RATE);
+                Crafty.trigger("ALTER_SANITY_RATE", this.mode ? GAIN_RATE : -LOSS_RATE);
             });
             this.bind("HitOff", function() { // Player leaves zone.
-                Crafty.trigger("ALTER_SANITY_RATE", MODE ? -GAIN_RATE : LOSS_RATE);
+                Crafty.trigger("ALTER_SANITY_RATE", this.mode ? -GAIN_RATE : LOSS_RATE);
             });
         }
     },
@@ -26,12 +27,12 @@ Crafty.c("SanityZone", {
 
     setMode: function (mode) {
         this.mode = mode;
-        this.setImage();
+        this.updateAssets();
+        return this;
     },
 
-    setImage: function () {
+    updateAssets: function () {
         const level = Crafty("LevelController").level;
-        console.log(level)
         this.removeComponent("sanity_up_sad");
         if (this.mode) { //on gain
             this.w = 184;
@@ -52,7 +53,6 @@ Crafty.c("SanityZone", {
                     break;
             }
             console.log(this.has("sanity_up_sad"))
-
         } else {
             this.w = 225;
             this.h = 43;
@@ -72,8 +72,7 @@ Crafty.c("SanityZone", {
                     break;
             }
             console.log(this.has("sanity_down_sad"))
-
-
         }
+        return this;
     }
 })

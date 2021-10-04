@@ -33,8 +33,9 @@ Crafty.c("UnstableBalloonGround", {
                 // make sure it's exactly at it's origin
                 this.move('n', this.y - this.originY)
             }
-        })
+        });
     },
+
     setRaise: function (raiseHeight, raiseSpeed) {
         this.raiseHeight = raiseHeight;
         this.raiseSpeed = raiseSpeed;

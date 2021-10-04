@@ -10,6 +10,7 @@ Crafty.c("UnstableStrafingGround", {
         this.attr({x: 0, y: 0, w: 200, h: 71});
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
 
         function restrictBounds(platform) {
@@ -96,13 +97,15 @@ Crafty.c("UnstableStrafingGround", {
                 this.w = 186;
                 this.h = 71;
                 break;
-        }
+        };
+        return this;
     },
 
     resetComponents: function () {
         this.removeComponent("pf_sad_norm");
         this.removeComponent("pf_angry_normal");
         this.removeComponent("pf_fear_norm");
+        return this;
     },
 
     movementSpeed: function (speed) {
@@ -125,6 +128,7 @@ Crafty.c("UnstableStrafingGround", {
     invertMovementDirection: function () {
         this.direction *= -1;
         this.vx *= this.direction;
+        return this;
     },
 
     setVelocityUsingSanityState: function (state) {
@@ -138,6 +142,7 @@ Crafty.c("UnstableStrafingGround", {
             case STABILITY.LOW:
                 this.vx = this.speed * MULTIPLIERS.HIGH * this.direction;
                 break;
-        }
+        };
+        return this;
     }
 })

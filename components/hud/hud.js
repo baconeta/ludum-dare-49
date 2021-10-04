@@ -16,13 +16,13 @@ Crafty.c("HUD", {
         const offsetBottom = (entity, amount) => entity.y = this.y + Crafty.viewport.height - amount;
 
         const sanityBar = Crafty.e("SanityBar");
-        offsetRight(sanityBar, 50);
-        offsetBottom(sanityBar, 600);
+        offsetRight(sanityBar, 100);
+        offsetBottom(sanityBar, 100);
         this.attach(sanityBar);
 
         const itemSlot = Crafty.e("ItemSlot");
-        offsetRight(itemSlot, 50);
-        offsetBottom(itemSlot, 400);
+        offsetRight(itemSlot, GAME_SCREEN_WIDTH - 25);
+        offsetBottom(itemSlot, 75);
         this.attach(itemSlot);
 
         const music = Crafty.e("Music");

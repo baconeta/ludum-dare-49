@@ -11,7 +11,7 @@ Crafty.c("UnstableRaisingGround", {
         this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
         this.attach(this.collisionTop);
-        this.collisionTop.w = 70;
+        this.collisionTop.w = this.w;
 
         function restrictBounds(platform) {
             if (platform.y < platform.originalY - platform.maxDistance) {
@@ -60,7 +60,6 @@ Crafty.c("UnstableRaisingGround", {
         this.x = x;
         this.y = y;
         this.originalY = y;
-
         return this;
     },
 
@@ -96,6 +95,7 @@ Crafty.c("UnstableRaisingGround", {
         this.removeComponent("pf_sad_norm");
         this.removeComponent("pf_angry_normal");
         this.removeComponent("pf_fear_norm");
+        return this;
     },
 
     movementSpeed: function (speed) {
@@ -118,6 +118,7 @@ Crafty.c("UnstableRaisingGround", {
     invertMovementDirection: function () {
         this.direction *= -1;
         this.updateVelocity();
+        return this;
     },
 
     updateSpeedMultiplier: function (sanityState) {
@@ -133,9 +134,11 @@ Crafty.c("UnstableRaisingGround", {
                 break;
         }
         this.updateVelocity();
+        return this;
     },
 
     updateVelocity: function () {
         this.vy = this.speed * this.direction * this.speedMultiplier;
+        return this;
     }
 });

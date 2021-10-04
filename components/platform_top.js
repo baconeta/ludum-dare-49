@@ -13,5 +13,5 @@ Crafty.c("PlatformTop", {
         this.bind('LiftedOffDecayGround', (e) => {
             this._parent.trigger('LiftedOffDecayGround', e)
         });
-    }
+    },
 })
