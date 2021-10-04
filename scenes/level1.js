@@ -162,7 +162,7 @@ Crafty.defineScene("Level1", function () {
     var platform = Crafty.e('Ground')
         .place( 2900, -700)
     var sanityzoneGood = Crafty.e('SanityZone')
-        .place(2900, -800).setMode(MODES.GAIN)
+        .place(2680, -400).setMode(MODES.GAIN)
     //Movement Platform + Consumable
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(2300, -900)
