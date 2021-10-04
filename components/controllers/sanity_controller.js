@@ -15,9 +15,9 @@ const STABILITY = {
     HIGH: 2,
 };
 
-const PASSIVE_RESTORE_RATE = 5; // Per second.
-const PASSIVE_DRAIN_RATE = 5; // Per second.
-const SANITY_TICK_RATE = 8; // Ticks per second.
+const PASSIVE_RESTORE_RATE = 2; // Per second.
+const PASSIVE_DRAIN_RATE = 2; // Per second.
+const SANITY_TICK_RATE = 4; // Ticks per second.
 
 Crafty.c("SanityController", {
     init: function () {
@@ -25,17 +25,19 @@ Crafty.c("SanityController", {
         this.sanity = 50;
         this.state = STABILITY.MEDIUM;
         this.sanityChangeRate = 0;
+        this.totalSecondsSane = 0;
+        this.totalSecondsInsane = 0;
 
         // Repeating function to change sanity over time.
         this.delay(() => {
             // The values are measured in sanity/second, but we change the sanity at a higher rate to make it smoother.
             switch (this.state) {
                 case STABILITY.HIGH:
-                    totalSecondsSane += 1 / SANITY_TICK_RATE;
+                    this.totalSecondsSane += 1 / SANITY_TICK_RATE;
                     this.drainSanity(PASSIVE_DRAIN_RATE/SANITY_TICK_RATE);
                     break;
                 case STABILITY.LOW:
-                    totalSecondsInsane += 1/SANITY_TICK_RATE;
+                    this.totalSecondsInsane += 1 / SANITY_TICK_RATE;
                     this.restoreSanity(PASSIVE_RESTORE_RATE/SANITY_TICK_RATE);
                     break;
             }

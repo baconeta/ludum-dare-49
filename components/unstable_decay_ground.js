@@ -17,6 +17,6 @@ Crafty.c("UnstableDecayGround", {
                 this.destroy();
             });
 
-        })
+        });
     }
 })

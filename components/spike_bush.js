@@ -26,6 +26,7 @@ Crafty.c("SpikeBush", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     makeLethal: function () {
@@ -60,5 +61,6 @@ Crafty.c("SpikeBush", {
                 break;
         }
         if (DEBUG) this.color(this.lethal ? 'red' : 'green');
+        return this;
     },
 });

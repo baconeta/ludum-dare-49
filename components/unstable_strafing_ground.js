@@ -96,13 +96,15 @@ Crafty.c("UnstableStrafingGround", {
                 this.w = 186;
                 this.h = 71;
                 break;
-        }
+        };
+        return this;
     },
 
     resetComponents: function () {
         this.removeComponent("pf_sad_norm");
         this.removeComponent("pf_angry_normal");
         this.removeComponent("pf_fear_norm");
+        return this;
     },
 
     movementSpeed: function (speed) {
@@ -125,6 +127,7 @@ Crafty.c("UnstableStrafingGround", {
     invertMovementDirection: function () {
         this.direction *= -1;
         this.vx *= this.direction;
+        return this;
     },
 
     setVelocityUsingSanityState: function (state) {
@@ -138,6 +141,7 @@ Crafty.c("UnstableStrafingGround", {
             case STABILITY.LOW:
                 this.vx = this.speed * MULTIPLIERS.HIGH * this.direction;
                 break;
-        }
+        };
+        return this;
     }
 })

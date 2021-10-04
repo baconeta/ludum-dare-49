@@ -1,5 +1,6 @@
 Crafty.defineScene("Level1", function () {
     const hud = Crafty.e("HUD");
+    audioController.playTrack('sadness');
 
     Crafty.e("Background").place(-1000, -1600);
 

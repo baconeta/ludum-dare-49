@@ -6,7 +6,7 @@ const SPEEDS = {
 Crafty.c("EnemyWalker", {
     init: function () {
         this.addComponent("2D, DOM, SpriteAnimation, Gravity, Collision, Delay, Enemy, enemy_facing_right");
-        this.attr({x: 0, y: 0, w: 69, h: 106});
+        this.attr({x: 0, y: 0, w: 52, h: 80});
         this.gravity('Solid');
         this.vx = SPEEDS.NORMAL;
         this.lastTurnPoint = 10000;
@@ -54,6 +54,7 @@ Crafty.c("EnemyWalker", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     inverseDirection: function () {
@@ -74,10 +75,12 @@ Crafty.c("EnemyWalker", {
                 this.animate("enemy_facing_right", -1);
             }
         }
+        return this;
     },
 
     setReels: function () {
         this.reel("enemy_facing_left", 1500, 0, 0, 30, 15);
         this.reel("enemy_facing_right", 1500, 0, 0, 30, 15);
+        return this;
     },
 })

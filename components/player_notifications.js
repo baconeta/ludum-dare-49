@@ -25,6 +25,7 @@ Crafty.c("PlayerNotification", {
     decayMessage: function () {
         this.alpha -= 0.1;
         return this;
+        return this;
     },
 
     setMessageEvents: function () {
@@ -43,5 +44,6 @@ Crafty.c("PlayerNotification", {
                 this.trigger("InstructionText", "You feel yourself returning to normal.");
             }
         });
+        return this;
     },
 })

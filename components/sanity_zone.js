@@ -28,6 +28,7 @@ Crafty.c("SanityZone", {
     setMode: function (mode) {
         this.mode = mode;
         this.updateAssets();
+        return this;
     },
 
     updateAssets: function () {
@@ -72,5 +73,6 @@ Crafty.c("SanityZone", {
             }
             console.log(this.has("sanity_down_sad"))
         }
+        return this;
     }
 })
