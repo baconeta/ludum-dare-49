@@ -21,8 +21,7 @@ Crafty.defineScene('Title', function () {
         .bind('Click', function (MouseEvent) {
             Crafty.scene("Loading");
             // User has interact with DOM, so we can now autoplay sound
-            // TODO UNCOMMENT BEFORE WE FINISH - AUDIO IS OFF WHILE THIS IS COMMENTED OUT
-            // audioController.canPlay = true;
+            audioController.canPlay = true;
         });
 });
 
