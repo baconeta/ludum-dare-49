@@ -85,9 +85,9 @@ Crafty.defineScene("Level2", function () {
     var platform = Crafty.e('Ground')
         .place(1050, -1425)
     var platform = Crafty.e('Ground')
-        .place(1350, -1575)
+        .place(1400, -1500)
     var platform4 = Crafty.e('Ground')
-        .place(1400, -1250)
+        .place(1300, -1250)
     var platform = Crafty.e('Ground')
         .place(1650, -1350)
     var platform7 = Crafty.e('Ground')
@@ -111,15 +111,15 @@ Crafty.defineScene("Level2", function () {
 
     //Door Platform with EnemyWalker
     var boundary = Crafty.e('MovementBoundary')
-        .place(2840, -700)
+        .place(2875, -700)
     var platform11 = Crafty.e('GroundLong')
         .place(2850, -675)
     var enemyWalker = Crafty.e('EnemyWalker')
-        .place(2900, -700)
+        .place(3000, -700)
     var boundary = Crafty.e('MovementBoundary')
         .place(3075, -700)
     var door1 = Crafty.e('SanityWall')
-        .place(3100, -950)
+        .place(2850, -950)
 
     //Drop Platform                                                          ***SPLIT A POINT***
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
@@ -127,13 +127,13 @@ Crafty.defineScene("Level2", function () {
 
     //Drop platform gauntlet - Booster Reward                               ***SPLIT A DOWN***
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
-        .place(3550, -675)
+        .place(3550, -630)
     var dropPlatform2 = Crafty.e('UnstableDroppingGround')
         .place(3700, -450)
     var movingPlatform = Crafty.e('UnstableStrafingGround')
-        .place(2975, -250).maxMovementDistance(400)
+        .place(2975, -350).maxMovementDistance(500)
     var sanityBooster = Crafty.e('SanityBooster')
-        .place(3000, -300)
+        .place(3000, -400)
 
 
     //Continue Onwards - Enemy Platform                                                       ***SPLIT A UP***
@@ -162,7 +162,7 @@ Crafty.defineScene("Level2", function () {
     var platform21 = Crafty.e('GroundLong')
         .place(4650, -1400)
     var door2 = Crafty.e('SanityWall')
-        .place(4900, -1675)
+        .place(4900, -1475)
 
     //Sanity Zone (Left of door) to                                             ***Split LEFT***
     var movingPlatform = Crafty.e('UnstableStrafingGround')
@@ -191,7 +191,7 @@ Crafty.defineScene("Level2", function () {
     var platform29 = Crafty.e('Ground')
         .place(4750, -650)
     var sanityZoneBad = Crafty.e('SanityZone')
-        .place(4750, -750)
+        .place(4750, -750).setMode(MODES.LOSS)
 
     //Platform with spikes (Bottom Middle)
     var platform29 = Crafty.e('GroundLong')

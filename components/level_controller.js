@@ -7,7 +7,7 @@ const LEVELS = {
 Crafty.c("LevelController", {
     init: function () {
         this.addComponent("Persist, 2D, DOM");
-        this.level = 0;
+        this.level = 0d;
         this.totalLevels = 5;
         this.nextLevelLoading = false;
 
