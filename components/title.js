@@ -6,11 +6,27 @@ Crafty.c("TitleBG", {
     }
 });
 
+Crafty.c("EndBG", {
+    init: function () {
+        this.addComponent('2D, DOM, Image');
+        this.attr({x: 0, y: 0, w: 1200, h: 800});
+        this.image("assets/images/title/title_screen_fear.png");
+    }
+});
+
 Crafty.c("TitleFG", {
     init: function () {
         this.addComponent('2D, DOM, Image');
         this.attr({x: (1200 - 811) / 2, y: (800 - 484) / 2, w: 811, h: 484});
         this.image("assets/images/title/title_billboard.png");
+    }
+});
+
+Crafty.c("TitleBannerOnly", {
+    init: function () {
+        this.addComponent('2D, DOM, Image');
+        this.attr({x: (1200 - 811) / 2, y: (800 - 484) / 2, w: 811, h: 484});
+        this.image("assets/images/title/end_screen.png");
     }
 });
 
