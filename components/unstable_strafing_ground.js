@@ -8,6 +8,7 @@ Crafty.c("UnstableStrafingGround", {
     init: function () {
         this.addComponent("2D, DOM, Delay, Motion, pf_sad_sideways");
         this.attr({x: 0, y: 0, w: 200, h: 71});
+        this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
         this.attach(this.collisionTop);
 
@@ -68,6 +69,40 @@ Crafty.c("UnstableStrafingGround", {
         this.rightMovementBoundary.x = this.x + this.w - 50;
         this.rightMovementBoundary.y = y - 10;
         return this;
+    },
+
+    setType: function () {
+        const level = Crafty("LevelController").level;
+        this.resetComponents();
+        switch (level) {
+            case LEVELS.SADNESS:
+                this.addComponent("pf_sad_strafing");
+                this.w = 186;
+                this.h = 71;
+                break;
+            case LEVELS.ANGER:
+                this.addComponent("pf_angry_strafing");
+                this.w = 194;
+                this.h = 62;
+                break;
+            case LEVELS.FEAR:
+                this.addComponent("pf_fear_strafing");
+                this.w = 224;
+                this.h = 65;
+                break;
+            default:
+                console.error(`Cannot load platform image for level ${level}`)
+                this.addComponent("pf_sad_strafing");
+                this.w = 186;
+                this.h = 71;
+                break;
+        }
+    },
+
+    resetComponents: function () {
+        this.removeComponent("pf_sad_norm");
+        this.removeComponent("pf_angry_normal");
+        this.removeComponent("pf_fear_norm");
     },
 
     movementSpeed: function (speed) {

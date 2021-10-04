@@ -23,7 +23,7 @@ Crafty.c("Ground", {
         this.resetComponents();
         switch (level) {
             case LEVELS.SADNESS:
-                this.addComponent("pf_sad_norm");
+                this.addComponent("pf_sad_normal");
                 this.w = 199;
                 this.h = 75;
                 break;
@@ -33,13 +33,13 @@ Crafty.c("Ground", {
                 this.h = 117;
                 break;
             case LEVELS.FEAR:
-                this.addComponent("pf_fear_norm");
+                this.addComponent("pf_fear_normal");
                 this.w = 267;
                 this.h = 72;
                 break;
             default:
                 console.error(`Cannot load platform image for level ${level}`)
-                this.addComponent("pf_sad_norm");
+                this.addComponent("pf_sad_normal");
                 this.w = 199;
                 this.h = 75;
                 break;
@@ -66,7 +66,6 @@ Crafty.c("GroundLong", {
     place(x, y) {
         this.x = x;
         this.y = y;
-        this.setType();
 
         this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w;
         this.leftMovementBoundary.y = y - this.h;

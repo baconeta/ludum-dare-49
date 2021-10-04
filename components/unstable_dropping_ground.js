@@ -47,25 +47,25 @@ Crafty.c("UnstableDroppingGround", {
         this.resetComponents();
         switch (level) {
             case LEVELS.SADNESS:
-                this.addComponent("pf_sad_norm");
-                this.w = 199;
-                this.h = 75;
+                this.addComponent("pf_sad_unstable");
+                this.w = 797;
+                this.h = 300;
                 break;
             case LEVELS.ANGER:
-                this.addComponent("pf_angry_normal");
+                this.addComponent("pf_angry_unstable");
                 this.w = 203;
                 this.h = 117;
                 break;
             case LEVELS.FEAR:
-                this.addComponent("pf_fear_norm");
+                this.addComponent("pf_fear_unstable");
                 this.w = 267;
                 this.h = 72;
                 break;
             default:
                 console.error(`Cannot load platform image for level ${level}`)
-                this.addComponent("pf_sad_norm");
-                this.w = 199;
-                this.h = 75;
+                this.addComponent("pf_sad_unstable");
+                this.w = 797;
+                this.h = 300;
                 break;
         }
     },
