@@ -4,9 +4,10 @@ const MODE = {"GAIN": true, "LOSS": false};
 
 Crafty.c("SanityZone", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Delay, sanity_up_sad");
+        this.addComponent("2D, DOM, Collision, Delay");
         this.attr({x:0, y:0})
         this.mode = MODE.GAIN;
+        this.setImage();
 
         if (this.checkHits("PlayerBody")){ // If collide hits with player.
             this.bind("HitOn", function() { // Player enters zone.

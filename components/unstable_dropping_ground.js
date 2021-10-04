@@ -88,7 +88,7 @@ Crafty.c("UnstableDroppingGround", {
     },
 
     shake: function () {
-        Crafty("AudioController").playTrack('grass_step_1', 1);
+        Crafty("AudioController").playTrack('crumble_1', 1);
         this.delay(() => {
                 this.rotation = 3;
             },
@@ -112,7 +112,6 @@ Crafty.c("UnstableDroppingGround", {
         this.delay(() => {
                 this.rotation = 0;
                 Crafty.trigger("RESET_TILT");
-                Crafty("AudioController").playTrack('grass_step_2', 1);
             },
             72, 0);
         this.delay(() => {
@@ -140,6 +139,7 @@ Crafty.c("UnstableDroppingGround", {
             },
             144, 0);
         this.delay(() => {
+                Crafty("AudioController").playTrack('crumble_2', 1);
                 Crafty.trigger("RESET_TILT");
             },
             175, 0);
