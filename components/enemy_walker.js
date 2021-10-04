@@ -6,7 +6,7 @@ const SPEEDS = {
 Crafty.c("EnemyWalker", {
     init: function () {
         this.addComponent("2D, DOM, SpriteAnimation, Gravity, Collision, Delay, Enemy, enemy_facing_right");
-        this.attr({x: 0, y: 0, w: 69, h: 106});
+        this.attr({x: 0, y: 0, w: 52, h: 80});
         this.gravity('Solid');
         this.vx = SPEEDS.NORMAL;
         this.lastTurnPoint = 10000;
