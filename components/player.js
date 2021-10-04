@@ -8,6 +8,8 @@ Crafty.c("Player", {
         this.alpha = DEBUG ? 1.00 : 0.00;
         this.attr({w: 25, h: 15, x: 20, y: 0})
         this.twoway(200)
+        // Set what keys trigger a jump.
+        this.jumper(['UP_ARROW', 'W', 'SPACE']);
         this.gravity('Solid');
 
         this.bind('LandedOnGround', function (entity) {
@@ -130,7 +132,7 @@ Crafty.c("PlayerBody", {
                 this.facing_right = true;
                 this.charImg();
             } else if (event.key === Crafty.keys.UP_ARROW
-                || event.key === Crafty.keys["W"] || Crafty.keys.SPACE) {
+                || event.key === Crafty.keys["W"] || event.key === Crafty.keys.SPACE) {
                 this.charImg(false, true);
             }
         });
