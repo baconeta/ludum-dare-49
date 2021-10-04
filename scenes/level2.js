@@ -169,7 +169,7 @@ Crafty.defineScene("Level2", function () {
     var platform16 = Crafty.e('GroundLong')
         .place(2950, -1390)
     var sanityZoneBad = Crafty.e('SanityZone')
-        .place(2975, -1430).setMode(MODE.LOSS)
+        .place(2975, -1430).setMode(MODES.LOSS)
 
     //Continue Onwards --> Spike platforms                       ***RETURN RIGHT***
     //Platform with spikes (First)

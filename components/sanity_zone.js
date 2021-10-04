@@ -1,12 +1,12 @@
 const GAIN_RATE = 15; // Per second
 const LOSS_RATE = 15; // Per second
-const MODE = {"GAIN": true, "LOSS": false};
+const MODES = {"GAIN": true, "LOSS": false};
 
 Crafty.c("SanityZone", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Delay");
         this.attr({x:0, y:0})
-        this.mode = MODE.GAIN;
+        this.mode = MODES.GAIN;
         this.setImage();
 
         if (this.checkHits("PlayerBody")){ // If collide hits with player.
