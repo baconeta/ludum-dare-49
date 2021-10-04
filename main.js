@@ -32,3 +32,8 @@ audioController.loadTrack('grass_step_2',[`${BASE_SOUND_URL}grass_step_2.ogg`]);
 
 audioController.loadTrack('crumble_1',[`${BASE_SOUND_URL}crumble_1.ogg`]);
 audioController.loadTrack('crumble_2',[`${BASE_SOUND_URL}crumble_2.ogg`]);
+
+audioController.loadTrack('hit_1',[`${BASE_SOUND_URL}hit_1.ogg`]);
+audioController.loadTrack('hit_2',[`${BASE_SOUND_URL}hit_2.ogg`]);
+audioController.loadTrack('hit_3',[`${BASE_SOUND_URL}hit_3.ogg`]);
+audioController.loadTrack('hit_4',[`${BASE_SOUND_URL}hit_4.ogg`]);
