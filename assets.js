@@ -30,7 +30,7 @@ var gameAssets = {
             "tileh": 106,
             "map": {"sanity_up_fear": [0, 0]}
         },
-        "assets/images/item_box.png": {
+        "assets/images/vial_icon_box.png": {
             "tile": 50,
             "tileh": 50,
             "map": {"item_box": [0, 0]}
@@ -274,6 +274,21 @@ var gameAssets = {
             "tile": 1200,
             "tileh": 800,
             "map": {"title_screen_fear": [0, 0]}
+        },
+        "assets/images/bg_sad.png": {
+            "tile": 742,
+            "tileh": 1757,
+            "map": {"bg_sad": [0, 0]}
+        },
+        "assets/images/bg_angry.png": {
+            "tile": 742,
+            "tileh": 1756,
+            "map": {"bg_angry": [0, 0]}
+        },
+        "assets/images/bg_fear.png": {
+            "tile": 742,
+            "tileh": 1756,
+            "map": {"bg_fear": [0, 0]}
         },
     }
 };
