@@ -27,14 +27,6 @@ Crafty.defineScene("Level2", function () {
 
     // Terrain
 
-    //Ground Short
-    //var platformShort = Crafty.e('Ground')
-    //    .place(x, y)
-    //Ground Long
-    // var platformLong = Crafty.e('GroundLong')
-    //     .place(0, -0)
-
-
     //Short
     //var platform = Crafty.e('Ground')
     //    .place(x, y)
@@ -57,7 +49,6 @@ Crafty.defineScene("Level2", function () {
     // Interactables
     //Door
     // var door = Crafty.e('SanityWall')
-
     //     .place(x, y)
     //Sanity Zone Bad
     // var sanityZoneBad = Crafty.e('SanityZone')
@@ -65,14 +56,7 @@ Crafty.defineScene("Level2", function () {
     //Sanity Zone Good
     // var sanityZoneGood = Crafty.e('SanityZone')
     //     .place(x, y)
-    //Portal
-
-    //     .place(x, y)
-    //Sanity Zone
-    // var sanityzone = Crafty.e('SanityZone')
-    //     .place(x, y)
     //Level Portal
-
     // var portal = Crafty.e('LevelPortal')
     //     .place(x, y)
 
@@ -87,10 +71,6 @@ Crafty.defineScene("Level2", function () {
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
     noclip = false
-    //      .place( x, y})
-    //Dropper
-    // var sanityBooster = Crafty.e('SanityDropper')
-    //      .place( x, y})
 
 
     //Map Start

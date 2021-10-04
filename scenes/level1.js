@@ -3,7 +3,7 @@ Crafty.defineScene("Level1", function () {
 
     Crafty.e("Background").place(-1000, -1600);
 
-    // Assets
+// Assets
 
     // Obstacles
     //Raising Platform
@@ -16,27 +16,23 @@ Crafty.defineScene("Level1", function () {
     //Dropping Platform
     // var droppingGround = Crafty.e('UnstableDroppingGround')
     //     .place(x, y)
-    //Moving Platform
 
+    //Moving Platform
     // var movingPlatform = Crafty.e('UnstableStrafingGround')
-
-    //Moving Platform
-    // var movingPlatform = Crafty.e('UnstableMovementGround')
-
-    // var movingPlatform = Crafty.e('UnstableMovementGround')
-
     //     .place(x, y)
     //Spike
     // var spike = Crafty.e('SpikeBush')
     //     .place(x, y)
 
     // Terrain
+
     //Short
     //var platform = Crafty.e('Ground')
     //    .place(x, y)
     //Long
     //var platform = Crafty.e('GroundLong')
     //    .place(x, y)
+
 
     // Enemies
     //Boundary
@@ -51,17 +47,17 @@ Crafty.defineScene("Level1", function () {
 
     // Interactables
     //Door
-    // var portal = Crafty.e('LevelPortal')
+    // var door = Crafty.e('SanityWall')
     //     .place(x, y)
     //Sanity Zone Bad
     // var sanityZoneBad = Crafty.e('SanityZone')
-    //     .place(x, y).setMode("LOSS")
+    //     .place(x, y)
     //Sanity Zone Good
     // var sanityZoneGood = Crafty.e('SanityZone')
-    //     .place(x, y).setMode("GAIN")
-    //Portal
+    //     .place(x, y)
+    //Level Portal
     // var portal = Crafty.e('LevelPortal')
-    //     .place(0, 0)
+    //     .place(x, y)
 
     //Pickups
     //Booster
