@@ -1,21 +1,26 @@
 Crafty.c("SanityBar", {
     init: function () {
-        this.addComponent("2D, DOM, Color, Delay");
-        this.attr({x: 0, y: 0, z: 1500, w: 50, h: 180});
+        this.addComponent("2D, DOM, Delay, stone_yellow");
+        this.attr({x: 0, y: 0, z: 1500, w: 304/4, h: 318/4});
         this.alpha = 0.85;
-        this.color('#bfff00');
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
-            // TODO Change the sanity bar appearance here.
+            this.removeComponent("stone_red, stone_yellow, stone_green");
             switch (newState) {
                 case STABILITY.LOW:
-                    this.color('#c20034');
+                    this.addComponent("stone_red");
+                    this.w = 304/4;
+                    this.h = 318/4;
                     break;
                 case STABILITY.MEDIUM:
-                    this.color('#ffea00');
+                    this.addComponent("stone_yellow");
+                    this.w = 304/4;
+                    this.h = 318/4;
                     break;
                 case STABILITY.HIGH:
-                    this.color('#55ff00');
+                    this.addComponent("stone_green");
+                    this.w = 304/4;
+                    this.h = 318/4;
                     break;
             }
         });

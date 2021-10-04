@@ -235,5 +235,20 @@ var gameAssets = {
             "tileh": 106,
             "map": {"enemy_facing_left": [0, 0]}
         },
+        "assets/images/stone_green.png": {
+            "tile": 304,
+            "tileh": 318,
+            "map": {"stone_green": [0, 0]}
+        },
+        "assets/images/stone_yellow.png": {
+            "tile": 304,
+            "tileh": 318,
+            "map": {"stone_yellow": [0, 0]}
+        },
+        "assets/images/stone_red.png": {
+            "tile": 304,
+            "tileh": 318,
+            "map": {"stone_red": [0, 0]}
+        },
     }
 };
