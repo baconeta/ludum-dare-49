@@ -45,14 +45,14 @@ var gameAssets = {
             "tile": 797,
             "tileh": 300,
             "map": {"pf_sad_dropping": [0, 0]}
-        }, "assets/images/tree_door1.png": {
+        }, "assets/images/tree_alive_sad.png": {
             "tile": 74,
             "tileh": 284,
-            "map": {"tree_door_stable": [0, 0]}
-        }, "assets/images/tree_door2.png": {
+            "map": {"tree_alive_sad": [0, 0]}
+        }, "assets/images/tree_dead_sad.png": {
             "tile": 147,
             "tileh": 160,
-            "map": {"tree_door_dropping": [0, 0]}
+            "map": {"tree_dead_sad": [0, 0]}
         }, "assets/images/music.png": {
             "tile": 268,
             "tileh": 268,
