@@ -139,30 +139,30 @@ Crafty.defineScene("Level1", function () {
         .place( 4815, -660)
     //Spike drop platforms --                                         ***PATH SPLIT POINT***
     //Player is predicted to be in HIGH sanity on entry. LOW sanity on exit
-    var droppingGround = Crafty.e('UnstableDroppingGround')
+    var platform = Crafty.e('Ground')
         .place( 3350, -700)
     var spike = Crafty.e('SpikeBush')
         .place( 3375, -775)
     var spike = Crafty.e('SpikeBush')
         .place( 3450, -775)
-    var droppingGround = Crafty.e('UnstableDroppingGround')
+    var platform = Crafty.e('Ground')
         .place( 3050, -825)
     var spike = Crafty.e('SpikeBush')
         .place( 3075, -895)
     var spike = Crafty.e('SpikeBush')
         .place( 3150, -895)
     //Destabilize Flower Patch
-    var droppingGround = Crafty.e('UnstableDroppingGround')
+    var Ground = Crafty.e('Ground')
         .place( 3300, -1000)
     var platform = Crafty.e('Ground')
         .place( 3050, -1150)
     var sanityzoneBad = Crafty.e('SanityZone')
-        .place(3050, -1240)
+        .place(3050, -1190).setMode(MODES.LOSS)
     //Stabilizing Flower Patch
     var platform = Crafty.e('Ground')
         .place( 2900, -700)
     var sanityzoneGood = Crafty.e('SanityZone')
-        .place(2900, -800)
+        .place(2900, -800).setMode(MODES.GAIN)
     //Movement Platform + Consumable
     var movingPlatform = Crafty.e('UnstableStrafingGround')
         .place(2300, -900)
@@ -198,7 +198,7 @@ Crafty.defineScene("Level1", function () {
     var droppingGround = Crafty.e('UnstableDroppingGround')
         .place(4350, -1400)
     var sanityzoneGood = Crafty.e('SanityZone')
-        .place(4050, -1500)
+        .place(4050, -1500).setMode(MODES.GAIN)
     var platform = Crafty.e('Ground')
         .place(4050, -1400)
     //Spike Platform
@@ -210,14 +210,14 @@ Crafty.defineScene("Level1", function () {
         .place(5450, -1320)
     //Decaying floor gauntlet
     var droppingGround = Crafty.e('UnstableDroppingGround')
-        .place(5800, -1250)
+        .place(5800, -1270)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -1150)
+        .place(6050, -1160)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6350, -1025)
+        .place(6350, -1040)
     var decayGround = Crafty.e('UnstableDroppingGround')
-        .place(6050, -900)
-    var decayGround = Crafty.e('UnstableDroppingGround')
+        .place(6050, -925)
+    var ground = Crafty.e('Ground')
         .place(5700, -900)
     var sanityBooster = Crafty.e('SanityDropper')
         .place(5750, -950)
@@ -244,7 +244,7 @@ Crafty.defineScene("Level1", function () {
     }
 
     makeCameraTrackEntity(player, 0)
-    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 5000}).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 14000, h: 5000}).checkHits('Player');
 })
 
 
