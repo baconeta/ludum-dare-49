@@ -1,7 +1,7 @@
 Crafty.defineScene("Level3", function () {
     const hud = Crafty.e("HUD");
 
-    Crafty.e("Background").place(-1000, -800, 12000, 1757, LEVELS.FEAR);
+    Crafty.e("Background").place(-1000, -800);
 
     // Assets
 
