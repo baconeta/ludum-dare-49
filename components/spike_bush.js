@@ -26,6 +26,7 @@ Crafty.c("SpikeBush", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+        return this;
     },
 
     makeLethal: function () {
