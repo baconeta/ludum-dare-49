@@ -8,8 +8,9 @@ const PLATFORM_REGEN_DELAY_MS = 10000;
 
 Crafty.c("UnstableDroppingGround", {
     init: function () {
-        this.addComponent("2D, DOM, Collision, Gravity, Motion, Delay, pf_sad_unstable");
-        this.attr({x: 0, y: 0, w: 200, h: 75, ay: 0})
+        this.addComponent("2D, DOM, Collision, Gravity, Motion, Delay");
+        this.attr({x: 0, y: 0, w: 200, h: 75, ay: 0});
+        this.setType();
         this.decayDelay = DROP_DELAYS.NORMAL;
         this.collisionTop = Crafty.e("PlatformTop")
         this.attach(this.collisionTop);
@@ -39,6 +40,40 @@ Crafty.c("UnstableDroppingGround", {
     place: function (x, y) {
         this.x = x;
         this.y = y;
+    },
+
+    setType: function () {
+        const level = Crafty("LevelController").level;
+        this.resetComponents();
+        switch (level) {
+            case LEVELS.SADNESS:
+                this.addComponent("pf_sad_dropping");
+                this.w = 797;
+                this.h = 300;
+                break;
+            case LEVELS.ANGER:
+                this.addComponent("pf_angry_dropping");
+                this.w = 203;
+                this.h = 117;
+                break;
+            case LEVELS.FEAR:
+                this.addComponent("pf_fear_dropping");
+                this.w = 267;
+                this.h = 72;
+                break;
+            default:
+                console.error(`Cannot load platform image for level ${level}`)
+                this.addComponent("pf_sad_dropping");
+                this.w = 797;
+                this.h = 300;
+                break;
+        }
+    },
+
+    resetComponents: function () {
+        this.removeComponent("pf_sad_norm");
+        this.removeComponent("pf_angry_normal");
+        this.removeComponent("pf_fear_norm");
     },
 
     drop: function () {

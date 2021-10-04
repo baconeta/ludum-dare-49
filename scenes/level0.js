@@ -46,10 +46,10 @@ Crafty.defineScene('Level0', function () {
 
     // sanity zones
     const sanityBooster = Crafty.e('SanityZone')
-        .attr({x: -50, y: 675})
+        .place(-50, 675)
         .setMode(MODE.GAIN)
     const sanityDropper = Crafty.e('SanityZone')
-        .attr({x: 100, y: 735})
+        .place(40, 900)
         .setMode(MODE.LOSS)
 
     // sanity wall
