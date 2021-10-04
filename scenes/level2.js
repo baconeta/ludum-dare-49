@@ -66,7 +66,7 @@ Crafty.defineScene("Level2", function () {
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
-    noclip = true
+    noclip = false
 
 
     //Map Start
@@ -233,10 +233,10 @@ Crafty.defineScene("Level2", function () {
 // misc
     if (noclip) {
         var player = Crafty.e("NoClip")
-            .attr({x: 4000, y: -0});
+            .attr({x: 0, y: -0});
     } else {
         var player = Crafty.e("Player")
-            .attr({x: 000, y: -100});
+            .attr({x: 100, y: -100});
     }
 
     makeCameraTrackEntity(player, 0)

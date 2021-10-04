@@ -67,7 +67,7 @@ Crafty.defineScene("Level1", function () {
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
-    noclip = true
+    noclip = false
 
 
     //Map Start
@@ -250,7 +250,7 @@ Crafty.defineScene("Level1", function () {
     var spike7 = Crafty.e('SpikeBush')
         .place( 8600, -1350)
 
-    //Consumable Platforms
+    //Consumable Platform (Booster)
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
         .place(8000, -500)
     var dropPlatform3 = Crafty.e('UnstableDroppingGround')
@@ -259,6 +259,16 @@ Crafty.defineScene("Level1", function () {
         .place(8300, -200)
     var sanityBooster = Crafty.e('SanityBooster')
         .place(8400, -250)
+
+    //Consumable Platform (Drainer)
+    var strafePlatform = Crafty.e('UnstableStrafingGround')
+        .place(7250, -1400).maxMovementDistance(300)
+    var dropPlatform3 = Crafty.e('UnstableDroppingGround')
+        .place(6900, -1400)
+    var platform36 = Crafty.e('Ground')
+        .place(6800, -1500)
+    var sanityBooster = Crafty.e('SanityBooster')
+        .place(6810, -1550)
 
     //Drop platform run
     var platform37 = Crafty.e('Ground')
@@ -276,89 +286,21 @@ Crafty.defineScene("Level1", function () {
     var platform39 = Crafty.e('Ground')
         .place( 10500,  -1350)
 
-
-    //spike platform + Gauntlet
-    var platform41 = Crafty.e('Ground')
-        .place({x: 10100, y: -1150})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10150, y: -1170})
-    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .place({x: 10250, y: -1150})
-    var raising6 = Crafty.e('UnstableRaisingGround')
-        .place(10400, -1150)
-    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .place({x: 10475, y: -1150})
-    var raising6 = Crafty.e('UnstableRaisingGround')
-        .place(10625, -1150)
-    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .place({x: 10700, y: -1150})
-    var raising6 = Crafty.e('UnstableRaisingGround')
-        .place(10850, -1150)
-    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .place({x: 10925, y: -1150})
-    var raising6 = Crafty.e('UnstableRaisingGround')
-        .place(11075, -1150)
-    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .place({x: 11150, y: -1150})
-    var raising6 = Crafty.e('UnstableRaisingGround')
-        .place(11300, -1150)
-    var dropPlatform11 = Crafty.e('UnstableDroppingGround')
-        .place({x: 11375, y: -1150})
-    var raising6 = Crafty.e('UnstableRaisingGround')
-        .place(11525, -1150)
-    var sanityzone1 = Crafty.e('SanityZone')
-        .place({x: 10250, y: -1250, w: 1500, h: 100})
-    //roof spikes
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10300, y: -1350})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10400, y: -1350})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10500, y: -1350})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10600, y: -1350})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10700, y: -1350})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10800, y: -1350})
-    var spike8 = Crafty.e('SpikeBush')
-        .place({x: 10900, y: -1350})
-
-    //Walkway above
-    var platform41 = Crafty.e('Ground')
-        .place({x: 10700, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 10850, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11000, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11150, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11300, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11450, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11600, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11750, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11800, y: -1500})
-
-    //walkway below
-    var platform41 = Crafty.e('Ground')
-        .place({x: 11850, y: -1000})
-    var raising = Crafty.e('UnstableRaisingGround')
-        .place(12000, -1000)
+    //Walkway Spikes
+    var platform41 = Crafty.e('GroundLong')
+        .place(10900, -1400)
+    var spike7 = Crafty.e('SpikeBush')
+        .place( 10975, -1470)
+    var spike7 = Crafty.e('SpikeBush')
+        .place( 11100, -1470)
 
     //Goal platform
-    var platform41 = Crafty.e('Ground')
-        .place({x: 12075, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 12225, y: -1500})
-    var platform41 = Crafty.e('Ground')
-        .place({x: 12375, y: -1500})
-    var goal = Crafty.e('Ground')
-        .place({x: 12450, y: -1550, w: 30, h: 30})
+    var platform41 = Crafty.e('GroundLong')
+        .place(11350, -1500)
+    var door = Crafty.e('SanityWall')
+        .place(11360, -1800)
+    var goal = Crafty.e('LevelPortal')
+        .place(11600, -1550)
 
 
     //Map End
@@ -368,7 +310,7 @@ Crafty.defineScene("Level1", function () {
 
     if (noclip) {
         var player = Crafty.e("NoClip")
-            .attr({x: 3880, y: -1340});
+            .attr({x: 11800, y: -1340});
     } else {
         var player = Crafty.e("Player")
             .attr({x: 100, y: -1340});
