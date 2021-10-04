@@ -15,6 +15,11 @@ var gameAssets = {
             "tileh": 253,
             "map": {"vial_green": [0, 0]}
         },
+        "assets/images/next_level_sign_sad.png": {
+            "tile": 474,
+            "tileh": 606,
+            "map": {"next_level_sign_sad": [0, 0]}
+        },
         "assets/images/vial_red.png": {
             "tile": 220,
             "tileh": 259,

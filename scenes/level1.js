@@ -145,7 +145,6 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 4820, y: -1400})
     var portal = Crafty.e('LevelPortal')
         .attr({x: 4900, y: -1500})
-        .color("orange")
 
     //Sanity Zone (Left of door) + Movement platform
     var movingPlatform = Crafty.e('UnstableStrafingGround')
