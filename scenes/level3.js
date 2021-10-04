@@ -69,7 +69,7 @@ Crafty.defineScene("Level3", function () {
 
     //Level Design Tools
     //No Clip (True or False) *** REMEMBER TO COMMENT OUT BEFORE A MERGE TO MASTER ***
-    no_clip = false
+    no_clip = true
 
 
     //Map Start
@@ -255,7 +255,7 @@ Crafty.defineScene("Level3", function () {
 
     if (noclip){
         var player = Crafty.e("NoClip")
-            .attr({x: 6950, y: -1000});
+            .attr({x: 0, y: -1000});
     }
     else{
         var player = Crafty.e("Player")
