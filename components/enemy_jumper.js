@@ -6,7 +6,7 @@ const JUMP_SPEEDS = {
 Crafty.c("EnemyJumper", {
     init: function() {
         this.addComponent("2D, DOM, Color, Gravity, Delay, Jumper, Collision, Enemy");
-        this.attr({x: 0, y: 0, w: 200, h: 20});
+        this.attr({x: 0, y: 0, w: 20, h: 20});
         this.color('#007');
         this.gravity('Ground');
         this.jumpSpeed(JUMP_SPEEDS.NORMAL);
