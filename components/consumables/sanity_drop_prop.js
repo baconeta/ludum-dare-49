@@ -5,5 +5,9 @@ Crafty.c("SanityDropper", {
         this.color('#502f0c')
         // TODO Update with pull request.
         // this.gravity("Ground");
+    },
+    place: function (x, y) {
+        this.x = x;
+        this.y = y;
     }
 })

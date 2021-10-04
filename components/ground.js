@@ -10,7 +10,6 @@ Crafty.c("Ground", {
     place: function(x, y) {
         this.x = x;
         this.y = y;
-        console.log("test")
         this.setType();
 
         this.leftMovementBoundary.x = this.x - this.leftMovementBoundary.w + 20;

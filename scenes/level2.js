@@ -16,7 +16,7 @@ Crafty.defineScene("Level2", function () {
     //     .maxMovementDistance(200)
     //     .movementSpeed(100);
     //Decaying Platform
-    // var decayGround = Crafty.e('UnstableDecayGround')
+    // var decayGround = Crafty.e('UnstableDroppingGround')
     //     .place({, y})
     //Moving Platform
     // var movingPlatform = Crafty.e('UnstableMovementGround')
@@ -179,7 +179,6 @@ Crafty.defineScene("Level2", function () {
         .place(3850, -850)
     var portal = Crafty.e('LevelPortal')
         .place(3950, -950)
-        .color("orange")
     var raisingGround = Crafty.e('UnstableRaisingGround')
         .place(4100, -950)
 //Enemy Platforms
@@ -208,13 +207,13 @@ Crafty.defineScene("Level2", function () {
     var boundary = Crafty.e('MovementBoundary')
         .place(5250, -1350)
 //Consumable platforms + Jumper
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(4650, -1450)
     var sanityzone = Crafty.e('SanityZone')
         .place(4200, -1500)
     var enemyJumper = Crafty.e('EnemyJumper')
         .place(4725, -1500)
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(4300, -1550)
     var sanityBooster = Crafty.e('SanityBooster')
         .place(4375, -1600)
@@ -238,15 +237,15 @@ Crafty.defineScene("Level2", function () {
     var spike = Crafty.e('SpikeBush')
         .place(5660, -1270)
 //Decaying floor gauntlet
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(5800, -1250)
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(6050, -1150)
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(6350, -1025)
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(6050, -900)
-    var decayGround = Crafty.e('UnstableDecayGround')
+    var decayGround = Crafty.e('UnstableDroppingGround')
         .place(5700, -900)
 //Movement Platform to end of level
     var movingPlatform = Crafty.e('UnstableStrafingGround')
@@ -259,10 +258,8 @@ Crafty.defineScene("Level2", function () {
         .place(7100, -1350)
     var portal = Crafty.e('LevelPortal')
         .place(6900, -1450)
-        .color("orange")
     var portal = Crafty.e('LevelPortal')
         .place(7200, -1400)
-        .color("green")
 
 //Map End
 
@@ -272,14 +269,14 @@ Crafty.defineScene("Level2", function () {
 
     if (noclip) {
         var player = Crafty.e("NoClip")
-            .place(2350, -920);
+            .attr({x: 2350, y: -920});
     } else {
         var player = Crafty.e("Player")
-            .place(100, -100);
+            .attr({x: 100, y: -100});
     }
 
     makeCameraTrackEntity(player, 0)
-    Crafty.e('LevelBounds').place(-1000, -180).checkHits('Player');
+    Crafty.e('LevelBounds').attr({x: -1000, y: -1800, w: 12000, h: 5000}).checkHits('Player');
 })
 
 
