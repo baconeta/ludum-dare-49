@@ -25,26 +25,26 @@ var gameAssets = {
             "tileh": 259,
             "map": {"vial_red": [0, 0]}
         },
-        "assets/images/platform1_sad.png": {
+        "assets/images/platforms/platform_normal_sad.png": {
             "tile": 199,
             "tileh": 75,
-            "map": {"pf_sad_norm": [0, 0]}
-        }, "assets/images/platform2_sad.png": {
+            "map": {"pf_sad_normal": [0, 0]}
+        }, "assets/images/platforms/platform_strafing_sad.png": {
             "tile": 186,
             "tileh": 71,
-            "map": {"pf_sad_sideways": [0, 0]}
-        }, "assets/images/platform3_sad.png": {
+            "map": {"pf_sad_strafing": [0, 0]}
+        }, "assets/images/platforms/platform_raising_sad.png": {
             "tile": 101,
             "tileh": 160,
-            "map": {"pf_sad_up": [0, 0]}
-        }, "assets/images/platform4_sad.png": {
+            "map": {"pf_sad_raising": [0, 0]}
+        }, "assets/images/platforms/platform_long_sad.png": {
             "tile": 349,
             "tileh": 87,
             "map": {"pf_sad_long": [0, 0]}
-        }, "assets/images/platform5_sad.png": {
+        }, "assets/images/platforms/platform_breaking_sad.png": {
             "tile": 797,
             "tileh": 300,
-            "map": {"pf_sad_unstable": [0, 0]}
+            "map": {"pf_sad_dropping": [0, 0]}
         }, "assets/images/tree_door1.png": {
             "tile": 74,
             "tileh": 284,
@@ -52,15 +52,11 @@ var gameAssets = {
         }, "assets/images/tree_door2.png": {
             "tile": 147,
             "tileh": 160,
-            "map": {"tree_door_unstable": [0, 0]}
+            "map": {"tree_door_dropping": [0, 0]}
         }, "assets/images/music.png": {
             "tile": 268,
             "tileh": 268,
             "map": {"music": [0, 0]}
-        }, "assets/images/bush.png": {
-            "tile": 86,
-            "tileh": 66,
-            "map": {"bush_berries": [0, 0]}
         },"assets/images/bush_sad.png": {
             "tile": 86,
             "tileh": 66,
@@ -113,46 +109,46 @@ var gameAssets = {
             "tile": 135,
             "tileh": 186,
             "map": {"sprite_jump_right": [0, 0]}
-        }, "assets/images/platform_normal_angry.png": {
+        }, "assets/images/platforms/platform_normal_angry.png": {
             "tile": 203,
             "tileh": 117,
             "map": {"pf_angry_normal": [0, 0]}
-        }, "assets/images/platform_long_angry.png": {
+        }, "assets/images/platforms/platform_long_angry.png": {
             "tile": 334,
             "tileh": 68,
             "map": {"pf_angry_long": [0, 0]}
-        }, "assets/images/platform_moving_angry.png": {
+        }, "assets/images/platforms/platform_strafing_angry.png": {
             "tile": 194,
             "tileh": 62,
-            "map": {"pf_angry_moving": [0, 0]}
-        }, "assets/images/platform_updown_angry.png": {
+            "map": {"pf_angry_strafing": [0, 0]}
+        }, "assets/images/platforms/platform_raising_angry.png": {
             "tile": 93,
             "tileh": 165,
-            "map": {"pf_angry_updown": [0, 0]}
-        }, "assets/images/platform_breaking_angry.png": {
+            "map": {"pf_angry_raising": [0, 0]}
+        }, "assets/images/platforms/platform_breaking_angry.png": {
             "tile": 203,
             "tileh": 117,
-            "map": {"pf_angry_unstable": [0, 0]}
-        }, "assets/images/platform_normal_fear.png": {
+            "map": {"pf_angry_dropping": [0, 0]}
+        }, "assets/images/platforms/platform_normal_fear.png": {
             "tile": 267,
             "tileh": 72,
             "map": {"pf_fear_normal": [0, 0]}
-        }, "assets/images/platform_long_fear.png": {
+        }, "assets/images/platforms/platform_long_fear.png": {
             "tile": 351,
             "tileh": 86,
             "map": {"pf_fear_long": [0, 0]}
-        }, "assets/images/platform_moving_fear.png": {
+        }, "assets/images/platforms/platform_strafing_fear.png": {
             "tile": 224,
             "tileh": 65,
-            "map": {"pf_fear_moving": [0, 0]}
-        }, "assets/images/platform_updown_fear.png": {
+            "map": {"pf_fear_strafing": [0, 0]}
+        }, "assets/images/platforms/platform_raising_fear.png": {
             "tile": 110,
             "tileh": 183,
-            "map": {"pf_fear_updown": [0, 0]}
-        }, "assets/images/platform_broken_fear.png": {
+            "map": {"pf_fear_raising": [0, 0]}
+        }, "assets/images/platforms/platform_breaking_fear.png": {
             "tile": 267,
             "tileh": 72,
-            "map": {"pf_fear_unstable": [0, 0]}
+            "map": {"pf_fear_dropping": [0, 0]}
         }, "assets/images/enemy_facing_right.png": {
             "tile": 69,
             "tileh": 106,
