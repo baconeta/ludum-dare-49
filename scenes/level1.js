@@ -75,7 +75,7 @@ Crafty.defineScene("Level1", function () {
 
     //First climb
     var platform1 = Crafty.e('Ground')
-        .attr({x: 500, y: -150})
+        .attr({x: 300, y: 0})
     var platform2 = Crafty.e('Ground')
         .attr({x: 700, y: -300})
     var platform3 = Crafty.e('Ground')
@@ -384,7 +384,7 @@ Crafty.defineScene("Level1", function () {
         .attr({x: 500, y: 0});
 
     var sanityDropper = Crafty.e('SanityDropper')
-        .attr({x: 560, y: 0});
+        .attr({x: 360, y: -200});
 
     var sanityzone1 = Crafty.e('SanityZone')
         .attr({x: 300, y: -100});
