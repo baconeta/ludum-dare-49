@@ -74,11 +74,33 @@ var gameAssets = {
             "tile": 74,
             "tileh": 284,
             "map": {"tree_alive_sad": [0, 0]}
-        }, "assets/images/tree_dead_sad.png": {
+        },
+        "assets/images/tree_alive_angry.png": {
+            "tile": 74,
+            "tileh": 284,
+            "map": {"tree_alive_angry": [0, 0]}
+        },
+        "assets/images/tree_alive_fear.png": {
+            "tile": 74,
+            "tileh": 284,
+            "map": {"tree_alive_fear": [0, 0]}
+        },
+        "assets/images/tree_dead_sad.png": {
             "tile": 147,
             "tileh": 160,
             "map": {"tree_dead_sad": [0, 0]}
-        }, "assets/images/music.png": {
+        },
+        "assets/images/tree_dead_angry.png": {
+            "tile": 147,
+            "tileh": 160,
+            "map": {"tree_dead_angry": [0, 0]}
+        },
+        "assets/images/tree_dead_fear.png": {
+            "tile": 147,
+            "tileh": 160,
+            "map": {"tree_dead_fear": [0, 0]}
+        },
+        "assets/images/music.png": {
             "tile": 268,
             "tileh": 268,
             "map": {"music": [0, 0]}
