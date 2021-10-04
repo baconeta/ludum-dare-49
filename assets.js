@@ -1,14 +1,34 @@
 var gameAssets = {
     "sprites": {
-        "assets/images/lower_sanity_zone.png": {
-            "tile": 899,
-            "tileh": 172,
-            "map": {"loss_sanity_zone": [0, 0]}
+        "assets/images/sanity_down_sad.png": {
+            "tile": 225,
+            "tileh": 43,
+            "map": {"sanity_down_sad": [0, 0]}
         },
-        "assets/images/increase_sanity_zone.png": {
-            "tile": 737,
-            "tileh": 426,
-            "map": {"gain_sanity_zone": [0, 0]}
+        "assets/images/sanity_up_sad.png": {
+            "tile": 184,
+            "tileh": 106,
+            "map": {"sanity_up_sad": [0, 0]}
+        },
+        "assets/images/sanity_down_angry.png": {
+            "tile": 225,
+            "tileh": 43,
+            "map": {"sanity_down_angry": [0, 0]}
+        },
+        "assets/images/sanity_up_angry.png": {
+            "tile": 184,
+            "tileh": 106,
+            "map": {"sanity_up_angry": [0, 0]}
+        },
+        "assets/images/sanity_down_fear.png": {
+            "tile": 225,
+            "tileh": 43,
+            "map": {"sanity_down_fear": [0, 0]}
+        },
+        "assets/images/sanity_up_fear.png": {
+            "tile": 184,
+            "tileh": 106,
+            "map": {"sanity_up_fear": [0, 0]}
         },
         "assets/images/vial_green.png": {
             "tile": 168,
