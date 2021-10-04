@@ -10,7 +10,8 @@ Crafty.c("EnemyWalker", {
             this.inverseDirection();
         });
         this.setReels();
-        this.animate("enemy_facing_left", -1)
+        this.animate("enemy_facing_left", -1);
+        audioController.playTrack("enemy-walk", -1, 0.2);
     },
 
     place: function (x, y) {
