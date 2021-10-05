@@ -70,6 +70,7 @@ Crafty.c("PlayerBody", {
 
         this.onHit("SanityBooster", (hitData) => {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
+                gtag('event', 'picked_up_sane_potion', {'picked_up_sane_potion': 1});
                 Crafty("ItemSlot").holding = ITEM.SANITY_BOOSTER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 audioController.playTrack("bottle-pickup", 1, 0.5);
@@ -79,6 +80,7 @@ Crafty.c("PlayerBody", {
 
         this.onHit("SanityDropper", (hitData) => {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
+                gtag('event', 'picked_up_insane_potion', {'picked_up_insane_potion': 1});
                 Crafty("ItemSlot").holding = ITEM.SANITY_DROPPER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
                 audioController.playTrack("bottle-pickup", 1, 0.5);
