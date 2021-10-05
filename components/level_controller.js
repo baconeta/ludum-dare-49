@@ -8,7 +8,7 @@ Crafty.c("LevelController", {
     init: function () {
         this.addComponent("Persist, 2D, DOM");
         this.level = 0;
-        this.totalLevels = 5;
+        this.totalLevels = 3;
         this.nextLevelLoading = false;
 
         this.bind("SetLevel", (level) => {
@@ -21,6 +21,8 @@ Crafty.c("LevelController", {
             if (this.canChangeLevel()) {
                 this.startLoading();
                 setTimeout(this.loadNextLevel, 500);
+            } else if (this.level >= this.totalLevels) { // no more levels so go to end screen
+                Crafty.enterScene("EndScreen", Crafty.enterScene("EndScreen")) // there was a bug... this was my fix :)
             }
         });
 
@@ -32,7 +34,7 @@ Crafty.c("LevelController", {
         });
 
         this.canChangeLevel = () => {
-            return !this.nextLevelLoading && this.level <= this.totalLevels;
+            return !this.nextLevelLoading && this.level < this.totalLevels;
         };
 
         this.loadNextLevel = () => {
@@ -45,6 +47,7 @@ Crafty.c("LevelController", {
         this.resetLevel = () => {
             Crafty.scene(`Level${this.level}`);
             this.finishLoading();
+            Crafty.trigger("FALL_OFF_LEVEL");
         };
 
         this.startLoading = () => {

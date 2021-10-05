@@ -9,7 +9,7 @@ var totalSecondsInsane = 0.0;
 const audioController = Crafty.e("AudioController");
 Crafty.init(GAME_SCREEN_WIDTH, GAME_SCREEN_HEIGHT, document.getElementById('game'));
 
-Crafty.scene("Title");
+Crafty.scene("Loading");
 // Controllers.
 const levelController = Crafty.e("LevelController");
 const sanityController = Crafty.e("SanityController");

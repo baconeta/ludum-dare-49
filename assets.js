@@ -30,10 +30,20 @@ var gameAssets = {
             "tileh": 106,
             "map": {"sanity_up_fear": [0, 0]}
         },
-        "assets/images/vial_green.png": {
-            "tile": 168,
-            "tileh": 253,
+        "assets/images/vial_icon_box.png": {
+            "tile": 50,
+            "tileh": 50,
+            "map": {"item_box": [0, 0]}
+        },
+        "assets/images/vial_icon_green.png": {
+            "tile": 50,
+            "tileh": 50,
             "map": {"vial_green": [0, 0]}
+        },
+        "assets/images/vial_icon_red.png": {
+            "tile": 50,
+            "tileh": 50,
+            "map": {"vial_red": [0, 0]}
         },
         "assets/images/next_level_sign_sad.png": {
             "tile": 474,
@@ -49,11 +59,6 @@ var gameAssets = {
             "tile": 474,
             "tileh": 606,
             "map": {"next_level_sign_fear": [0, 0]}
-        },
-        "assets/images/vial_red.png": {
-            "tile": 220,
-            "tileh": 259,
-            "map": {"vial_red": [0, 0]}
         },
         "assets/images/platforms/platform_normal_sad.png": {
             "tile": 199,
@@ -110,9 +115,9 @@ var gameAssets = {
             "tileh": 160,
             "map": {"tree_dead_fear": [0, 0]}
         },
-        "assets/images/music.png": {
-            "tile": 268,
-            "tileh": 268,
+        "assets/images/buttons/music_playing.png": {
+            "tile": 50,
+            "tileh": 50,
             "map": {"music": [0, 0]}
         },
         "assets/images/bush_sad.png": {
@@ -269,6 +274,21 @@ var gameAssets = {
             "tile": 1200,
             "tileh": 800,
             "map": {"title_screen_fear": [0, 0]}
+        },
+        "assets/images/bg_sad.png": {
+            "tile": 742,
+            "tileh": 1757,
+            "map": {"bg_sad": [0, 0]}
+        },
+        "assets/images/bg_angry.png": {
+            "tile": 742,
+            "tileh": 1756,
+            "map": {"bg_angry": [0, 0]}
+        },
+        "assets/images/bg_fear.png": {
+            "tile": 742,
+            "tileh": 1756,
+            "map": {"bg_fear": [0, 0]}
         },
     }
 };

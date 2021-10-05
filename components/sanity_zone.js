@@ -52,7 +52,6 @@ Crafty.c("SanityZone", {
                     this.addComponent("sanity_up_sad");
                     break;
             }
-            console.log(this.has("sanity_up_sad"))
         } else {
             this.w = 225;
             this.h = 43;
@@ -71,7 +70,6 @@ Crafty.c("SanityZone", {
                     this.addComponent("sanity_down_sad");
                     break;
             }
-            console.log(this.has("sanity_down_sad"))
         }
         return this;
     }

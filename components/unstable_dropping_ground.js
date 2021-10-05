@@ -13,6 +13,7 @@ Crafty.c("UnstableDroppingGround", {
         this.setType();
         this.decayDelay = DROP_DELAYS.NORMAL;
         this.collisionTop = Crafty.e("PlatformTop")
+        this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
         // Set the rotation point to be the center of the sprite.
         this.origin(this.w / 2, this.h / 2);

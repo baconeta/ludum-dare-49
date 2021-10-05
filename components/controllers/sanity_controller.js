@@ -16,8 +16,8 @@ const STABILITY = {
     HIGH: 2,
 };
 
-const PASSIVE_RESTORE_RATE = 2; // Per second.
-const PASSIVE_DRAIN_RATE = 2; // Per second.
+const PASSIVE_RESTORE_RATE = 1; // Per second.
+const PASSIVE_DRAIN_RATE = 1; // Per second.
 const SANITY_TICK_RATE = 4; // Ticks per second.
 
 Crafty.c("SanityController", {

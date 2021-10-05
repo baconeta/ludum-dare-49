@@ -22,33 +22,17 @@ Crafty.c("Player", {
             entity.trigger('LiftedOffDecayGround', entity);
         });
 
-        this.checkHits("tree");
-        this.bind("HitOn", function (event) {
-            const kickDirection = (this.x - event[0].obj.x) > 0;
-            Crafty.trigger("WalkIntoTree");
-            if (kickDirection) {
-                this.x += 10;
-            } else {
-                this.x -= 10;
-            }
-        });
-
-        if (this.checkHits("Enemy")) {
-            this.bind("HitOn", function (hitData) {
-                const kickDirection = (this.x - hitData[0].obj.x) > 0;
-                this.delay(function () {
-                    if (kickDirection) {
-                        this.x += 15;
-                    } else {
-                        this.x -= 15;
-                    }
-                }, 15, 1);
-            });
+        if (this.checkHits("tree")) {
+            this.bind("HitOn", function (event) {
+                const kickDirection = (this.x - event[0].obj.x) > 0;
+                Crafty.trigger("WalkIntoTree");
+                if (kickDirection) {
+                    this.x += 10;
+                } else {
+                    this.x -= 10;
+                }
+            })
         }
-
-        this.bind("KickBackEnemy", function (hitData) {
-
-        })
 
         this.bind("RESET_TILT", function (event) {
             this.rotation = 0;
@@ -58,6 +42,11 @@ Crafty.c("Player", {
         this.playerBody.y = -209 + this.h;
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
+
+        // this.checkHits("StoryTrigger");
+        // this.bind("HitOn", function (event) {
+        //     console.log(event);
+        // });
     },
 
     place: function (x, y) {
@@ -83,7 +72,6 @@ Crafty.c("PlayerBody", {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
                 Crafty("ItemSlot").holding = ITEM.SANITY_BOOSTER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
-                // TODO Change the sprite when picking up the item instead of changing the colour.
                 audioController.playTrack("bottle-pickup", 1, 0.5);
                 hitData[0].obj.destroy();
             }
@@ -93,7 +81,6 @@ Crafty.c("PlayerBody", {
             if (Crafty("ItemSlot").holding === ITEM.NOTHING) {
                 Crafty("ItemSlot").holding = ITEM.SANITY_DROPPER;
                 Crafty.trigger("ITEM_PICKUP", Crafty("ItemSlot").holding);
-                // TODO Change the sprite when picking up the item instead of changing the colour.
                 audioController.playTrack("bottle-pickup", 1, 0.5);
                 hitData[0].obj.destroy();
             }
@@ -101,16 +88,15 @@ Crafty.c("PlayerBody", {
 
         //if Collides with enemy
         if (this.checkHits("Enemy")) {
-            //onHit
             this.bind("HitOn", function (hitData) {
-                console.log(Crafty("SanityController").sanity)
-                Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
-                console.log(Crafty("SanityController").sanity)
-                Crafty.trigger("KickBackEnemy", hitData);
-            });
-            //offHit
-            this.bind("HitOff", function (comp) {
-                // do thing
+                if (!this.hitRecently) {
+                    Crafty.trigger("HitMonster");
+                    Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
+                    this.hitRecently = true;
+                    this.delay(() => {
+                        this.hitRecently = false;
+                    }, 2000, 0)
+                }
             });
         }
     },
