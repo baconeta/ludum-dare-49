@@ -22,6 +22,7 @@ Crafty.c("LevelController", {
                 this.startLoading();
                 setTimeout(this.loadNextLevel, 500);
             } else if (this.level >= this.totalLevels) { // no more levels so go to end screen
+                gtag('event', 'finished_game', {'finished_game': 1});
                 Crafty.enterScene("EndScreen", Crafty.enterScene("EndScreen")) // there was a bug... this was my fix :)
             }
         });

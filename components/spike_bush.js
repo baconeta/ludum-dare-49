@@ -4,6 +4,7 @@ Crafty.c("SpikeBush", {
         this.attr({w: 86, h: 66});
         this.lethal = true;
         this.updateAssets();
+        this.hitRecently = false;
 
         Crafty.bind("NEW_SANITY_STATE", (newState) => {
             if (newState === STABILITY.MEDIUM || newState === STABILITY.LOW) {
@@ -15,7 +16,13 @@ Crafty.c("SpikeBush", {
 
         this.onHit("Player", function () {
             if (this.lethal === true) {
-                console.log('You fell on a spiky berry bush and died');
+                if (!this.hitRecently) {
+                    gtag('event', 'death_by_bush', {'death_by_bush': 1});
+                    this.hitRecently = true;
+                    this.delay(() => {
+                        this.hitRecently = false;
+                    }, 2000, 0)
+                }
                 Crafty.trigger("ResetLevel");
             } else {
                 console.info(`You fell on a berry bush without spikes!`);

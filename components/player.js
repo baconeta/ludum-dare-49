@@ -91,6 +91,7 @@ Crafty.c("PlayerBody", {
             this.bind("HitOn", function (hitData) {
                 if (!this.hitRecently) {
                     Crafty.trigger("HitMonster");
+                    gtag('event', 'walk_into_creature', {'walk_into_creature': 1});
                     Crafty("SanityController").drainSanity(ENEMY_SANITY_DRAIN);
                     this.hitRecently = true;
                     this.delay(() => {
