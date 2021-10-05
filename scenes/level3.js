@@ -1,5 +1,6 @@
 Crafty.defineScene("Level3", function () {
     const hud = Crafty.e("HUD");
+    audioController.playTrack('fear');
 
     Crafty.e("Background").place(-1000, -1757);
 
