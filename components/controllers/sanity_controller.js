@@ -29,6 +29,8 @@ Crafty.c("SanityController", {
         this.sanity = SANITY.DEFAULT;
         this.state = STABILITY.MEDIUM;
         this.sanityChangeRate = 0;
+        this.maxRecently = false;
+        this.minRecently = false;
 
         // Repeating function to change sanity over time.
         this.delay(() => {
@@ -81,10 +83,22 @@ Crafty.c("SanityController", {
 
         // Make sure that the new value is valid
         if (value < SANITY.MIN) {
-            gtag('event', 'full_insanity', {'full_insanity': 1});
+            if (!this.minRecently) {
+                gtag('event', 'full_insanity', {'full_insanity': 1});
+                this.minRecently = true;
+                this.delay(() => {
+                    this.minRecently = false;
+                }, 5000, 0)
+            }
             value = SANITY.MIN;
         } else if (value > SANITY.MAX) {
-            gtag('event', 'full_sanity', {'full_sanity': 1});
+            if (!this.maxRecently) {
+                gtag('event', 'full_sanity', {'full_sanity': 1});
+                this.maxRecently = true;
+                this.delay(() => {
+                    this.maxRecently = false;
+                }, 5000, 0)
+            }
             value = SANITY.MAX;
         }
         this.sanity = value;
