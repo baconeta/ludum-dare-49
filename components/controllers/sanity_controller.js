@@ -16,6 +16,9 @@ const STABILITY = {
     HIGH: 2,
 };
 
+var totalSecondsSane = 0;
+var totalSecondsInsane = 0;
+
 const PASSIVE_RESTORE_RATE = 1; // Per second.
 const PASSIVE_DRAIN_RATE = 1; // Per second.
 const SANITY_TICK_RATE = 4; // Ticks per second.
@@ -26,8 +29,6 @@ Crafty.c("SanityController", {
         this.sanity = SANITY.DEFAULT;
         this.state = STABILITY.MEDIUM;
         this.sanityChangeRate = 0;
-        this.totalSecondsSane = 0;
-        this.totalSecondsInsane = 0;
 
         // Repeating function to change sanity over time.
         this.delay(() => {
@@ -80,8 +81,10 @@ Crafty.c("SanityController", {
 
         // Make sure that the new value is valid
         if (value < SANITY.MIN) {
+            gtag('event', 'full_insanity', {'full_insanity': 1});
             value = SANITY.MIN;
         } else if (value > SANITY.MAX) {
+            gtag('event', 'full_sanity', {'full_sanity': 1});
             value = SANITY.MAX;
         }
         this.sanity = value;
@@ -89,11 +92,13 @@ Crafty.c("SanityController", {
         // Check if the change in sanity will cause the sanity state to change.
         if (this.sanity < SANITY.LOW && this.state !== STABILITY.LOW) {
             this.state = STABILITY.LOW;
+            gtag('event', 'low_sanity_mode', {'low_sanity_mode': 1});
             Crafty.trigger("NEW_SANITY_STATE", this.state);
             return this;
         }
         if (this.sanity > SANITY.HIGH && this.state !== STABILITY.HIGH) {
             this.state = STABILITY.HIGH;
+            gtag('event', 'high_sanity_mode', {'high_sanity_mode': 1});
             Crafty.trigger("NEW_SANITY_STATE", this.state);
             return this;
         }
