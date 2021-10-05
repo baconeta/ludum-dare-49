@@ -11,10 +11,10 @@ Crafty.c("SanityZone", {
 
         if (this.checkHits("PlayerBody")){ // If collide hits with player.
             this.bind("HitOn", function() { // Player enters zone.
-                Crafty.trigger("ALTER_SANITY_RATE", this.mode ? GAIN_RATE : -LOSS_RATE);
+                Crafty.trigger("SET_SANITY_RATE", this.mode ? GAIN_RATE : -LOSS_RATE);
             });
             this.bind("HitOff", function() { // Player leaves zone.
-                Crafty.trigger("ALTER_SANITY_RATE", this.mode ? -GAIN_RATE : LOSS_RATE);
+                Crafty.trigger("SET_SANITY_RATE", 0);
             });
         }
     },

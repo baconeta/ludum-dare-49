@@ -2,6 +2,7 @@
 const SANITY = {
     MIN: 0,
     LOW: 30,
+    DEFAULT: 50,
     HIGH: 70,
     MAX: 100,
 };
@@ -22,7 +23,7 @@ const SANITY_TICK_RATE = 4; // Ticks per second.
 Crafty.c("SanityController", {
     init: function () {
         this.addComponent("Delay");
-        this.sanity = 50;
+        this.sanity = SANITY.DEFAULT;
         this.state = STABILITY.MEDIUM;
         this.sanityChangeRate = 0;
         this.totalSecondsSane = 0;
@@ -45,9 +46,9 @@ Crafty.c("SanityController", {
             this.restoreSanity(this.sanityChangeRate/SANITY_TICK_RATE);
         }, 1000/SANITY_TICK_RATE, -1);
 
-        this.bind("ALTER_SANITY_RATE", function (modification) {
-            this.sanityChangeRate += modification;
-        })
+        this.bind("SET_SANITY_RATE", function (rate) {
+            this.sanityChangeRate = rate;
+        });
 
         this.bind("NEW_SANITY_STATE", function (state) {
             if(state === STABILITY.LOW) { // going insane
@@ -56,6 +57,10 @@ Crafty.c("SanityController", {
             if(state === STABILITY.HIGH) { // going sane
                 audioController.playTrack("insane-sane", 1, 0.5);
             }
+        });
+
+        this.bind("ResetLevel", function () {
+            this.setSanity(SANITY.DEFAULT);
         })
     },
 
