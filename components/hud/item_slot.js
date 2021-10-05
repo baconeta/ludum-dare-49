@@ -43,10 +43,12 @@ Crafty.c("ItemSlot", {
                 break;
             case ITEM.SANITY_BOOSTER:
                 Crafty("SanityController").restoreSanity(sanityBoosterValue);
+                gtag('event', 'use_sane_potion', {'use_sane_potion': 1});
                 // TODO Play a sound based on the item used?
                 break;
             case ITEM.SANITY_DROPPER:
                 Crafty("SanityController").drainSanity(sanityDropperValue);
+                gtag('event', 'use_insane_potion', {'use_insane_potion': 1});
                 // TODO Play a sound based on the item used?
                 break;
             default:

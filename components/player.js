@@ -138,6 +138,7 @@ Crafty.c("PlayerBody", {
                 this.charImg();
             } else if (event.key === Crafty.keys.UP_ARROW
                 || event.key === Crafty.keys["W"] || event.key === Crafty.keys.SPACE) {
+                gtag('event', 'jumps', {'jumps': 1});
                 this.charImg(false, true);
             }
         });
