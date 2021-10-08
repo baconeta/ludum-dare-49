@@ -5,7 +5,7 @@ const MODES = {"GAIN": true, "LOSS": false};
 Crafty.c("SanityZone", {
     init: function () {
         this.addComponent("2D, DOM, Collision, Delay");
-        this.attr({x:0, y:0, z:1000})
+        this.attr({x:0, y:0})
         this.mode = MODES.GAIN;
         this.updateAssets();
 
