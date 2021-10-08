@@ -1,6 +1,6 @@
 Crafty.c("SpikeBush", {
     init: function () {
-        this.addComponent("2D, DOM, Delay, Collision, Image");
+        this.addComponent("2D, Color, DOM, Delay, Collision, Image");
         this.attr({w: 86, h: 66});
         this.lethal = true;
         this.updateAssets();
