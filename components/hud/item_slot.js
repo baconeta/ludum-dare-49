@@ -1,6 +1,6 @@
 const ITEM = {NOTHING: 0, SANITY_BOOSTER: 1, SANITY_DROPPER: 2};
-const sanityBoosterValue = 40;
-const sanityDropperValue = 40;
+const sanityBoosterValue = 75;
+const sanityDropperValue = 75;
 
 const useItemKey = Crafty.keys.SHIFT;
 

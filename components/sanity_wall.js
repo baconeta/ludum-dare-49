@@ -1,6 +1,6 @@
 Crafty.c("SanityWall", {
     init: function () {
-        this.addComponent("2D, DOM, Image, tree");
+        this.addComponent("2D, Color, DOM, Image, tree");
         this.attr({w: 74, h: 284});
         // This will get changed to true on the next line.
         this.alive = false;
