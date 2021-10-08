@@ -1,10 +1,10 @@
 Crafty.c("Ground", {
     init: function () {
         this.addComponent("2D, DOM");
-        this.setType();
         this.collisionTop = Crafty.e("PlatformTop")
         this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
+        this.setType();
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
     },
@@ -37,6 +37,7 @@ Crafty.c("Ground", {
                 this.addComponent("pf_fear_normal");
                 this.w = 267;
                 this.h = 72;
+                this.collisionTop.y = 12;
                 break;
             default:
                 console.error(`Cannot load platform image for level ${level}`)
@@ -59,9 +60,9 @@ Crafty.c("GroundLong", {
     init: function () {
         this.addComponent("2D, DOM");
         this.collisionTop = Crafty.e("PlatformTop")
-        this.setType();
         this.collisionTop.w = this.w;
         this.attach(this.collisionTop);
+        this.setType();
         this.leftMovementBoundary = Crafty.e("MovementBoundary");
         this.rightMovementBoundary = Crafty.e("MovementBoundary");
     },
@@ -96,6 +97,7 @@ Crafty.c("GroundLong", {
                 this.addComponent("pf_fear_long");
                 this.w = 351;
                 this.h = 86;
+                this.collisionTop.y = 12;
                 break;
             default:
                 console.error(`Cannot load platform image for level ${level}`)

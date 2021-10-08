@@ -11,16 +11,7 @@ Crafty.c("Player", {
         // Set what keys trigger a jump.
         this.jumper(['UP_ARROW', 'W', 'SPACE']);
         this.gravity('Solid');
-
-        this.bind('LandedOnGround', function (entity) {
-            Crafty.trigger("PlayerLanded");
-            entity.trigger('LandedOnDecayGround', entity);
-            Crafty("AudioController").playTrack('grass_step_2', 0.70);
-        });
-
-        this.bind('LiftedOffGround', function (entity) {
-            entity.trigger('LiftedOffDecayGround', entity);
-        });
+        this.jumping = false;
 
         if (this.checkHits("tree")) {
             this.bind("HitOn", function (event) {
@@ -42,6 +33,17 @@ Crafty.c("Player", {
         this.playerBody.y = -209 + this.h;
         this.playerBody.x = -33 + this.w;
         this.attach(this.playerBody);
+
+        this.bind('LandedOnGround', function (entity) {
+            Crafty.trigger("PlayerLanded");
+            entity.trigger('LandedOnDecayGround', entity);
+            Crafty("AudioController").playTrack('grass_step_2', 0.70);
+        });
+
+        this.bind('LiftedOffGround', function (entity) {
+            entity.trigger('LiftedOffDecayGround', entity);
+            this.playerBody.jumping = true;
+        });
 
         // this.checkHits("StoryTrigger");
         // this.bind("HitOn", function (event) {
@@ -104,21 +106,21 @@ Crafty.c("PlayerBody", {
         }
     },
 
-    charImg: function (idle = false, jump = false) {
+    charImg: function (idle = false) {
         //code controlling the char Sprite state
-        if (idle) {
+        if (idle && !this.jumping) {
             if (this.facing_right) {
                 this.startAnimation("sprite_idle_right");
             } else {
                 this.startAnimation("sprite_idle_left");
             }
-        } else if (jump) {
+        } else if (this.jumping) {
             if (this.facing_right) {
                 this.startAnimation("sprite_jump_right");
             } else {
                 this.startAnimation("sprite_jump_left");
             }
-        } else if (this.facing_right) {
+        } else if (this.facing_right && !this.jumping) {
             this.startAnimation("sprite_walking_right");
         } else {
             this.startAnimation("sprite_walking_left");
@@ -139,7 +141,8 @@ Crafty.c("PlayerBody", {
             } else if (event.key === Crafty.keys.UP_ARROW
                 || event.key === Crafty.keys["W"] || event.key === Crafty.keys.SPACE) {
                 gtag('event', 'jumps', {'jumps': 1});
-                this.charImg(false, true);
+                this.jumping = true;
+                this.charImg(false);
             }
         });
 
@@ -156,10 +159,19 @@ Crafty.c("PlayerBody", {
         });
 
         this.bind("PlayerLanded", function () {
-            if (this.facing_right) {
-                this.startAnimation("sprite_idle_right");
+            this.jumping = false;
+            if (Crafty.s('Keyboard').isKeyDown('LEFT_ARROW') || Crafty.s('Keyboard').isKeyDown('RIGHT_ARROW')) {
+                if (this.facing_right) {
+                    this.startAnimation("sprite_walking_right");
+                } else {
+                    this.startAnimation("sprite_walking_left");
+                }
             } else {
-                this.startAnimation("sprite_idle_left");
+                if (this.facing_right) {
+                    this.startAnimation("sprite_idle_right");
+                } else {
+                    this.startAnimation("sprite_idle_left");
+                }
             }
         });
         return this;

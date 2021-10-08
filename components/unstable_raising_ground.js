@@ -8,10 +8,10 @@ Crafty.c("UnstableRaisingGround", {
     init: function () {
         this.addComponent("2D, DOM, Delay, Motion");
         this.attr({x: 0, y: 0, w: 101, h: 160});
-        this.setType();
         this.collisionTop = Crafty.e("PlatformTop");
         this.attach(this.collisionTop);
         this.collisionTop.w = this.w;
+        this.setType();
 
         function restrictBounds(platform) {
             if (platform.y < platform.originalY - platform.maxDistance) {
@@ -81,6 +81,7 @@ Crafty.c("UnstableRaisingGround", {
                 this.addComponent("pf_fear_raising");
                 this.w = 110;
                 this.h = 183;
+                this.collisionTop.y = 12;
                 break;
             default:
                 console.error(`Cannot load platform image for level ${level}`)

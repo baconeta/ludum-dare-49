@@ -9,7 +9,7 @@ Crafty.c("SanityZone", {
         this.mode = MODES.GAIN;
         this.updateAssets();
 
-        if (this.checkHits("PlayerBody")){ // If collide hits with player.
+        if (this.checkHits("Player")){ // If collide hits with player.
             this.bind("HitOn", function() { // Player enters zone.
                 Crafty.trigger("SET_SANITY_RATE", this.mode ? GAIN_RATE : -LOSS_RATE);
             });
@@ -36,7 +36,7 @@ Crafty.c("SanityZone", {
         this.removeComponent("sanity_up_sad");
         if (this.mode) { //on gain
             this.w = 184;
-            this.h = 43;
+            this.h = 106;
             switch (level) {
                 case LEVELS.SADNESS:
                     this.addComponent("sanity_up_sad");
