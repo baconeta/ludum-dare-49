@@ -1,84 +1,119 @@
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPN7EXGYVT"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-BPN7EXGYVT');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-BPN7EXGYVT',
+            {
+                'custom_map': {
+                    'full_insanity': 'full_insanity',
+                    'full_sanity': 'full_sanity',
+                    'start_lvl_1': 'start_lvl_1',
+                    'start_lvl_2': 'start_lvl_2',
+                    'start_lvl_3': 'start_lvl_3',
+                    'use_sane_potion': 'use_sane_potion',
+                    'use_insane_potion': 'use_insane_potion',
+                    'finished_game': 'finished_game',
+                    'jumps': 'jumps',
+                    'picked_up_sane_potion': 'picked_up_sane_potion',
+                    'picked_up_insane_potion': 'picked_up_insane_potion',
+                    'walk_into_creature': 'walk_into_creature',
+                    'death_by_falling': 'death_by_falling',
+                    'death_by_bush': 'death_by_bush',
+                }
+            });
     </script>
-  </head>
-  <body>
-    <h2> Ludum Dare #49 - Unstable </h2>
-    <div id="game"></div>
-	   <style>
-      h2 {
+</head>
+<body>
+<h3 align="center"> Ludum Dare #49 - Ebb and Feel </h3>
+<div id="game"></div>
+<div id="instructions">
+    <i> Ebb and Feel is a game of balance and stability. Find your inner peace or let the insanity consume you.</i>
+
+    <p>Arrow keys to move (or WASD). Shift key to use items you’ve picked up.</p>
+
+    <p>Hint: take a careful note of the stone of stability in the bottom right corner of your screen. Watch the world
+        around you as it changes…
+
+        Good luck.</p>
+</div>
+<style>
+    h2 {
         text-align: center;
         margin: 20px;
-      }
-	    body {
-	        background-color: #EEE;
-	        width: 1200px; margin: 0px auto;
-	    }
-	    #game {
-	        box-shadow: 0px 0px 100px 100px rgba(0, 0, 0, .15);
-	    }
-    </style>
+    }
 
-    <!-- Remember to use two-space indentation. -->
-    <script type="text/javascript" src="util.js"></script>
-    <script type="text/javascript" src="constants.js"></script>
-    <script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
-    <script type="text/javascript" src="assets.js"></script>
+    body {
+        background-color: #EEE;
+        width: 1200px;
+        margin: 0px auto;
+    }
 
-    <script type="text/javascript" src="components/consumables/sanity_boost_prop.js"></script>
-    <script type="text/javascript" src="components/consumables/sanity_drop_prop.js"></script>
+    #game {
+        box-shadow: 0px 0px 100px 100px rgba(0, 0, 0, .15);
+    }
+</style>
 
-    <script type="text/javascript" src="components/controllers/audio_controller.js"></script>
-    <script type="text/javascript" src="components/controllers/sanity_controller.js"></script>
+<!-- Remember to use two-space indentation. -->
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="constants.js"></script>
+<script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+<script type="text/javascript" src="assets.js"></script>
 
-    <script type="text/javascript" src="components/hud/hud.js"></script>
-    <script type="text/javascript" src="components/hud/item_slot.js"></script>
-    <script type="text/javascript" src="components/hud/sanity_bar.js"></script>
-    <script type="text/javascript" src="components/hud/sound_toggle.js"></script>
+<script type="text/javascript" src="components/consumables/sanity_boost_prop.js"></script>
+<script type="text/javascript" src="components/consumables/sanity_drop_prop.js"></script>
 
-    <script type="text/javascript" src="components/background.js"></script>
-    <script type="text/javascript" src="components/camera_track.js"></script>
-    <script type="text/javascript" src="components/enemy_jumper.js"></script>
-    <script type="text/javascript" src="components/enemy_walker.js"></script>
-    <script type="text/javascript" src="components/ground.js"></script>
-    <script type="text/javascript" src="components/level_bounds.js"></script>
-    <script type="text/javascript" src="components/level_controller.js"></script>
-    <script type="text/javascript" src="components/movement_boundary.js"></script>
-    <script type="text/javascript" src="components/no_clip.js"></script>
-    <script type="text/javascript" src="components/platform_top.js"></script>
-    <script type="text/javascript" src="components/player.js"></script>
-    <script type="text/javascript" src="components/level_portal.js"></script>
-    <script type="text/javascript" src="components/sanity_wall.js"></script>
-    <script type="text/javascript" src="components/sanity_zone.js"></script>
-    <script type="text/javascript" src="components/spike_bush.js"></script>
-    <script type="text/javascript" src="components/story_trigger.js"></script>
-    <script type="text/javascript" src="components/title.js"></script>
-    <script type="text/javascript" src="components/player_notifications.js"></script>
+<script type="text/javascript" src="components/controllers/audio_controller.js"></script>
+<script type="text/javascript" src="components/controllers/sanity_controller.js"></script>
 
-    <script type="text/javascript" src="components/unstable_balloon_ground.js"></script>
-    <script type="text/javascript" src="components/unstable_decay_ground.js"></script>
-    <script type="text/javascript" src="components/unstable_dropping_ground.js"></script>
-    <script type="text/javascript" src="components/unstable_raising_ground.js"></script>
-    <script type="text/javascript" src="components/unstable_rotating_ground.js"></script>
-    <script type="text/javascript" src="components/unstable_strafing_ground.js"></script>
+<script type="text/javascript" src="components/hud/hud.js"></script>
+<script type="text/javascript" src="components/hud/item_slot.js"></script>
+<script type="text/javascript" src="components/hud/sanity_bar.js"></script>
+<script type="text/javascript" src="components/hud/sound_toggle.js"></script>
 
-    <script type="text/javascript" src="scenes/endscreen.js"></script>
-    <script type="text/javascript" src="scenes/loading.js"></script>
-    <script type="text/javascript" src="scenes/title_screen.js"></script>
-    <script type="text/javascript" src="scenes/level0.js"></script>
-    <script type="text/javascript" src="scenes/level2.js"></script>
-    <script type="text/javascript" src="scenes/level1.js"></script>
-    <script type="text/javascript" src="scenes/level3.js"></script>
-    <script type="text/javascript" src="scenes/level4.js"></script>
+<script type="text/javascript" src="components/background.js"></script>
+<script type="text/javascript" src="components/camera_track.js"></script>
+<script type="text/javascript" src="components/enemy_jumper.js"></script>
+<script type="text/javascript" src="components/enemy_walker.js"></script>
+<script type="text/javascript" src="components/ground.js"></script>
+<script type="text/javascript" src="components/level_bounds.js"></script>
+<script type="text/javascript" src="components/level_controller.js"></script>
+<script type="text/javascript" src="components/movement_boundary.js"></script>
+<script type="text/javascript" src="components/no_clip.js"></script>
+<script type="text/javascript" src="components/platform_top.js"></script>
+<script type="text/javascript" src="components/player.js"></script>
+<script type="text/javascript" src="components/level_portal.js"></script>
+<script type="text/javascript" src="components/sanity_wall.js"></script>
+<script type="text/javascript" src="components/sanity_zone.js"></script>
+<script type="text/javascript" src="components/spike_bush.js"></script>
+<script type="text/javascript" src="components/story_trigger.js"></script>
+<script type="text/javascript" src="components/title.js"></script>
+<script type="text/javascript" src="components/player_notifications.js"></script>
 
-    <script type="text/javascript" src="main.js"></script>
-  </body>
+<script type="text/javascript" src="components/unstable_balloon_ground.js"></script>
+<script type="text/javascript" src="components/unstable_decay_ground.js"></script>
+<script type="text/javascript" src="components/unstable_dropping_ground.js"></script>
+<script type="text/javascript" src="components/unstable_raising_ground.js"></script>
+<script type="text/javascript" src="components/unstable_rotating_ground.js"></script>
+<script type="text/javascript" src="components/unstable_strafing_ground.js"></script>
+
+<script type="text/javascript" src="scenes/endscreen.js"></script>
+<script type="text/javascript" src="scenes/loading.js"></script>
+<script type="text/javascript" src="scenes/title_screen.js"></script>
+<script type="text/javascript" src="scenes/level0.js"></script>
+<script type="text/javascript" src="scenes/level2.js"></script>
+<script type="text/javascript" src="scenes/level1.js"></script>
+<script type="text/javascript" src="scenes/level3.js"></script>
+<script type="text/javascript" src="scenes/level4.js"></script>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
