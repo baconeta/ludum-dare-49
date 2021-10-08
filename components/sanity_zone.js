@@ -36,7 +36,7 @@ Crafty.c("SanityZone", {
         this.removeComponent("sanity_up_sad");
         if (this.mode) { //on gain
             this.w = 184;
-            this.h = 43;
+            this.h = 106;
             switch (level) {
                 case LEVELS.SADNESS:
                     this.addComponent("sanity_up_sad");
